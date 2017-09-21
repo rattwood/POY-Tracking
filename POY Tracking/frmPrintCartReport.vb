@@ -82,8 +82,8 @@ Public Class frmPrintCartReport
 
         If abortprint Then
             frmJobEntry.Show()
-            frmJobEntry.txtLotNumber.Visible = True
-            frmJobEntry.txtLotNumber.Focus()
+            frmJobEntry.txtPalletNum.Visible = True
+            frmJobEntry.txtPalletNum.Focus()
             frmJobEntry.cartReport = 0
             frmJobEntry.txtBoxCartReport.Text = ""
             frmJobEntry.Show()
@@ -424,8 +424,8 @@ Public Class frmPrintCartReport
 
         MsgBox("Job Report " & savename & " Created")
 
-        frmJobEntry.txtLotNumber.Visible = True
-        frmJobEntry.txtLotNumber.Focus()
+        frmJobEntry.txtPalletNum.Visible = True
+        frmJobEntry.txtPalletNum.Focus()
         frmJobEntry.cartReport = 0
         frmJobEntry.txtBoxCartReport.Text = ""
 

@@ -225,8 +225,8 @@ Public Class frmExChangeCone
 
         Me.Close()
         frmJobEntry.Show()
-        frmJobEntry.txtLotNumber.Clear()
-        frmJobEntry.txtLotNumber.Focus()
+        frmJobEntry.txtPalletNum.Clear()
+        frmJobEntry.txtPalletNum.Focus()
 
 
 
@@ -368,8 +368,8 @@ Public Class frmExChangeCone
         shortCone = 0
         Me.Close()
         frmJobEntry.Show()
-        frmJobEntry.txtLotNumber.Clear()
-        frmJobEntry.txtLotNumber.Focus()
+        frmJobEntry.txtPalletNum.Clear()
+        frmJobEntry.txtPalletNum.Focus()
     End Sub
 
 

@@ -379,8 +379,8 @@
         Else 'we have come from job entry screen
             Me.Close()
             frmJobEntry.Show()
-            frmJobEntry.txtLotNumber.Clear()
-            frmJobEntry.txtLotNumber.Focus()
+            frmJobEntry.txtPalletNum.Clear()
+            frmJobEntry.txtPalletNum.Focus()
         End If
 
 

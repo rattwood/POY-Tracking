@@ -26,7 +26,7 @@ Partial Class frmJobEntry
         Me.txtOperator = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.txtLotNumber = New System.Windows.Forms.TextBox()
+        Me.txtPalletNum = New System.Windows.Forms.TextBox()
         Me.btnJobReport = New System.Windows.Forms.Button()
         Me.btnSettings = New System.Windows.Forms.Button()
         Me.btnExChangeCone = New System.Windows.Forms.Button()
@@ -68,13 +68,13 @@ Partial Class frmJobEntry
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Scan Pallet Bar Code"
         '
-        'txtLotNumber
+        'txtPalletNum
         '
-        Me.txtLotNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.txtLotNumber.Location = New System.Drawing.Point(327, 140)
-        Me.txtLotNumber.Name = "txtLotNumber"
-        Me.txtLotNumber.Size = New System.Drawing.Size(471, 44)
-        Me.txtLotNumber.TabIndex = 4
+        Me.txtPalletNum.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.txtPalletNum.Location = New System.Drawing.Point(327, 140)
+        Me.txtPalletNum.Name = "txtPalletNum"
+        Me.txtPalletNum.Size = New System.Drawing.Size(471, 44)
+        Me.txtPalletNum.TabIndex = 4
         '
         'btnJobReport
         '
@@ -167,7 +167,7 @@ Partial Class frmJobEntry
         Me.Controls.Add(Me.btnExChangeCone)
         Me.Controls.Add(Me.btnSettings)
         Me.Controls.Add(Me.btnJobReport)
-        Me.Controls.Add(Me.txtLotNumber)
+        Me.Controls.Add(Me.txtPalletNum)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtOperator)
@@ -185,7 +185,7 @@ Partial Class frmJobEntry
     Friend WithEvents txtOperator As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents txtLotNumber As TextBox
+    Friend WithEvents txtPalletNum As TextBox
     Friend WithEvents ToraydbBindingSource As BindingSource
     Friend WithEvents Toraydb As Toraydb
     Friend WithEvents btnJobReport As Button

@@ -74,7 +74,7 @@ Public Class frmJobEntry
 
 
 
-        Me.txtLotNumber.Visible = False
+        Me.txtPalletNum.Visible = False
 
 
         If My.Settings.chkUsePack Then btnExChangeCone.Visible = True Else btnExChangeCone.Visible = False
@@ -83,15 +83,15 @@ Public Class frmJobEntry
 
         If My.Settings.chkUsePack = False Then
             MsgBox("Please edit SETTINGS for type of User")
-            Me.txtLotNumber.Clear()
-            Me.txtLotNumber.Focus()
+            Me.txtPalletNum.Clear()
+            Me.txtPalletNum.Focus()
         End If
 
         Me.KeyPreview = True  'Allows us to look for advace character from barcode
 
         'Set Form Header text
 
-        If My.Settings.chkUsePack Then Me.Text = "Job Entry Packing"
+        If My.Settings.chkUsePack Then Me.Text = "POY Packing"
 
 
         Me.btnCancelReport.Visible = False
@@ -101,7 +101,7 @@ Public Class frmJobEntry
 
     Public Sub txtOperator_TextChanged(sender As Object, e As EventArgs) Handles txtOperator.TextChanged
 
-        txtLotNumber.Visible = True
+        txtPalletNum.Visible = True
 
         If My.Settings.chkUsePack Then
             PackOp = txtOperator.Text
@@ -120,13 +120,13 @@ Public Class frmJobEntry
         'Routine to check Barcode is TRUE
         Try
 
-            chkBCode = txtLotNumber.Text.Substring(12, 1)
+            chkBCode = txtPalletNum.Text.Substring(12, 1)
 
             If chkBCode = "B" Then
-                If txtLotNumber.TextLength > 14 Then  ' For carts B10,11 & 12
-                    cartNum = txtLotNumber.Text.Substring(12, 3)
+                If txtPalletNum.TextLength > 14 Then  ' For carts B10,11 & 12
+                    cartNum = txtPalletNum.Text.Substring(12, 3)
                 Else
-                    cartNum = txtLotNumber.Text.Substring(12, 2)
+                    cartNum = txtPalletNum.Text.Substring(12, 2)
                 End If
 
 
@@ -134,18 +134,18 @@ Public Class frmJobEntry
 
             Else
                 MsgBox("This is not a CART Barcode Please RE Scan")
-                Me.txtLotNumber.Clear()
+                Me.txtPalletNum.Clear()
 
-                Me.txtLotNumber.Focus()
-                Me.txtLotNumber.Refresh()
+                Me.txtPalletNum.Focus()
+                Me.txtPalletNum.Refresh()
                 Exit Sub
             End If
 
         Catch ex As Exception
             MsgBox("BarCcode Is Not Valid")
-            Me.txtLotNumber.Clear()
-            Me.txtLotNumber.Focus()
-            Me.txtLotNumber.Refresh()
+            Me.txtPalletNum.Clear()
+            Me.txtPalletNum.Focus()
+            Me.txtPalletNum.Refresh()
             Exit Sub
         End Try
 
@@ -155,26 +155,26 @@ Public Class frmJobEntry
 
     Private Sub CreateJob()
 
-        If txtLotNumber.TextLength > 14 Then  ' For carts B10,11 & 12
+        If txtPalletNum.TextLength > 14 Then  ' For carts B10,11 & 12
             machineName = ""
-            machineCode = txtLotNumber.Text.Substring(0, 2)
-            productCode = txtLotNumber.Text.Substring(2, 3)
-            year = txtLotNumber.Text.Substring(5, 2)
-            month = txtLotNumber.Text.Substring(7, 2)
-            doffingNum = txtLotNumber.Text.Substring(9, 3)
-            cartNum = txtLotNumber.Text.Substring(12, 3)
+            machineCode = txtPalletNum.Text.Substring(0, 2)
+            productCode = txtPalletNum.Text.Substring(2, 3)
+            year = txtPalletNum.Text.Substring(5, 2)
+            month = txtPalletNum.Text.Substring(7, 2)
+            doffingNum = txtPalletNum.Text.Substring(9, 3)
+            cartNum = txtPalletNum.Text.Substring(12, 3)
         Else
             machineName = ""                                    ' For carts B1 - 9
-            machineCode = txtLotNumber.Text.Substring(0, 2)
-            productCode = txtLotNumber.Text.Substring(2, 3)
-            year = txtLotNumber.Text.Substring(5, 2)
-            month = txtLotNumber.Text.Substring(7, 2)
-            doffingNum = txtLotNumber.Text.Substring(9, 3)
-            cartNum = txtLotNumber.Text.Substring(12, 2)
+            machineCode = txtPalletNum.Text.Substring(0, 2)
+            productCode = txtPalletNum.Text.Substring(2, 3)
+            year = txtPalletNum.Text.Substring(5, 2)
+            month = txtPalletNum.Text.Substring(7, 2)
+            doffingNum = txtPalletNum.Text.Substring(9, 3)
+            cartNum = txtPalletNum.Text.Substring(12, 2)
 
         End If
 
-        varCartBCode = txtLotNumber.Text
+        varCartBCode = txtPalletNum.Text
 
         If machineCode = 21 Then
             machineName = "11D1"        'Left Side
@@ -281,7 +281,7 @@ Public Class frmJobEntry
 
         'Routine to change the scanned BARCODE to be the First CART not the secone cart and this is what will be stored in the DATABASE
 
-        dbBarcode = txtLotNumber.Text.Replace(varCartNum, varCartNameA)
+        dbBarcode = txtPalletNum.Text.Replace(varCartNum, varCartNameA)
 
 
 
@@ -332,7 +332,7 @@ Public Class frmJobEntry
 
     Public Sub CheckJob()
 
-        LExecQuery("SELECT * FROM jobs WHERE bcodecart = '" & dbBarcode & "'")
+        LExecQuery("SELECT * FROM POYPack WHERE POYPALNUM = '" & dbBarcode & "'")
 
         If LRecordCount > 0 Then
 
@@ -361,15 +361,15 @@ Public Class frmJobEntry
             End If
 
             If result = DialogResult.No Then
-                Me.txtLotNumber.Clear()
-                Me.txtLotNumber.Focus()
+                Me.txtPalletNum.Clear()
+                Me.txtPalletNum.Focus()
 
             End If
         Else
             If My.Settings.chkUseColour Or My.Settings.chkUsePack Then
                 MsgBox("Job does not Exist, you must creat new Job from Sort Computer")
-                txtLotNumber.Clear()
-                txtLotNumber.Focus()
+                txtPalletNum.Clear()
+                txtPalletNum.Focus()
                 Exit Sub
             End If
 
@@ -377,8 +377,8 @@ Public Class frmJobEntry
 
             If quit Then
                 quit = 0
-                txtLotNumber.Clear()
-                txtLotNumber.Focus()
+                txtPalletNum.Clear()
+                txtPalletNum.Focus()
                 Exit Sub
             End If
             Dim LCB As SqlCommandBuilder = New SqlCommandBuilder(LDA)
@@ -459,7 +459,7 @@ Public Class frmJobEntry
         Dim x = 1
         Dim fmt As String = "000"    'FORMAT STRING FOR NUMBER
         Dim modConeNum As String
-        Dim modLotStr = txtLotNumber.Text.Substring(0, 12)
+        Dim modLotStr = txtPalletNum.Text.Substring(0, 12)
         Dim coneBarcode As String
         Dim cartName As String
         Dim today As String = DateAndTime.Today
@@ -604,8 +604,8 @@ Public Class frmJobEntry
             End If
 
 
-                Me.txtLotNumber.Clear()
-            Me.txtLotNumber.Focus()
+            Me.txtPalletNum.Clear()
+            Me.txtPalletNum.Focus()
 
         End If
 
@@ -644,9 +644,9 @@ Public Class frmJobEntry
 
         Me.btnCancelReport.Visible = False
         Me.btnJobReport.Visible = True
-        Me.txtLotNumber.Visible = True
-        Me.txtLotNumber.Clear()
-        Me.txtLotNumber.Focus()
+        Me.txtPalletNum.Visible = True
+        Me.txtPalletNum.Clear()
+        Me.txtPalletNum.Focus()
 
 
 
