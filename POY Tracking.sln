@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "POY Tracking", "POY Tracking\POY Tracking.vbproj", "{102027F1-456E-4388-A759-7C6009A35AF9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{102027F1-456E-4388-A759-7C6009A35AF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{102027F1-456E-4388-A759-7C6009A35AF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{102027F1-456E-4388-A759-7C6009A35AF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{102027F1-456E-4388-A759-7C6009A35AF9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4121D632-400D-4191-9067-6786C026E2BC}
+	EndGlobalSection
+EndGlobal

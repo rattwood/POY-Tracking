@@ -1,0 +1,515 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{102027F1-456E-4388-A759-7C6009A35AF9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>POY_Tracking.My.MyApplication</StartupObject>
+    <RootNamespace>POY_Tracking</RootNamespace>
+    <AssemblyName>POY Tracking</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>POY Tracking.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>POY Tracking.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\ts_final_logo_yk_FSc_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>FB772D04DDB2531241218F4B5C26F0341383A15C</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.SqlServer.ManagedConnections, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="DGVDefReport.designer.vb">
+      <DependentUpon>DGVDefReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DGVDefReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmActivate.designer.vb">
+      <DependentUpon>frmActivate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmActivate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCart1.designer.vb">
+      <DependentUpon>frmCart1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCart1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDelay.designer.vb">
+      <DependentUpon>frmDelay.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDelay.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDGVJobReport.designer.vb">
+      <DependentUpon>frmDGVJobReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDGVJobReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrintCartReport.designer.vb">
+      <DependentUpon>frmPrintCartReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrintCartReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmdbString.designer.vb">
+      <DependentUpon>frmdbString.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmdbString.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmProductMod.designer.vb">
+      <DependentUpon>frmProductMod.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmProductMod.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmSettings.designer.vb">
+      <DependentUpon>frmSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmSettingSelect.designer.vb">
+      <DependentUpon>frmSettingSelect.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmSettingSelect.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Start\frmChangePassword.designer.vb">
+      <DependentUpon>frmChangePassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Start\frmChangePassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Start\frmConeSearch.designer.vb">
+      <DependentUpon>frmConeSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Start\frmConeSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Start\frmDGV.designer.vb">
+      <DependentUpon>frmDGV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Start\frmDGV.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Start\frmJobEntry.designer.vb">
+      <DependentUpon>frmJobEntry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Start\frmJobEntry.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Start\frmPassword.designer.vb">
+      <DependentUpon>frmPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Start\frmPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Reports\Auto Excel Pack Sheet\frmPackCreateNew.designer.vb">
+      <DependentUpon>frmPackCreateNew.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Reports\Auto Excel Pack Sheet\frmPackCreateNew.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Reports\Auto Excel Pack Sheet\frmPackPrvGet.designer.vb">
+      <DependentUpon>frmPackPrvGet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Reports\Auto Excel Pack Sheet\frmPackPrvGet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Reports\Auto Excel Pack Sheet\frmPackRepMain.designer.vb">
+      <DependentUpon>frmPackRepMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Reports\Auto Excel Pack Sheet\frmPackRepMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Reports\Auto Excel Pack Sheet\frmPackReport.designer.vb">
+      <DependentUpon>frmPackReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Reports\Auto Excel Pack Sheet\frmPackReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Reports\Auto Excel Pack Sheet\frmPackTodayUpdate.designer.vb">
+      <DependentUpon>frmPackTodayUpdate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Reports\Auto Excel Pack Sheet\frmPackTodayUpdate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Reports\frmDailyPackProduction.designer.vb">
+      <DependentUpon>frmDailyPackProduction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Reports\frmDailyPackProduction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Reports\frmEODReport.designer.vb">
+      <DependentUpon>frmEODReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Reports\frmEODReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Reports\frmProdStockWork.designer.vb">
+      <DependentUpon>frmProdStockWork.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Reports\frmProdStockWork.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Packing\frmExChangeCone.designer.vb">
+      <DependentUpon>frmExChangeCone.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Packing\frmExChangeCone.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Packing\frmPacking.designer.vb">
+      <DependentUpon>frmPacking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Packing\frmPacking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Packing\frmPackingFault.designer.vb">
+      <DependentUpon>frmPackingFault.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Packing\frmPackingFault.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Packing\frmPackReports.designer.vb">
+      <DependentUpon>frmPackReports.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Packing\frmPackReports.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Packing\frmPackSort.designer.vb">
+      <DependentUpon>frmPackSort.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Packing\frmPackSort.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Packing\frmRemoveCone.designer.vb">
+      <DependentUpon>frmRemoveCone.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Packing\frmRemoveCone.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="POY Start\SplashScreen1.designer.vb">
+      <DependentUpon>SplashScreen1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Start\SplashScreen1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SQLConn.vb" />
+    <Compile Include="TorayDataSet11.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TorayDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TorayDataSet2.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TorayDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Toraydb.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Toraydb.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DGVDefReport.resx">
+      <DependentUpon>DGVDefReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmActivate.resx">
+      <DependentUpon>frmActivate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCart1.resx">
+      <DependentUpon>frmCart1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDelay.resx">
+      <DependentUpon>frmDelay.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDGVJobReport.resx">
+      <DependentUpon>frmDGVJobReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrintCartReport.resx">
+      <DependentUpon>frmPrintCartReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmdbString.resx">
+      <DependentUpon>frmdbString.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmProductMod.resx">
+      <DependentUpon>frmProductMod.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmSettings.resx">
+      <DependentUpon>frmSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmSettingSelect.resx">
+      <DependentUpon>frmSettingSelect.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Start\frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Start\frmConeSearch.resx">
+      <DependentUpon>frmConeSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Start\frmDGV.resx">
+      <DependentUpon>frmDGV.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Start\frmJobEntry.resx">
+      <DependentUpon>frmJobEntry.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Start\frmPassword.resx">
+      <DependentUpon>frmPassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Reports\Auto Excel Pack Sheet\frmPackCreateNew.resx">
+      <DependentUpon>frmPackCreateNew.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Reports\Auto Excel Pack Sheet\frmPackRepMain.resx">
+      <DependentUpon>frmPackRepMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Reports\Auto Excel Pack Sheet\frmPackReport.resx">
+      <DependentUpon>frmPackReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Reports\Auto Excel Pack Sheet\frmPackTodayUpdate.resx">
+      <DependentUpon>frmPackTodayUpdate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Reports\frmDailyPackProduction.resx">
+      <DependentUpon>frmDailyPackProduction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Reports\frmEODReport.resx">
+      <DependentUpon>frmEODReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Reports\frmProdStockWork.resx">
+      <DependentUpon>frmProdStockWork.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Packing\frmPackingFault.resx">
+      <DependentUpon>frmPackingFault.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Packing\frmPackReports.resx">
+      <DependentUpon>frmPackReports.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Packing\frmPackSort.resx">
+      <DependentUpon>frmPackSort.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Packing\frmRemoveCone.resx">
+      <DependentUpon>frmRemoveCone.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Start\SplashScreen1.resx">
+      <DependentUpon>SplashScreen1.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="TorayDataSet.xsc">
+      <DependentUpon>TorayDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TorayDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TorayDataSet2.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TorayDataSet.xss">
+      <DependentUpon>TorayDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TorayDataSet1.xsc">
+      <DependentUpon>TorayDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="TorayDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TorayDataSet11.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TorayDataSet1.xss">
+      <DependentUpon>TorayDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Toraydb.xsc">
+      <DependentUpon>Toraydb.xsd</DependentUpon>
+    </None>
+    <None Include="Toraydb.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Toraydb.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Toraydb.xss">
+      <DependentUpon>Toraydb.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TS logo SWDK5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ts_final_logo_yk_FSc_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="InteropExtensionLib">
+      <Guid>{C3D19104-7A67-4EB0-B459-D5B2E734D430}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BARRE.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\-10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\-30.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\-50.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\+10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\+30.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\+50.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zero.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>
