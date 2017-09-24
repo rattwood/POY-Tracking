@@ -40,6 +40,8 @@ Public Class frmPacking
     Dim coneP50 As String = 0
     Dim btnImage As Image
     Dim keepDefcodes As Integer
+
+    Dim POYDrums As Integer
     Public bcodeScan As String = ""
     Dim clr As String = ""
     Public curcone As String = 0
@@ -73,58 +75,18 @@ Public Class frmPacking
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
 
-        Dim btnNum As Integer
-        Dim btnNums As String
 
-        btnNums = frmJobEntry.varCartSelect
 
         ' SELECT CONE NUMBER RANGE BASED ON CART NUMBER
-        Select Case btnNums
-            Case Is = 1
-                btnNum = 1
-                coneNumOffset = 0
-            Case Is = 2
-                btnNum = 33
-                coneNumOffset = 32
-            Case Is = 3
-                btnNum = 65
-                coneNumOffset = 64
-            Case Is = 4
-                btnNum = 97
-                coneNumOffset = 96
-            Case Is = 5
-                btnNum = 129
-                coneNumOffset = 128
-            Case Is = 6
-                btnNum = 161
-                coneNumOffset = 160
+
+        Select Case frmJobEntry.ComDrumLayer.Text
             Case Is = 7
-                btnNum = 193
-                coneNumOffset = 192
-            Case Is = 8
-                btnNum = 225
-                coneNumOffset = 224
-            Case Is = 9
-                btnNum = 257
-                coneNumOffset = 256
-            Case Is = 10
-                btnNum = 289
-                coneNumOffset = 288
-            Case Is = 11
-                btnNum = 321
-                coneNumOffset = 320
+                POYDrums = frmJobEntry.ComDrumLayer.Text
             Case Is = 12
-                btnNum = 353
-                coneNumOffset = 352
+                POYDrums = 4 * frmJobEntry.ComDrumLayer.Text
         End Select
 
-        'SET CORRECT BUTTUN NUMBERS BASED ON CONE NUMBERS (SPINDEL NUMBERS)
-        For i As Integer = 1 To 32
 
-            Me.Controls("btnCone" & i.ToString).Text = btnNum
-            btnNum = btnNum + 1
-
-        Next
 
 
         Me.txtCartNum.Text = frmJobEntry.cartSelect
@@ -181,7 +143,7 @@ Public Class frmPacking
 
 
 
-    Private Sub btnDefect_Click(sender As Object, e As EventArgs) Handles btnDefect.Click
+    Private Sub btnDefect_Click(sender As Object, e As EventArgs)
         Me.Hide()
         packingActive = 1
 
@@ -368,7 +330,11 @@ Public Class frmPacking
 
     End Sub
 
-    Private Sub btnCone32_Click(sender As Object, e As EventArgs) Handles btnCone32.Click
+    Private Sub btnCone32_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub btnCone14_Click(sender As Object, e As EventArgs) Handles btnCone14.Click
 
     End Sub
 

@@ -41,7 +41,7 @@ Public Class frmDGV
 
 
 
-        frmJobEntry.LExecQuery("SELECT * FROM jobs WHERE bcodecart = '" & frmJobEntry.dbBarcode & "'")
+        frmJobEntry.LExecQuery("SELECT * FROM jobs WHERE bcodecart = '" & frmJobEntry.PoyPalBarcode & "'")
 
 
 

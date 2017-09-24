@@ -80,18 +80,6 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
-        Public Property chkUsePack() As String
-            Get
-                Return CType(Me("chkUsePack"),String)
-            End Get
-            Set
-                Me("chkUsePack") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
         Public Property debugSet() As String
             Get
@@ -128,18 +116,6 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("CR")>  _
-        Public Property barcodeCTRL() As String
-            Get
-                Return CType(Me("barcodeCTRL"),String)
-            End Get
-            Set
-                Me("barcodeCTRL") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property SQLConn() As String
             Get
@@ -159,30 +135,6 @@ Namespace My
             Get
                 Return CType(Me("ToraydbConnectionString"),String)
             End Get
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
-        Public Property chkUseColour() As String
-            Get
-                Return CType(Me("chkUseColour"),String)
-            End Get
-            Set
-                Me("chkUseColour") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
-        Public Property chkUseSort() As String
-            Get
-                Return CType(Me("chkUseSort"),String)
-            End Get
-            Set
-                Me("chkUseSort") = value
-            End Set
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
@@ -218,42 +170,6 @@ Namespace My
             End Get
             Set
                 Me("dirJobs") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
-        Public Property chkUseSpectro() As String
-            Get
-                Return CType(Me("chkUseSpectro"),String)
-            End Get
-            Set
-                Me("chkUseSpectro") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property comPortNum() As String
-            Get
-                Return CType(Me("comPortNum"),String)
-            End Get
-            Set
-                Me("comPortNum") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property comBaudRate() As String
-            Get
-                Return CType(Me("comBaudRate"),String)
-            End Get
-            Set
-                Me("comBaudRate") = value
             End Set
         End Property
     End Class

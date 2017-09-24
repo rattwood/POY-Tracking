@@ -27,15 +27,15 @@ Partial Class frmJobEntry
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtLotNumber = New System.Windows.Forms.TextBox()
-        Me.btnJobReport = New System.Windows.Forms.Button()
         Me.btnSettings = New System.Windows.Forms.Button()
         Me.btnExChangeCone = New System.Windows.Forms.Button()
         Me.btnSearchCone = New System.Windows.Forms.Button()
-        Me.btnCancelReport = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnReports = New System.Windows.Forms.Button()
         Me.ToraydbBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Toraydb = New POY_Tracking.Toraydb()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.ComDrumLayer = New System.Windows.Forms.ComboBox()
         CType(Me.ToraydbBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Toraydb, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -52,7 +52,7 @@ Partial Class frmJobEntry
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(14, 82)
+        Me.Label1.Location = New System.Drawing.Point(14, 75)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(213, 31)
         Me.Label1.TabIndex = 2
@@ -62,7 +62,7 @@ Partial Class frmJobEntry
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(14, 153)
+        Me.Label2.Location = New System.Drawing.Point(14, 200)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(292, 31)
         Me.Label2.TabIndex = 3
@@ -71,19 +71,10 @@ Partial Class frmJobEntry
         'txtLotNumber
         '
         Me.txtLotNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.txtLotNumber.Location = New System.Drawing.Point(327, 140)
+        Me.txtLotNumber.Location = New System.Drawing.Point(327, 194)
         Me.txtLotNumber.Name = "txtLotNumber"
         Me.txtLotNumber.Size = New System.Drawing.Size(471, 44)
         Me.txtLotNumber.TabIndex = 4
-        '
-        'btnJobReport
-        '
-        Me.btnJobReport.Location = New System.Drawing.Point(253, 377)
-        Me.btnJobReport.Name = "btnJobReport"
-        Me.btnJobReport.Size = New System.Drawing.Size(113, 47)
-        Me.btnJobReport.TabIndex = 8
-        Me.btnJobReport.Text = "M/C Report"
-        Me.btnJobReport.UseVisualStyleBackColor = True
         '
         'btnSettings
         '
@@ -102,7 +93,6 @@ Partial Class frmJobEntry
         Me.btnExChangeCone.TabIndex = 11
         Me.btnExChangeCone.Text = "ExChange Cheese"
         Me.btnExChangeCone.UseVisualStyleBackColor = True
-        Me.btnExChangeCone.Visible = False
         '
         'btnSearchCone
         '
@@ -113,21 +103,12 @@ Partial Class frmJobEntry
         Me.btnSearchCone.Text = "Search  Cheese"
         Me.btnSearchCone.UseVisualStyleBackColor = True
         '
-        'btnCancelReport
-        '
-        Me.btnCancelReport.Location = New System.Drawing.Point(20, 373)
-        Me.btnCancelReport.Name = "btnCancelReport"
-        Me.btnCancelReport.Size = New System.Drawing.Size(113, 47)
-        Me.btnCancelReport.TabIndex = 14
-        Me.btnCancelReport.Text = "Cancel"
-        Me.btnCancelReport.UseVisualStyleBackColor = True
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Red
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(14, 197)
+        Me.Label3.Location = New System.Drawing.Point(11, 248)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(119, 37)
@@ -143,7 +124,6 @@ Partial Class frmJobEntry
         Me.btnReports.TabIndex = 177
         Me.btnReports.Text = "Reports"
         Me.btnReports.UseVisualStyleBackColor = True
-        Me.btnReports.Visible = False
         '
         'ToraydbBindingSource
         '
@@ -155,18 +135,40 @@ Partial Class frmJobEntry
         Me.Toraydb.DataSetName = "Toraydb"
         Me.Toraydb.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(14, 136)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(181, 31)
+        Me.Label4.TabIndex = 179
+        Me.Label4.Text = "Drums/Layer"
+        '
+        'ComDrumLayer
+        '
+        Me.ComDrumLayer.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComDrumLayer.FormattingEnabled = True
+        Me.ComDrumLayer.Items.AddRange(New Object() {"7", "12"})
+        Me.ComDrumLayer.Location = New System.Drawing.Point(327, 130)
+        Me.ComDrumLayer.MaxDropDownItems = 2
+        Me.ComDrumLayer.Name = "ComDrumLayer"
+        Me.ComDrumLayer.Size = New System.Drawing.Size(94, 45)
+        Me.ComDrumLayer.TabIndex = 180
+        Me.ComDrumLayer.Visible = False
+        '
         'frmJobEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(935, 432)
+        Me.Controls.Add(Me.ComDrumLayer)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.btnReports)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.btnCancelReport)
         Me.Controls.Add(Me.btnSearchCone)
         Me.Controls.Add(Me.btnExChangeCone)
         Me.Controls.Add(Me.btnSettings)
-        Me.Controls.Add(Me.btnJobReport)
         Me.Controls.Add(Me.txtLotNumber)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -188,11 +190,11 @@ Partial Class frmJobEntry
     Friend WithEvents txtLotNumber As TextBox
     Friend WithEvents ToraydbBindingSource As BindingSource
     Friend WithEvents Toraydb As Toraydb
-    Friend WithEvents btnJobReport As Button
     Friend WithEvents btnSettings As Button
     Friend WithEvents btnExChangeCone As Button
     Friend WithEvents btnSearchCone As Button
-    Friend WithEvents btnCancelReport As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents btnReports As Button
+    Friend WithEvents Label4 As Label
+    Friend WithEvents ComDrumLayer As ComboBox
 End Class

@@ -8,9 +8,6 @@
     <Setting Name="MasterPassword" Type="System.String" Scope="User">
       <Value Profile="(Default)">tecknose4260</Value>
     </Setting>
-    <Setting Name="chkUsePack" Type="System.String" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
     <Setting Name="debugSet" Type="System.String" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
@@ -19,9 +16,6 @@
     </Setting>
     <Setting Name="dirPackReports" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="barcodeCTRL" Type="System.String" Scope="User">
-      <Value Profile="(Default)">CR</Value>
     </Setting>
     <Setting Name="SQLConn" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -34,12 +28,6 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=IK-PC\SQLEXPRESS;Initial Catalog=Toraydb;Persist Security Info=True;User ID=sa;Password=tecknose4260</Value>
     </Setting>
-    <Setting Name="chkUseColour" Type="System.String" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="chkUseSort" Type="System.String" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
     <Setting Name="dirTemplate" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
@@ -47,15 +35,6 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="dirJobs" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="chkUseSpectro" Type="System.String" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="comPortNum" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="comBaudRate" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>
