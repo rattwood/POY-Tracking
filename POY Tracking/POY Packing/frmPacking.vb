@@ -256,8 +256,8 @@ Public Class frmPacking
         If frmJobEntry.LConn.State = ConnectionState.Open Then frmJobEntry.LConn.Close()
         frmDGV.DGVdata.ClearSelection()
         frmJobEntry.Show()
-        frmJobEntry.txtLotNumber.Clear()
-        frmJobEntry.txtLotNumber.Focus()
+        frmJobEntry.txtPalletNum.Clear()
+        frmJobEntry.txtPalletNum.Focus()
         Me.Close()
     End Sub
 
@@ -307,8 +307,8 @@ Public Class frmPacking
 
         If frmJobEntry.LConn.State = ConnectionState.Open Then frmJobEntry.LConn.Close()
         frmDGV.DGVdata.ClearSelection()
-        frmJobEntry.txtLotNumber.Clear()
-        frmJobEntry.txtLotNumber.Focus()
+        frmJobEntry.txtPalletNum.Clear()
+        frmJobEntry.txtPalletNum.Focus()
         frmJobEntry.Show()
         Me.Close()
 

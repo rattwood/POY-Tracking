@@ -195,7 +195,7 @@ Public Class frmConeSearch
 
         Me.Close()
         frmJobEntry.Show()
-        frmJobEntry.txtLotNumber.Clear()
-        frmJobEntry.txtLotNumber.Focus()
+        frmJobEntry.txtPalletNum.Clear()
+        frmJobEntry.txtPalletNum.Focus()
     End Sub
 End Class
