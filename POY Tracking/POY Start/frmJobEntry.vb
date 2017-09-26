@@ -59,6 +59,7 @@ Public Class frmJobEntry
     Dim cartNum As String
     Dim quit As Integer
     Public cartReport As Integer
+    Dim palNum As Integer
 
     Public SortOP As String
     Public PackOp As String
@@ -77,21 +78,17 @@ Public Class frmJobEntry
         Me.txtPalletNum.Visible = False
 
 
-        If My.Settings.chkUsePack Then btnExChangeCone.Visible = True Else btnExChangeCone.Visible = False
-        If My.Settings.chkUsePack Then btnSearchCone.Visible = True Else btnSearchCone.Visible = False
-        If My.Settings.chkUsePack Then btnReports.Visible = True Else btnReports.Visible = False
+        btnExChangeCone.Visible = True
+        btnSearchCone.Visible = True
+        btnReports.Visible = True
 
-        If My.Settings.chkUsePack = False Then
-            MsgBox("Please edit SETTINGS for type of User")
-            Me.txtPalletNum.Clear()
-            Me.txtPalletNum.Focus()
-        End If
+
 
         Me.KeyPreview = True  'Allows us to look for advace character from barcode
 
         'Set Form Header text
 
-        If My.Settings.chkUsePack Then Me.Text = "POY Packing"
+        Me.Text = "POY Packing"
 
 
         Me.btnCancelReport.Visible = False
@@ -103,9 +100,9 @@ Public Class frmJobEntry
 
         txtPalletNum.Visible = True
 
-        If My.Settings.chkUsePack Then
-            PackOp = txtOperator.Text
-        End If
+
+        PackOp = txtOperator.Text
+
 
         varUserName = txtOperator.Text
 
@@ -120,19 +117,12 @@ Public Class frmJobEntry
         'Routine to check Barcode is TRUE
         Try
 
-            chkBCode = txtPalletNum.Text.Substring(12, 1)
-
-            If chkBCode = "B" Then
-                If txtPalletNum.TextLength > 14 Then  ' For carts B10,11 & 12
-                    cartNum = txtPalletNum.Text.Substring(12, 3)
-                Else
-                    cartNum = txtPalletNum.Text.Substring(12, 2)
-                End If
+            chkBCode = txtPalletNum.Text.Substring(0, 1) 'GET FIRST CHAR
 
 
+            If txtPalletNum.TextLength <> 10 Then  ' LENGTH OF BARCODE
+                palNum = txtPalletNum.Text.Substring(0, 1)
 
-
-            Else
                 MsgBox("This is not a CART Barcode Please RE Scan")
                 Me.txtPalletNum.Clear()
 
@@ -285,8 +275,8 @@ Public Class frmJobEntry
 
 
 
-        If My.Settings.chkUseColour Or My.Settings.chkUseSort Then CheckJob()
-        If My.Settings.chkUsePack Then PackScree1()
+        CheckJob()
+        PackScree1()
 
 
 

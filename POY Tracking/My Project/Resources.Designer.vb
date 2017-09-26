@@ -73,6 +73,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property Have_Drum() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Have_Drum", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property M10() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("M10", resourceCulture)
@@ -96,6 +106,16 @@ Namespace My.Resources
         Friend ReadOnly Property M50() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("M50", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property NoDrum() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("NoDrum", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
