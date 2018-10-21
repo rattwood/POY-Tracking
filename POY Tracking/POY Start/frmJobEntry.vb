@@ -1,28 +1,31 @@
 ﻿'Imports System.Data.DataTable
 Imports System.Data.SqlClient
 Imports System.ComponentModel  'Allows function of Datagridview sorting and filtering
-
+Imports System.Globalization
+Imports System.Threading
 
 
 Public Class frmJobEntry
     'THIS CREATS LOCAL INSTANCE TO REFRENCE THE SQL CLASS FORM, NOT USED WHEN WORKING WITH DATAGRIDVIEW
-    Private SQL As New SQLConn
+    'Private SQL As New SQLConn
 
 
     '---------------------------------------    SETTING UP LOCAL INSTANCE FOR SQL LINK FOR DATAGRID TO SYNC CORRECTLY WITH SQL -------------------------------------
-    Public LConn As New SQLConnection(My.Settings.SQLConn) 'This need to be changed in Project/Propertie/Settings
-    Private LCmd As SQLCommand
+    Public LConn As New SqlConnection(My.Settings.SQLConn) 'This need to be changed in Project/Propertie/Settings
+    ' Public LConn As New SqlConnection("Server=192.168.1.211,1433;Database=Toraydb;User ID=sa;Password=tecknose4260")
+
+    Private LCmd As SqlCommand
 
     'SQL CONNECTORS
-    Public LDA As SQLDataAdapter
+    Public LDA As SqlDataAdapter
     Public LDS As DataSet
     Public LDT As DataTable
-    Public LCB As SQLCommandBuilder
+    Public LCB As SqlCommandBuilder
 
     Public LRecordCount As Integer
     Private LException As String
     ' SQL QUERY PARAMETERS
-    Public LParams As New List(Of SQLParameter)
+    Public LParams As New List(Of SqlParameter)
     '-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -44,11 +47,12 @@ Public Class frmJobEntry
     Public varCartNameB As String
     Public mergeNum As String
     Public dbBarcode As String
-    Public coneValUpdate As Integer
+    Public POYValUpdate As Integer
     Public JobBarcode As String
     Public varProdWeight As String
     Public varweightcode As String
-
+    Public drumPerPal As String
+    Public ExistingProd As String
 
     Dim machineName As String = ""
     Dim machineCode As String
@@ -59,13 +63,14 @@ Public Class frmJobEntry
     Dim cartNum As String
     Dim quit As Integer
     Public cartReport As Integer
-    Dim palNum As Integer
+    Dim palNum As String
+    Dim tracePassed As String = 0
 
     Public SortOP As String
     Public PackOp As String
     Public ColorOP As String
     Public PackSortOP As String
-    Public changeCone As Integer
+    Public changedrum As Integer
     Public time As DateTime = DateTime.Now
     Public Format As String = "dd mm yyyy  HH:mm"
 
@@ -73,214 +78,233 @@ Public Class frmJobEntry
 
     Private Sub frmJobEntry_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        If My.Settings.chkUseThai Then
+            ChangeLanguage("th-TH")
+        Else
+            ChangeLanguage("en")
+        End If
 
 
-        Me.txtPalletNum.Visible = False
-
-
-        btnExChangeCone.Visible = True
-        btnSearchCone.Visible = True
-        btnReports.Visible = True
+        Me.txtTraceNum.Visible = False
 
 
 
-        Me.KeyPreview = True  'Allows us to look for advace character from barcode
+
+        'Me.KeyPreview = True  'Allows us to look for advace character from barcode
 
         'Set Form Header text
 
         Me.Text = "POY Packing"
 
 
-        Me.btnCancelReport.Visible = False
-
+        'Me.btnCancelReport.Visible = False
+        If My.Settings.debugSet Then frmDGV.Show()
 
     End Sub
 
+
+
+    Private Sub ChangeLanguage(ByVal lang As String)
+        For Each c As Control In Me.Controls
+            Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmJobEntry))
+            resources.ApplyResources(c, c.Name, New CultureInfo(lang))
+        Next c
+    End Sub
+
+
+
     Public Sub txtOperator_TextChanged(sender As Object, e As EventArgs) Handles txtOperator.TextChanged
 
-        txtPalletNum.Visible = True
+        txtTraceNum.Visible = False
+        comBoxDrumPal.Visible = True
+        comBoxDrumPal.SelectedIndex = -1 'Blank the value so operater has to select
 
 
         PackOp = txtOperator.Text
-
-
         varUserName = txtOperator.Text
 
     End Sub
 
 
+    Private Sub comBoxDrumPal_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles comBoxDrumPal.SelectedIndexChanged
+        drumPerPal = comBoxDrumPal.Text
+        txtTraceNum.Visible = True
+        txtTraceNum.Focus()
+
+        Me.KeyPreview = True  'Allows us to look for advace character from barcode
+
+    End Sub
 
 
-    'Private Sub btnContinue_Click(sender As Object, e As EventArgs) Handles btnContinue.Click
-    Private Sub prgContinue()
-        Dim chkBCode As String
-        'Routine to check Barcode is TRUE
+    Private Sub checkTraceNo()
+
+        dbBarcode = txtTraceNum.Text
+
+
         Try
 
-            chkBCode = txtPalletNum.Text.Substring(0, 1) 'GET FIRST CHAR
 
-
-            If txtPalletNum.TextLength <> 10 Then  ' LENGTH OF BARCODE
-                palNum = txtPalletNum.Text.Substring(0, 1)
-
-                MsgBox("This is not a CART Barcode Please RE Scan")
-                Me.txtPalletNum.Clear()
-
-                Me.txtPalletNum.Focus()
-                Me.txtPalletNum.Refresh()
+            If txtTraceNum.TextLength = 10 Then  ' LENGTH OF BARCODE
+                palNum = txtTraceNum.Text
+            Else
+                MsgBox("This is not a TRACE number Please RE Scan")
+                Me.txtTraceNum.Clear()
+                Me.txtTraceNum.Focus()
+                Me.txtTraceNum.Refresh()
                 Exit Sub
             End If
 
         Catch ex As Exception
-            MsgBox("BarCcode Is Not Valid")
-            Me.txtPalletNum.Clear()
-            Me.txtPalletNum.Focus()
-            Me.txtPalletNum.Refresh()
+            MsgBox("Trace BarCode Is Not Valid 1")
+            Me.txtTraceNum.Clear()
+            Me.txtTraceNum.Focus()
+            Me.txtTraceNum.Refresh()
             Exit Sub
         End Try
 
-        CreateJob()
+        comBoxDrumPal.Enabled = False
+
+        '*************************  CHECK TO SEE IF JOB ALREADY EXISITS IF NOT CREATE JOB
+        LExecQuery("SELECT * FROM POYTrack WHERE POYTRACENUM = '" & dbBarcode & "' Order By POYPACKIDX")
+
+        Try
+            If LRecordCount > 0 Then
+
+                frmDGV.DGVdata.DataSource = LDS.Tables(0)
+                frmDGV.DGVdata.Rows(0).Selected = True
+
+
+
+                Dim count As String
+
+                For i = 1 To LRecordCount
+                    If Not IsDBNull((frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value)) Then
+                        If frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value = 15 Then
+                            count = count + 1
+                        End If
+                    End If
+                Next
+
+                If count = frmDGV.DGVdata.Rows(0).Cells("POYDRUMPERPAL").Value Then
+                    MsgBox("This PALETTE is already Finished")
+                    Me.txtTraceNum.Clear()
+                    Me.txtTraceNum.Focus()
+                    Me.txtTraceNum.Refresh()
+                    Exit Sub
+                End If
+
+                drumPerPal = frmDGV.DGVdata.Rows(0).Cells("POYDRUMPERPAL").Value
+
+                'Reads in original DRUM PER PALETTE VALUE AND UPDATES DISPLAY IF WRONG VALUE WAS SELECTED BY OPERATOR
+                Select Case drumPerPal
+                    Case "48"
+                        If comBoxDrumPal.Text = "72" Then
+                            comBoxDrumPal.SelectedIndex = 0
+                            comBoxDrumPal.Refresh()
+                            lblAutoCorrect.Visible = True
+                        End If
+                    Case "72"
+                        If comBoxDrumPal.Text = "48" Then
+
+                            comBoxDrumPal.SelectedIndex = 1
+                            comBoxDrumPal.Refresh()
+                            lblAutoCorrect.Visible = True
+                        End If
+                End Select
+
+            Else
+                'go and create new pallette
+                POYPaletteCreate()
+            End If
+
+        Catch ex As Exception
+            MsgBox("Job Creation Fault")
+            Me.txtTraceNum.Clear()
+            Me.txtTraceNum.Focus()
+            Me.txtTraceNum.Refresh()
+            Exit Sub
+        End Try
+
+
+        tracePassed = 1
+        txtBoxCartBcode.Visible = True
+        txtBoxCartBcode.Focus()
+        dbBarcode = ""
 
     End Sub
 
-    Private Sub CreateJob()
 
-        If txtPalletNum.TextLength > 14 Then  ' For carts B10,11 & 12
-            machineName = ""
-            machineCode = txtPalletNum.Text.Substring(0, 2)
-            productCode = txtPalletNum.Text.Substring(2, 3)
-            year = txtPalletNum.Text.Substring(5, 2)
-            month = txtPalletNum.Text.Substring(7, 2)
-            doffingNum = txtPalletNum.Text.Substring(9, 3)
-            cartNum = txtPalletNum.Text.Substring(12, 3)
+    Private Sub prgContinue()
+
+
+        Try
+
+            If txtBoxCartBcode.TextLength = 14 And txtBoxCartBcode.Text.Substring(12, 1) = "P" Then ' LENGTH OF BARCODE and that is a cart P number
+
+                getMCName()
+                machineCode = txtBoxCartBcode.Text.Substring(0, 2)
+                productCode = txtBoxCartBcode.Text.Substring(2, 3)
+                year = txtBoxCartBcode.Text.Substring(5, 2)
+                month = txtBoxCartBcode.Text.Substring(7, 2)
+                doffingNum = txtBoxCartBcode.Text.Substring(9, 3)
+                cartNum = txtBoxCartBcode.Text.Substring(12, 2)
+
+                varCartBCode = txtTraceNum.Text
+
+                varMachineCode = machineCode
+                getMCName()
+                varMachineName = machineName
+                varProductCode = productCode
+                varYear = year
+                varMonth = month
+                varDoffingNum = doffingNum
+                varCartNum = cartNum
+                varCartSelect = cartSelect
+
+
+                varJobNum = txtBoxCartBcode.Text
+
+
+                dbBarcode = txtTraceNum.Text    '.Replace(varCartNum, varCartNameA)
+
+            Else
+                MsgBox("This is not a CART number Please RE Scan")
+                Me.txtBoxCartBcode.Clear()
+                Me.txtBoxCartBcode.Focus()
+                Me.txtBoxCartBcode.Refresh()
+                Exit Sub
+            End If
+
+        Catch ex As Exception
+            MsgBox("Cart BarCode Is Not Valid")
+            Me.txtBoxCartBcode.Clear()
+            Me.txtBoxCartBcode.Focus()
+            Me.txtBoxCartBcode.Refresh()
+            Exit Sub
+        End Try
+
+
+        If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYPRNUM").Value) Then
+            ExistingProd = frmDGV.DGVdata.Rows(0).Cells("POYPRNUM").Value
+            If String.Equals(productCode, ExistingProd) = False Then
+                MsgBox("This cart is for Product # " & productCode.ToString & " and Palette Product is " & ExistingProd.ToString & " Please check")
+                Me.txtBoxCartBcode.Clear()
+                Me.txtBoxCartBcode.Focus()
+                Me.txtBoxCartBcode.Refresh()
+                Exit Sub
+            End If
         Else
-            machineName = ""                                    ' For carts B1 - 9
-            machineCode = txtPalletNum.Text.Substring(0, 2)
-            productCode = txtPalletNum.Text.Substring(2, 3)
-            year = txtPalletNum.Text.Substring(5, 2)
-            month = txtPalletNum.Text.Substring(7, 2)
-            doffingNum = txtPalletNum.Text.Substring(9, 3)
-            cartNum = txtPalletNum.Text.Substring(12, 2)
+            'Set Product code based on current cart scanned only on new job creation
+            LExecQuery("Update POYTrack Set POYPRNUM = '" & productCode & "' Where POYTRACENUM = '" & dbBarcode & "' ")
 
         End If
 
-        varCartBCode = txtPalletNum.Text
-
-        If machineCode = 21 Then
-            machineName = "11D1"        'Left Side
-        ElseIf machineCode = 22 Then
-            machineName = "11D2"        'Right Side
-        ElseIf machineCode = 23 Then
-            machineName = "12D1"        'Left Side
-        ElseIf machineCode = 24 Then
-            machineName = "12D2"        'Right Side
-        ElseIf machineCode = 25 Then
-            machineName = "21D1"        'Left Side
-        ElseIf machineCode = 26 Then
-            machineName = "21D2"        'Right Side
-        ElseIf machineCode = 27 Then
-            machineName = "22D1"        'Left Side
-        ElseIf machineCode = 28 Then
-            machineName = "22D2"        'Right Side
-        End If
-
-        'Dim cartSelect As String
-        If machineCode = 21 Or machineCode = 23 Or machineCode = 25 Or machineCode = 27 Then    ' Set Left Side of Machine
-
-            If cartNum = "B1" Or cartNum = "B2" Then
-                varCartNameA = "B1"
-                varCartNameB = "B2"
-                cartSelect = 1
-                varSpNums = "001 - 032"
-            ElseIf cartNum = "B3" Or cartNum = "B4" Then
-                varCartNameA = "B3"
-                varCartNameB = "B4"
-                cartSelect = 2
-                varSpNums = "033 - 064"
-            ElseIf cartNum = "B5" Or cartNum = "B6" Then
-                varCartNameA = "B5"
-                varCartNameB = "B6"
-                cartSelect = 3
-                varSpNums = "065 - 096"
-            ElseIf cartNum = "B7" Or cartNum = "B8" Then
-                varCartNameA = "B7"
-                varCartNameB = "B8"
-                cartSelect = 4
-                varSpNums = "097 - 128"
-            ElseIf cartNum = "B9" Or cartNum = "B10" Then
-                varCartNameA = "B9"
-                varCartNameB = "B10"
-                cartSelect = 5
-                varSpNums = "129 - 160"
-            ElseIf cartNum = "B11" Or cartNum = "B12" Then
-                varCartNameA = "B11"
-                varCartNameB = "B12"
-                cartSelect = 6
-                varSpNums = "161 - 192"
-
-            End If
-        End If
-
-
-        If machineCode = 22 Or machineCode = 24 Or machineCode = 26 Or machineCode = 28 Then  ' Set Right Side of Machine
-            If cartNum = "B1" Or cartNum = "B2" Then
-                varCartNameA = "B1"
-                varCartNameB = "B2"
-                cartSelect = 7
-                varSpNums = "193 - 224"
-            ElseIf cartNum = "B3" Or cartNum = "B4" Then
-                varCartNameA = "B3"
-                varCartNameB = "B4"
-                cartSelect = 8
-                varSpNums = "225 - 256"
-            ElseIf cartNum = "B5" Or cartNum = "B6" Then
-                varCartNameA = "B5"
-                varCartNameB = "B6"
-                cartSelect = 9
-                varSpNums = "257 - 288"
-            ElseIf cartNum = "B7" Or cartNum = "B8" Then
-                varCartNameA = "B7"
-                varCartNameB = "B8"
-                cartSelect = 10
-                varSpNums = "289 - 320"
-            ElseIf cartNum = "B9" Or cartNum = "B10" Then
-                varCartNameA = "B9"
-                varCartNameB = "B10"
-                cartSelect = 11
-                varSpNums = "321 - 352"
-            ElseIf cartNum = "B11" Or cartNum = "B12" Then
-                varCartNameA = "B11"
-                varCartNameB = "B12"
-                cartSelect = 12
-                varSpNums = "353 - 384"
-
-            End If
-        End If
-
-        varMachineCode = machineCode
-        varMachineName = machineName
-        varProductCode = productCode
-        varYear = year
-        varMonth = month
-        varDoffingNum = doffingNum
-        varCartNum = cartNum
-        varCartSelect = cartSelect
-
-
-        varJobNum = (machineName & " " & month & " " & doffingNum & " " & varCartNameA)
-
-        'Routine to change the scanned BARCODE to be the First CART not the secone cart and this is what will be stored in the DATABASE
-
-        dbBarcode = txtPalletNum.Text.Replace(varCartNum, varCartNameA)
-
-
-
-        CheckJob()
-        PackScree1()
-
-
+        PackCheck()
 
     End Sub
+
+
+
 
     Public Sub LExecQuery(Query As String)
         ' RESET QUERY STATISTCIS
@@ -312,292 +336,126 @@ Public Class frmJobEntry
 
         Catch ex As Exception
 
-            LException = "ExecQuery Error: " & vbNewLine & ex.Message
+            LException = "ExecQuery Error:   " & vbNewLine & ex.Message
             MsgBox(LException)
 
         End Try
 
     End Sub
 
-
-    Public Sub CheckJob()
-
-        LExecQuery("SELECT * FROM POYPack WHERE POYPALNUM = '" & dbBarcode & "'")
-
-        If LRecordCount > 0 Then
-
-            Dim result = MessageBox.Show("Edit Job Yes Or No", "JOB ALREADY EXISTS", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
-
-            If result = DialogResult.Yes Then
-
-                'LOAD THE DATA FROM dB IN TO THE DATAGRID
-                frmDGV.DGVdata.DataSource = LDS.Tables(0)
-                frmDGV.DGVdata.Rows(0).Selected = True
-                Dim LCB As SqlCommandBuilder = New SqlCommandBuilder(LDA)
+    Private Sub PackCheck()
 
 
-                'SORT GRIDVIEW IN TO CORRECT CONE SEQUENCE
-                frmDGV.DGVdata.Sort(frmDGV.DGVdata.Columns(6), ListSortDirection.Ascending)  'sorts On cone number
 
-                'Dim LCB As SQLCommandBuilder = New SQLCommandBuilder(LDA)
+        'Main Search select all drums on allocated and not allocated
+        LExecQuery("SELECT * FROM POYTrack WHERE POYTRACENUM = '" & dbBarcode & "' ORDER BY POYPACKIDX ")
 
-                coneValUpdate = 1
+        'LOAD THE DATA FROM dB IN TO THE DATAGRID
+        frmDGV.DGVdata.DataSource = LDS.Tables(0)
+        frmDGV.DGVdata.Rows(0).Selected = True
+        Dim LCB As SqlCommandBuilder = New SqlCommandBuilder(LDA)
+        Try
+            If LRecordCount > 0 Then
 
-                frmCart1.Show()
-                If My.Settings.debugSet Then frmDGV.Show()
+                Select Case drumPerPal
+                    Case "72"
+                        If LRecordCount = 72 Then
+                            POYValUpdate = 1
+                            Me.Hide()
+                            frmPacking.Show()
 
-                Me.Hide()
-                Exit Sub
+                        End If
+                    Case "48"
+                        If LRecordCount = 48 Then
+                            POYValUpdate = 1
+                            MsgBox("Not 48 pack yet")
+                            Me.Hide()
+                        End If
+                End Select
+
+
+                txtBoxCartBcode.Visible = True
+                txtBoxCartBcode.Focus()
+                dbBarcode = ""
             End If
-
-            If result = DialogResult.No Then
-                Me.txtPalletNum.Clear()
-                Me.txtPalletNum.Focus()
-
-            End If
-        Else
-            If My.Settings.chkUseColour Or My.Settings.chkUsePack Then
-                MsgBox("Job does not Exist, you must creat new Job from Sort Computer")
-                txtPalletNum.Clear()
-                txtPalletNum.Focus()
-                Exit Sub
-            End If
-
-            CreatNewJob()
-
-            If quit Then
-                quit = 0
-                txtPalletNum.Clear()
-                txtPalletNum.Focus()
-                Exit Sub
-            End If
-            Dim LCB As SqlCommandBuilder = New SqlCommandBuilder(LDA)
-            LDA.UpdateCommand = New SqlCommandBuilder(LDA).GetUpdateCommand
-            frmDGV.DGVdata.DataSource = LDS.Tables(0)
-            frmDGV.DGVdata.Rows(0).Selected = True
-            frmDGV.DGVdata.Sort(frmDGV.DGVdata.Columns(6), ListSortDirection.Ascending)  'sorts On cone number
-            frmCart1.Show()
-            If My.Settings.debugSet Then frmDGV.Show()
-
-            Me.Hide()
-        End If
-
-
+        Catch ex As Exception
+            MsgBox("Cart BarCode Is Not Valid")
+            Me.txtBoxCartBcode.Clear()
+            Me.txtBoxCartBcode.Focus()
+            Me.txtBoxCartBcode.Refresh()
+            Exit Sub
+        End Try
 
 
     End Sub
 
-    Private Sub CreatNewJob()
+    Private Sub getMCName()
 
-        ' RESET QUERY STATISTCIS
-        LRecordCount = 0
-        LException = ""
-        If LConn.State = ConnectionState.Open Then LConn.Close()
-
-
-        Dim coneNumStart As Integer
-        Dim coneNumStop As Integer
-        Dim cartSelNumber As String
-
-        cartSelNumber = varCartSelect
-
-        Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
-
-        ' Auto buton numbering based on Cart being measuerd
-        Select Case cartSelNumber
-            Case Is = 1
-                coneNumStart = 1
-                coneNumStop = 32
-            Case Is = 2
-                coneNumStart = 33
-                coneNumStop = 64
-            Case Is = 3
-                coneNumStart = 65
-                coneNumStop = 96
-            Case Is = 4
-                coneNumStart = 97
-                coneNumStop = 128
-            Case Is = 5
-                coneNumStart = 129
-                coneNumStop = 160
-            Case Is = 6
-                coneNumStart = 161
-                coneNumStop = 192
-            Case Is = 7
-                coneNumStart = 193
-                coneNumStop = 224
-            Case Is = 8
-                coneNumStart = 225
-                coneNumStop = 256
-            Case Is = 9
-                coneNumStart = 257
-                coneNumStop = 288
-            Case Is = 10
-                coneNumStart = 289
-                coneNumStop = 320
-            Case Is = 11
-                coneNumStart = 321
-                coneNumStop = 352
-            Case Is = 12
-                coneNumStart = 353
-                coneNumStop = 384
+        Select Case machineCode
+            Case 51
+                machineName = 111
+            Case 52
+                machineName = 112
+            Case 53
+                machineName = 121
+            Case 54
+                machineName = 122
+            Case 55
+                machineName = 130
+            Case 56
+                machineName = 141
+            Case 57
+                machineName = 142
+            Case 58
+                machineName = 151
+            Case 59
+                machineName = 152
+            Case 60
+                machineName = 210
+            Case 61
+                machineName = 220
+            Case 62
+                machineName = 230
+            Case 63
+                machineName = 241
+            Case 64
+                machineName = 242
+            Case 65
+                machineName = 250
+            Case 66
+                machineName = 310
+            Case 67
+                machineName = 321
+            Case 68
+                machineName = 322
+            Case 69
+                machineName = 330
+            Case 70
+                machineName = 341
+            Case 71
+                machineName = 342
+            Case 72
+                machineName = 350
+            Case 73
+                machineName = 361
+            Case 74
+                machineName = 362
+            Case 75
+                machineName = 410
+            Case 76
+                machineName = 420
+            Case 77
+                machineName = 430
+            Case 78
+                machineName = 441
+            Case 79
+                machineName = 442
+            Case 80
+                machineName = 450
+            Case 81
+                machineName = 460
         End Select
 
-        'CONSTRUCT ROWS
-
-        'Dim rowData As String()
-        Dim x = 1
-        Dim fmt As String = "000"    'FORMAT STRING FOR NUMBER
-        Dim modConeNum As String
-        Dim modLotStr = txtPalletNum.Text.Substring(0, 12)
-        Dim coneBarcode As String
-        Dim cartName As String
-        Dim today As String = DateAndTime.Today
-        today = Convert.ToDateTime(today).ToString("dd-MMM-yyyy")
-
-        'If My.Settings.chkUseSort And My.Settings.chkUseColour = False Then today = "04-Feb-1960"
-
-
-        'Routine to check get product name and merge number and load in to variables then clear grid
-        'LExecQuery("SELECT PRODNAME,MERGENUM,PRODWEIGHT,WEIGHTCODE FROM PRODUCT WHERE PRNUM = '" & varProductCode & "'")
-        LExecQuery("SELECT PRODNAME,MERGENUM,PRODWEIGHT,WEIGHTCODE FROM PRODUCT WHERE PRNUM = '" & varProductCode & "'")
-
-        If LRecordCount > 0 Then
-            'LOAD THE DATA FROM dB IN TO THE DATAGRID
-            frmDGV.DGVdata.DataSource = LDS.Tables(0)
-            frmDGV.DGVdata.Rows(0).Selected = True
-
-            varProductName = frmDGV.DGVdata.Rows(0).Cells(0).Value.ToString
-            mergeNum = frmDGV.DGVdata.Rows(0).Cells(1).Value.ToString
-            varProdWeight = frmDGV.DGVdata.Rows(0).Cells(2).Value.ToString
-            varweightcode = frmDGV.DGVdata.Rows(0).Cells(3).Value.ToString
-            If My.Settings.debugSet Then frmDGV.Show()
-
-            frmDGV.DGVdata.DataSource = Nothing  'used to clear DGV
-
-        Else
-            MsgBox("PRODUCT NUMBER " & varProductCode & " VALUE DOES NOT EXIST")
-            quit = 1
-            Exit Sub
-
-        End If
-
-
-        For i As Integer = coneNumStart To coneNumStop
-
-            If x <= 16 Then cartName = varCartNameA Else cartName = varCartNameB  'SETS CORRECT CART NUMBER
-
-            x = x + 1
-            modConeNum = i.ToString(fmt)   'FORMATS THE CONE NUMBER TO 3 DIGITS
-            coneBarcode = modLotStr & modConeNum   'CREATE THE CONE BARCODE NUMBER
-            JobBarcode = modLotStr
-
-
-            LExecQuery("INSERT INTO jobs (MCNUM, PRNUM, PRYY, PRMM, DOFFNUM, CONENUM, MERGENUM, OPNAME,CONESTATE," _
-               & "SHORTCONE, MISSCONE, DEFCONE, CARTNUM, CARTNAME, CONEZERO, CONEBARLEY, M10, P10, M30, P30, M50, P50, CARTSTARTTM," _
-              & "BCODECART, BCODECONE,FLT_K, FLT_D, FLT_F, FLT_O, FLT_T, FLT_P, FLT_S, FLT_X, FLT_N, FLT_W, FLT_H, FLT_TR, FLT_B, FLT_C," _
-               & "MCNAME, PRODNAME, BCODEJOB,OPPACKSORT,OPPACK,OPSORT,PSORTERROR,WEIGHTERROR,WEIGHT,CARTONNUM,SORTERROR,COLOURERROR,DYEFLECK," _
-               & "COLDEF, COLWASTE, FLT_DO, FLT_DH, FLT_CL, FLT_FI, FLT_YN, FLT_HT, FLT_LT, CONEMD, CONEML) " _
-              & "VALUES ('" & varMachineCode & "', '" & varProductCode & "','" & varYear & "','" & varMonth & "','" & varDoffingNum & "','" & modConeNum & "'," _
-              & "'" & mergeNum & "',  ' ', '0', '0', '0', '0', '" & varCartSelect & "','" & cartName & "', '0', '0', '0', '0', '0', '0', '0', '0','" & today & "','" & dbBarcode & "','" & coneBarcode & "'," _
-             & "'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False', '" & varMachineName & "','" & varProductName & "', '" & JobBarcode & "'," _
-             & "'0','0','0','0','0','0','0','0','0','0','0','0','False','False','False','False','False','False','False','0','0')")
-
-
-        Next
-
-        LExecQuery("SELECT * FROM jobs WHERE bcodecart = '" & dbBarcode & "'")
-
-        Me.Cursor = System.Windows.Forms.Cursors.Default
-        If LRecordCount > 1 Then
-            Exit Sub
-        Else
-            MsgBox("Records Not created")
-        End If
-
-
-    End Sub
-
-    Private Sub PackScree1()
-
-
-        'GET PRODUCT WEIGHT INFORMATION
-        LExecQuery("SELECT PRODWEIGHT,WEIGHTCODE FROM PRODUCT WHERE PRNUM = '" & varProductCode & "'")
-
-        If LRecordCount > 0 Then
-            'LOAD THE DATA FROM dB IN TO THE DATAGRID
-            frmDGV.DGVdata.DataSource = LDS.Tables(0)
-            frmDGV.DGVdata.Rows(0).Selected = True
-
-            varProdWeight = frmDGV.DGVdata.Rows(0).Cells(0).Value.ToString
-            varweightcode = frmDGV.DGVdata.Rows(0).Cells(1).Value.ToString
-
-
-            frmDGV.DGVdata.DataSource = Nothing  'used to clear DGV
-
-        Else
-            MsgBox("PRODUCT NUMBER " & varProductCode & " THIS PRODUCT IS NOT IN THE PRODUCT LIST")
-            quit = 1
-            Exit Sub
-
-        End If
-
-        LExecQuery("SELECT * FROM jobs WHERE bcodecart = '" & dbBarcode & "' AND CONESTATE = '9' and FLT_S = 'False'")
-
-        If LRecordCount > 0 Then
-            LExecQuery("Select * FROM jobs WHERE bcodecart = '" & dbBarcode & "' ;")
-
-            'LOAD THE DATA FROM dB IN TO THE DATAGRID
-            frmDGV.DGVdata.DataSource = LDS.Tables(0)
-            frmDGV.DGVdata.Rows(0).Selected = True
-            Dim LCB As SqlCommandBuilder = New SqlCommandBuilder(LDA)
-
-
-            'SORT GRIDVIEW IN TO CORRECT CONE SEQUENCE
-            frmDGV.DGVdata.Sort(frmDGV.DGVdata.Columns(5), ListSortDirection.Ascending)  'sorts On cone number
-
-            coneValUpdate = 1
-            Me.Hide()
-            frmPacking.Show()
-
-        Else
-
-            LExecQuery("SELECT * FROM jobs WHERE bcodecart = '" & dbBarcode & "' AND CONESTATE = '15'")
-
-            If LRecordCount > 0 Then
-                Label3.Visible = True
-
-                Label3.Text = "Cart has already been allocated"
-
-                DelayTM()
-                Label3.Visible = False
-
-            Else
-                LExecQuery("SELECT * FROM jobs WHERE bcodecart = '" & dbBarcode & "' AND CONESTATE = '5'")
-                If LRecordCount > 0 Then
-
-                    Label3.Visible = True
-
-                    Label3.Text = "Cart Has not been COLOUR CHECKED"
-
-                    DelayTM()
-                    Label3.Visible = False
-                Else
-                    Label3.Visible = True
-
-                    Label3.Text = "Cart Has No Grade 'A' Cheese"
-
-
-                    DelayTM()
-                    Label3.Visible = False
-                End If
-            End If
-
-
-            Me.txtPalletNum.Clear()
-            Me.txtPalletNum.Focus()
-
-        End If
 
     End Sub
 
@@ -613,67 +471,170 @@ Public Class frmJobEntry
 
     End Sub
 
+    Private Sub POYPaletteCreate()
+
+        ' RESET QUERY STATISTCIS
+        LRecordCount = 0
+        LException = ""
+        If LConn.State = ConnectionState.Open Then LConn.Close()
 
 
+
+
+        Label3.Text = "Creating New Palette"
+        Label3.Visible = True
+        Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
+
+
+
+
+
+
+
+        For i As Integer = 1 To drumPerPal
+
+            'moddrumNum = i.ToString(fmt)   ' FORMATS THE drum NUMBER TO 3 DIGITS
+            '  drumBarcode = modLotStr & moddrumNum   'CREATE THE drum BARCODE NUMBER
+            '  JobBarcode = modLotStr
+
+            'Parameters List for full db
+
+            'ADD SQL PARAMETERS & RUN THE COMMAND
+            ' LAddParam("@poymcnum", varMachineCode)
+            'LAddParam("@poyprodnum", productCode)
+            ' LAddParam("@yy", varYear)
+            ' LAddParam("@mm", varMonth)
+            ' LAddParam("@doff", varDoffingNum)
+            ' LAddParam("@drum", moddrumNum)
+            ' LAddParam("@merge", mergeNum)
+            ' LAddParam("@poypackname", "")
+            ' LAddParam("@poyshipname", "0")
+            ' LAddParam("@poydrumstate", "0")
+            ' LAddParam("@poyfulldrum", "0")
+            ' LAddParam("@poyshortdrum", "0")
+            ' LAddParam("@poypackdate", varCartSelect)
+            ' LAddParam("@poyshipdate", cartName)
+            ' LAddParam("@poystepnum", "0")
+            ' LAddParam("@poybcodedrum", "0")
+            'LAddParam("@poypalnum", 0)
+            'LAddParam("@poypackidx", "0")
+            LAddParam("@poytracenum", dbBarcode)
+            LAddParam("@poydrumperpal", drumPerPal)
+
+
+
+            'LExecQuery("INSERT INTO POYTrack (POYMCNUM, POYPRNUM, POYYY, POYMM, POYDOFFNUM, POYSPINNUM, POYMERGENUM, POYPACKNAME,POYSHIPNAME," _
+            '       & "POYDRUMSTATE, POYFULLDRUM, POYSHORTDRUM, POYPACKDATE, POYSHIPDATE, POYSTEPNUM, POYBCODEDRUM, POYPALNUM, POYPACKIDX, POYTRACENUM," _
+            '       & "VALUES (@poymcnum, @poyprodnum,@yy,@mm,@doff,@drum,@merge,@poypackname,@poyshipname,@poydrumstate,@poyfulldrum,@poyshortdrum,@poypackdate,@poyshipdate,@poystepnum," _
+            '       & "@poybcodedrum,@poypalnum,@poypackidx,@poytracenum) ")
+
+            LExecQuery("INSERT INTO POYTrack (POYTRACENUM,POYDRUMPERPAL) VALUES (@poytracenum,@poydrumperpal)")
+
+
+
+        Next
+
+        LExecQuery("Select * FROM PoyTrack WHERE POYTRACENUM = '" & dbBarcode & "' ORDER BY POYPACKIDX")
+
+        Label3.Text = ""
+        Label3.Visible = True
+        Me.Cursor = System.Windows.Forms.Cursors.Default
+
+
+        If LRecordCount > 1 Then
+            Label3.Text = ""
+            Label3.Visible = True
+            Me.Cursor = System.Windows.Forms.Cursors.Default
+            Exit Sub
+        Else
+            MsgBox("Records Not created")
+        End If
+
+        Label3.Text = ""
+        Label3.Visible = True
+        Me.Cursor = System.Windows.Forms.Cursors.Default
+
+    End Sub
+
+
+    ' ADD PARAMS
+    Public Sub LAddParam(Name As String, Value As Object)
+        Dim NewParam As New SqlParameter(Name, Value)
+        LParams.Add(NewParam)
+    End Sub
 
 
     Private Sub btnSettings_Click_1(sender As Object, e As EventArgs) Handles btnSettings.Click
         frmPassword.Show()
     End Sub
 
-    Private Sub btnJobReport_Click(sender As Object, e As EventArgs) Handles btnJobReport.Click
 
-        frmDGVJobReport.Show()
-
-    End Sub
 
 
     Private Sub btnCancelReport_Click(sender As Object, e As EventArgs) Handles btnCancelReport.Click
 
-        cartReport = 0
-
-        Me.btnCancelReport.Visible = False
-        Me.btnJobReport.Visible = True
-        Me.txtPalletNum.Visible = True
-        Me.txtPalletNum.Clear()
-        Me.txtPalletNum.Focus()
 
 
+
+
+        comBoxDrumPal.SelectedIndex = -1 'Blank the value so operater has to select
+        comBoxDrumPal.Select()
+        'Me.txtPalletNum.Visible = False
+        Me.txtTraceNum.Clear()
+        'Me.txtPalletNum.Focus()
+        comBoxDrumPal.Enabled = True
+        txtBoxCartBcode.Visible = False
+        txtBoxCartBcode.Clear()
+        tracePassed = 0
+        lblAutoCorrect.Visible = False
 
 
     End Sub
 
-    Private Sub btnExChangeCone_Click(sender As Object, e As EventArgs) Handles btnExChangeCone.Click
+    Private Sub btnExChangedrum_Click(sender As Object, e As EventArgs)
 
         If txtOperator.Text = "" Then
             MsgBox("Please Enter Operator Name First")
         Else
-            changeCone = 1
+            changedrum = 1
             Me.Hide()
-            frmExChangeCone.Show()
+            frmExChangedrum.Show()
         End If
 
     End Sub
 
-    Private Sub btnSearchCone_Click(sender As Object, e As EventArgs) Handles btnSearchCone.Click
+    Private Sub btnSearchdrum_Click(sender As Object, e As EventArgs)
         If txtOperator.Text = "" Then
             MsgBox("Please Enter Operator Name First")
         Else
             Me.Hide()
-            frmConeSearch.Show()
+            frmdrumSearch.Show()
         End If
     End Sub
 
 
 
-    Private Sub btnReports_Click(sender As Object, e As EventArgs) Handles btnReports.Click
+    Private Sub btnReports_Click(sender As Object, e As EventArgs)
         frmPackReports.Show()
     End Sub
 
 
     Private Sub frmJobEntry_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
 
-        If e.KeyCode = Keys.Return Then prgContinue()
+
+
+
+
+        If e.KeyCode = Keys.Return Then
+
+            If tracePassed Then
+                prgContinue()
+            Else
+                checkTraceNo()
+            End If
+        End If
+
+
 
     End Sub
 

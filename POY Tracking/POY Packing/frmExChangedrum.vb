@@ -1,7 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports System.Data.SqlClient
 
-Public Class frmExChangeCone
+Public Class frmExChangedrum
     Dim changeConeNum As Integer
     Dim defectCone As Integer
     Dim shortCone As Integer
@@ -225,8 +225,8 @@ Public Class frmExChangeCone
 
         Me.Close()
         frmJobEntry.Show()
-        frmJobEntry.txtPalletNum.Clear()
-        frmJobEntry.txtPalletNum.Focus()
+        frmJobEntry.txtTraceNum.Clear()
+        frmJobEntry.txtTraceNum.Focus()
 
 
 
@@ -368,8 +368,8 @@ Public Class frmExChangeCone
         shortCone = 0
         Me.Close()
         frmJobEntry.Show()
-        frmJobEntry.txtPalletNum.Clear()
-        frmJobEntry.txtPalletNum.Focus()
+        frmJobEntry.txtTraceNum.Clear()
+        frmJobEntry.txtTraceNum.Focus()
     End Sub
 
 

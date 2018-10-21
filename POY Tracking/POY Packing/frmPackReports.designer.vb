@@ -22,6 +22,7 @@ Partial Class frmPackReports
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPackReports))
         Me.btnEODRep = New System.Windows.Forms.Button()
         Me.btnDailyProdRep = New System.Windows.Forms.Button()
         Me.btnStockWorkRep = New System.Windows.Forms.Button()
@@ -85,7 +86,9 @@ Partial Class frmPackReports
         Me.Controls.Add(Me.btnStockWorkRep)
         Me.Controls.Add(Me.btnDailyProdRep)
         Me.Controls.Add(Me.btnEODRep)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmPackReports"
+        Me.RightToLeftLayout = True
         Me.Text = "Packing Reports"
         Me.ResumeLayout(False)
         Me.PerformLayout()

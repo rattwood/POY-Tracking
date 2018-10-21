@@ -1,6 +1,6 @@
 ﻿Imports System.ComponentModel
 
-Public Class frmConeSearch
+Public Class frmdrumSearch
     Dim dbDate As Date
     Dim datestring As String
 
@@ -195,7 +195,7 @@ Public Class frmConeSearch
 
         Me.Close()
         frmJobEntry.Show()
-        frmJobEntry.txtPalletNum.Clear()
-        frmJobEntry.txtPalletNum.Focus()
+        frmJobEntry.txtTraceNum.Clear()
+        frmJobEntry.txtTraceNum.Focus()
     End Sub
 End Class

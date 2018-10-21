@@ -26,235 +26,221 @@ Public Class frmPackSort
             If frmJobEntry.LConn.State = ConnectionState.Open Then frmJobEntry.LConn.Close()
             frmDGV.DGVdata.ClearSelection()
             frmJobEntry.Show()
-            frmJobEntry.txtPalletNum.Clear()
-            frmJobEntry.txtPalletNum.Focus()
-            Me.Close()
-        End Sub
+        frmJobEntry.txtTraceNum.Clear()
+        frmJobEntry.txtTraceNum.Focus()
+        Me.Close()
+    End Sub
 
-        'ReCheck Params
-        Dim reChecked, ReCheckTime As String
+    'ReCheck Params
+    Dim reChecked, ReCheckTime As String
 
-        '
-        Public removeChar() As Char = {"<", "0", "0", ">", vbCrLf}
-        Dim incoming As String
-        Public measureOn As String
-        Public NoCone As Integer
-        Public defect As Integer
-        Public shortCone As Integer
-        Public varCartStartTime As String   'Record time that we started measuring
-        Public varCartEndTime As String
-        Dim coneNumOffset As Integer
-        Dim varConeBCode As String
-        Dim fileActive As Integer
-        Public varConeNum As Integer
-        'Public batchNum As String
-        Public coneCount As Integer
-        Public coneState As String
+    '
+    Public removeChar() As Char = {"<", "0", "0", ">", vbCrLf}
+    Dim incoming As String
+    Public measureOn As String
+    Public NoCone As Integer
+    Public defect As Integer
+    Public shortCone As Integer
+    Public varCartStartTime As String   'Record time that we started measuring
+    Public varCartEndTime As String
+    Dim coneNumOffset As Integer
+    Dim varConeBCode As String
+    Dim fileActive As Integer
+    Public varConeNum As Integer
+    'Public batchNum As String
+    Public coneCount As Integer
+    Public coneState As String
 
 
-        Public bill As String
+    Public bill As String
 
 
 
-        Private SQL As New SQLConn
+    Private SQL As New SQLConn
 
 
 
 
-        Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-            'SQL.ExecQuery("UPDATE jobs SET OPPACKSORT=frmJobEntry.varUserName")
-            'SQL.ExecQuery("UPDATE jobs SET OPPACK=frmJobEntry.varUserName")
+    Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'SQL.ExecQuery("UPDATE jobs SET OPPACKSORT=frmJobEntry.varUserName")
+        'SQL.ExecQuery("UPDATE jobs SET OPPACK=frmJobEntry.varUserName")
 
 
 
-            Dim btnNum As Integer
-            Dim btnNums As String
+        Dim btnNum As Integer
+        Dim btnNums As String
 
-            btnNums = frmJobEntry.varCartSelect
+        btnNums = frmJobEntry.varCartSelect
 
-            ' SELECT CONE NUMBER RANGE BASED ON CART NUMBER
-            Select Case btnNums
-                Case Is = 1
-                    btnNum = 1
-                    coneNumOffset = 0
-                Case Is = 2
-                    btnNum = 33
-                    coneNumOffset = 32
-                Case Is = 3
-                    btnNum = 65
-                    coneNumOffset = 64
-                Case Is = 4
-                    btnNum = 97
-                    coneNumOffset = 96
-                Case Is = 5
-                    btnNum = 129
-                    coneNumOffset = 128
-                Case Is = 6
-                    btnNum = 161
-                    coneNumOffset = 160
-                Case Is = 7
-                    btnNum = 193
-                    coneNumOffset = 192
-                Case Is = 8
-                    btnNum = 225
-                    coneNumOffset = 224
-                Case Is = 9
-                    btnNum = 257
-                    coneNumOffset = 256
-                Case Is = 10
-                    btnNum = 289
-                    coneNumOffset = 288
-                Case Is = 11
-                    btnNum = 321
-                    coneNumOffset = 320
-                Case Is = 12
-                    btnNum = 353
-                    coneNumOffset = 352
-            End Select
+        ' SELECT CONE NUMBER RANGE BASED ON CART NUMBER
+        Select Case btnNums
+            Case Is = 1
+                btnNum = 1
+                coneNumOffset = 0
+            Case Is = 2
+                btnNum = 33
+                coneNumOffset = 32
+            Case Is = 3
+                btnNum = 65
+                coneNumOffset = 64
+            Case Is = 4
+                btnNum = 97
+                coneNumOffset = 96
+            Case Is = 5
+                btnNum = 129
+                coneNumOffset = 128
+            Case Is = 6
+                btnNum = 161
+                coneNumOffset = 160
+            Case Is = 7
+                btnNum = 193
+                coneNumOffset = 192
+            Case Is = 8
+                btnNum = 225
+                coneNumOffset = 224
+            Case Is = 9
+                btnNum = 257
+                coneNumOffset = 256
+            Case Is = 10
+                btnNum = 289
+                coneNumOffset = 288
+            Case Is = 11
+                btnNum = 321
+                coneNumOffset = 320
+            Case Is = 12
+                btnNum = 353
+                coneNumOffset = 352
+        End Select
 
-            'SET CORRECT BUTTUN NUMBERS BASED ON CONE NUMBERS (SPINDEL NUMBERS)
-            For i As Integer = 1 To 32
+        'SET CORRECT BUTTUN NUMBERS BASED ON CONE NUMBERS (SPINDEL NUMBERS)
+        For i As Integer = 1 To 32
 
-                Me.Controls("btnCone" & i.ToString).Text = btnNum
-                btnNum = btnNum + 1
+            Me.Controls("btnCone" & i.ToString).Text = btnNum
+            btnNum = btnNum + 1
 
-            Next
+        Next
 
 
-            Me.txtCartNum.Text = frmJobEntry.cartSelect
-            Me.lblJobNum.Text = frmJobEntry.varJobNum
+        Me.txtCartNum.Text = frmJobEntry.cartSelect
+        Me.lblJobNum.Text = frmJobEntry.varJobNum
 
 
 
 
-            'IF THIS IS AND EXISTING JOB THEN CALL BACK VALUES FROM DATABASE
-            If frmJobEntry.coneValUpdate Then UpdateConeVal()
+        'IF THIS IS AND EXISTING JOB THEN CALL BACK VALUES FROM DATABASE
+        If frmJobEntry.POYValUpdate Then UpdateConeVal()
 
 
 
 
 
 
-            'frmDGV.Show()            'Open Datgrid in background
+        'frmDGV.Show()            'Open Datgrid in background
 
-        End Sub
+    End Sub
 
 
-        Private Sub UpdateConeVal()
+    Private Sub UpdateConeVal()
 
-            Dim cellVal As String
+        Dim cellVal As String
 
 
-            For rw As Integer = 1 To 32
+        For rw As Integer = 1 To 32
 
-                For cl As Integer = 10 To 12
+            For cl As Integer = 10 To 12
 
-                    cellVal = frmDGV.DGVdata.Rows(rw - 1).Cells(cl).Value.ToString
+                cellVal = frmDGV.DGVdata.Rows(rw - 1).Cells(cl).Value.ToString
 
-                    If cl = 10 And cellVal > 0 Then
-                        Me.Controls("btnCone" & rw).BackColor = Color.Red       'SHORT
-                        Me.Controls("btnCone" & rw).Enabled = False  'Turns off button
-                    End If
+                If cl = 10 And cellVal > 0 Then
+                    Me.Controls("btnCone" & rw).BackColor = Color.Red       'SHORT
+                    Me.Controls("btnCone" & rw).Enabled = False  'Turns off button
+                End If
 
-                    If cl = 11 And cellVal > 0 Then
-                        Me.Controls("btnCone" & rw).BackColor = Color.White     'NOCONE
-                        Me.Controls("btnCone" & rw).Enabled = False
-                    End If
+                If cl = 11 And cellVal > 0 Then
+                    Me.Controls("btnCone" & rw).BackColor = Color.White     'NOCONE
+                    Me.Controls("btnCone" & rw).Enabled = False
+                End If
 
-                    If cl = 12 And cellVal > 0 Then
-                        If cl = 12 And cellVal > 0 Then Me.Controls("btnCone" & rw).BackColor = Color.Yellow    'DEFECT
-                        Me.Controls("btnCone" & rw).Enabled = False
-                    End If
-
-
-
-                Next
-
-                For cl2 As Integer = 15 To 22
-
-                    cellVal = frmDGV.DGVdata.Rows(rw - 1).Cells(cl2).Value.ToString
-
-                    If cl2 = 15 And cellVal > 0 Then Me.Controls("btnCone" & rw).BackColor = Color.Green      'ZERO CONE
-                    If cl2 = 16 And cellVal > 0 Then Me.Controls("btnCone" & rw).BackColor = Color.Yellow     'BARLEY
-
-                    If cl2 = 17 And cellVal > 0 Then
-                        Me.Controls("btnCone" & rw).BackgroundImage = My.Resources.M10  'M10
-                        Me.Controls("btnCone" & rw).BackColor = Color.Yellow
-                    End If
-                    If cl2 = 18 And cellVal > 0 Then
-                        Me.Controls("btnCone" & rw).BackgroundImage = My.Resources.P10     'P10
-                        Me.Controls("btnCone" & rw).BackColor = Color.Yellow
-                    End If
-                    If cl2 = 19 And cellVal > 0 Then
-                        Me.Controls("btnCone" & rw).BackgroundImage = My.Resources.M30    'M30
-                        Me.Controls("btnCone" & rw).BackColor = Color.Yellow
-                    End If
-                    If cl2 = 20 And cellVal > 0 Then
-                        Me.Controls("btnCone" & rw).BackgroundImage = My.Resources.P30   'P30
-                        Me.Controls("btnCone" & rw).BackColor = Color.Yellow
-                    End If
-                    If cl2 = 21 And cellVal > 0 Then
-                        Me.Controls("btnCone" & rw).BackgroundImage = My.Resources.M50      'M50
-                        Me.Controls("btnCone" & rw).BackColor = Color.Yellow
-                    End If
-                    If cl2 = 22 And cellVal > 0 Then
-                        Me.Controls("btnCone" & rw).BackgroundImage = My.Resources.P50     'P50
-                        Me.Controls("btnCone" & rw).BackColor = Color.Yellow
-                    End If
-
-
-                Next
-
-
-
-
-            Next
-
-            txtBoxUpdates()
-
-
-        End Sub
-
-
-        Private Sub endJob()
-
-            'UPDATE DATABASE WITH CHANGES
-
-
-
-            'ONLY PRINT IF COLOUR SELECTED
-            Dim today As String = DateAndTime.Today
-
-            If My.Settings.chkUseSort And My.Settings.chkUseColour Or My.Settings.chkUseColour Then
-                today = Convert.ToDateTime(today).ToString("dd-MMM-yyyy")
-                For i As Integer = 1 To 32
-                    frmDGV.DGVdata.Rows(i - 1).Cells(9).Value = 9  'coneState
-                    frmDGV.DGVdata.Rows(i - 1).Cells(32).Value = today  'Update job date
-                Next
-
-                If My.Settings.chkUseSort And My.Settings.chkUseColour = False Then
-                    For i As Integer = 1 To 32
-                        frmDGV.DGVdata.Rows(i - 1).Cells(9).Value = 5 'coneState
-                    Next
+                If cl = 12 And cellVal > 0 Then
+                    If cl = 12 And cellVal > 0 Then Me.Controls("btnCone" & rw).BackColor = Color.Yellow    'DEFECT
+                    Me.Controls("btnCone" & rw).Enabled = False
                 End If
 
 
 
+            Next
 
-                UpdateDatabase()
-                ' frmPrintCartReport.prtCartSheet()
+            For cl2 As Integer = 15 To 22
+
+                cellVal = frmDGV.DGVdata.Rows(rw - 1).Cells(cl2).Value.ToString
+
+                If cl2 = 15 And cellVal > 0 Then Me.Controls("btnCone" & rw).BackColor = Color.Green      'ZERO CONE
+                If cl2 = 16 And cellVal > 0 Then Me.Controls("btnCone" & rw).BackColor = Color.Yellow     'BARLEY
+
+                If cl2 = 17 And cellVal > 0 Then
+                    Me.Controls("btnCone" & rw).BackgroundImage = My.Resources.M10  'M10
+                    Me.Controls("btnCone" & rw).BackColor = Color.Yellow
+                End If
+                If cl2 = 18 And cellVal > 0 Then
+                    Me.Controls("btnCone" & rw).BackgroundImage = My.Resources.P10     'P10
+                    Me.Controls("btnCone" & rw).BackColor = Color.Yellow
+                End If
+                If cl2 = 19 And cellVal > 0 Then
+                    Me.Controls("btnCone" & rw).BackgroundImage = My.Resources.M30    'M30
+                    Me.Controls("btnCone" & rw).BackColor = Color.Yellow
+                End If
+                If cl2 = 20 And cellVal > 0 Then
+                    Me.Controls("btnCone" & rw).BackgroundImage = My.Resources.P30   'P30
+                    Me.Controls("btnCone" & rw).BackColor = Color.Yellow
+                End If
+                If cl2 = 21 And cellVal > 0 Then
+                    Me.Controls("btnCone" & rw).BackgroundImage = My.Resources.M50      'M50
+                    Me.Controls("btnCone" & rw).BackColor = Color.Yellow
+                End If
+                If cl2 = 22 And cellVal > 0 Then
+                    Me.Controls("btnCone" & rw).BackgroundImage = My.Resources.P50     'P50
+                    Me.Controls("btnCone" & rw).BackColor = Color.Yellow
+                End If
+
+
+            Next
 
 
 
-            End If
+
+        Next
+
+        txtBoxUpdates()
 
 
-            If frmJobEntry.LConn.State = ConnectionState.Open Then frmJobEntry.LConn.Close()
-            frmDGV.DGVdata.ClearSelection()
-            frmJobEntry.Show()
-            frmJobEntry.txtPalletNum.Clear()
-            frmJobEntry.txtPalletNum.Focus()
-            Me.Close()
+    End Sub
+
+
+    Private Sub endJob()
+
+        'UPDATE DATABASE WITH CHANGES
+
+
+
+
+
+
+
+
+        UpdateDatabase()
+        ' frmPrintCartReport.prtCartSheet()
+
+
+
+
+
+
+        If frmJobEntry.LConn.State = ConnectionState.Open Then frmJobEntry.LConn.Close()
+        frmDGV.DGVdata.ClearSelection()
+        frmJobEntry.Show()
+        frmJobEntry.txtTraceNum.Clear()
+        frmJobEntry.txtTraceNum.Focus()
+        Me.Close()
 
         End Sub
 

@@ -8,8 +8,8 @@
     <Setting Name="MasterPassword" Type="System.String" Scope="User">
       <Value Profile="(Default)">tecknose4260</Value>
     </Setting>
-    <Setting Name="debugSet" Type="System.String" Scope="User">
-      <Value Profile="(Default)">False</Value>
+    <Setting Name="debugSet" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="dirPacking" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -18,7 +18,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="SQLConn" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Server=192.168.1.211,1433;Database=Toraydb;User ID=sa;Password=tecknose4260</Value>
     </Setting>
     <Setting Name="ToraydbConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
@@ -36,6 +36,18 @@
     </Setting>
     <Setting Name="dirJobs" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="chkUseSort" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="chkUsePack" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="chkUseEng" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="chkUseThai" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -15,7 +15,7 @@ Option Explicit On
 Namespace My
     
     <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.3.0.0"),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.5.0.0"),  _
      Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
     Partial Friend NotInheritable Class MySettings
         Inherits Global.System.Configuration.ApplicationSettingsBase
@@ -80,10 +80,10 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
-        Public Property debugSet() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property debugSet() As Byte
             Get
-                Return CType(Me("debugSet"),String)
+                Return CType(Me("debugSet"),Byte)
             End Get
             Set
                 Me("debugSet") = value
@@ -116,7 +116,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Server=192.168.1.211,1433;Database=Toraydb;User ID=sa;Password=tecknose4260")>  _
         Public Property SQLConn() As String
             Get
                 Return CType(Me("SQLConn"),String)
@@ -170,6 +170,54 @@ Namespace My
             End Get
             Set
                 Me("dirJobs") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property chkUseSort() As Boolean
+            Get
+                Return CType(Me("chkUseSort"),Boolean)
+            End Get
+            Set
+                Me("chkUseSort") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property chkUsePack() As Boolean
+            Get
+                Return CType(Me("chkUsePack"),Boolean)
+            End Get
+            Set
+                Me("chkUsePack") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property chkUseEng() As Boolean
+            Get
+                Return CType(Me("chkUseEng"),Boolean)
+            End Get
+            Set
+                Me("chkUseEng") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property chkUseThai() As Boolean
+            Get
+                Return CType(Me("chkUseThai"),Boolean)
+            End Get
+            Set
+                Me("chkUseThai") = value
             End Set
         End Property
     End Class

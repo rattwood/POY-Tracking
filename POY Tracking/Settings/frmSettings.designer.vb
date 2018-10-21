@@ -26,7 +26,6 @@ Partial Class frmSettings
         Me.lstSerialPorts = New System.Windows.Forms.ListBox()
         Me.btnSetSave = New System.Windows.Forms.Button()
         Me.lstBaudRates = New System.Windows.Forms.ListBox()
-        Me.chkUseSpectro = New System.Windows.Forms.CheckBox()
         Me.chkUseColour = New System.Windows.Forms.CheckBox()
         Me.chkUseSort = New System.Windows.Forms.CheckBox()
         Me.chkUsePack = New System.Windows.Forms.CheckBox()
@@ -54,6 +53,9 @@ Partial Class frmSettings
         Me.txtBoxPackReports = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.txtBoxBarcodectrl = New System.Windows.Forms.TextBox()
+        Me.chkThai = New System.Windows.Forms.CheckBox()
+        Me.chkEnglish = New System.Windows.Forms.CheckBox()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'lblSerialPortSelect
@@ -102,18 +104,6 @@ Partial Class frmSettings
         Me.lstBaudRates.TabIndex = 16
         Me.lstBaudRates.Visible = False
         '
-        'chkUseSpectro
-        '
-        Me.chkUseSpectro.AutoSize = True
-        Me.chkUseSpectro.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkUseSpectro.Location = New System.Drawing.Point(718, 76)
-        Me.chkUseSpectro.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.chkUseSpectro.Name = "chkUseSpectro"
-        Me.chkUseSpectro.Size = New System.Drawing.Size(113, 20)
-        Me.chkUseSpectro.TabIndex = 22
-        Me.chkUseSpectro.Text = "Use Spectro"
-        Me.chkUseSpectro.UseVisualStyleBackColor = True
-        '
         'chkUseColour
         '
         Me.chkUseColour.AutoSize = True
@@ -121,9 +111,9 @@ Partial Class frmSettings
         Me.chkUseColour.Location = New System.Drawing.Point(718, 123)
         Me.chkUseColour.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.chkUseColour.Name = "chkUseColour"
-        Me.chkUseColour.Size = New System.Drawing.Size(104, 20)
+        Me.chkUseColour.Size = New System.Drawing.Size(115, 20)
         Me.chkUseColour.TabIndex = 23
-        Me.chkUseColour.Text = "Use Colour"
+        Me.chkUseColour.Text = "Use Packing"
         Me.chkUseColour.UseVisualStyleBackColor = True
         '
         'chkUseSort
@@ -145,9 +135,9 @@ Partial Class frmSettings
         Me.chkUsePack.Location = New System.Drawing.Point(718, 218)
         Me.chkUsePack.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.chkUsePack.Name = "chkUsePack"
-        Me.chkUsePack.Size = New System.Drawing.Size(115, 20)
+        Me.chkUsePack.Size = New System.Drawing.Size(105, 20)
         Me.chkUsePack.TabIndex = 25
-        Me.chkUsePack.Text = "Use Packing"
+        Me.chkUsePack.Text = "Use Create"
         Me.chkUsePack.UseVisualStyleBackColor = True
         '
         'Label1
@@ -260,7 +250,7 @@ Partial Class frmSettings
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(123, 22)
         Me.Button4.TabIndex = 43
-        Me.Button4.Text = "Save Jobs"
+        Me.Button4.Text = "Save Carts"
         Me.Button4.UseVisualStyleBackColor = True
         '
         'Label4
@@ -362,11 +352,49 @@ Partial Class frmSettings
         Me.txtBoxBarcodectrl.Size = New System.Drawing.Size(48, 21)
         Me.txtBoxBarcodectrl.TabIndex = 54
         '
+        'chkThai
+        '
+        Me.chkThai.AutoSize = True
+        Me.chkThai.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkThai.Location = New System.Drawing.Point(717, 364)
+        Me.chkThai.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.chkThai.Name = "chkThai"
+        Me.chkThai.Size = New System.Drawing.Size(58, 20)
+        Me.chkThai.TabIndex = 56
+        Me.chkThai.Text = "Thai"
+        Me.chkThai.UseVisualStyleBackColor = True
+        '
+        'chkEnglish
+        '
+        Me.chkEnglish.AutoSize = True
+        Me.chkEnglish.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkEnglish.Location = New System.Drawing.Point(717, 336)
+        Me.chkEnglish.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.chkEnglish.Name = "chkEnglish"
+        Me.chkEnglish.Size = New System.Drawing.Size(78, 20)
+        Me.chkEnglish.TabIndex = 55
+        Me.chkEnglish.Text = "English"
+        Me.chkEnglish.UseVisualStyleBackColor = True
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(713, 295)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(103, 24)
+        Me.Label10.TabIndex = 57
+        Me.Label10.Text = "Language"
+        '
         'frmSettings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(913, 579)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.chkThai)
+        Me.Controls.Add(Me.chkEnglish)
         Me.Controls.Add(Me.txtBoxBarcodectrl)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Button6)
@@ -392,7 +420,6 @@ Partial Class frmSettings
         Me.Controls.Add(Me.chkUsePack)
         Me.Controls.Add(Me.chkUseSort)
         Me.Controls.Add(Me.chkUseColour)
-        Me.Controls.Add(Me.chkUseSpectro)
         Me.Controls.Add(Me.lstBaudRates)
         Me.Controls.Add(Me.btnSetSave)
         Me.Controls.Add(Me.lstSerialPorts)
@@ -411,7 +438,6 @@ Partial Class frmSettings
     Friend WithEvents lstSerialPorts As ListBox
     Friend WithEvents btnSetSave As Button
     Friend WithEvents lstBaudRates As ListBox
-    Friend WithEvents chkUseSpectro As CheckBox
     Friend WithEvents chkUseColour As CheckBox
     Friend WithEvents chkUseSort As CheckBox
     Friend WithEvents chkUsePack As CheckBox
@@ -439,4 +465,7 @@ Partial Class frmSettings
     Friend WithEvents txtBoxPackReports As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents txtBoxBarcodectrl As TextBox
+    Friend WithEvents chkThai As CheckBox
+    Friend WithEvents chkEnglish As CheckBox
+    Friend WithEvents Label10 As Label
 End Class

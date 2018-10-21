@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmExChangeCone
+Partial Class frmExChangedrum
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,6 +22,7 @@ Partial Class frmExChangeCone
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmExChangedrum))
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtReplaceCone = New System.Windows.Forms.TextBox()
         Me.btnGoBack = New System.Windows.Forms.Button()
@@ -360,6 +361,7 @@ Partial Class frmExChangeCone
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtRemoveCone)
         Me.Controls.Add(Me.Label1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmExChangeCone"
         Me.Text = "ExChange Cone"
         Me.ResumeLayout(False)

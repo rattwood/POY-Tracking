@@ -7,7 +7,7 @@ Imports System.Text
 
 
 Public Class frmPacking
-    Private SQL As New SQLConn
+    ' Private SQL As New SQLConn
 
     '---------------------------------------    SETTING UP LOCAL INSTANCE FOR SQL LINK FOR DATAGRID TO SYNC CORRECTLY WITH SQL -------------------------------------
     Public LConn As New SqlConnection(My.Settings.SQLConn) 'This need to be changed in Project/Propertie/Settings
@@ -29,15 +29,7 @@ Public Class frmPacking
 
 
     Dim psorterror As String = 0
-    Dim varVisConeInspect As String
-    Dim coneBarley As String = 0
-    Dim coneZero As String = 0
-    Dim coneM10 As String = 0
-    Dim coneP10 As String = 0
-    Dim coneM30 As String = 0
-    Dim coneP30 As String = 0
-    Dim coneM50 As String = 0
-    Dim coneP50 As String = 0
+
     Dim btnImage As Image
     Dim keepDefcodes As Integer
 
@@ -74,43 +66,33 @@ Public Class frmPacking
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        POYDrums = frmDGV.DGVdata.Rows(0).Cells("POYDRUMPERPAL").Value
+
+        lblCartNo.Text = frmJobEntry.varCartNum
+        lblJobNum.Text = frmJobEntry.varJobNum
+        lblProduct.Text = frmJobEntry.txtBoxCartBcode.Text
+        lblMerge.Text = frmJobEntry.mergeNum
+
+        Dim totDrum As Integer
+        Dim tmpNum As String = 0
 
 
 
-        ' SELECT CONE NUMBER RANGE BASED ON CART NUMBER
-
-        Select Case frmJobEntry.ComDrumLayer.Text
-            Case Is = 7
-                POYDrums = frmJobEntry.ComDrumLayer.Text
-            Case Is = 12
-                POYDrums = 4 * frmJobEntry.ComDrumLayer.Text
-        End Select
-
-
-
-
-        Me.txtCartNum.Text = frmJobEntry.cartSelect
-        Me.lblJobNum.Text = frmJobEntry.varJobNum
 
 
         'GET NUMBER OF CONES THAT NEED ALLOCATING Count agains Job Barcode
+        totDrum = POYDrums
 
-
-        For i = 1 To 32
-            If frmDGV.DGVdata.Rows(i - 1).Cells(9).Value = "9" And frmDGV.DGVdata.Rows(i - 1).Cells(43).Value = False Then
-                toAllocatedCount = toAllocatedCount + 1
-            End If
-        Next
-
-        txtboxTotal.Text = toAllocatedCount
+        toAllocatedCount = totDrum - (totDrum - frmJobEntry.LRecordCount)
+        txtboxAllocated.Text = toAllocatedCount
+        txtboxTotal.Text = totDrum
 
         Me.KeyPreview = True  'Allows us to look for advace character from barcode
 
         'IF THIS IS AN EXISTING JOB THEN CALL BACK VALUES FROM DATABASE
-        If frmJobEntry.coneValUpdate Then UpdateConeVal()
+        If frmJobEntry.POYValUpdate Then UpdateConeVal()
 
 
-        If My.Settings.debugSet Then frmDGV.Show()
 
 
 
@@ -121,17 +103,17 @@ Public Class frmPacking
 
 
 
-        For rw As Integer = 1 To 32
+        For rw As Integer = 1 To LRecordCount
 
-            If frmDGV.DGVdata.Rows(rw - 1).Cells(9).Value = "9" And frmDGV.DGVdata.Rows(rw - 1).Cells(43).Value = False Then
-                Me.Controls("btnCone" & rw).BackColor = Color.Green       'Grade A Cone
+            If frmDGV.DGVdata.Rows(rw - 1).Cells(6).Value = "9" And frmDGV.DGVdata.Rows(rw - 1).Cells(43).Value = False Then
+                Me.Controls("Button" & rw).BackColor = Color.Green       'Grade A Cone
             End If
 
             If frmDGV.DGVdata.Rows(rw - 1).Cells(9).Value = "15" Then
-                Me.Controls("btnCone" & rw).BackColor = Color.LightGreen       'Grade A Cone
+                Me.Controls("Button" & rw).BackColor = Color.LightGreen       'Grade A Cone
             End If
 
-            Me.Controls("btnCone" & rw).Enabled = False
+            Me.Controls("Button" & rw).Enabled = False
         Next
 
 
@@ -174,7 +156,7 @@ Public Class frmPacking
 
 
 
-        For i = 1 To 32
+        For i = 1 To 72
 
 
             If frmDGV.DGVdata.Rows(i - 1).Cells(36).Value = bcodeScan And frmDGV.DGVdata.Rows(i - 1).Cells(9).Value = "9" And frmDGV.DGVdata.Rows(i - 1).Cells(43).Value = False Then
@@ -211,13 +193,7 @@ Public Class frmPacking
                 frmDGV.DGVdata.Rows(i - 1).Cells(9).Value = "14"
                 frmDGV.DGVdata.Rows(i - 1).Cells(32).Value = today
 
-                'CHECK TO SEE IF DATE ALREADY SET FOR END TIME
-
-                If IsDBNull(frmDGV.DGVdata.Rows(0).Cells("PACKENDTM").Value) Then
-                    For rows As Integer = 1 To 32
-                        If My.Settings.chkUseColour = True Then frmDGV.DGVdata.Rows((rows - 1) - coneNumOffset).Cells("PACKENDTM").Value = varCartEndTime 'PACKING CHECK END TIME
-                    Next
-                End If
+                '
 
                 Me.Hide()
                 frmRemoveCone.Show()
@@ -245,7 +221,7 @@ Public Class frmPacking
     End Sub
 
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub btnFinish_Click(sender As Object, e As EventArgs) Handles btnFinish.Click
 
         'frmPackReport.Hide()
 
@@ -256,8 +232,8 @@ Public Class frmPacking
         If frmJobEntry.LConn.State = ConnectionState.Open Then frmJobEntry.LConn.Close()
         frmDGV.DGVdata.ClearSelection()
         frmJobEntry.Show()
-        frmJobEntry.txtPalletNum.Clear()
-        frmJobEntry.txtPalletNum.Focus()
+        frmJobEntry.txtBoxCartBcode.Clear()
+        frmJobEntry.txtBoxCartBcode.Focus()
         Me.Close()
     End Sub
 
@@ -307,8 +283,8 @@ Public Class frmPacking
 
         If frmJobEntry.LConn.State = ConnectionState.Open Then frmJobEntry.LConn.Close()
         frmDGV.DGVdata.ClearSelection()
-        frmJobEntry.txtPalletNum.Clear()
-        frmJobEntry.txtPalletNum.Focus()
+        frmJobEntry.txtTraceNum.Clear()
+        frmJobEntry.txtTraceNum.Focus()
         frmJobEntry.Show()
         Me.Close()
 
@@ -330,13 +306,8 @@ Public Class frmPacking
 
     End Sub
 
-    Private Sub btnCone32_Click(sender As Object, e As EventArgs)
 
-    End Sub
 
-    Private Sub btnCone14_Click(sender As Object, e As EventArgs) Handles btnCone14.Click
-
-    End Sub
 
     'THIS LOOKS FOR ENTER key to be pressed or received via barcode
     Private Sub frmJobEntry_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
