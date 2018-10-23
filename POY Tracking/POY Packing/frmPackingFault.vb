@@ -225,9 +225,9 @@
 
 
 
-            If frmPacking.packingActive Then
+            If frmPacking72.packingActive Then
 
-                frmPacking.Controls("btnCone" & changeConeNum.ToString).BackColor = Color.Yellow
+                frmPacking72.Controls("btnCone" & changeConeNum.ToString).BackColor = Color.Yellow
 
                 If defectCone = 1 Then
                     frmDGV.DGVdata.Rows(changeConeNum - 1).Cells(9).Value = "14"  'change cone state back to DEFECT FROM PACKING
@@ -328,11 +328,11 @@
 
         If shortCone = 2 And hasdefect = 0 Then
 
-            frmPacking.toAllocatedCount = frmPacking.toAllocatedCount + 1  'reduce number of cones to allocate
+            frmPacking72.toAllocatedCount = frmPacking72.toAllocatedCount + 1  'reduce number of cones to allocate
 
         Else
 
-            frmPacking.toAllocatedCount = frmPacking.toAllocatedCount - 1  'reduce number of cones to allocate
+            frmPacking72.toAllocatedCount = frmPacking72.toAllocatedCount - 1  'reduce number of cones to allocate
 
         End If
 
@@ -359,11 +359,11 @@
         Me.chk_TR.Visible = False
         Me.chk_B.Visible = False
         Me.chk_C.Visible = False
-        frmPacking.UpdateConeVal()
-        frmPacking.Show()
-        frmPacking.txtConeBcode.Clear()
-        frmPacking.txtConeBcode.Focus()
-        frmPacking.endCheck()   'CHECK TO SEE IF THIS WAS THE LAST CHEESE 
+        frmPacking72.UpdateConeVal()
+        frmPacking72.Show()
+        frmPacking72.txtConeBcode.Clear()
+        frmPacking72.txtConeBcode.Focus()
+        frmPacking72.endCheck()   'CHECK TO SEE IF THIS WAS THE LAST CHEESE 
         Me.Close()
 
     End Sub
@@ -371,11 +371,11 @@
 
     Private Sub btnGoBack_Click(sender As Object, e As EventArgs) Handles btnGoBack.Click
 
-        If frmPacking.packingActive Then
+        If frmPacking72.packingActive Then
             Me.Close()
-            frmPacking.Show()
-            frmPacking.txtConeBcode.Clear()
-            frmPacking.txtConeBcode.Focus()
+            frmPacking72.Show()
+            frmPacking72.txtConeBcode.Clear()
+            frmPacking72.txtConeBcode.Focus()
         Else 'we have come from job entry screen
             Me.Close()
             frmJobEntry.Show()

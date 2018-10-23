@@ -126,6 +126,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="POY Start\frmPacking.designer.vb">
+      <DependentUpon>frmPacking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Start\frmPacking.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="POY Start\frmPaletteCreate.Designer.vb">
       <DependentUpon>frmPaletteCreate.vb</DependentUpon>
     </Compile>
@@ -240,10 +246,10 @@
     <Compile Include="POY Packing\frmExChangedrum.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="POY Packing\frmPacking.designer.vb">
-      <DependentUpon>frmPacking.vb</DependentUpon>
+    <Compile Include="POY Packing\frmPacking72.designer.vb">
+      <DependentUpon>frmPacking72.vb</DependentUpon>
     </Compile>
-    <Compile Include="POY Packing\frmPacking.vb">
+    <Compile Include="POY Packing\frmPacking72.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="POY Packing\frmPackingFault.designer.vb">
@@ -322,8 +328,8 @@
     <EmbeddedResource Include="POY Packing\frmExChangedrum.resx">
       <DependentUpon>frmExChangedrum.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="POY Packing\frmPacking.resx">
-      <DependentUpon>frmPacking.vb</DependentUpon>
+    <EmbeddedResource Include="POY Packing\frmPacking72.resx">
+      <DependentUpon>frmPacking72.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POY Start\frmJobEntry.en.resx">
       <DependentUpon>frmJobEntry.vb</DependentUpon>
@@ -333,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="POY Start\frmJobEntry.th-TH.resx">
       <DependentUpon>frmJobEntry.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Start\frmPacking.resx">
+      <DependentUpon>frmPacking.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POY Start\frmPaletteCreate.resx">
       <DependentUpon>frmPaletteCreate.vb</DependentUpon>

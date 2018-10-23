@@ -237,7 +237,7 @@
     <value>75, 23</value>
   </data>
   <data name="btnSettings.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>5</value>
   </data>
   <data name="btnSettings.Text" xml:space="preserve">
     <value>   Settings</value>
@@ -264,7 +264,7 @@
     <value>113, 47</value>
   </data>
   <data name="btnCancelReport.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="btnCancelReport.Text" xml:space="preserve">
     <value>Cancel</value>
@@ -421,7 +421,7 @@
     <value>410, 44</value>
   </data>
   <data name="txtBoxCartBcode.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+    <value>3</value>
   </data>
   <data name="txtBoxCartBcode.Visible" type="System.Boolean, mscorlib">
     <value>False</value>

@@ -53,6 +53,7 @@ Public Class frmJobEntry
     Public varweightcode As String
     Public drumPerPal As String
     Public ExistingProd As String
+    Public drumSrtAllcount As String
 
     Dim machineName As String = ""
     Dim machineCode As String
@@ -175,17 +176,17 @@ Public Class frmJobEntry
 
 
 
-                Dim count As String
+
 
                 For i = 1 To LRecordCount
                     If Not IsDBNull((frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value)) Then
                         If frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value = 15 Then
-                            count = count + 1
+                            drumSrtAllcount = drumSrtAllcount + 1
                         End If
                     End If
                 Next
 
-                If count = frmDGV.DGVdata.Rows(0).Cells("POYDRUMPERPAL").Value Then
+                If drumSrtAllcount = frmDGV.DGVdata.Rows(0).Cells("POYDRUMPERPAL").Value Then
                     MsgBox("This PALETTE is already Finished")
                     Me.txtTraceNum.Clear()
                     Me.txtTraceNum.Focus()
@@ -229,7 +230,7 @@ Public Class frmJobEntry
         tracePassed = 1
         txtBoxCartBcode.Visible = True
         txtBoxCartBcode.Focus()
-        dbBarcode = ""
+        'dbBarcode = ""
 
     End Sub
 
@@ -248,7 +249,7 @@ Public Class frmJobEntry
                 month = txtBoxCartBcode.Text.Substring(7, 2)
                 doffingNum = txtBoxCartBcode.Text.Substring(9, 3)
                 cartNum = txtBoxCartBcode.Text.Substring(12, 2)
-
+                mergeNum = txtBoxCartBcode.Text.Substring(9, 3)
                 varCartBCode = txtTraceNum.Text
 
                 varMachineCode = machineCode
@@ -262,7 +263,7 @@ Public Class frmJobEntry
                 varCartSelect = cartSelect
 
 
-                varJobNum = txtBoxCartBcode.Text
+                varJobNum = txtTraceNum.Text
 
 
                 dbBarcode = txtTraceNum.Text    '.Replace(varCartNum, varCartNameA)
@@ -298,6 +299,33 @@ Public Class frmJobEntry
             LExecQuery("Update POYTrack Set POYPRNUM = '" & productCode & "' Where POYTRACENUM = '" & dbBarcode & "' ")
 
         End If
+
+        'GET PRODUCT INFORMATION
+        LExecQuery("Select * from POYProduct Where POYPRNUM = '" & varProductCode & "'  ")
+
+        If LRecordCount > 0 Then
+            'LOAD THE DATA FROM dB IN TO THE DATAGRID
+            frmDGV.DGVdata.DataSource = LDS.Tables(0)
+            frmDGV.DGVdata.Rows(0).Selected = True
+
+            varProductName = frmDGV.DGVdata.Rows(0).Cells("POYPRNAME").Value
+
+            If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYPRODWEIGHT").Value) Then
+                varProdWeight = frmDGV.DGVdata.Rows(0).Cells("POYPRODWEIGHT").Value
+            Else
+                varProdWeight = 0.0
+            End If
+
+            mergeNum = frmDGV.DGVdata.Rows(0).Cells("POYMERGENUM").Value
+            Else
+                MsgBox("This Product does information does not exist, please add to your product list in Settings")
+            Me.txtBoxCartBcode.Clear()
+            Me.txtBoxCartBcode.Focus()
+            Me.txtBoxCartBcode.Refresh()
+        End If
+
+
+
 
         PackCheck()
 
@@ -354,6 +382,7 @@ Public Class frmJobEntry
         frmDGV.DGVdata.DataSource = LDS.Tables(0)
         frmDGV.DGVdata.Rows(0).Selected = True
         Dim LCB As SqlCommandBuilder = New SqlCommandBuilder(LDA)
+
         Try
             If LRecordCount > 0 Then
 
@@ -361,15 +390,16 @@ Public Class frmJobEntry
                     Case "72"
                         If LRecordCount = 72 Then
                             POYValUpdate = 1
-                            Me.Hide()
-                            frmPacking.Show()
+                            ' Me.Hide()
+                            frmPacking72.Show()
 
                         End If
                     Case "48"
                         If LRecordCount = 48 Then
                             POYValUpdate = 1
-                            MsgBox("Not 48 pack yet")
                             Me.Hide()
+                            frmPacking72.Show()
+
                         End If
                 End Select
 
@@ -486,12 +516,15 @@ Public Class frmJobEntry
         Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
 
 
-
+        Dim fmt As String = "00"
+        Dim modIdxNum As String
 
 
 
 
         For i As Integer = 1 To drumPerPal
+
+            modIdxNum = i.ToString(fmt)
 
             'moddrumNum = i.ToString(fmt)   ' FORMATS THE drum NUMBER TO 3 DIGITS
             '  drumBarcode = modLotStr & moddrumNum   'CREATE THE drum BARCODE NUMBER
@@ -517,7 +550,7 @@ Public Class frmJobEntry
             ' LAddParam("@poystepnum", "0")
             ' LAddParam("@poybcodedrum", "0")
             'LAddParam("@poypalnum", 0)
-            'LAddParam("@poypackidx", "0")
+            LAddParam("@poypackidx", modIdxNum)
             LAddParam("@poytracenum", dbBarcode)
             LAddParam("@poydrumperpal", drumPerPal)
 
@@ -528,31 +561,29 @@ Public Class frmJobEntry
             '       & "VALUES (@poymcnum, @poyprodnum,@yy,@mm,@doff,@drum,@merge,@poypackname,@poyshipname,@poydrumstate,@poyfulldrum,@poyshortdrum,@poypackdate,@poyshipdate,@poystepnum," _
             '       & "@poybcodedrum,@poypalnum,@poypackidx,@poytracenum) ")
 
-            LExecQuery("INSERT INTO POYTrack (POYTRACENUM,POYDRUMPERPAL) VALUES (@poytracenum,@poydrumperpal)")
+            LExecQuery("INSERT INTO POYTrack (POYTRACENUM,POYDRUMPERPAL,POYPACKIDX) VALUES (@poytracenum,@poydrumperpal,@poypackidx)")
 
 
 
         Next
 
         LExecQuery("Select * FROM PoyTrack WHERE POYTRACENUM = '" & dbBarcode & "' ORDER BY POYPACKIDX")
+        Try
+            If LRecordCount > 0 Then
+                frmDGV.DGVdata.DataSource = LDS.Tables(0)
+                frmDGV.DGVdata.Rows(0).Selected = True
 
-        Label3.Text = ""
-        Label3.Visible = True
-        Me.Cursor = System.Windows.Forms.Cursors.Default
 
-
-        If LRecordCount > 1 Then
-            Label3.Text = ""
-            Label3.Visible = True
+                Me.Cursor = System.Windows.Forms.Cursors.Default
+                Label3.Text = ""
+                Label3.Visible = True
+            End If
+        Catch ex As Exception
             Me.Cursor = System.Windows.Forms.Cursors.Default
-            Exit Sub
-        Else
-            MsgBox("Records Not created")
-        End If
+            MsgBox("Job creation Error")
+        End Try
 
-        Label3.Text = ""
-        Label3.Visible = True
-        Me.Cursor = System.Windows.Forms.Cursors.Default
+
 
     End Sub
 

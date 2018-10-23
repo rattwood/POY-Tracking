@@ -18,7 +18,7 @@ Public Class frmRemoveCone
 
             chkBCode = TextBox1.Text
 
-            If chkBCode = frmPacking.bcodeScan Then
+            If chkBCode = frmPacking72.bcodeScan Then
 
                 btnContinue.Enabled = True
 
@@ -45,9 +45,9 @@ Public Class frmRemoveCone
     Private Sub btnContinue_Click(sender As Object, e As EventArgs) Handles btnContinue.Click
 
 
-        frmPacking.txtConeBcode.Clear()
-                frmPacking.txtConeBcode.Focus()
-                frmPacking.Show()
+        frmPacking72.txtConeBcode.Clear()
+                frmPacking72.txtConeBcode.Focus()
+                frmPacking72.Show()
 
         Me.Close()
 
@@ -55,7 +55,7 @@ Public Class frmRemoveCone
 
     Private Sub frmRemoveCone_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        Me.Label5.Text = frmPacking.bcodeScan
+        Me.Label5.Text = frmPacking72.bcodeScan
         Me.KeyPreview = True
 
         Me.btnContinue.Enabled = False

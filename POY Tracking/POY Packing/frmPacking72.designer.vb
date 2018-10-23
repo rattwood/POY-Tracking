@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class frmPacking
+Partial Class frmPacking72
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,7 +22,7 @@ Partial Class frmPacking
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPacking))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPacking72))
         Me.Label5 = New System.Windows.Forms.Label()
         Me.lblJobNum = New System.Windows.Forms.Label()
         Me.txtConeBcode = New System.Windows.Forms.TextBox()
@@ -135,9 +135,8 @@ Partial Class frmPacking
         Me.lblJobNum.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.lblJobNum.Location = New System.Drawing.Point(120, 12)
         Me.lblJobNum.Name = "lblJobNum"
-        Me.lblJobNum.Size = New System.Drawing.Size(106, 24)
+        Me.lblJobNum.Size = New System.Drawing.Size(0, 24)
         Me.lblJobNum.TabIndex = 164
-        Me.lblJobNum.Text = "trace Num"
         '
         'txtConeBcode
         '
@@ -1486,9 +1485,8 @@ Partial Class frmPacking
         Me.lblProduct.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.lblProduct.Location = New System.Drawing.Point(360, 12)
         Me.lblProduct.Name = "lblProduct"
-        Me.lblProduct.Size = New System.Drawing.Size(153, 24)
+        Me.lblProduct.Size = New System.Drawing.Size(0, 24)
         Me.lblProduct.TabIndex = 316
-        Me.lblProduct.Text = "8888888888888"
         '
         'lblMerge
         '
@@ -1500,7 +1498,7 @@ Partial Class frmPacking
         Me.lblMerge.TabIndex = 318
         Me.lblMerge.Text = "TF88"
         '
-        'frmPacking
+        'frmPacking72
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -1600,7 +1598,7 @@ Partial Class frmPacking
         Me.Controls.Add(Me.txtConeBcode)
         Me.Controls.Add(Me.Label3)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "frmPacking"
+        Me.Name = "frmPacking72"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "72 Drum/Pallette Packing"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
