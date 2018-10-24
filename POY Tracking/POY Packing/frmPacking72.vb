@@ -67,7 +67,7 @@ Public Class frmPacking72
     'Faults
 
 
-    Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub frmPacking72_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
 
 
@@ -110,15 +110,17 @@ Public Class frmPacking72
 
         For rw As Integer = 1 To POYDrums
 
-            If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value) Then
-                MsgBox("in here")
+            If IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value) Then
+                Continue For
+            Else
+
                 If frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value < "15" Then
-                    Me.Controls("Button" & rw).BackgroundImage = My.Resources.NoDrum    'To allocate
+                    Controls("Button" & rw).BackgroundImage = My.Resources.NoDrum    'To allocate
+                    Controls("Button" & rw).ForeColor = Color.Black
+                ElseIf frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value = "15" Then
+                    Controls("Button" & rw).BackgroundImage = My.Resources.Have_Drum        'Already allocated
+                    Controls("Button" & rw).ForeColor = Color.Black
                 End If
-            ElseIf frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value = "15" Then
-
-                Me.Controls("Button" & rw).BackgroundImage = My.Resources.Have_Drum        'Already allocated
-
             End If
 
             Me.Controls("Button" & rw).Enabled = False
@@ -126,14 +128,11 @@ Public Class frmPacking72
 
         'Find next free cell in DGV
         For i = 1 To POYDrums
-            If Not IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value) Then
-                nextFree = nextfree + 1
-            Else
-                MsgBox(nextFree)
+            If IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value) Then
                 Exit For
+            Else
+                nextFree = nextFree + 1
             End If
-
-
         Next
 
 
@@ -174,12 +173,12 @@ Public Class frmPacking72
         'FIND NEXT PREE DRUM LOCATION
         For i = 1 To POYDrums
             If IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMBCODE").Value) Then
-                nextFree = nextFree + 1
+                nextFree = i
             End If
         Next
 
 
-        For i = 1 To POYDrums
+        For i = nextFree To POYDrums
 
 
             If frmDGV.DGVdata.Rows(i - 1).Cells(6).Value = bcodeScan And frmDGV.DGVdata.Rows(i - 1).Cells(9).Value = "9" And frmDGV.DGVdata.Rows(i - 1).Cells(43).Value = False Then

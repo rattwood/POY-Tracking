@@ -277,7 +277,7 @@ Public Class frmJobEntry
             End If
 
         Catch ex As Exception
-            MsgBox("Cart BarCode Is Not Valid")
+            MsgBox("Cart BarCode Is Not Valid  ")
             Me.txtBoxCartBcode.Clear()
             Me.txtBoxCartBcode.Focus()
             Me.txtBoxCartBcode.Refresh()
@@ -390,13 +390,15 @@ Public Class frmJobEntry
                     Case "72"
                         If LRecordCount = 72 Then
                             POYValUpdate = 1
-                            ' Me.Hide()
+                            dbBarcode = ""
+                            Me.Hide()
                             frmPacking72.Show()
 
                         End If
                     Case "48"
                         If LRecordCount = 48 Then
                             POYValUpdate = 1
+                            dbBarcode = ""
                             Me.Hide()
                             frmPacking72.Show()
 
@@ -409,7 +411,9 @@ Public Class frmJobEntry
                 dbBarcode = ""
             End If
         Catch ex As Exception
-            MsgBox("Cart BarCode Is Not Valid")
+            LException = "ExecQuery Error:   " & vbNewLine & ex.Message
+            MsgBox(LException & "   Cart BarCode Is Not Valid ")
+
             Me.txtBoxCartBcode.Clear()
             Me.txtBoxCartBcode.Focus()
             Me.txtBoxCartBcode.Refresh()
