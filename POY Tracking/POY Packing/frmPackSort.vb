@@ -26,8 +26,8 @@ Public Class frmPackSort
             If frmJobEntry.LConn.State = ConnectionState.Open Then frmJobEntry.LConn.Close()
             frmDGV.DGVdata.ClearSelection()
             frmJobEntry.Show()
-        frmJobEntry.txtTraceNum.Clear()
-        frmJobEntry.txtTraceNum.Focus()
+        frmJobEntry.txtDrumNum.Clear()
+        frmJobEntry.txtDrumNum.Focus()
         Me.Close()
     End Sub
 
@@ -238,8 +238,8 @@ Public Class frmPackSort
         If frmJobEntry.LConn.State = ConnectionState.Open Then frmJobEntry.LConn.Close()
         frmDGV.DGVdata.ClearSelection()
         frmJobEntry.Show()
-        frmJobEntry.txtTraceNum.Clear()
-        frmJobEntry.txtTraceNum.Focus()
+        frmJobEntry.txtDrumNum.Clear()
+        frmJobEntry.txtDrumNum.Focus()
         Me.Close()
 
         End Sub

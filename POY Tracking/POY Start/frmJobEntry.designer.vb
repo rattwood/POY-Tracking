@@ -27,17 +27,17 @@ Partial Class frmJobEntry
         Me.txtOperator = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.txtTraceNum = New System.Windows.Forms.TextBox()
+        Me.txtDrumNum = New System.Windows.Forms.TextBox()
         Me.btnSettings = New System.Windows.Forms.Button()
         Me.btnCancelReport = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.comBoxDrumPal = New System.Windows.Forms.ComboBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.txtBoxCartBcode = New System.Windows.Forms.TextBox()
         Me.ToraydbBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Toraydb = New POY_Tracking.Toraydb()
         Me.lblAutoCorrect = New System.Windows.Forms.Label()
+        Me.btnNewPallet = New System.Windows.Forms.Button()
+        Me.btnOldPallet = New System.Windows.Forms.Button()
         CType(Me.ToraydbBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Toraydb, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -57,10 +57,10 @@ Partial Class frmJobEntry
         resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.Name = "Label2"
         '
-        'txtTraceNum
+        'txtDrumNum
         '
-        resources.ApplyResources(Me.txtTraceNum, "txtTraceNum")
-        Me.txtTraceNum.Name = "txtTraceNum"
+        resources.ApplyResources(Me.txtDrumNum, "txtDrumNum")
+        Me.txtDrumNum.Name = "txtDrumNum"
         '
         'btnSettings
         '
@@ -91,18 +91,8 @@ Partial Class frmJobEntry
         '
         resources.ApplyResources(Me.comBoxDrumPal, "comBoxDrumPal")
         Me.comBoxDrumPal.FormattingEnabled = True
-        Me.comBoxDrumPal.Items.AddRange(New Object() {resources.GetString("comBoxDrumPal.Items"), resources.GetString("comBoxDrumPal.Items1")})
+        Me.comBoxDrumPal.Items.AddRange(New Object() {resources.GetString("comBoxDrumPal.Items"), resources.GetString("comBoxDrumPal.Items1"), resources.GetString("comBoxDrumPal.Items2")})
         Me.comBoxDrumPal.Name = "comBoxDrumPal"
-        '
-        'Label5
-        '
-        resources.ApplyResources(Me.Label5, "Label5")
-        Me.Label5.Name = "Label5"
-        '
-        'txtBoxCartBcode
-        '
-        resources.ApplyResources(Me.txtBoxCartBcode, "txtBoxCartBcode")
-        Me.txtBoxCartBcode.Name = "txtBoxCartBcode"
         '
         'ToraydbBindingSource
         '
@@ -120,19 +110,33 @@ Partial Class frmJobEntry
         Me.lblAutoCorrect.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.lblAutoCorrect.Name = "lblAutoCorrect"
         '
+        'btnNewPallet
+        '
+        Me.btnNewPallet.BackColor = System.Drawing.Color.LightGray
+        resources.ApplyResources(Me.btnNewPallet, "btnNewPallet")
+        Me.btnNewPallet.Name = "btnNewPallet"
+        Me.btnNewPallet.UseVisualStyleBackColor = False
+        '
+        'btnOldPallet
+        '
+        Me.btnOldPallet.BackColor = System.Drawing.Color.LightGray
+        resources.ApplyResources(Me.btnOldPallet, "btnOldPallet")
+        Me.btnOldPallet.Name = "btnOldPallet"
+        Me.btnOldPallet.UseVisualStyleBackColor = False
+        '
         'frmJobEntry
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.btnOldPallet)
+        Me.Controls.Add(Me.btnNewPallet)
         Me.Controls.Add(Me.lblAutoCorrect)
-        Me.Controls.Add(Me.txtBoxCartBcode)
-        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.comBoxDrumPal)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.btnCancelReport)
         Me.Controls.Add(Me.btnSettings)
-        Me.Controls.Add(Me.txtTraceNum)
+        Me.Controls.Add(Me.txtDrumNum)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtOperator)
@@ -147,7 +151,7 @@ Partial Class frmJobEntry
     Friend WithEvents txtOperator As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents txtTraceNum As TextBox
+    Friend WithEvents txtDrumNum As TextBox
     Friend WithEvents ToraydbBindingSource As BindingSource
     Friend WithEvents Toraydb As Toraydb
     Friend WithEvents btnSettings As Button
@@ -155,7 +159,7 @@ Partial Class frmJobEntry
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents comBoxDrumPal As ComboBox
-    Friend WithEvents Label5 As Label
-    Friend WithEvents txtBoxCartBcode As TextBox
     Friend WithEvents lblAutoCorrect As Label
+    Friend WithEvents btnNewPallet As Button
+    Friend WithEvents btnOldPallet As Button
 End Class

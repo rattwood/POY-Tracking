@@ -66,12 +66,12 @@ Partial Class frmPacking72
         Me.Button49 = New System.Windows.Forms.Button()
         Me.Button50 = New System.Windows.Forms.Button()
         Me.Button51 = New System.Windows.Forms.Button()
-        Me.Button74 = New System.Windows.Forms.Button()
+        Me.Button24 = New System.Windows.Forms.Button()
         Me.Button20 = New System.Windows.Forms.Button()
         Me.Button16 = New System.Windows.Forms.Button()
         Me.Button21 = New System.Windows.Forms.Button()
-        Me.Button78 = New System.Windows.Forms.Button()
-        Me.Button79 = New System.Windows.Forms.Button()
+        Me.Button22 = New System.Windows.Forms.Button()
+        Me.Button23 = New System.Windows.Forms.Button()
         Me.Button17 = New System.Windows.Forms.Button()
         Me.Button18 = New System.Windows.Forms.Button()
         Me.Button19 = New System.Windows.Forms.Button()
@@ -117,6 +117,12 @@ Partial Class frmPacking72
         Me.Label12 = New System.Windows.Forms.Label()
         Me.lblProduct = New System.Windows.Forms.Label()
         Me.lblMerge = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label5
@@ -167,7 +173,6 @@ Partial Class frmPacking72
         Me.btnFinish.TabIndex = 170
         Me.btnFinish.Text = "Finish Job"
         Me.btnFinish.UseVisualStyleBackColor = False
-        Me.btnFinish.Visible = False
         '
         'btnBack
         '
@@ -184,11 +189,12 @@ Partial Class frmPacking72
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Red
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(624, -1)
+        Me.Label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(568, 687)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(117, 37)
+        Me.Label1.Size = New System.Drawing.Size(232, 73)
         Me.Label1.TabIndex = 174
         Me.Label1.Text = "Label1"
         Me.Label1.Visible = False
@@ -221,9 +227,9 @@ Partial Class frmPacking72
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(953, 82)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(93, 24)
+        Me.Label4.Size = New System.Drawing.Size(80, 24)
         Me.Label4.TabIndex = 202
-        Me.Label4.Text = "LAYER 1"
+        Me.Label4.Text = "STEP 1"
         '
         'Label6
         '
@@ -231,9 +237,9 @@ Partial Class frmPacking72
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(648, 82)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(93, 24)
+        Me.Label6.Size = New System.Drawing.Size(80, 24)
         Me.Label6.TabIndex = 203
-        Me.Label6.Text = "LAYER 2"
+        Me.Label6.Text = "STEP 2"
         '
         'Label7
         '
@@ -241,9 +247,9 @@ Partial Class frmPacking72
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(953, 318)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(93, 24)
+        Me.Label7.Size = New System.Drawing.Size(80, 24)
         Me.Label7.TabIndex = 204
-        Me.Label7.Text = "LAYER 4"
+        Me.Label7.Text = "STEP 4"
         '
         'Label8
         '
@@ -251,9 +257,9 @@ Partial Class frmPacking72
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(648, 318)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(93, 24)
+        Me.Label8.Size = New System.Drawing.Size(80, 24)
         Me.Label8.TabIndex = 205
-        Me.Label8.Text = "LAYER 5"
+        Me.Label8.Text = "STEP 5"
         '
         'Label2
         '
@@ -303,9 +309,9 @@ Partial Class frmPacking72
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.Location = New System.Drawing.Point(351, 318)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(93, 24)
+        Me.Label10.Size = New System.Drawing.Size(80, 24)
         Me.Label10.TabIndex = 235
-        Me.Label10.Text = "LAYER 6"
+        Me.Label10.Text = "STEP 6"
         '
         'Label11
         '
@@ -313,9 +319,9 @@ Partial Class frmPacking72
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.Location = New System.Drawing.Point(351, 82)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(93, 24)
+        Me.Label11.Size = New System.Drawing.Size(80, 24)
         Me.Label11.TabIndex = 234
-        Me.Label11.Text = "LAYER 3"
+        Me.Label11.Text = "STEP 3"
         '
         'Button48
         '
@@ -701,21 +707,21 @@ Partial Class frmPacking72
         Me.Button51.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button51.UseVisualStyleBackColor = False
         '
-        'Button74
+        'Button24
         '
-        Me.Button74.BackColor = System.Drawing.SystemColors.Control
-        Me.Button74.BackgroundImage = CType(resources.GetObject("Button74.BackgroundImage"), System.Drawing.Image)
-        Me.Button74.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button74.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button74.ForeColor = System.Drawing.Color.Black
-        Me.Button74.Location = New System.Drawing.Point(568, 230)
-        Me.Button74.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button74.Name = "Button74"
-        Me.Button74.Size = New System.Drawing.Size(55, 45)
-        Me.Button74.TabIndex = 267
-        Me.Button74.Text = "24"
-        Me.Button74.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button74.UseVisualStyleBackColor = False
+        Me.Button24.BackColor = System.Drawing.SystemColors.Control
+        Me.Button24.BackgroundImage = CType(resources.GetObject("Button24.BackgroundImage"), System.Drawing.Image)
+        Me.Button24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button24.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button24.ForeColor = System.Drawing.Color.Black
+        Me.Button24.Location = New System.Drawing.Point(568, 230)
+        Me.Button24.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button24.Name = "Button24"
+        Me.Button24.Size = New System.Drawing.Size(55, 45)
+        Me.Button24.TabIndex = 267
+        Me.Button24.Text = "24"
+        Me.Button24.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button24.UseVisualStyleBackColor = False
         '
         'Button20
         '
@@ -765,37 +771,37 @@ Partial Class frmPacking72
         Me.Button21.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button21.UseVisualStyleBackColor = False
         '
-        'Button78
+        'Button22
         '
-        Me.Button78.BackColor = System.Drawing.SystemColors.Control
-        Me.Button78.BackgroundImage = CType(resources.GetObject("Button78.BackgroundImage"), System.Drawing.Image)
-        Me.Button78.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button78.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button78.ForeColor = System.Drawing.Color.Black
-        Me.Button78.Location = New System.Drawing.Point(686, 230)
-        Me.Button78.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button78.Name = "Button78"
-        Me.Button78.Size = New System.Drawing.Size(55, 45)
-        Me.Button78.TabIndex = 265
-        Me.Button78.Text = "22"
-        Me.Button78.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button78.UseVisualStyleBackColor = False
+        Me.Button22.BackColor = System.Drawing.SystemColors.Control
+        Me.Button22.BackgroundImage = CType(resources.GetObject("Button22.BackgroundImage"), System.Drawing.Image)
+        Me.Button22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button22.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button22.ForeColor = System.Drawing.Color.Black
+        Me.Button22.Location = New System.Drawing.Point(686, 230)
+        Me.Button22.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button22.Name = "Button22"
+        Me.Button22.Size = New System.Drawing.Size(55, 45)
+        Me.Button22.TabIndex = 265
+        Me.Button22.Text = "22"
+        Me.Button22.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button22.UseVisualStyleBackColor = False
         '
-        'Button79
+        'Button23
         '
-        Me.Button79.BackColor = System.Drawing.SystemColors.Control
-        Me.Button79.BackgroundImage = CType(resources.GetObject("Button79.BackgroundImage"), System.Drawing.Image)
-        Me.Button79.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button79.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button79.ForeColor = System.Drawing.Color.Black
-        Me.Button79.Location = New System.Drawing.Point(627, 230)
-        Me.Button79.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button79.Name = "Button79"
-        Me.Button79.Size = New System.Drawing.Size(55, 45)
-        Me.Button79.TabIndex = 266
-        Me.Button79.Text = "23"
-        Me.Button79.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button79.UseVisualStyleBackColor = False
+        Me.Button23.BackColor = System.Drawing.SystemColors.Control
+        Me.Button23.BackgroundImage = CType(resources.GetObject("Button23.BackgroundImage"), System.Drawing.Image)
+        Me.Button23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button23.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button23.ForeColor = System.Drawing.Color.Black
+        Me.Button23.Location = New System.Drawing.Point(627, 230)
+        Me.Button23.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button23.Name = "Button23"
+        Me.Button23.Size = New System.Drawing.Size(55, 45)
+        Me.Button23.TabIndex = 266
+        Me.Button23.Text = "23"
+        Me.Button23.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button23.UseVisualStyleBackColor = False
         '
         'Button17
         '
@@ -848,7 +854,7 @@ Partial Class frmPacking72
         'Button13
         '
         Me.Button13.BackColor = System.Drawing.SystemColors.Control
-        Me.Button13.BackgroundImage = Global.POY_Tracking.My.Resources.Resources.Have_Drum
+        Me.Button13.BackgroundImage = Global.POY_Tracking.My.Resources.Resources.NoDrum
         Me.Button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button13.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button13.ForeColor = System.Drawing.Color.Black
@@ -1494,15 +1500,80 @@ Partial Class frmPacking72
         Me.lblMerge.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.lblMerge.Location = New System.Drawing.Point(519, 12)
         Me.lblMerge.Name = "lblMerge"
-        Me.lblMerge.Size = New System.Drawing.Size(58, 24)
+        Me.lblMerge.Size = New System.Drawing.Size(0, 24)
         Me.lblMerge.TabIndex = 318
-        Me.lblMerge.Text = "TF88"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(395, 568)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(50, 13)
+        Me.Label13.TabIndex = 319
+        Me.Label13.Text = "NextFree"
+        Me.Label13.Visible = False
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(469, 568)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(45, 13)
+        Me.Label14.TabIndex = 320
+        Me.Label14.Text = "Label14"
+        Me.Label14.Visible = False
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(399, 603)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(51, 13)
+        Me.Label15.TabIndex = 321
+        Me.Label15.Text = "Allocated"
+        Me.Label15.Visible = False
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(469, 603)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(45, 13)
+        Me.Label16.TabIndex = 322
+        Me.Label16.Text = "Label16"
+        Me.Label16.Visible = False
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(399, 642)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(48, 13)
+        Me.Label17.TabIndex = 323
+        Me.Label17.Text = "CurCone"
+        Me.Label17.Visible = False
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(469, 642)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(45, 13)
+        Me.Label18.TabIndex = 324
+        Me.Label18.Text = "Label18"
+        Me.Label18.Visible = False
         '
         'frmPacking72
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1584, 861)
+        Me.Controls.Add(Me.Label18)
+        Me.Controls.Add(Me.Label17)
+        Me.Controls.Add(Me.Label16)
+        Me.Controls.Add(Me.Label15)
+        Me.Controls.Add(Me.Label14)
+        Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.lblMerge)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.lblProduct)
@@ -1542,12 +1613,12 @@ Partial Class frmPacking72
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button74)
+        Me.Controls.Add(Me.Button24)
         Me.Controls.Add(Me.Button20)
         Me.Controls.Add(Me.Button16)
         Me.Controls.Add(Me.Button21)
-        Me.Controls.Add(Me.Button78)
-        Me.Controls.Add(Me.Button79)
+        Me.Controls.Add(Me.Button22)
+        Me.Controls.Add(Me.Button23)
         Me.Controls.Add(Me.Button17)
         Me.Controls.Add(Me.Button18)
         Me.Controls.Add(Me.Button19)
@@ -1649,12 +1720,12 @@ Partial Class frmPacking72
     Friend WithEvents Button49 As Button
     Friend WithEvents Button50 As Button
     Friend WithEvents Button51 As Button
-    Friend WithEvents Button74 As Button
+    Friend WithEvents Button24 As Button
     Friend WithEvents Button20 As Button
     Friend WithEvents Button16 As Button
     Friend WithEvents Button21 As Button
-    Friend WithEvents Button78 As Button
-    Friend WithEvents Button79 As Button
+    Friend WithEvents Button22 As Button
+    Friend WithEvents Button23 As Button
     Friend WithEvents Button17 As Button
     Friend WithEvents Button18 As Button
     Friend WithEvents Button19 As Button
@@ -1700,4 +1771,10 @@ Partial Class frmPacking72
     Friend WithEvents Label12 As Label
     Friend WithEvents lblProduct As Label
     Friend WithEvents lblMerge As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents Label17 As Label
+    Friend WithEvents Label18 As Label
 End Class

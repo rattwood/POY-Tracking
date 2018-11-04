@@ -70,7 +70,7 @@ Public Class frmPacking48
 
         lblCartNo.Text = frmJobEntry.varCartNum
         lblJobNum.Text = frmJobEntry.varJobNum
-        lblProduct.Text = frmJobEntry.txtBoxCartBcode.Text
+        lblProduct.Text = frmJobEntry.txtDrumNum.Text
         lblMerge.Text = frmJobEntry.mergeNum
 
         Dim totDrum As Integer
@@ -232,8 +232,8 @@ Public Class frmPacking48
         If frmJobEntry.LConn.State = ConnectionState.Open Then frmJobEntry.LConn.Close()
         frmDGV.DGVdata.ClearSelection()
         frmJobEntry.Show()
-        frmJobEntry.txtBoxCartBcode.Clear()
-        frmJobEntry.txtBoxCartBcode.Focus()
+        frmJobEntry.txtDrumNum.Clear()
+        frmJobEntry.txtDrumNum.Focus()
         Me.Close()
     End Sub
 
@@ -283,8 +283,8 @@ Public Class frmPacking48
 
         If frmJobEntry.LConn.State = ConnectionState.Open Then frmJobEntry.LConn.Close()
         frmDGV.DGVdata.ClearSelection()
-        frmJobEntry.txtTraceNum.Clear()
-        frmJobEntry.txtTraceNum.Focus()
+        frmJobEntry.txtDrumNum.Clear()
+        frmJobEntry.txtDrumNum.Focus()
         frmJobEntry.Show()
         Me.Close()
 

@@ -328,11 +328,11 @@
 
         If shortCone = 2 And hasdefect = 0 Then
 
-            frmPacking72.toAllocatedCount = frmPacking72.toAllocatedCount + 1  'reduce number of cones to allocate
+            frmPacking72.tooAllocateCount = frmPacking72.tooAllocateCount + 1  'reduce number of cones to allocate
 
         Else
 
-            frmPacking72.toAllocatedCount = frmPacking72.toAllocatedCount - 1  'reduce number of cones to allocate
+            frmPacking72.tooAllocateCount = frmPacking72.tooAllocateCount - 1  'reduce number of cones to allocate
 
         End If
 
@@ -379,8 +379,8 @@
         Else 'we have come from job entry screen
             Me.Close()
             frmJobEntry.Show()
-            frmJobEntry.txtTraceNum.Clear()
-            frmJobEntry.txtTraceNum.Focus()
+            frmJobEntry.txtDrumNum.Clear()
+            frmJobEntry.txtDrumNum.Focus()
         End If
 
 

@@ -225,8 +225,8 @@ Public Class frmExChangedrum
 
         Me.Close()
         frmJobEntry.Show()
-        frmJobEntry.txtTraceNum.Clear()
-        frmJobEntry.txtTraceNum.Focus()
+        frmJobEntry.txtDrumNum.Clear()
+        frmJobEntry.txtDrumNum.Focus()
 
 
 
@@ -368,8 +368,8 @@ Public Class frmExChangedrum
         shortCone = 0
         Me.Close()
         frmJobEntry.Show()
-        frmJobEntry.txtTraceNum.Clear()
-        frmJobEntry.txtTraceNum.Focus()
+        frmJobEntry.txtDrumNum.Clear()
+        frmJobEntry.txtDrumNum.Focus()
     End Sub
 
 

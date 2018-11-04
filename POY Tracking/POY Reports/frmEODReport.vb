@@ -83,8 +83,8 @@ Public Class frmEODReport
 
     Private Sub canceljob()
         frmJobEntry.Show()
-        frmJobEntry.txtTraceNum.Clear()
-        frmJobEntry.txtTraceNum.Focus()
+        frmJobEntry.txtDrumNum.Clear()
+        frmJobEntry.txtDrumNum.Focus()
         Me.Close()
     End Sub
 
