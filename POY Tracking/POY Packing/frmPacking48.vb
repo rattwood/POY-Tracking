@@ -1,29 +1,13 @@
-﻿
-Imports Excel = Microsoft.Office.Interop.Excel
+﻿Imports Excel = Microsoft.Office.Interop.Excel
 Imports System.Data.SqlClient
 Imports System.ComponentModel
 Imports System.Text
 
 
 
-Public Class frmPacking72
-    ' Private SQL As New SQLConn
+Public Class frmPacking48
 
-    ''---------------------------------------    SETTING UP LOCAL INSTANCE FOR SQL LINK FOR DATAGRID TO SYNC CORRECTLY WITH SQL -------------------------------------
-    'Public LConn As New SqlConnection(My.Settings.SQLConn) 'This need to be changed in Project/Propertie/Settings
-    'Private LCmd As SqlCommand
-
-    ''SQL CONNECTORS
-    'Public LDA As SqlDataAdapter
-    'Public LDS As DataSet
-    'Public LDT As DataTable
-    'Public LCB As SqlCommandBuilder
-
-    'Public LRecordCount As Integer
-    'Private LException As String
-    '' SQL QUERY PARAMETERS
-    'Public LParams As New List(Of SqlParameter)
-    ''-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    '-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -35,7 +19,7 @@ Public Class frmPacking72
 
     Dim POYDrums As Integer
     Dim nextFree As Integer
-    Dim bcodeScan As String = ""
+    Public bcodeScan As String = ""
     Dim clr As String = ""
     Dim curcone As String = 0
     Dim tooAllocateCount As Integer 'count of cones requierd to be scanned
@@ -72,7 +56,7 @@ Public Class frmPacking72
     Dim stepNum As String
 
 
-    Private Sub frmPacking72_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub frmPacking48_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
 
 
@@ -155,6 +139,7 @@ Public Class frmPacking72
 
         Dim curDrum As String = nextFree  'so index for DGV works
         Dim drumCount As Integer = 0
+
 
 
 
@@ -287,6 +272,10 @@ Public Class frmPacking72
 
 
 
+
+
+
+
         Me.Close()
     End Sub
 
@@ -341,6 +330,7 @@ Public Class frmPacking72
 
 
         If frmJobEntry.LConn.State = ConnectionState.Open Then frmJobEntry.LConn.Close()
+
         frmDGV.DGVdata.ClearSelection()
         frmJobEntry.btnNewPallet.Enabled = True
         frmJobEntry.btnOldPallet.Enabled = True
@@ -361,6 +351,11 @@ Public Class frmPacking72
         Me.Close()
         frmJobEntry.Show()
         frmJobEntry.txtDrumNum.Clear()
+
+
+
+
+
 
 
 
@@ -501,3 +496,11 @@ Public Class frmPacking72
 
 
 End Class
+
+
+
+
+
+
+
+

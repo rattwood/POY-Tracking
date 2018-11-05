@@ -67,7 +67,7 @@ Public Class frmJobEntry
     Public cartReport As Integer
     Dim palNum As String
     Dim tracePassed As String = 0
-    Dim newJobFlag As Integer = 0
+    Public newJobFlag As Integer = 0
     Dim todayTimeDate As String
 
     Public SortOP As String
@@ -99,6 +99,7 @@ Public Class frmJobEntry
         Me.Text = "POY Packing"
 
         If My.Settings.debugSet Then frmDGV.Show()
+
 
     End Sub
 
@@ -294,10 +295,11 @@ Public Class frmJobEntry
 
         If newJobFlag Then
             '*************************  CHECK TO SEE IF JOB ALREADY EXISITS IF NOT CREATE JOB
-            LExecQuery("SELECT * FROM POYTrack WHERE POYTMPTRACE = '" & dbBarcode & "' Order By POYPACKIDX")
+            LExecQuery("SELECT * FROM POYTrack WHERE POYBCODEDRUM = '" & dbBarcode & "' Order By POYPACKIDX")
             Try
                 If LRecordCount > 0 Then  'If it exists then 
                     MsgBox("This Drum is allready allocated, " & vbCrLf & " Please use the FINISH OLD PALLET Option")
+                    frmDGV.DGVdata.ClearSelection()
                     cancelRoutine()
                     Exit Sub
 
@@ -455,9 +457,9 @@ Public Class frmJobEntry
                                 POYValUpdate = 1
                                 dbBarcode = ""
                                 Me.Hide()
-                                frmPacking72.Show()
+                            frmPacking120.Show()
 
-                            End If
+                        End If
 
                         Case "72"
                             If LRecordCount = 72 Then
@@ -472,9 +474,9 @@ Public Class frmJobEntry
                                 POYValUpdate = 1
                                 dbBarcode = ""
                                 Me.Hide()
-                                frmPacking72.Show()
+                            frmPacking48.Show()
 
-                            End If
+                        End If
                     End Select
 
                 End If
@@ -614,7 +616,7 @@ Public Class frmJobEntry
         Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
 
 
-        Dim fmt As String = "00"
+        Dim fmt As String = "000"
         Dim modIdxNum As String
 
 
@@ -667,12 +669,11 @@ Public Class frmJobEntry
 
 
         Try
-
             'Writes the scanned drum in to DB
             LExecQuery("UPDATE POYTRACK SET POYBCODEDRUM = '" & dbBarcode & "', POYPACKNAME = '" & txtOperator.Text & "', POYPACKDATE = '" & time & "', " _
                        & "POYMCNUM = '" & varMachineCode.ToString & "', POYMCNAME = '" & machineName & "', POYYY = '" & varYear.ToString & "', POYPRMM = '" & varMonth.ToString & "' , " _
                        & "POYDOFFNUM = '" & varDoffingNum.ToString & "', POYSPINNUM = '" & spinNum.ToString & "', POYDRUMSTATE = '15', POYSTEPNUM = '1' " _
-                       & "WHERE POYPACKIDX = '01' and POYTMPTRACE = '" & dbBarcode & "' ")
+                       & "WHERE POYPACKIDX = '001' and POYTMPTRACE = '" & dbBarcode & "' ")
         Catch ex As Exception
             Me.Cursor = System.Windows.Forms.Cursors.Default
             MsgBox("Job Update Error" & vbNewLine & ex.Message)
@@ -710,9 +711,9 @@ Public Class frmJobEntry
     End Sub
 
 
-    Private Sub btnSettings_Click_1(sender As Object, e As EventArgs) Handles btnSettings.Click
-        frmPassword.Show()
-    End Sub
+    'Private Sub btnSettings_Click_1(sender As Object, e As EventArgs)
+    '    frmPassword.Show()
+    'End Sub
 
 
 
@@ -733,15 +734,15 @@ Public Class frmJobEntry
         Label2.Visible = False
         txtDrumNum.Visible = False
         Me.txtDrumNum.Clear()
-
-        txtOperator.Clear()
-        txtOperator.Focus()
+        txtDrumNum.Refresh()
+        ' txtOperator.Clear()
+        ' txtOperator.Focus()
 
 
         btnNewPallet.BackColor = Color.LightGray
-        btnNewPallet.Enabled = False
+        btnNewPallet.Enabled = True
         btnOldPallet.BackColor = Color.LightGray
-        btnOldPallet.Enabled = False
+        btnOldPallet.Enabled = True
         newJobFlag = 0
 
 
@@ -758,7 +759,7 @@ Public Class frmJobEntry
         Else
             changedrum = 1
             Me.Hide()
-            frmExChangedrum.Show()
+            'frmExChangedrum.Show()
         End If
 
     End Sub
@@ -775,7 +776,7 @@ Public Class frmJobEntry
 
 
     Private Sub btnReports_Click(sender As Object, e As EventArgs)
-        frmPackReports.Show()
+        'frmPackReports.Show()
     End Sub
 
 
@@ -817,5 +818,9 @@ Public Class frmJobEntry
 
         Me.KeyPreview = True  'Allows us to look for advace character from barcode
 
+    End Sub
+
+    Private Sub SettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SettingsToolStripMenuItem.Click
+        frmPassword.Show()
     End Sub
 End Class

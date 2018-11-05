@@ -28,7 +28,6 @@ Partial Class frmJobEntry
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtDrumNum = New System.Windows.Forms.TextBox()
-        Me.btnSettings = New System.Windows.Forms.Button()
         Me.btnCancelReport = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -38,8 +37,14 @@ Partial Class frmJobEntry
         Me.lblAutoCorrect = New System.Windows.Forms.Label()
         Me.btnNewPallet = New System.Windows.Forms.Button()
         Me.btnOldPallet = New System.Windows.Forms.Button()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReportsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PalletReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UpdateTRACENumberToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.ToraydbBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Toraydb, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'txtOperator
@@ -61,13 +66,6 @@ Partial Class frmJobEntry
         '
         resources.ApplyResources(Me.txtDrumNum, "txtDrumNum")
         Me.txtDrumNum.Name = "txtDrumNum"
-        '
-        'btnSettings
-        '
-        Me.btnSettings.Image = Global.POY_Tracking.My.Resources.Resources.Settings_12x_16x
-        resources.ApplyResources(Me.btnSettings, "btnSettings")
-        Me.btnSettings.Name = "btnSettings"
-        Me.btnSettings.UseVisualStyleBackColor = True
         '
         'btnCancelReport
         '
@@ -124,6 +122,34 @@ Partial Class frmJobEntry
         Me.btnOldPallet.Name = "btnOldPallet"
         Me.btnOldPallet.UseVisualStyleBackColor = False
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem, Me.ReportsToolStripMenuItem})
+        resources.ApplyResources(Me.MenuStrip1, "MenuStrip1")
+        Me.MenuStrip1.Name = "MenuStrip1"
+        '
+        'SettingsToolStripMenuItem
+        '
+        Me.SettingsToolStripMenuItem.Image = Global.POY_Tracking.My.Resources.Resources.Settings_12x_16x
+        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
+        resources.ApplyResources(Me.SettingsToolStripMenuItem, "SettingsToolStripMenuItem")
+        '
+        'ReportsToolStripMenuItem
+        '
+        Me.ReportsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PalletReportToolStripMenuItem, Me.UpdateTRACENumberToolStripMenuItem})
+        Me.ReportsToolStripMenuItem.Name = "ReportsToolStripMenuItem"
+        resources.ApplyResources(Me.ReportsToolStripMenuItem, "ReportsToolStripMenuItem")
+        '
+        'PalletReportToolStripMenuItem
+        '
+        Me.PalletReportToolStripMenuItem.Name = "PalletReportToolStripMenuItem"
+        resources.ApplyResources(Me.PalletReportToolStripMenuItem, "PalletReportToolStripMenuItem")
+        '
+        'UpdateTRACENumberToolStripMenuItem
+        '
+        Me.UpdateTRACENumberToolStripMenuItem.Name = "UpdateTRACENumberToolStripMenuItem"
+        resources.ApplyResources(Me.UpdateTRACENumberToolStripMenuItem, "UpdateTRACENumberToolStripMenuItem")
+        '
         'frmJobEntry
         '
         resources.ApplyResources(Me, "$this")
@@ -135,14 +161,17 @@ Partial Class frmJobEntry
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.btnCancelReport)
-        Me.Controls.Add(Me.btnSettings)
         Me.Controls.Add(Me.txtDrumNum)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtOperator)
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "frmJobEntry"
         CType(Me.ToraydbBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Toraydb, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -154,7 +183,6 @@ Partial Class frmJobEntry
     Friend WithEvents txtDrumNum As TextBox
     Friend WithEvents ToraydbBindingSource As BindingSource
     Friend WithEvents Toraydb As Toraydb
-    Friend WithEvents btnSettings As Button
     Friend WithEvents btnCancelReport As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
@@ -162,4 +190,9 @@ Partial Class frmJobEntry
     Friend WithEvents lblAutoCorrect As Label
     Friend WithEvents btnNewPallet As Button
     Friend WithEvents btnOldPallet As Button
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReportsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PalletReportToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents UpdateTRACENumberToolStripMenuItem As ToolStripMenuItem
 End Class

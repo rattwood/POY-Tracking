@@ -105,16 +105,6 @@
     <Compile Include="frmActivate.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCart1.designer.vb">
-      <DependentUpon>frmCart1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmCart1.vb" />
-    <Compile Include="frmDelay.designer.vb">
-      <DependentUpon>frmDelay.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmDelay.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="frmDGVJobReport.designer.vb">
       <DependentUpon>frmDGVJobReport.vb</DependentUpon>
     </Compile>
@@ -126,10 +116,40 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="POY Start\frmPacking.designer.vb">
-      <DependentUpon>frmPacking.vb</DependentUpon>
+    <Compile Include="POY Packing\frmPacking48.Designer.vb">
+      <DependentUpon>frmPacking48.vb</DependentUpon>
     </Compile>
-    <Compile Include="POY Start\frmPacking.vb">
+    <Compile Include="POY Packing\frmPacking48.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Packing\frmPacking120.Designer.vb">
+      <DependentUpon>frmPacking120.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Packing\frmPacking120.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Reports\AUTO Generated Park Report\frmPackCreateNew.designer.vb">
+      <DependentUpon>frmPackCreateNew.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Reports\AUTO Generated Park Report\frmPackCreateNew.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Reports\AUTO Generated Park Report\frmPackPrvGet.designer.vb">
+      <DependentUpon>frmPackPrvGet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Reports\AUTO Generated Park Report\frmPackPrvGet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Reports\AUTO Generated Park Report\frmPackRepMain.designer.vb">
+      <DependentUpon>frmPackRepMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Reports\AUTO Generated Park Report\frmPackRepMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Reports\AUTO Generated Park Report\frmPackTodayUpdate.designer.vb">
+      <DependentUpon>frmPackTodayUpdate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Reports\AUTO Generated Park Report\frmPackTodayUpdate.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="POY Start\frmPaletteCreate.Designer.vb">
@@ -192,88 +212,10 @@
     <Compile Include="POY Start\frmPassword.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="POY Reports\Auto Excel Pack Sheet\frmPackCreateNew.designer.vb">
-      <DependentUpon>frmPackCreateNew.vb</DependentUpon>
-    </Compile>
-    <Compile Include="POY Reports\Auto Excel Pack Sheet\frmPackCreateNew.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="POY Reports\Auto Excel Pack Sheet\frmPackPrvGet.designer.vb">
-      <DependentUpon>frmPackPrvGet.vb</DependentUpon>
-    </Compile>
-    <Compile Include="POY Reports\Auto Excel Pack Sheet\frmPackPrvGet.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="POY Reports\Auto Excel Pack Sheet\frmPackRepMain.designer.vb">
-      <DependentUpon>frmPackRepMain.vb</DependentUpon>
-    </Compile>
-    <Compile Include="POY Reports\Auto Excel Pack Sheet\frmPackRepMain.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="POY Reports\Auto Excel Pack Sheet\frmPackReport.designer.vb">
-      <DependentUpon>frmPackReport.vb</DependentUpon>
-    </Compile>
-    <Compile Include="POY Reports\Auto Excel Pack Sheet\frmPackReport.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="POY Reports\Auto Excel Pack Sheet\frmPackTodayUpdate.designer.vb">
-      <DependentUpon>frmPackTodayUpdate.vb</DependentUpon>
-    </Compile>
-    <Compile Include="POY Reports\Auto Excel Pack Sheet\frmPackTodayUpdate.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="POY Reports\frmDailyPackProduction.designer.vb">
-      <DependentUpon>frmDailyPackProduction.vb</DependentUpon>
-    </Compile>
-    <Compile Include="POY Reports\frmDailyPackProduction.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="POY Reports\frmEODReport.designer.vb">
-      <DependentUpon>frmEODReport.vb</DependentUpon>
-    </Compile>
-    <Compile Include="POY Reports\frmEODReport.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="POY Reports\frmProdStockWork.designer.vb">
-      <DependentUpon>frmProdStockWork.vb</DependentUpon>
-    </Compile>
-    <Compile Include="POY Reports\frmProdStockWork.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="POY Packing\frmExChangedrum.designer.vb">
-      <DependentUpon>frmExChangedrum.vb</DependentUpon>
-    </Compile>
-    <Compile Include="POY Packing\frmExChangedrum.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="POY Packing\frmPacking72.designer.vb">
       <DependentUpon>frmPacking72.vb</DependentUpon>
     </Compile>
     <Compile Include="POY Packing\frmPacking72.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="POY Packing\frmPackingFault.designer.vb">
-      <DependentUpon>frmPackingFault.vb</DependentUpon>
-    </Compile>
-    <Compile Include="POY Packing\frmPackingFault.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="POY Packing\frmPackReports.designer.vb">
-      <DependentUpon>frmPackReports.vb</DependentUpon>
-    </Compile>
-    <Compile Include="POY Packing\frmPackReports.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="POY Packing\frmPackSort.designer.vb">
-      <DependentUpon>frmPackSort.vb</DependentUpon>
-    </Compile>
-    <Compile Include="POY Packing\frmPackSort.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="POY Packing\frmRemoveCone.designer.vb">
-      <DependentUpon>frmRemoveCone.vb</DependentUpon>
-    </Compile>
-    <Compile Include="POY Packing\frmRemoveCone.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -316,20 +258,26 @@
     <EmbeddedResource Include="frmActivate.resx">
       <DependentUpon>frmActivate.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCart1.resx">
-      <DependentUpon>frmCart1.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDelay.resx">
-      <DependentUpon>frmDelay.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmDGVJobReport.resx">
       <DependentUpon>frmDGVJobReport.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="POY Packing\frmExChangedrum.resx">
-      <DependentUpon>frmExChangedrum.vb</DependentUpon>
+    <EmbeddedResource Include="POY Packing\frmPacking48.resx">
+      <DependentUpon>frmPacking48.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Packing\frmPacking120.resx">
+      <DependentUpon>frmPacking120.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POY Packing\frmPacking72.resx">
       <DependentUpon>frmPacking72.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Reports\AUTO Generated Park Report\frmPackCreateNew.resx">
+      <DependentUpon>frmPackCreateNew.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Reports\AUTO Generated Park Report\frmPackRepMain.resx">
+      <DependentUpon>frmPackRepMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Reports\AUTO Generated Park Report\frmPackTodayUpdate.resx">
+      <DependentUpon>frmPackTodayUpdate.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POY Start\frmJobEntry.en.resx">
       <DependentUpon>frmJobEntry.vb</DependentUpon>
@@ -339,9 +287,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="POY Start\frmJobEntry.th-TH.resx">
       <DependentUpon>frmJobEntry.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="POY Start\frmPacking.resx">
-      <DependentUpon>frmPacking.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POY Start\frmPaletteCreate.resx">
       <DependentUpon>frmPaletteCreate.vb</DependentUpon>
@@ -372,39 +317,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="POY Start\frmPassword.resx">
       <DependentUpon>frmPassword.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="POY Reports\Auto Excel Pack Sheet\frmPackCreateNew.resx">
-      <DependentUpon>frmPackCreateNew.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="POY Reports\Auto Excel Pack Sheet\frmPackRepMain.resx">
-      <DependentUpon>frmPackRepMain.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="POY Reports\Auto Excel Pack Sheet\frmPackReport.resx">
-      <DependentUpon>frmPackReport.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="POY Reports\Auto Excel Pack Sheet\frmPackTodayUpdate.resx">
-      <DependentUpon>frmPackTodayUpdate.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="POY Reports\frmDailyPackProduction.resx">
-      <DependentUpon>frmDailyPackProduction.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="POY Reports\frmEODReport.resx">
-      <DependentUpon>frmEODReport.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="POY Reports\frmProdStockWork.resx">
-      <DependentUpon>frmProdStockWork.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="POY Packing\frmPackingFault.resx">
-      <DependentUpon>frmPackingFault.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="POY Packing\frmPackReports.resx">
-      <DependentUpon>frmPackReports.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="POY Packing\frmPackSort.resx">
-      <DependentUpon>frmPackSort.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="POY Packing\frmRemoveCone.resx">
-      <DependentUpon>frmRemoveCone.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

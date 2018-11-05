@@ -134,6 +134,7 @@ Partial Class frmPacking72
         Me.Label5.Size = New System.Drawing.Size(87, 24)
         Me.Label5.TabIndex = 165
         Me.Label5.Text = "Trace #:"
+        Me.Label5.Visible = False
         '
         'lblJobNum
         '
@@ -143,6 +144,7 @@ Partial Class frmPacking72
         Me.lblJobNum.Name = "lblJobNum"
         Me.lblJobNum.Size = New System.Drawing.Size(0, 24)
         Me.lblJobNum.TabIndex = 164
+        Me.lblJobNum.Visible = False
         '
         'txtConeBcode
         '
@@ -270,6 +272,7 @@ Partial Class frmPacking72
         Me.Label2.Size = New System.Drawing.Size(70, 24)
         Me.Label2.TabIndex = 207
         Me.Label2.Text = "Cart #:"
+        Me.Label2.Visible = False
         '
         'lblCartNo
         '
@@ -280,6 +283,7 @@ Partial Class frmPacking72
         Me.lblCartNo.Size = New System.Drawing.Size(91, 24)
         Me.lblCartNo.TabIndex = 206
         Me.lblCartNo.Text = "cart num"
+        Me.lblCartNo.Visible = False
         '
         'txtboxAllocated
         '
