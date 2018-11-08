@@ -95,7 +95,7 @@ Public Class frmPacking72
         'GET NUMBER OF CONES THAT NEED ALLOCATING Count against Job Barcode
         totDrum = POYDrums
 
-        'toAllocatedCount = totDrum - frmJobEntry.drumToAllcount
+
 
         txtboxTotal.Text = totDrum
         txtboxAllocated.Text = allocatedCount
@@ -143,7 +143,6 @@ Public Class frmPacking72
 
 
 
-    'Private Sub txtConeBcode_TextChanged(sender As Object, e As EventArgs) Handles txtConeBcode.TextChanged
 
     Private Sub prgContinue()
 
@@ -193,8 +192,6 @@ Public Class frmPacking72
                     Label1.Visible = False
                     txtConeBcode.Clear()
                     txtConeBcode.Focus()
-                    txtConeBcode.Clear()
-                    txtConeBcode.Focus()
                     Exit Sub
                 End If
             Next
@@ -211,7 +208,6 @@ Public Class frmPacking72
         Try
             If IsDBNull(frmDGV.DGVdata.Rows(curDrum - 1).Cells("POYDRUMSTATE").Value) Then
 
-                ' If frmDGV.DGVdata.Rows(nextFree).Cells("POYDRUMSTATE").Value.ToString < "15" Then
                 curDrum = nextFree
                 Controls("Button" & curDrum).BackgroundImage = My.Resources.Have_Drum        'Grade A Cone
                 frmDGV.DGVdata.Rows(curDrum - 1).Cells("POYMCNUM").Value = machineCode
@@ -302,9 +298,7 @@ Public Class frmPacking72
             curcone = 0
             Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
             MsgBox("ready for reports")
-            'frmPackReport.packPrint() 'Print the packing report and go back to Job Entry for the next cart
-            ' frmPackRepMain.PackRepMainSub()
-            'frmPackRepMain.Close()
+
             UpdateDatabase()
 
         End If

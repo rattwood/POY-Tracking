@@ -456,7 +456,7 @@ Public Class frmJobEntry
                             If LRecordCount = 120 Then
                                 POYValUpdate = 1
                                 dbBarcode = ""
-                                Me.Hide()
+                            Hide()
                             frmPacking120.Show()
 
                         End If
@@ -465,15 +465,15 @@ Public Class frmJobEntry
                             If LRecordCount = 72 Then
                                 POYValUpdate = 1
                                 dbBarcode = ""
-                                Me.Hide()
-                                frmPacking72.Show()
+                            Hide()
+                            frmPacking72.Show()
 
                             End If
                         Case "48"
                             If LRecordCount = 48 Then
                                 POYValUpdate = 1
                                 dbBarcode = ""
-                                Me.Hide()
+                            Hide()
                             frmPacking48.Show()
 
                         End If

@@ -34,8 +34,8 @@ Public Class frmPackTodayUpdate
         Dim colCount As Integer = 2
         Dim endloop As Integer
 
-        For ccount = 1 To 4  'Three sets of columns
-            For rcount = 10 To 21
+        For ccount = 1 To 6  'Three sets of columns
+            For rcount = 10 To 17
                 If MyTodyExcel.Cells(rcount, colCount).Value > 0 Then  'C9-C40
                     totCount = totCount + 1
                     Continue For
@@ -85,10 +85,10 @@ Public Class frmPackTodayUpdate
             MyTodyExcel.Cells(2, 2) = SheetCodeString
 
             colCount = 2
-            For ccount = 1 To 8
-                For i = 10 To 21
+            For ccount = 1 To 6
+                For i = 10 To 17
                     MyTodyExcel.Cells(i, colCount) = "" 'Clear the contents of cone cells
-                    MyTodyExcel.Cells(i, colCount - 2) = "" 'Clear the contents of Carton cells
+                    ' MyTodyExcel.Cells(i, colCount - 2) = "" 'Clear the contents of Carton cells
                 Next
                 If colCount < 8 Then colCount = colCount + 2
             Next
@@ -366,8 +366,8 @@ Public Class frmPackTodayUpdate
             MyTodyExcel.Cells(43, 4) = frmJobEntry.PackOp
             For i = 1 To frmDGV.DGVdata.Rows.Count
 
-                If frmJobEntry.drumPerPal = "72" And frmDGV.DGVdata.Rows(i - 1).Cells(9).Value = "8" And Not IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("PACKENDTM").Value) Or
-                    frmJobEntry.txtGrade.Text = "P25 AS" And frmDGV.DGVdata.Rows(i - 1).Cells(9).Value = "9" And Not IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("PACKENDTM").Value) Then
+                If frmJobEntry.drumPerPal = "72" And frmDGV.DGVdata.Rows(i - 1).Cells(9).Value = "8" And Not IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("PACKENDTM").Value) Then ' Or
+                    'frmJobEntry.txtGrade.Text = "P25 AS" And frmDGV.DGVdata.Rows(i - 1).Cells(9).Value = "9" And Not IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("PACKENDTM").Value) Then    RJA
                     frmDGV.DGVdata.Rows(i - 1).Cells("PACKSHEETBCODE").Value = modBarcode
 
 
@@ -645,13 +645,13 @@ Public Class frmPackTodayUpdate
             MyTodyExcel.Cells(54, 17) = frmJobEntry.PackOp
             For i = 1 To frmDGV.DGVdata.Rows.Count
 
-                If frmJobEntry.txtGrade.Text = "P20 BS" And frmDGV.DGVdata.Rows(i - 1).Cells(9).Value = "8" And Not IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("PACKENDTM").Value) Or
-                    frmJobEntry.txtGrade.Text = "P15 AS" And frmDGV.DGVdata.Rows(i - 1).Cells(9).Value = "9" And Not IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("PACKENDTM").Value) Then
-                    frmDGV.DGVdata.Rows(i - 1).Cells("PACKSHEETBCODE").Value = modBarcode
+                'If frmJobEntry.txtGrade.Text = "P20 BS" And frmDGV.DGVdata.Rows(i - 1).Cells(9).Value = "8" And Not IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("PACKENDTM").Value) Or
+                '    frmJobEntry.txtGrade.Text = "P15 AS" And frmDGV.DGVdata.Rows(i - 1).Cells(9).Value = "9" And Not IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("PACKENDTM").Value) Then
+                '    frmDGV.DGVdata.Rows(i - 1).Cells("PACKSHEETBCODE").Value = modBarcode
 
 
-                    'USED TO ALLOCATE BOX NUMBER USED WHEN PACKED
-                    Select Case nfree
+                'USED TO ALLOCATE BOX NUMBER USED WHEN PACKED
+                Select Case nfree
                         Case 14 To 26
                             If ncfree = 4 Then
                                 cartonNum = 1
@@ -779,7 +779,7 @@ Public Class frmPackTodayUpdate
 
                     End If
 
-                End If
+                'End If
 
             Next
 

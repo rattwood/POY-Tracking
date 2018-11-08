@@ -178,8 +178,6 @@ Public Class frmPacking48
                     Label1.Visible = False
                     txtConeBcode.Clear()
                     txtConeBcode.Focus()
-                    txtConeBcode.Clear()
-                    txtConeBcode.Focus()
                     Exit Sub
                 End If
             Next
@@ -288,18 +286,32 @@ Public Class frmPacking48
     Public Sub endCheck()
 
         If POYDrums = allocatedCount Then
-            curcone = 0
-            Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
-            MsgBox("ready for reports")
-            'frmPackReport.packPrint() 'Print the packing report and go back to Job Entry for the next cart
-            ' frmPackRepMain.PackRepMainSub()
-            'frmPackRepMain.Close()
-            UpdateDatabase()
+
+            EndJob()
 
         End If
         Me.Cursor = System.Windows.Forms.Cursors.Default
     End Sub
 
+    Public Sub EndJob()
+
+        Try
+            curcone = 0
+            Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
+            'frmPackReport.packPrint() 'Print the packing report and go back to Job Entry for the next cart
+            ' frmPackRepMain.PackRepMainSub()
+            'frmPackRepMain.Close()
+            frmTraceEntry.Show()
+            Hide()
+            'UpdateDatabase()
+        Catch ex As Exception
+            MsgBox("Update Error " & vbNewLine & ex.Message)
+        Finally
+            Me.Cursor = System.Windows.Forms.Cursors.Default
+        End Try
+        ' UpdateDatabase()
+
+    End Sub
 
 
     Private Sub UpdateDatabase()
@@ -366,7 +378,7 @@ Public Class frmPacking48
 
 
         Dim bAddState As Boolean = frmDGV.DGVdata.AllowUserToAddRows
-        'Dim iRow As Integer = frmDGV.DGVdata.CurrentRow.Index
+
         frmDGV.DGVdata.AllowUserToAddRows = True
         frmDGV.DGVdata.CurrentCell = frmDGV.DGVdata.Rows(frmDGV.DGVdata.Rows.Count - 1).Cells(0) ' move to add row
         frmDGV.DGVdata.CurrentCell = frmDGV.DGVdata.Rows(0).Cells(0) ' move back to current row  Changed Rows(iRow) to (0)
@@ -449,22 +461,22 @@ Public Class frmPacking48
     Private Sub getStepNum()
 
         Select Case nextFree
-            Case 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+            Case 1, 2, 3, 4, 5, 6, 7, 8
                 stepNum = 1
 
-            Case 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24
+            Case 9, 10, 11, 12, 13, 14, 15, 16
                 stepNum = 2
 
-            Case 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36
+            Case 17, 18, 19, 20, 21, 22, 23, 24
                 stepNum = 3
 
-            Case 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48
+            Case 25, 26, 27, 28, 29, 30, 31, 32
                 stepNum = 4
 
-            Case 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60
+            Case 33, 34, 35, 36, 37, 38, 39, 40
                 stepNum = 5
 
-            Case 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72
+            Case 41, 42, 43, 44, 45, 46, 47, 48
                 stepNum = 6
         End Select
 
@@ -480,6 +492,31 @@ Public Class frmPacking48
         Loop
         sw.Stop()
 
+    End Sub
+
+    Private Sub btnEndJob_Click(sender As Object, e As EventArgs) Handles btnEndJob.Click
+
+        Dim result = MessageBox.Show("Edit Job Yes Or No", "Are you sure you wish to end this Pallet ?", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+
+        If result = DialogResult.Yes Then
+
+            EndJob()
+            Me.Hide()
+            Exit Sub
+        End If
+
+        If result = DialogResult.No Then
+            txtConeBcode.Clear()
+            txtConeBcode.Focus()
+            Exit Sub
+        End If
+
+
+
+
+
+
+        EndJob()
     End Sub
 
     'THIS LOOKS FOR ENTER key to be pressed or received via barcode

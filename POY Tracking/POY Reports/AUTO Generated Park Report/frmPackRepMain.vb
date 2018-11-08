@@ -129,25 +129,25 @@ Public Class frmPackRepMain
         Else
 
 
-            If File.Exists(yestname1) Then      'ONE DAY AGO
-                prevDaysName = yestname1
-                prevDays = Date.Now.AddDays(-1).ToString("ddMMyyyy")
-                frmPackPrvGet.PrvGet()
+            'If File.Exists(yestname1) Then      'ONE DAY AGO
+            '    prevDaysName = yestname1
+            '    prevDays = Date.Now.AddDays(-1).ToString("ddMMyyyy")
+            '    frmPackPrvGet.PrvGet()
+            '    Me.Close()
+            'ElseIf File.Exists(yestname2) Then  'TWO DAYS AGO
+            '    prevDaysName = yestname2
+            '    prevDays = Date.Now.AddDays(-2).ToString("ddMMyyyy")
+            '    frmPackPrvGet.PrvGet()
+            '    Me.Close()
+            'ElseIf File.Exists(yestname3) Then  'THREE DAYS AGO
+            '    prevDaysName = yestname3
+            '    prevDays = Date.Now.AddDays(-3).ToString("ddMMyyyy")
+            '    frmPackPrvGet.PrvGet()
+            '    Me.Close()
+            'Else
+            frmPackCreateNew.CreateNew()
                 Me.Close()
-            ElseIf File.Exists(yestname2) Then  'TWO DAYS AGO
-                prevDaysName = yestname2
-                prevDays = Date.Now.AddDays(-2).ToString("ddMMyyyy")
-                frmPackPrvGet.PrvGet()
-                Me.Close()
-            ElseIf File.Exists(yestname3) Then  'THREE DAYS AGO
-                prevDaysName = yestname3
-                prevDays = Date.Now.AddDays(-3).ToString("ddMMyyyy")
-                frmPackPrvGet.PrvGet()
-                Me.Close()
-            Else
-                frmPackCreateNew.CreateNew()
-                Me.Close()
-            End If
+            'End If
         End If
 
 

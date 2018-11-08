@@ -349,45 +349,45 @@ Public Class frmPackCreateNew
         year = today.Substring(8, 2)
 
 
-        Select Case frmJobEntry.txtGrade.Text
-            Case "A"
-                gradeTxt = "A" 'A Grade
-            Case "B"
-                gradeTxt = "B" 'B Grade
-            Case "AL"
-                gradeTxt = "AL" 'AL Grade
-            Case "AD"
-                gradeTxt = "AD" 'AD Grade
-            Case "P35 AS"
-                gradeTxt = "P35AS" 'P35 AS Grade
-            Case "P35 BS"
-                gradeTxt = "P35BS" 'P35 BS Grade
-            Case "P25 AS"
-                gradeTxt = "P25AS" 'P25 AS Grade
-            Case "P30 BS"
-                gradeTxt = "P30BS" 'P30 BS Grade
-            Case "P15 AS"
-                gradeTxt = "P15AS" 'P15 AS Grade
-            Case "P20 BS"
-                gradeTxt = "P20BS" 'P20 BS Grade
-            Case "ReCheck"
-                gradeTxt = "RECHECK" 'ReCheck Grade
-            Case "Round1"
-                gradeTxt = "R1" 'ReCheck Grade
-            Case "Round2"
-                gradeTxt = "R2" 'ReCheck Grade
-            Case "Round3"
-                gradeTxt = "R3" 'ReCheck Grade
-            Case "STD"
-                gradeTxt = "STD" 'ReCheck Grade
-            Case "Pilot 6Ch"
-                gradeTxt = "PI06" 'A Grade 6 Cheese per box
-            Case "Pilot 15Ch"
-                gradeTxt = "PI15" 'A Grade 15 Cheese per box
-            Case "Pilot 20Ch"
-                gradeTxt = "PI20" 'A Grade 20 Cheese per box
+        'Select Case frmJobEntry.txtGrade.Text
+        '    Case "A"
+        '        gradeTxt = "A" 'A Grade
+        '    Case "B"
+        '        gradeTxt = "B" 'B Grade
+        '    Case "AL"
+        '        gradeTxt = "AL" 'AL Grade
+        '    Case "AD"
+        '        gradeTxt = "AD" 'AD Grade
+        '    Case "P35 AS"
+        '        gradeTxt = "P35AS" 'P35 AS Grade
+        '    Case "P35 BS"
+        '        gradeTxt = "P35BS" 'P35 BS Grade
+        '    Case "P25 AS"
+        '        gradeTxt = "P25AS" 'P25 AS Grade
+        '    Case "P30 BS"
+        '        gradeTxt = "P30BS" 'P30 BS Grade
+        '    Case "P15 AS"
+        '        gradeTxt = "P15AS" 'P15 AS Grade
+        '    Case "P20 BS"
+        '        gradeTxt = "P20BS" 'P20 BS Grade
+        '    Case "ReCheck"
+        '        gradeTxt = "RECHECK" 'ReCheck Grade
+        '    Case "Round1"
+        '        gradeTxt = "R1" 'ReCheck Grade
+        '    Case "Round2"
+        '        gradeTxt = "R2" 'ReCheck Grade
+        '    Case "Round3"
+        '        gradeTxt = "R3" 'ReCheck Grade
+        '    Case "STD"
+        '        gradeTxt = "STD" 'ReCheck Grade
+        '    Case "Pilot 6Ch"
+        '        gradeTxt = "PI06" 'A Grade 6 Cheese per box
+        '    Case "Pilot 15Ch"
+        '        gradeTxt = "PI15" 'A Grade 15 Cheese per box
+        '    Case "Pilot 20Ch"
+        '        gradeTxt = "PI20" 'A Grade 20 Cheese per box
 
-        End Select
+        'End Select
 
 
 
