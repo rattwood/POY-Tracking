@@ -7,26 +7,6 @@ Imports System.Text
 
 
 Public Class frmPacking72
-    ' Private SQL As New SQLConn
-
-    ''---------------------------------------    SETTING UP LOCAL INSTANCE FOR SQL LINK FOR DATAGRID TO SYNC CORRECTLY WITH SQL -------------------------------------
-    'Public LConn As New SqlConnection(My.Settings.SQLConn) 'This need to be changed in Project/Propertie/Settings
-    'Private LCmd As SqlCommand
-
-    ''SQL CONNECTORS
-    'Public LDA As SqlDataAdapter
-    'Public LDS As DataSet
-    'Public LDT As DataTable
-    'Public LCB As SqlCommandBuilder
-
-    'Public LRecordCount As Integer
-    'Private LException As String
-    '' SQL QUERY PARAMETERS
-    'Public LParams As New List(Of SqlParameter)
-    ''-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
 
     Dim psorterror As String = 0
 
@@ -35,7 +15,7 @@ Public Class frmPacking72
 
     Dim POYDrums As Integer
     Dim nextFree As Integer
-    Dim bcodeScan As String = ""
+    Public bcodeScan As String = ""
     Dim clr As String = ""
     Dim curcone As String = 0
     Dim tooAllocateCount As Integer 'count of cones requierd to be scanned
@@ -94,8 +74,6 @@ Public Class frmPacking72
 
         'GET NUMBER OF CONES THAT NEED ALLOCATING Count against Job Barcode
         totDrum = POYDrums
-
-
 
         txtboxTotal.Text = totDrum
         txtboxAllocated.Text = allocatedCount
@@ -295,19 +273,39 @@ Public Class frmPacking72
     Public Sub endCheck()
 
         If POYDrums = allocatedCount Then
-            curcone = 0
-            Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
-            MsgBox("ready for reports")
 
-            UpdateDatabase()
+
+            EndJob()
 
         End If
         Me.Cursor = System.Windows.Forms.Cursors.Default
     End Sub
 
 
+    Public Sub EndJob()
 
-    Private Sub UpdateDatabase()
+        Try
+            curcone = 0
+            'Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
+            'frmPackReport.packPrint() 'Print the packing report and go back to Job Entry for the next cart
+            ' frmPackRepMain.PackRepMainSub()
+            'frmPackRepMain.Close()
+            frmTraceEntry.Show()
+            Hide()
+
+        Catch ex As Exception
+            MsgBox("Update Error " & vbNewLine & ex.Message)
+        Finally
+            Me.Cursor = System.Windows.Forms.Cursors.Default
+        End Try
+
+
+    End Sub
+
+
+
+
+    Public Sub UpdateDatabase()
 
         tsbtnSave()
 
@@ -347,9 +345,9 @@ Public Class frmPacking72
         frmJobEntry.txtDrumNum.Visible = False
         frmJobEntry.comBoxDrumPal.Enabled = True
 
-        frmJobEntry.btnNewPallet.BackColor = Color.LightGray
+        frmJobEntry.btnNewPallet.BackColor = Color.LightBlue
         frmJobEntry.btnNewPallet.Enabled = True
-        frmJobEntry.btnOldPallet.BackColor = Color.LightGray
+        frmJobEntry.btnOldPallet.BackColor = Color.LightBlue
         frmJobEntry.btnOldPallet.Enabled = True
         frmJobEntry.newJobFlag = 0
         Me.Close()
@@ -365,7 +363,7 @@ Public Class frmPacking72
 
 
         Dim bAddState As Boolean = frmDGV.DGVdata.AllowUserToAddRows
-        'Dim iRow As Integer = frmDGV.DGVdata.CurrentRow.Index
+
         frmDGV.DGVdata.AllowUserToAddRows = True
         frmDGV.DGVdata.CurrentCell = frmDGV.DGVdata.Rows(frmDGV.DGVdata.Rows.Count - 1).Cells(0) ' move to add row
         frmDGV.DGVdata.CurrentCell = frmDGV.DGVdata.Rows(0).Cells(0) ' move back to current row  Changed Rows(iRow) to (0)
@@ -479,6 +477,26 @@ Public Class frmPacking72
         Loop
         sw.Stop()
 
+    End Sub
+
+
+    Private Sub btnEndJob_Click(sender As Object, e As EventArgs) Handles btnEndJob.Click
+        Dim result = MessageBox.Show("Edit Job Yes Or No", "Are you sure you wish to end this Pallet ?", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+
+        If result = DialogResult.Yes Then
+
+            EndJob()
+            Me.Hide()
+            Exit Sub
+        End If
+
+        If result = DialogResult.No Then
+            txtConeBcode.Clear()
+            txtConeBcode.Focus()
+            Exit Sub
+        End If
+
+        EndJob()
     End Sub
 
     'THIS LOOKS FOR ENTER key to be pressed or received via barcode

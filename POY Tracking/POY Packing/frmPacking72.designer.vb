@@ -123,6 +123,7 @@ Partial Class frmPacking72
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
+        Me.btnEndJob = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label5
@@ -1567,11 +1568,23 @@ Partial Class frmPacking72
         Me.Label18.Text = "Label18"
         Me.Label18.Visible = False
         '
+        'btnEndJob
+        '
+        Me.btnEndJob.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnEndJob.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEndJob.Location = New System.Drawing.Point(1298, 677)
+        Me.btnEndJob.Name = "btnEndJob"
+        Me.btnEndJob.Size = New System.Drawing.Size(197, 80)
+        Me.btnEndJob.TabIndex = 428
+        Me.btnEndJob.Text = "End Job"
+        Me.btnEndJob.UseVisualStyleBackColor = False
+        '
         'frmPacking72
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1584, 861)
+        Me.Controls.Add(Me.btnEndJob)
         Me.Controls.Add(Me.Label18)
         Me.Controls.Add(Me.Label17)
         Me.Controls.Add(Me.Label16)
@@ -1781,4 +1794,5 @@ Partial Class frmPacking72
     Friend WithEvents Label16 As Label
     Friend WithEvents Label17 As Label
     Friend WithEvents Label18 As Label
+    Friend WithEvents btnEndJob As Button
 End Class

@@ -256,9 +256,9 @@ Public Class frmPacking48
         frmJobEntry.Label4.Visible = False
         frmJobEntry.txtDrumNum.Visible = False
         frmJobEntry.comBoxDrumPal.Enabled = True
-        frmJobEntry.btnNewPallet.BackColor = Color.LightGray
+        frmJobEntry.btnNewPallet.BackColor = Color.LightBlue
         frmJobEntry.btnNewPallet.Enabled = True
-        frmJobEntry.btnOldPallet.BackColor = Color.LightGray
+        frmJobEntry.btnOldPallet.BackColor = Color.LightBlue
         frmJobEntry.btnOldPallet.Enabled = True
         frmJobEntry.newJobFlag = 0
 

@@ -54,10 +54,10 @@ Public Class frmPackRepMain
             'CREATE THE SHEET NAME WHICH IS THE 4 LETTER REFRENCE AT THE END OF PRODUCT NAME
             sheetName = prodNameMod.Substring(prodNameMod.Length - 5) & "_72"
             'CREATE THE FULL NAME FOR SAVING THE FILE
-            saveString = (prodNameMod & " " _
-                & frmDGV.DGVdata.Rows(0).Cells("POYMERGENUM").Value.ToString & "_" _
-                & frmDGV.DGVdata.Rows(0).Cells("POYPRNUM").Value.ToString) & " 72"
-
+            'saveString = (prodNameMod & " " _
+            '    & frmDGV.DGVdata.Rows(0).Cells("POYMERGENUM").Value.ToString & "_" _
+            '    & frmDGV.DGVdata.Rows(0).Cells("POYPRNUM").Value.ToString) & " 72"
+            saveString = frmTraceEntry.bcodeScan
         ElseIf frmJobEntry.drumPerPal = "120" Then
             'CREATE PRODUCT NAME STRING USED WHEN SAVING FILE
             prodNameMod = frmDGV.DGVdata.Rows(0).Cells("POYPRODNAME").Value.ToString
@@ -67,9 +67,10 @@ Public Class frmPackRepMain
             sheetName = prodNameMod.Substring(prodNameMod.Length - 5) & "_120"
 
             'CREATE THE FULL NAME FOR SAVING THE FILE
-            saveString = (prodNameMod & " " _
-                & frmDGV.DGVdata.Rows(0).Cells("MERGENUM").Value.ToString & "_" _
-                & frmDGV.DGVdata.Rows(0).Cells("PRNUM").Value.ToString) & " 120"
+            'saveString = (prodNameMod & " " _
+            '    & frmDGV.DGVdata.Rows(0).Cells("MERGENUM").Value.ToString & "_" _
+            '    & frmDGV.DGVdata.Rows(0).Cells("PRNUM").Value.ToString) & " 120"
+            saveString = frmTraceEntry.bcodeScan
         End If
 
 
@@ -123,14 +124,15 @@ Public Class frmPackRepMain
                     frmPacking48.UpdateDatabase()  'Update the database with changes and then close and go back to Job Entry screen
                 Case "72"
                     frmPackTodayUpdate.TodayUpdate72()
+                    frmPacking72.UpdateDatabase()  'Update the database with changes and then close and go back to Job Entry screen
                 Case "120"
                     frmPackTodayUpdate.TodayUpdate120()
+                    frmPacking120.UpdateDatabase()  'Update the database with changes and then close and go back to Job Entry screen
 
 
             End Select
 
             frmPackTodayUpdate.Close()
-            frmPacking48.UpdateDatabase()  'Update the database with changes and then close and go back to Job Entry screen
 
             Exit Sub
 
