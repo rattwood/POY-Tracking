@@ -297,24 +297,24 @@ Public Class frmPacking48
 
         Try
             curcone = 0
-            Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
+            'Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
             'frmPackReport.packPrint() 'Print the packing report and go back to Job Entry for the next cart
             ' frmPackRepMain.PackRepMainSub()
             'frmPackRepMain.Close()
             frmTraceEntry.Show()
             Hide()
-            'UpdateDatabase()
+
         Catch ex As Exception
             MsgBox("Update Error " & vbNewLine & ex.Message)
         Finally
             Me.Cursor = System.Windows.Forms.Cursors.Default
         End Try
-        ' UpdateDatabase()
+
 
     End Sub
 
 
-    Private Sub UpdateDatabase()
+    Public Sub UpdateDatabase()
 
         tsbtnSave()
 

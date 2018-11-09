@@ -5,7 +5,7 @@ Imports System.Windows.Forms
 Imports System.Diagnostics
 
 Public Class frmTraceEntry
-    Dim bcodeScan As String
+    Public bcodeScan As String
     Dim poydrums As Integer
     Dim SQL As New SQLConn
 
@@ -14,6 +14,8 @@ Public Class frmTraceEntry
         frmJobEntry.Hide()
         txtTraceNum.Clear()
         txtTraceNum.Focus()
+
+        lblTmpTraceNum.Text = frmDGV.DGVdata.Rows(0).Cells("POYTMPTRACE").Value
 
         Me.KeyPreview = True  'Allows us to look for advace character from barcode
 
@@ -33,7 +35,7 @@ Public Class frmTraceEntry
 
             If Not (txtTraceNum.TextLength = 10) Then  ' LENGTH OF BARCODE
                 lblError.Visible = True
-                lblError.Text = "This is not a TRACE barcode Please RE Scan"
+                lblError.Text = "This is not a TRACE barcode" & vbCrLf & "Please RE Scan"
                 DelayTM()
                 lblError.Visible = False
                 txtTraceNum.Clear()
@@ -48,9 +50,9 @@ Public Class frmTraceEntry
                     Me.KeyPreview = False  'Turn off Barcode entry
 
                     lblError.Visible = True
-                    lblError.Text = "This TRACE number has already been used"
-                    lblError.Visible = False
+                    lblError.Text = "This TRACE number has" & vbCrLf & " already been used"
                     DelayTM()
+                    lblError.Visible = False
 
                     Me.KeyPreview = True  'Allows us to look for advace character from barcode
 
@@ -59,6 +61,7 @@ Public Class frmTraceEntry
                     Exit Sub
 
                 Else
+
                     btnUpdate.Visible = True
                 End If
             End If
@@ -86,7 +89,7 @@ Public Class frmTraceEntry
         Next
 
         frmPackRepMain.PackRepMainSub()
-        'jobEntryScreen()
+        jobEntryScreen()
         Close()
 
 
@@ -107,9 +110,9 @@ Public Class frmTraceEntry
 
 
 
-        frmJobEntry.btnNewPallet.BackColor = Color.LightGray
+        frmJobEntry.btnNewPallet.BackColor = Color.LightBlue
         frmJobEntry.btnNewPallet.Enabled = True
-        frmJobEntry.btnOldPallet.BackColor = Color.LightGray
+        frmJobEntry.btnOldPallet.BackColor = Color.LightBlue
         frmJobEntry.btnOldPallet.Enabled = True
         frmJobEntry.newJobFlag = 0
 

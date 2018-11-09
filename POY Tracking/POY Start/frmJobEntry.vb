@@ -46,6 +46,7 @@ Public Class frmJobEntry
     Public varCartBCode
     Public varCartNameA As String
     Public varCartNameB As String
+    Public varKNum As String
     Public mergeNum As String
     Public dbBarcode As String
     Public POYValUpdate As Integer
@@ -591,11 +592,21 @@ Public Class frmJobEntry
             mergeNum = frmDGV.DGVdata.Rows(0).Cells("POYMERGENUM").Value
 
 
+
             If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYPRODWEIGHT").Value) Then
                 varProdWeight = frmDGV.DGVdata.Rows(0).Cells("POYPRODWEIGHT").Value
             Else
                 varProdWeight = "0.0"
             End If
+
+            If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYWEIGHTCODE").Value) Then
+                varKNum = frmDGV.DGVdata.Rows(0).Cells("POYWEIGHTCODE").Value
+            Else
+                varKNum = "K0"
+            End If
+
+
+
 
             If LConn.State = ConnectionState.Open Then LConn.Close()
 
@@ -739,9 +750,9 @@ Public Class frmJobEntry
         ' txtOperator.Focus()
 
 
-        btnNewPallet.BackColor = Color.LightGray
+        btnNewPallet.BackColor = Color.LightBlue
         btnNewPallet.Enabled = True
-        btnOldPallet.BackColor = Color.LightGray
+        btnOldPallet.BackColor = Color.LightBlue
         btnOldPallet.Enabled = True
         newJobFlag = 0
 
@@ -791,7 +802,7 @@ Public Class frmJobEntry
     Private Sub btnNewPallet_Click(sender As Object, e As EventArgs) Handles btnNewPallet.Click
         btnNewPallet.BackColor = Color.LightGreen
         btnNewPallet.Enabled = False
-        btnOldPallet.BackColor = Color.LightGray
+        btnOldPallet.BackColor = Color.LightBlue
         btnOldPallet.Enabled = False
         txtDrumNum.Visible = False
         Label4.Visible = True
@@ -802,7 +813,7 @@ Public Class frmJobEntry
     End Sub
 
     Private Sub btnOldPallet_Click(sender As Object, e As EventArgs) Handles btnOldPallet.Click
-        btnNewPallet.BackColor = Color.LightGray
+        btnNewPallet.BackColor = Color.LightBlue
         btnNewPallet.Enabled = False
         btnOldPallet.BackColor = Color.LightGreen
         btnOldPallet.Enabled = False

@@ -110,14 +110,14 @@ Partial Class frmJobEntry
         '
         'btnNewPallet
         '
-        Me.btnNewPallet.BackColor = System.Drawing.Color.LightGray
+        Me.btnNewPallet.BackColor = System.Drawing.Color.SkyBlue
         resources.ApplyResources(Me.btnNewPallet, "btnNewPallet")
         Me.btnNewPallet.Name = "btnNewPallet"
         Me.btnNewPallet.UseVisualStyleBackColor = False
         '
         'btnOldPallet
         '
-        Me.btnOldPallet.BackColor = System.Drawing.Color.LightGray
+        Me.btnOldPallet.BackColor = System.Drawing.Color.SkyBlue
         resources.ApplyResources(Me.btnOldPallet, "btnOldPallet")
         Me.btnOldPallet.Name = "btnOldPallet"
         Me.btnOldPallet.UseVisualStyleBackColor = False

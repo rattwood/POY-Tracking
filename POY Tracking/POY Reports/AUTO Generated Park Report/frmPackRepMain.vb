@@ -37,10 +37,15 @@ Public Class frmPackRepMain
             'CREATE THE SHEET NAME But as this Cheese is from ReCheck we will assign to A grade sheet
             sheetName = prodNameMod.Substring(prodNameMod.Length - 5) & "_48"
 
+
+
             'CREATE THE FULL NAME FOR SAVING THE FILE
-            saveString = (prodNameMod & " " _
-                & frmDGV.DGVdata.Rows(0).Cells("POYMERGENUM").Value.ToString & "_" _
-                & frmDGV.DGVdata.Rows(0).Cells("POYPRNUM").Value.ToString) & " 48"
+            'saveString = (prodNameMod & " " _
+            '    & frmDGV.DGVdata.Rows(0).Cells("POYMERGENUM").Value.ToString & "_" _
+            '    & frmDGV.DGVdata.Rows(0).Cells("POYPRNUM").Value.ToString) & " 48"
+            saveString = frmTraceEntry.bcodeScan
+
+
         ElseIf frmJobEntry.drumPerPal = "72" Then
             'CREATE PRODUCT NAME STRING USED WHEN SAVING FILE
             prodNameMod = frmDGV.DGVdata.Rows(0).Cells("POYPRODNAME").Value.ToString
@@ -52,6 +57,7 @@ Public Class frmPackRepMain
             saveString = (prodNameMod & " " _
                 & frmDGV.DGVdata.Rows(0).Cells("POYMERGENUM").Value.ToString & "_" _
                 & frmDGV.DGVdata.Rows(0).Cells("POYPRNUM").Value.ToString) & " 72"
+
         ElseIf frmJobEntry.drumPerPal = "120" Then
             'CREATE PRODUCT NAME STRING USED WHEN SAVING FILE
             prodNameMod = frmDGV.DGVdata.Rows(0).Cells("POYPRODNAME").Value.ToString
@@ -83,11 +89,11 @@ Public Class frmPackRepMain
         Select Case frmJobEntry.drumPerPal
 
             Case "48"
-                template = (My.Settings.dirTemplate & "\" & "tmpTraceDrumPerPall.xlsx.xlsx").ToString
+                template = (My.Settings.dirTemplate & "\" & "tmpTraceDrumPerPall.xlsx").ToString
             Case "72"
-                template = (My.Settings.dirTemplate & "\" & "tmpTraceDrumPerPall.xlsx.xlsx").ToString
+                template = (My.Settings.dirTemplate & "\" & "tmpTraceDrumPerPall.xlsx").ToString
             Case "120"
-                template = (My.Settings.dirTemplate & "\" & "tmpTraceDrumPerPall.xlsx.xlsx").ToString
+                template = (My.Settings.dirTemplate & "\" & "tmpTraceDrumPerPall.xlsx").ToString
         End Select
 
 
@@ -114,6 +120,7 @@ Public Class frmPackRepMain
 
                 Case "48"
                     frmPackTodayUpdate.TodatUpdate48()
+                    frmPacking48.UpdateDatabase()  'Update the database with changes and then close and go back to Job Entry screen
                 Case "72"
                     frmPackTodayUpdate.TodayUpdate72()
                 Case "120"
@@ -123,6 +130,8 @@ Public Class frmPackRepMain
             End Select
 
             frmPackTodayUpdate.Close()
+            frmPacking48.UpdateDatabase()  'Update the database with changes and then close and go back to Job Entry screen
+
             Exit Sub
 
 
@@ -179,6 +188,11 @@ Public Class frmPackRepMain
         End If
 
     End Sub
+
+
+
+
+
 
     Private Sub frmPackRepMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
