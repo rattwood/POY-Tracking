@@ -834,4 +834,16 @@ Public Class frmJobEntry
     Private Sub SettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SettingsToolStripMenuItem.Click
         frmPassword.Show()
     End Sub
+
+    Private Sub TraceNumberToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TraceNumberToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub DrumNumberToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DrumNumberToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub EditPalletToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditPalletToolStripMenuItem.Click
+
+    End Sub
 End Class
