@@ -111,9 +111,9 @@ Partial Class frmSettings
         Me.chkUseColour.Location = New System.Drawing.Point(718, 123)
         Me.chkUseColour.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.chkUseColour.Name = "chkUseColour"
-        Me.chkUseColour.Size = New System.Drawing.Size(115, 20)
+        Me.chkUseColour.Size = New System.Drawing.Size(146, 20)
         Me.chkUseColour.TabIndex = 23
-        Me.chkUseColour.Text = "Use Packing"
+        Me.chkUseColour.Text = "Use POYPacking"
         Me.chkUseColour.UseVisualStyleBackColor = True
         '
         'chkUseSort
@@ -158,6 +158,7 @@ Partial Class frmSettings
         Me.txtBoxTemplates.Name = "txtBoxTemplates"
         Me.txtBoxTemplates.Size = New System.Drawing.Size(287, 21)
         Me.txtBoxTemplates.TabIndex = 27
+        Me.txtBoxTemplates.Visible = False
         '
         'txtBoxCarts
         '
@@ -166,6 +167,7 @@ Partial Class frmSettings
         Me.txtBoxCarts.Name = "txtBoxCarts"
         Me.txtBoxCarts.Size = New System.Drawing.Size(287, 21)
         Me.txtBoxCarts.TabIndex = 28
+        Me.txtBoxCarts.Visible = False
         '
         'txtBoxJobs
         '
@@ -174,6 +176,7 @@ Partial Class frmSettings
         Me.txtBoxJobs.Name = "txtBoxJobs"
         Me.txtBoxJobs.Size = New System.Drawing.Size(287, 21)
         Me.txtBoxJobs.TabIndex = 29
+        Me.txtBoxJobs.Visible = False
         '
         'Label2
         '
@@ -209,6 +212,7 @@ Partial Class frmSettings
         Me.Label8.Size = New System.Drawing.Size(150, 24)
         Me.Label8.TabIndex = 39
         Me.Label8.Text = "Directory Paths"
+        Me.Label8.Visible = False
         '
         'Button1
         '
@@ -234,6 +238,7 @@ Partial Class frmSettings
         Me.Button2.TabIndex = 41
         Me.Button2.Text = "Templates"
         Me.Button2.UseVisualStyleBackColor = True
+        Me.Button2.Visible = False
         '
         'Button3
         '
@@ -243,6 +248,7 @@ Partial Class frmSettings
         Me.Button3.TabIndex = 42
         Me.Button3.Text = "Save Carts"
         Me.Button3.UseVisualStyleBackColor = True
+        Me.Button3.Visible = False
         '
         'Button4
         '
@@ -252,6 +258,7 @@ Partial Class frmSettings
         Me.Button4.TabIndex = 43
         Me.Button4.Text = "Save Carts"
         Me.Button4.UseVisualStyleBackColor = True
+        Me.Button4.Visible = False
         '
         'Label4
         '
@@ -309,6 +316,7 @@ Partial Class frmSettings
         Me.Button5.TabIndex = 50
         Me.Button5.Text = "Save Packing"
         Me.Button5.UseVisualStyleBackColor = True
+        Me.Button5.Visible = False
         '
         'txtBoxPack
         '
@@ -317,6 +325,7 @@ Partial Class frmSettings
         Me.txtBoxPack.Name = "txtBoxPack"
         Me.txtBoxPack.Size = New System.Drawing.Size(287, 21)
         Me.txtBoxPack.TabIndex = 49
+        Me.txtBoxPack.Visible = False
         '
         'Button6
         '
@@ -326,6 +335,7 @@ Partial Class frmSettings
         Me.Button6.TabIndex = 52
         Me.Button6.Text = "Save Pack Reports"
         Me.Button6.UseVisualStyleBackColor = True
+        Me.Button6.Visible = False
         '
         'txtBoxPackReports
         '
@@ -334,6 +344,7 @@ Partial Class frmSettings
         Me.txtBoxPackReports.Name = "txtBoxPackReports"
         Me.txtBoxPackReports.Size = New System.Drawing.Size(287, 21)
         Me.txtBoxPackReports.TabIndex = 51
+        Me.txtBoxPackReports.Visible = False
         '
         'Label9
         '

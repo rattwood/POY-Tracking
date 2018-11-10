@@ -195,7 +195,7 @@ Public Class frmdrumSearch
 
         Me.Close()
         frmJobEntry.Show()
-        frmJobEntry.txtTraceNum.Clear()
-        frmJobEntry.txtTraceNum.Focus()
+        frmJobEntry.txtDrumNum.Clear()
+        frmJobEntry.txtDrumNum.Focus()
     End Sub
 End Class

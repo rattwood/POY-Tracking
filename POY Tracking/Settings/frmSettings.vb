@@ -11,11 +11,11 @@
 
 
         'Shows current settings
-        txtBoxTemplates.Text = My.Settings.dirTemplate
-        txtBoxCarts.Text = My.Settings.dirCarts
-        txtBoxJobs.Text = My.Settings.dirJobs
-        txtBoxPack.Text = My.Settings.dirPacking
-        txtBoxPackReports.Text = My.Settings.dirPackReports
+        'txtBoxTemplates.Text = My.Settings.dirTemplate
+        'txtBoxCarts.Text = My.Settings.dirCarts
+        'txtBoxJobs.Text = My.Settings.dirJobs
+        'txtBoxPack.Text = My.Settings.dirPacking
+        'txtBoxPackReports.Text = My.Settings.dirPackReports
 
 
 
@@ -47,39 +47,39 @@
 
 
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    'Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 
-        FolderBrowserDialog1.ShowDialog()
-        txtBoxTemplates.Text = FolderBrowserDialog1.SelectedPath
-        btnSetSave.Enabled = True
+    '    FolderBrowserDialog1.ShowDialog()
+    '    txtBoxTemplates.Text = FolderBrowserDialog1.SelectedPath
+    '    btnSetSave.Enabled = True
 
-    End Sub
+    'End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    'Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
 
-        FolderBrowserDialog1.ShowDialog()
-        txtBoxCarts.Text = FolderBrowserDialog1.SelectedPath
-        btnSetSave.Enabled = True
-    End Sub
+    '    FolderBrowserDialog1.ShowDialog()
+    '    txtBoxCarts.Text = FolderBrowserDialog1.SelectedPath
+    '    btnSetSave.Enabled = True
+    'End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+    'Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
 
-        FolderBrowserDialog1.ShowDialog()
-        txtBoxJobs.Text = FolderBrowserDialog1.SelectedPath
-        btnSetSave.Enabled = True
-    End Sub
+    '    FolderBrowserDialog1.ShowDialog()
+    '    txtBoxJobs.Text = FolderBrowserDialog1.SelectedPath
+    '    btnSetSave.Enabled = True
+    'End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        FolderBrowserDialog1.ShowDialog()
-        txtBoxPack.Text = FolderBrowserDialog1.SelectedPath
-        btnSetSave.Enabled = True
-    End Sub
+    'Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+    '    FolderBrowserDialog1.ShowDialog()
+    '    txtBoxPack.Text = FolderBrowserDialog1.SelectedPath
+    '    btnSetSave.Enabled = True
+    'End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        FolderBrowserDialog1.ShowDialog()
-        txtBoxPackReports.Text = FolderBrowserDialog1.SelectedPath
-        btnSetSave.Enabled = True
-    End Sub
+    'Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+    '    FolderBrowserDialog1.ShowDialog()
+    '    txtBoxPackReports.Text = FolderBrowserDialog1.SelectedPath
+    '    btnSetSave.Enabled = True
+    'End Sub
 
     Private Sub btnSetSave_click(sender As Object, e As EventArgs) Handles btnSetSave.Click
 
@@ -88,11 +88,11 @@
         My.Settings.debugSet = chkDGV.CheckState
         My.Settings.chkUseEng = chkEnglish.CheckState
         My.Settings.chkUseThai = chkThai.CheckState
-        My.Settings.dirTemplate = txtBoxTemplates.Text
-        My.Settings.dirCarts = txtBoxCarts.Text
-        My.Settings.dirJobs = txtBoxJobs.Text
-        My.Settings.dirPacking = txtBoxPack.Text
-        My.Settings.dirPackReports = txtBoxPackReports.Text
+        'My.Settings.dirTemplate = txtBoxTemplates.Text
+        'My.Settings.dirCarts = txtBoxCarts.Text
+        'My.Settings.dirJobs = txtBoxJobs.Text
+        'My.Settings.dirPacking = txtBoxPack.Text
+        'My.Settings.dirPackReports = txtBoxPackReports.Text
 
         Me.Close()
     End Sub
