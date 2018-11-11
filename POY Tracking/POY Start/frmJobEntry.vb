@@ -844,6 +844,7 @@ Public Class frmJobEntry
     End Sub
 
     Private Sub EditPalletToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditPalletToolStripMenuItem.Click
-
+        Hide()
+        frmToolEntry.Show()
     End Sub
 End Class

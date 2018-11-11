@@ -257,6 +257,18 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SQLConn.vb" />
+    <Compile Include="Tools\frmchangeTrace.Designer.vb">
+      <DependentUpon>frmchangeTrace.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\frmchangeTrace.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\frmToolEntry.Designer.vb">
+      <DependentUpon>frmToolEntry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\frmToolEntry.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="TorayDataSet11.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -351,6 +363,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="POY Start\SplashScreen1.resx">
       <DependentUpon>SplashScreen1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\frmchangeTrace.resx">
+      <DependentUpon>frmchangeTrace.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\frmToolEntry.resx">
+      <DependentUpon>frmToolEntry.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
