@@ -266,7 +266,7 @@ Partial Class frmToolEntry
         Me.lblComplete.AutoSize = True
         Me.lblComplete.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblComplete.ForeColor = System.Drawing.Color.Tomato
-        Me.lblComplete.Location = New System.Drawing.Point(384, 296)
+        Me.lblComplete.Location = New System.Drawing.Point(393, 296)
         Me.lblComplete.Name = "lblComplete"
         Me.lblComplete.Size = New System.Drawing.Size(66, 13)
         Me.lblComplete.TabIndex = 347
@@ -278,7 +278,7 @@ Partial Class frmToolEntry
         Me.lblTraceComplete.AutoSize = True
         Me.lblTraceComplete.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTraceComplete.ForeColor = System.Drawing.Color.Tomato
-        Me.lblTraceComplete.Location = New System.Drawing.Point(648, 296)
+        Me.lblTraceComplete.Location = New System.Drawing.Point(650, 296)
         Me.lblTraceComplete.Name = "lblTraceComplete"
         Me.lblTraceComplete.Size = New System.Drawing.Size(66, 13)
         Me.lblTraceComplete.TabIndex = 348

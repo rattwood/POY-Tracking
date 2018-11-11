@@ -257,6 +257,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SQLConn.vb" />
+    <Compile Include="Tools\frmChangeDrums.Designer.vb">
+      <DependentUpon>frmChangeDrums.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\frmChangeDrums.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Tools\frmchangeTrace.Designer.vb">
       <DependentUpon>frmchangeTrace.vb</DependentUpon>
     </Compile>
@@ -363,6 +369,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="POY Start\SplashScreen1.resx">
       <DependentUpon>SplashScreen1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\frmChangeDrums.resx">
+      <DependentUpon>frmChangeDrums.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\frmchangeTrace.resx">
       <DependentUpon>frmchangeTrace.vb</DependentUpon>

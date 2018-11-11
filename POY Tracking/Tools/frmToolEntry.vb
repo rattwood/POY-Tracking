@@ -120,7 +120,7 @@ Public Class frmToolEntry
     End Sub
 
     Private Sub btnChangeSteps_Click(sender As Object, e As EventArgs) Handles btnChangeSteps.Click
-
+        lblComplete.Visible = False
         Dim result = MessageBox.Show("Edit Job Yes Or No", "Are you sure you wish to change all the STEP numbers", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
 
 
@@ -194,6 +194,9 @@ Public Class frmToolEntry
 
 
     Private Sub btnChangeDrum_Click(sender As Object, e As EventArgs) Handles btnChangeDrum.Click
+        Hide()
+        frmChangeDrums.Show()
+        smalldbUpdate()
 
     End Sub
 
@@ -202,6 +205,11 @@ Public Class frmToolEntry
         frmchangeTrace.txtNewTraceNum.Focus()
         frmchangeTrace.Show()
         bcodescan = txtTraceNum.Text.ToString  'to get updated trace number
+        smalldbUpdate()
+
+    End Sub
+
+    Private Sub smalldbUpdate()
         'This routine is to refresh DGV with data for new Trace Number assigned
         SQL.ExecQuery("Select * from POYTrack where (POYTRACENUM Is Not Null) and POYTRACENUM = '" & bcodescan & "' and POYBCODEDRUM Is Not Null Order by POYPACKIDX ")
         Try
@@ -216,7 +224,7 @@ Public Class frmToolEntry
             End If
         Catch ex As Exception
             Me.Cursor = System.Windows.Forms.Cursors.Default
-            MsgBox("Job creation Error" & vbNewLine & ex.Message)
+            MsgBox("small update Error" & vbNewLine & ex.Message)
         End Try
 
     End Sub
