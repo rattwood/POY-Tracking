@@ -43,8 +43,6 @@ Partial Class frmJobEntry
         Me.PalletReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TraceNumberToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DrumNumberToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UpdateTRACENumberToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DrumToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditPalletToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.ToraydbBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -141,7 +139,7 @@ Partial Class frmJobEntry
         '
         'ReportsToolStripMenuItem
         '
-        Me.ReportsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PalletReportToolStripMenuItem, Me.UpdateTRACENumberToolStripMenuItem, Me.DrumToolStripMenuItem})
+        Me.ReportsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PalletReportToolStripMenuItem})
         Me.ReportsToolStripMenuItem.Name = "ReportsToolStripMenuItem"
         resources.ApplyResources(Me.ReportsToolStripMenuItem, "ReportsToolStripMenuItem")
         '
@@ -160,16 +158,6 @@ Partial Class frmJobEntry
         '
         Me.DrumNumberToolStripMenuItem.Name = "DrumNumberToolStripMenuItem"
         resources.ApplyResources(Me.DrumNumberToolStripMenuItem, "DrumNumberToolStripMenuItem")
-        '
-        'UpdateTRACENumberToolStripMenuItem
-        '
-        Me.UpdateTRACENumberToolStripMenuItem.Name = "UpdateTRACENumberToolStripMenuItem"
-        resources.ApplyResources(Me.UpdateTRACENumberToolStripMenuItem, "UpdateTRACENumberToolStripMenuItem")
-        '
-        'DrumToolStripMenuItem
-        '
-        Me.DrumToolStripMenuItem.Name = "DrumToolStripMenuItem"
-        resources.ApplyResources(Me.DrumToolStripMenuItem, "DrumToolStripMenuItem")
         '
         'ToolsToolStripMenuItem
         '
@@ -226,10 +214,8 @@ Partial Class frmJobEntry
     Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReportsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PalletReportToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents UpdateTRACENumberToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TraceNumberToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DrumNumberToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents DrumToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EditPalletToolStripMenuItem As ToolStripMenuItem
 End Class

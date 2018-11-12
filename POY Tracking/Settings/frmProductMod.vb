@@ -16,7 +16,7 @@ Public Class frmProductMod
     End Sub
 
     Private Sub LoadGrid()
-        SQL.ExecQuery("SELECT * FROM product")
+        SQL.ExecQuery("SELECT * FROM POYproduct")
         If SQL.RecordCount > 0 Then
 
 
@@ -24,7 +24,7 @@ Public Class frmProductMod
             Dim dgvrowcnt = DGVProduct.Rows.Count
             DGVProduct.CurrentCell = DGVProduct.Rows(dgvrowcnt - 1).Cells(0)
             'DGVProduct.Rows(0).Selected = True
-            DGVProduct.Sort(DGVProduct.Columns("PRNUM"), ListSortDirection.Ascending)  'sorts On cone number
+            DGVProduct.Sort(DGVProduct.Columns("POYPRNUM"), ListSortDirection.Ascending)  'sorts On cone number
 
             SQL.SQLDA.UpdateCommand = New SqlClient.SqlCommandBuilder(SQL.SQLDA).GetUpdateCommand
         End If

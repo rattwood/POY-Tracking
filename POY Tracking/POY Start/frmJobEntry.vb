@@ -615,14 +615,14 @@ Public Class frmJobEntry
 
 
         Else
-            MsgBox("This product is not in Product table, please check product table in SETTING ")
+            MsgBox("This product is not in Product table, please check product table in SETTINGS ")
             cancelRoutine()
             Exit Sub
 
         End If
 
 
-        Label3.Text = "Creating New Palette"
+        Label3.Text = "Creating New Pallet"
         Label3.Visible = True
         Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
 

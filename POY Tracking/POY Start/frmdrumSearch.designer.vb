@@ -62,9 +62,9 @@ Partial Class frmdrumSearch
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(280, 37)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(293, 24)
+        Me.Label1.Size = New System.Drawing.Size(271, 24)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Search for Cheese Information"
+        Me.Label1.Text = "Search for Drum Information"
         '
         'Label2
         '
@@ -72,9 +72,9 @@ Partial Class frmdrumSearch
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(-1, 145)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(125, 20)
+        Me.Label2.Size = New System.Drawing.Size(88, 20)
         Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Job Barcode #"
+        Me.Label2.Text = "TRACE  #"
         '
         'Label3
         '
@@ -82,9 +82,9 @@ Partial Class frmdrumSearch
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(-1, 208)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(157, 20)
+        Me.Label3.Size = New System.Drawing.Size(149, 20)
         Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Cheese Barcode #"
+        Me.Label3.Text = "DRUM Barcode #"
         '
         'txtBoxJob
         '
@@ -325,7 +325,7 @@ Partial Class frmdrumSearch
         Me.Label14.TabIndex = 31
         Me.Label14.Text = "Carton #"
         '
-        'frmConeSearch
+        'frmdrumSearch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -363,8 +363,8 @@ Partial Class frmdrumSearch
         Me.Controls.Add(Me.Label1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(5)
-        Me.Name = "frmConeSearch"
-        Me.Text = "Cone Search"
+        Me.Name = "frmdrumSearch"
+        Me.Text = "Drum Search"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

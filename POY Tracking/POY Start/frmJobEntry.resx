@@ -478,34 +478,22 @@
     <value>Settings</value>
   </data>
   <data name="TraceNumberToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="TraceNumberToolStripMenuItem.Text" xml:space="preserve">
     <value>Trace Number</value>
   </data>
   <data name="DrumNumberToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="DrumNumberToolStripMenuItem.Text" xml:space="preserve">
     <value>Drum Number</value>
   </data>
   <data name="PalletReportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="PalletReportToolStripMenuItem.Text" xml:space="preserve">
     <value>Pallet Report</value>
-  </data>
-  <data name="UpdateTRACENumberToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 22</value>
-  </data>
-  <data name="UpdateTRACENumberToolStripMenuItem.Text" xml:space="preserve">
-    <value>Update TRACE number</value>
-  </data>
-  <data name="DrumToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 22</value>
-  </data>
-  <data name="DrumToolStripMenuItem.Text" xml:space="preserve">
-    <value>Drum </value>
   </data>
   <data name="ReportsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>59, 20</value>
@@ -1341,18 +1329,6 @@
     <value>DrumNumberToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;DrumNumberToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;UpdateTRACENumberToolStripMenuItem.Name" xml:space="preserve">
-    <value>UpdateTRACENumberToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;UpdateTRACENumberToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DrumToolStripMenuItem.Name" xml:space="preserve">
-    <value>DrumToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;DrumToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ToolsToolStripMenuItem.Name" xml:space="preserve">
