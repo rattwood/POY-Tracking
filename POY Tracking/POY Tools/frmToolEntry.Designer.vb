@@ -71,6 +71,7 @@ Partial Class frmToolEntry
         '
         Me.btnChangeSteps.BackColor = System.Drawing.Color.LightGray
         Me.btnChangeSteps.Enabled = False
+        Me.btnChangeSteps.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnChangeSteps.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnChangeSteps.Location = New System.Drawing.Point(365, 247)
         Me.btnChangeSteps.Name = "btnChangeSteps"
@@ -83,6 +84,7 @@ Partial Class frmToolEntry
         '
         Me.btnChangeTrace.BackColor = System.Drawing.Color.LightGray
         Me.btnChangeTrace.Enabled = False
+        Me.btnChangeTrace.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnChangeTrace.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnChangeTrace.Location = New System.Drawing.Point(622, 247)
         Me.btnChangeTrace.Name = "btnChangeTrace"
@@ -116,7 +118,7 @@ Partial Class frmToolEntry
         Me.lblError.BackColor = System.Drawing.Color.Red
         Me.lblError.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.lblError.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblError.Location = New System.Drawing.Point(45, 106)
+        Me.lblError.Location = New System.Drawing.Point(11, 96)
         Me.lblError.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblError.Name = "lblError"
         Me.lblError.Size = New System.Drawing.Size(126, 39)
@@ -127,6 +129,7 @@ Partial Class frmToolEntry
         'btnCancel
         '
         Me.btnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancel.Location = New System.Drawing.Point(12, 424)
         Me.btnCancel.Name = "btnCancel"
@@ -138,6 +141,7 @@ Partial Class frmToolEntry
         'btnClear
         '
         Me.btnClear.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClear.Location = New System.Drawing.Point(180, 424)
         Me.btnClear.Name = "btnClear"

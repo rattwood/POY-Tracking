@@ -124,11 +124,42 @@ Public Class frmToolEntry
         Dim result = MessageBox.Show("Edit Job Yes Or No", "Are you sure you wish to change all the STEP numbers", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
 
 
+
+
+
         If result = DialogResult.Yes Then
+
+
+
+            SQL.ExecQuery("Select * from POYTrack where (POYTRACENUM Is Not Null) and POYTRACENUM = '" & bcodescan & "'  Order by POYPACKIDX ")
+
+            If SQL.RecordCount > 0 Then
+
+                Try
+                    If SQL.RecordCount > 0 Then
+                        frmDGV.DGVdata.DataSource = SQL.SQLDS.Tables(0)
+                        frmDGV.DGVdata.Rows(0).Selected = True
+                        Dim LCB As SqlCommandBuilder = New SqlCommandBuilder(SQL.SQLDA)
+
+                        Me.Cursor = System.Windows.Forms.Cursors.Default
+                        lblError.Text = ""
+                        lblError.Visible = False
+                    End If
+                Catch ex As Exception
+                    Me.Cursor = System.Windows.Forms.Cursors.Default
+                    MsgBox("Job creation Error" & vbNewLine & ex.Message)
+                End Try
+
+            End If
+
             Dim tmpcount As Integer = frmDGV.DGVdata.Rows.Count
             Dim idxReverse As Integer = frmDGV.DGVdata.Rows(0).Cells("POYDRUMPERPAL").Value
             Dim fmt As String = "000"
             Dim modIdxNum As String
+            Dim startcount As Integer
+            Dim endcount As Integer
+            Dim rcount As Integer
+
 
             'Round 1 change to tmp1,2,3,4,5 & 6
             For i = 1 To tmpcount
@@ -136,7 +167,7 @@ Public Class frmToolEntry
                 'Advance without writing a value if no Drum
                 If IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value) Then Continue For
 
-                Select Case frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value
+                Select Case frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value.ToString
                     Case 1
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value = "tmp1"
                     Case 2
@@ -150,33 +181,156 @@ Public Class frmToolEntry
                     Case 6
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value = "tmp6"
                 End Select
+            Next
 
-                Select Case frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value
+            For i = 1 To tmpcount
+                Select Case frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value.ToString
                     Case "tmp1"
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value = 6
+
+                        If idxReverse = 120 Then
+                            startcount = 101
+                            endcount = 20
+                        ElseIf idxReverse = 72 Then
+                            startcount = 61
+                            endcount = 12
+                        ElseIf idxReverse = 48 Then
+                            startcount = 41
+                            endcount = 8
+                        End If
+
+                        For rcount = 1 To endcount
+
+                            modIdxNum = startcount.ToString(fmt)
+                            frmDGV.DGVdata.Rows(rcount - 1).Cells("POYPACKIDX").Value = modIdxNum
+                            startcount = startcount + 1
+
+                        Next
+
                     Case "tmp2"
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value = 5
+
+                        If idxReverse = 120 Then
+                            startcount = 81
+                            endcount = 20
+                        ElseIf idxReverse = 72 Then
+                            startcount = 61
+                            endcount = 12
+                        ElseIf idxReverse = 48 Then
+                            startcount = 33
+                            endcount = 8
+                        End If
+
+                        For rcount = 1 To endcount
+
+                            modIdxNum = startcount.ToString(fmt)
+                            frmDGV.DGVdata.Rows(rcount - 1).Cells("POYPACKIDX").Value = modIdxNum
+                            startcount = startcount + 1
+
+                        Next
+
                     Case "tmp3"
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value = 4
+
+
+                        If idxReverse = 120 Then
+                            startcount = 61
+                            endcount = 20
+                        ElseIf idxReverse = 72 Then
+                            startcount = 61
+                            endcount = 12
+                        ElseIf idxReverse = 48 Then
+                            startcount = 25
+                            endcount = 8
+                        End If
+
+                        For rcount = 1 To endcount
+
+                            modIdxNum = startcount.ToString(fmt)
+                            frmDGV.DGVdata.Rows(rcount - 1).Cells("POYPACKIDX").Value = modIdxNum
+                            startcount = startcount + 1
+
+                        Next
+
+
+
+
                     Case "tmp4"
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value = 3
+
+
+
+                        If idxReverse = 120 Then
+                            startcount = 41
+                            endcount = 20
+                        ElseIf idxReverse = 72 Then
+                            startcount = 61
+                            endcount = 12
+                        ElseIf idxReverse = 48 Then
+                            startcount = 17
+                            endcount = 8
+                        End If
+
+                        For rcount = 1 To endcount
+
+                            modIdxNum = startcount.ToString(fmt)
+                            frmDGV.DGVdata.Rows(rcount - 1).Cells("POYPACKIDX").Value = modIdxNum
+                            startcount = startcount + 1
+
+                        Next
+
+
                     Case "tmp5"
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value = 2
+
+                        If idxReverse = 120 Then
+                            startcount = 21
+                        ElseIf idxReverse = 72 Then
+                            startcount = 61
+                            endcount = 12
+                        ElseIf idxReverse = 48 Then
+                            startcount = 9
+                            endcount = 8
+                        End If
+
+                        For rcount = 1 To endcount
+
+                            modIdxNum = startcount.ToString(fmt)
+                            frmDGV.DGVdata.Rows(rcount - 1).Cells("POYPACKIDX").Value = modIdxNum
+                            startcount = startcount + 1
+
+                        Next
+
+
                     Case "tmp6"
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value = 1
+
+
+                        If idxReverse = 120 Then
+                            startcount = 1
+                            endcount = 20
+                        ElseIf idxReverse = 72 Then
+                            startcount = 61
+                            endcount = 12
+                        ElseIf idxReverse = 48 Then
+                            startcount = 1
+                            endcount = 8
+                        End If
+
+                        For rcount = 1 To endcount
+
+                            modIdxNum = startcount.ToString(fmt)
+                            frmDGV.DGVdata.Rows(rcount - 1).Cells("POYPACKIDX").Value = modIdxNum
+                            startcount = startcount + 1
+
+                        Next
+
                 End Select
-
-
-                modIdxNum = idxReverse.ToString(fmt)
-                frmDGV.DGVdata.Rows(i - 1).Cells("POYPACKIDX").Value = modIdxNum
-                idxReverse = idxReverse - 1
             Next
 
 
 
-
-
-            UpdateDatabase()
+            'UpdateDatabase()
 
             lblComplete.Visible = True
             Exit Sub

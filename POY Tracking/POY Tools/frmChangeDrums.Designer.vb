@@ -22,19 +22,19 @@ Partial Class frmChangeDrums
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DGVChageDrum = New System.Windows.Forms.DataGridView()
-        Me.btnUpdate = New System.Windows.Forms.Button()
-        Me.btnClear = New System.Windows.Forms.Button()
-        Me.btnCancel = New System.Windows.Forms.Button()
-        Me.btnCheck = New System.Windows.Forms.Button()
         Me.POYPACKIDX = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.POYSTEPNUM = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.POYBCODEDRUM = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.POYREPBCODEDRUM = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnUpdate = New System.Windows.Forms.Button()
+        Me.btnClear = New System.Windows.Forms.Button()
+        Me.btnCancel = New System.Windows.Forms.Button()
+        Me.btnCheck = New System.Windows.Forms.Button()
         CType(Me.DGVChageDrum, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -51,10 +51,55 @@ Partial Class frmChangeDrums
         Me.DGVChageDrum.Size = New System.Drawing.Size(438, 525)
         Me.DGVChageDrum.TabIndex = 0
         '
+        'POYPACKIDX
+        '
+        Me.POYPACKIDX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.POYPACKIDX.DefaultCellStyle = DataGridViewCellStyle1
+        Me.POYPACKIDX.HeaderText = "Index"
+        Me.POYPACKIDX.Name = "POYPACKIDX"
+        Me.POYPACKIDX.ReadOnly = True
+        Me.POYPACKIDX.Width = 58
+        '
+        'POYSTEPNUM
+        '
+        Me.POYSTEPNUM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.POYSTEPNUM.DefaultCellStyle = DataGridViewCellStyle2
+        Me.POYSTEPNUM.HeaderText = "Step No."
+        Me.POYSTEPNUM.Name = "POYSTEPNUM"
+        Me.POYSTEPNUM.ReadOnly = True
+        Me.POYSTEPNUM.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
+        Me.POYSTEPNUM.Width = 69
+        '
+        'POYBCODEDRUM
+        '
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
+        Me.POYBCODEDRUM.DefaultCellStyle = DataGridViewCellStyle3
+        Me.POYBCODEDRUM.HeaderText = "DRUM No."
+        Me.POYBCODEDRUM.Name = "POYBCODEDRUM"
+        Me.POYBCODEDRUM.ReadOnly = True
+        Me.POYBCODEDRUM.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
+        Me.POYBCODEDRUM.Width = 120
+        '
+        'POYREPBCODEDRUM
+        '
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black
+        Me.POYREPBCODEDRUM.DefaultCellStyle = DataGridViewCellStyle4
+        Me.POYREPBCODEDRUM.HeaderText = "Replacment Drum No."
+        Me.POYREPBCODEDRUM.Name = "POYREPBCODEDRUM"
+        Me.POYREPBCODEDRUM.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
+        Me.POYREPBCODEDRUM.Width = 130
+        '
         'btnUpdate
         '
         Me.btnUpdate.BackColor = System.Drawing.Color.LightGreen
         Me.btnUpdate.Enabled = False
+        Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnUpdate.Location = New System.Drawing.Point(505, 470)
         Me.btnUpdate.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
@@ -67,8 +112,9 @@ Partial Class frmChangeDrums
         'btnClear
         '
         Me.btnClear.BackColor = System.Drawing.Color.Gold
+        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.Location = New System.Drawing.Point(505, 316)
+        Me.btnClear.Location = New System.Drawing.Point(505, 24)
         Me.btnClear.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(180, 71)
@@ -79,8 +125,9 @@ Partial Class frmChangeDrums
         'btnCancel
         '
         Me.btnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(505, 18)
+        Me.btnCancel.Location = New System.Drawing.Point(505, 105)
         Me.btnCancel.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(180, 71)
@@ -91,6 +138,7 @@ Partial Class frmChangeDrums
         'btnCheck
         '
         Me.btnCheck.BackColor = System.Drawing.Color.White
+        Me.btnCheck.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnCheck.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCheck.Location = New System.Drawing.Point(505, 393)
         Me.btnCheck.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
@@ -99,50 +147,6 @@ Partial Class frmChangeDrums
         Me.btnCheck.TabIndex = 343
         Me.btnCheck.Text = "Check Entries"
         Me.btnCheck.UseVisualStyleBackColor = False
-        '
-        'POYPACKIDX
-        '
-        Me.POYPACKIDX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.POYPACKIDX.DefaultCellStyle = DataGridViewCellStyle9
-        Me.POYPACKIDX.HeaderText = "Index"
-        Me.POYPACKIDX.Name = "POYPACKIDX"
-        Me.POYPACKIDX.ReadOnly = True
-        Me.POYPACKIDX.Width = 58
-        '
-        'POYSTEPNUM
-        '
-        Me.POYSTEPNUM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.POYSTEPNUM.DefaultCellStyle = DataGridViewCellStyle10
-        Me.POYSTEPNUM.HeaderText = "Step No."
-        Me.POYSTEPNUM.Name = "POYSTEPNUM"
-        Me.POYSTEPNUM.ReadOnly = True
-        Me.POYSTEPNUM.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
-        Me.POYSTEPNUM.Width = 74
-        '
-        'POYBCODEDRUM
-        '
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black
-        Me.POYBCODEDRUM.DefaultCellStyle = DataGridViewCellStyle11
-        Me.POYBCODEDRUM.HeaderText = "DRUM No."
-        Me.POYBCODEDRUM.Name = "POYBCODEDRUM"
-        Me.POYBCODEDRUM.ReadOnly = True
-        Me.POYBCODEDRUM.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
-        Me.POYBCODEDRUM.Width = 120
-        '
-        'POYREPBCODEDRUM
-        '
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black
-        Me.POYREPBCODEDRUM.DefaultCellStyle = DataGridViewCellStyle12
-        Me.POYREPBCODEDRUM.HeaderText = "Replacment Drum No."
-        Me.POYREPBCODEDRUM.Name = "POYREPBCODEDRUM"
-        Me.POYREPBCODEDRUM.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
-        Me.POYREPBCODEDRUM.Width = 130
         '
         'frmChangeDrums
         '

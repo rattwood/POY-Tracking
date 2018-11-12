@@ -847,4 +847,15 @@ Public Class frmJobEntry
         Hide()
         frmToolEntry.Show()
     End Sub
+
+    Private Sub DRUMToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DRUMToolStripMenuItem.Click
+        Hide()
+        frmdrumSearch.Show()
+    End Sub
+
+    Private Sub TraceNumberToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles TraceNumberToolStripMenuItem1.Click
+        Hide()
+        frmTraceSearch.Show()
+
+    End Sub
 End Class

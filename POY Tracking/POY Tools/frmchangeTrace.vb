@@ -41,7 +41,7 @@ Public Class frmchangeTrace
         Try
 
 
-            If Not (txtTraceNum.TextLength = 10) Then  ' LENGTH OF BARCODE
+            If Not (txtNewTraceNum.TextLength = 10) Then  ' LENGTH OF BARCODE
                 lblError.Visible = True
                 lblError.Text = "This is not a TRACE barcode" & vbCrLf & "Please RE Scan"
                 DelayTM()
@@ -58,7 +58,7 @@ Public Class frmchangeTrace
                     Me.KeyPreview = False  'Turn off Barcode entry
 
                     lblError.Visible = True
-                    lblError.Text = "This TRACE is already used in the system"
+                    lblError.Text = "This TRACE is already used" & vbCrLf & "in the system"
                     DelayTM()
                     lblError.Visible = False
 

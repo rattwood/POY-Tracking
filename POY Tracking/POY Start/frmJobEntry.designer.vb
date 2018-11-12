@@ -45,6 +45,9 @@ Partial Class frmJobEntry
         Me.DrumNumberToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditPalletToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DRUMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TraceNumberToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.ToraydbBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Toraydb, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
@@ -127,7 +130,7 @@ Partial Class frmJobEntry
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem, Me.ReportsToolStripMenuItem, Me.ToolsToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem, Me.ReportsToolStripMenuItem, Me.ToolsToolStripMenuItem, Me.SearchToolStripMenuItem})
         resources.ApplyResources(Me.MenuStrip1, "MenuStrip1")
         Me.MenuStrip1.Name = "MenuStrip1"
         '
@@ -169,6 +172,22 @@ Partial Class frmJobEntry
         '
         Me.EditPalletToolStripMenuItem.Name = "EditPalletToolStripMenuItem"
         resources.ApplyResources(Me.EditPalletToolStripMenuItem, "EditPalletToolStripMenuItem")
+        '
+        'SearchToolStripMenuItem
+        '
+        Me.SearchToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DRUMToolStripMenuItem, Me.TraceNumberToolStripMenuItem1})
+        Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
+        resources.ApplyResources(Me.SearchToolStripMenuItem, "SearchToolStripMenuItem")
+        '
+        'DRUMToolStripMenuItem
+        '
+        Me.DRUMToolStripMenuItem.Name = "DRUMToolStripMenuItem"
+        resources.ApplyResources(Me.DRUMToolStripMenuItem, "DRUMToolStripMenuItem")
+        '
+        'TraceNumberToolStripMenuItem1
+        '
+        Me.TraceNumberToolStripMenuItem1.Name = "TraceNumberToolStripMenuItem1"
+        resources.ApplyResources(Me.TraceNumberToolStripMenuItem1, "TraceNumberToolStripMenuItem1")
         '
         'frmJobEntry
         '
@@ -218,4 +237,7 @@ Partial Class frmJobEntry
     Friend WithEvents DrumNumberToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EditPalletToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SearchToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DRUMToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TraceNumberToolStripMenuItem1 As ToolStripMenuItem
 End Class

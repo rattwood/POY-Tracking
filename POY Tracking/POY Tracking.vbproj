@@ -180,40 +180,40 @@
     <Compile Include="POY Start\frmPaletteCreate.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Settings\frmdbString.designer.vb">
+    <Compile Include="POY Settings\frmdbString.designer.vb">
       <DependentUpon>frmdbString.vb</DependentUpon>
     </Compile>
-    <Compile Include="Settings\frmdbString.vb">
+    <Compile Include="POY Settings\frmdbString.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Settings\frmProductMod.designer.vb">
+    <Compile Include="POY Settings\frmProductMod.designer.vb">
       <DependentUpon>frmProductMod.vb</DependentUpon>
     </Compile>
-    <Compile Include="Settings\frmProductMod.vb">
+    <Compile Include="POY Settings\frmProductMod.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Settings\frmSettings.designer.vb">
+    <Compile Include="POY Settings\frmSettings.designer.vb">
       <DependentUpon>frmSettings.vb</DependentUpon>
     </Compile>
-    <Compile Include="Settings\frmSettings.vb">
+    <Compile Include="POY Settings\frmSettings.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Settings\frmSettingSelect.designer.vb">
+    <Compile Include="POY Settings\frmSettingSelect.designer.vb">
       <DependentUpon>frmSettingSelect.vb</DependentUpon>
     </Compile>
-    <Compile Include="Settings\frmSettingSelect.vb">
+    <Compile Include="POY Settings\frmSettingSelect.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Settings\frmChangePassword.designer.vb">
+    <Compile Include="POY Settings\frmChangePassword.designer.vb">
       <DependentUpon>frmChangePassword.vb</DependentUpon>
     </Compile>
-    <Compile Include="Settings\frmChangePassword.vb">
+    <Compile Include="POY Settings\frmChangePassword.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tools\frmdrumSearch.designer.vb">
+    <Compile Include="POY Tools\frmdrumSearch.designer.vb">
       <DependentUpon>frmdrumSearch.vb</DependentUpon>
     </Compile>
-    <Compile Include="Tools\frmdrumSearch.vb">
+    <Compile Include="POY Tools\frmdrumSearch.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DGV Folders\frmDGV.designer.vb">
@@ -228,10 +228,10 @@
     <Compile Include="POY Start\frmJobEntry.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Settings\frmPassword.designer.vb">
+    <Compile Include="POY Settings\frmPassword.designer.vb">
       <DependentUpon>frmPassword.vb</DependentUpon>
     </Compile>
-    <Compile Include="Settings\frmPassword.vb">
+    <Compile Include="POY Settings\frmPassword.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="POY Packing\frmPacking72.designer.vb">
@@ -257,22 +257,28 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SQLConn.vb" />
-    <Compile Include="Tools\frmChangeDrums.Designer.vb">
+    <Compile Include="POY Tools\frmChangeDrums.Designer.vb">
       <DependentUpon>frmChangeDrums.vb</DependentUpon>
     </Compile>
-    <Compile Include="Tools\frmChangeDrums.vb">
+    <Compile Include="POY Tools\frmChangeDrums.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tools\frmchangeTrace.Designer.vb">
+    <Compile Include="POY Tools\frmchangeTrace.Designer.vb">
       <DependentUpon>frmchangeTrace.vb</DependentUpon>
     </Compile>
-    <Compile Include="Tools\frmchangeTrace.vb">
+    <Compile Include="POY Tools\frmchangeTrace.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tools\frmToolEntry.Designer.vb">
+    <Compile Include="POY Tools\frmToolEntry.Designer.vb">
       <DependentUpon>frmToolEntry.vb</DependentUpon>
     </Compile>
-    <Compile Include="Tools\frmToolEntry.vb">
+    <Compile Include="POY Tools\frmToolEntry.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Tools\frmTraceSearch.Designer.vb">
+      <DependentUpon>frmTraceSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Tools\frmTraceSearch.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TorayDataSet11.Designer.vb">
@@ -334,22 +340,22 @@
     <EmbeddedResource Include="POY Start\frmPaletteCreate.resx">
       <DependentUpon>frmPaletteCreate.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Settings\frmdbString.resx">
+    <EmbeddedResource Include="POY Settings\frmdbString.resx">
       <DependentUpon>frmdbString.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Settings\frmProductMod.resx">
+    <EmbeddedResource Include="POY Settings\frmProductMod.resx">
       <DependentUpon>frmProductMod.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Settings\frmSettings.resx">
+    <EmbeddedResource Include="POY Settings\frmSettings.resx">
       <DependentUpon>frmSettings.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Settings\frmSettingSelect.resx">
+    <EmbeddedResource Include="POY Settings\frmSettingSelect.resx">
       <DependentUpon>frmSettingSelect.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Settings\frmChangePassword.resx">
+    <EmbeddedResource Include="POY Settings\frmChangePassword.resx">
       <DependentUpon>frmChangePassword.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tools\frmdrumSearch.resx">
+    <EmbeddedResource Include="POY Tools\frmdrumSearch.resx">
       <DependentUpon>frmdrumSearch.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DGV Folders\frmDGV.resx">
@@ -358,7 +364,7 @@
     <EmbeddedResource Include="POY Start\frmJobEntry.resx">
       <DependentUpon>frmJobEntry.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Settings\frmPassword.resx">
+    <EmbeddedResource Include="POY Settings\frmPassword.resx">
       <DependentUpon>frmPassword.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -370,14 +376,17 @@
     <EmbeddedResource Include="POY Start\SplashScreen1.resx">
       <DependentUpon>SplashScreen1.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tools\frmChangeDrums.resx">
+    <EmbeddedResource Include="POY Tools\frmChangeDrums.resx">
       <DependentUpon>frmChangeDrums.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tools\frmchangeTrace.resx">
+    <EmbeddedResource Include="POY Tools\frmchangeTrace.resx">
       <DependentUpon>frmchangeTrace.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tools\frmToolEntry.resx">
+    <EmbeddedResource Include="POY Tools\frmToolEntry.resx">
       <DependentUpon>frmToolEntry.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Tools\frmTraceSearch.resx">
+      <DependentUpon>frmTraceSearch.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -518,8 +527,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reports\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

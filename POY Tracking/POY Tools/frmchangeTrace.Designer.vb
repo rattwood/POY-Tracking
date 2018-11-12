@@ -142,7 +142,7 @@ Partial Class frmchangeTrace
         Me.lblError.BackColor = System.Drawing.Color.Red
         Me.lblError.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.lblError.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblError.Location = New System.Drawing.Point(152, 54)
+        Me.lblError.Location = New System.Drawing.Point(11, 42)
         Me.lblError.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblError.Name = "lblError"
         Me.lblError.Size = New System.Drawing.Size(126, 39)
