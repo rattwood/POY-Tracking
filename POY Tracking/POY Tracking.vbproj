@@ -150,28 +150,28 @@
     <Compile Include="POY Packing\frmTraceEntry.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="POY Reports\AUTO Generated Park Report\frmPackCreateNew.designer.vb">
+    <Compile Include="POY Reports\AUTO Generated Pack Report\frmPackCreateNew.designer.vb">
       <DependentUpon>frmPackCreateNew.vb</DependentUpon>
     </Compile>
-    <Compile Include="POY Reports\AUTO Generated Park Report\frmPackCreateNew.vb">
+    <Compile Include="POY Reports\AUTO Generated Pack Report\frmPackCreateNew.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="POY Reports\AUTO Generated Park Report\frmPackPrvGet.designer.vb">
+    <Compile Include="POY Reports\AUTO Generated Pack Report\frmPackPrvGet.designer.vb">
       <DependentUpon>frmPackPrvGet.vb</DependentUpon>
     </Compile>
-    <Compile Include="POY Reports\AUTO Generated Park Report\frmPackPrvGet.vb">
+    <Compile Include="POY Reports\AUTO Generated Pack Report\frmPackPrvGet.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="POY Reports\AUTO Generated Park Report\frmPackRepMain.designer.vb">
+    <Compile Include="POY Reports\AUTO Generated Pack Report\frmPackRepMain.designer.vb">
       <DependentUpon>frmPackRepMain.vb</DependentUpon>
     </Compile>
-    <Compile Include="POY Reports\AUTO Generated Park Report\frmPackRepMain.vb">
+    <Compile Include="POY Reports\AUTO Generated Pack Report\frmPackRepMain.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="POY Reports\AUTO Generated Park Report\frmPackTodayUpdate.designer.vb">
+    <Compile Include="POY Reports\AUTO Generated Pack Report\frmPackTodayUpdate.designer.vb">
       <DependentUpon>frmPackTodayUpdate.vb</DependentUpon>
     </Compile>
-    <Compile Include="POY Reports\AUTO Generated Park Report\frmPackTodayUpdate.vb">
+    <Compile Include="POY Reports\AUTO Generated Pack Report\frmPackTodayUpdate.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="POY Start\frmPaletteCreate.Designer.vb">
@@ -204,22 +204,22 @@
     <Compile Include="Settings\frmSettingSelect.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="POY Start\frmChangePassword.designer.vb">
+    <Compile Include="Settings\frmChangePassword.designer.vb">
       <DependentUpon>frmChangePassword.vb</DependentUpon>
     </Compile>
-    <Compile Include="POY Start\frmChangePassword.vb">
+    <Compile Include="Settings\frmChangePassword.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="POY Start\frmdrumSearch.designer.vb">
+    <Compile Include="Tools\frmdrumSearch.designer.vb">
       <DependentUpon>frmdrumSearch.vb</DependentUpon>
     </Compile>
-    <Compile Include="POY Start\frmdrumSearch.vb">
+    <Compile Include="Tools\frmdrumSearch.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="POY Start\frmDGV.designer.vb">
+    <Compile Include="DGV Folders\frmDGV.designer.vb">
       <DependentUpon>frmDGV.vb</DependentUpon>
     </Compile>
-    <Compile Include="POY Start\frmDGV.vb">
+    <Compile Include="DGV Folders\frmDGV.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="POY Start\frmJobEntry.designer.vb">
@@ -228,10 +228,10 @@
     <Compile Include="POY Start\frmJobEntry.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="POY Start\frmPassword.designer.vb">
+    <Compile Include="Settings\frmPassword.designer.vb">
       <DependentUpon>frmPassword.vb</DependentUpon>
     </Compile>
-    <Compile Include="POY Start\frmPassword.vb">
+    <Compile Include="Settings\frmPassword.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="POY Packing\frmPacking72.designer.vb">
@@ -313,13 +313,13 @@
     <EmbeddedResource Include="POY Packing\frmTraceEntry.resx">
       <DependentUpon>frmTraceEntry.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="POY Reports\AUTO Generated Park Report\frmPackCreateNew.resx">
+    <EmbeddedResource Include="POY Reports\AUTO Generated Pack Report\frmPackCreateNew.resx">
       <DependentUpon>frmPackCreateNew.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="POY Reports\AUTO Generated Park Report\frmPackRepMain.resx">
+    <EmbeddedResource Include="POY Reports\AUTO Generated Pack Report\frmPackRepMain.resx">
       <DependentUpon>frmPackRepMain.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="POY Reports\AUTO Generated Park Report\frmPackTodayUpdate.resx">
+    <EmbeddedResource Include="POY Reports\AUTO Generated Pack Report\frmPackTodayUpdate.resx">
       <DependentUpon>frmPackTodayUpdate.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POY Start\frmJobEntry.en.resx">
@@ -346,19 +346,19 @@
     <EmbeddedResource Include="Settings\frmSettingSelect.resx">
       <DependentUpon>frmSettingSelect.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="POY Start\frmChangePassword.resx">
+    <EmbeddedResource Include="Settings\frmChangePassword.resx">
       <DependentUpon>frmChangePassword.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="POY Start\frmdrumSearch.resx">
+    <EmbeddedResource Include="Tools\frmdrumSearch.resx">
       <DependentUpon>frmdrumSearch.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="POY Start\frmDGV.resx">
+    <EmbeddedResource Include="DGV Folders\frmDGV.resx">
       <DependentUpon>frmDGV.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POY Start\frmJobEntry.resx">
       <DependentUpon>frmJobEntry.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="POY Start\frmPassword.resx">
+    <EmbeddedResource Include="Settings\frmPassword.resx">
       <DependentUpon>frmPassword.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
