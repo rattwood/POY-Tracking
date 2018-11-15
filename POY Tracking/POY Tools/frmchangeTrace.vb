@@ -51,7 +51,7 @@ Public Class frmchangeTrace
                 Exit Sub
             Else
 
-                LExecQuery("Select * from POYTrack where (POYTRACENUM Is Not Null) and POYTRACENUM = '" & bcodescan & "'  ")
+                LExecQuery("Select * from POYTrack where (POYTRACENUM Is Not Null) and POYTRACENUM = '" & bcodescan & "' ")
 
                 If LRecordCount > 0 Then
 

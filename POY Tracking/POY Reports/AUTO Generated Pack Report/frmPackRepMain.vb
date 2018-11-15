@@ -37,12 +37,7 @@ Public Class frmPackRepMain
             'CREATE THE SHEET NAME But as this Cheese is from ReCheck we will assign to A grade sheet
             sheetName = prodNameMod.Substring(prodNameMod.Length - 5) & "_48"
 
-
-
             'CREATE THE FULL NAME FOR SAVING THE FILE
-            'saveString = (prodNameMod & " " _
-            '    & frmDGV.DGVdata.Rows(0).Cells("POYMERGENUM").Value.ToString & "_" _
-            '    & frmDGV.DGVdata.Rows(0).Cells("POYPRNUM").Value.ToString) & " 48"
             saveString = frmTraceEntry.bcodeScan
 
 
@@ -53,11 +48,10 @@ Public Class frmPackRepMain
 
             'CREATE THE SHEET NAME WHICH IS THE 4 LETTER REFRENCE AT THE END OF PRODUCT NAME
             sheetName = prodNameMod.Substring(prodNameMod.Length - 5) & "_72"
+
             'CREATE THE FULL NAME FOR SAVING THE FILE
-            'saveString = (prodNameMod & " " _
-            '    & frmDGV.DGVdata.Rows(0).Cells("POYMERGENUM").Value.ToString & "_" _
-            '    & frmDGV.DGVdata.Rows(0).Cells("POYPRNUM").Value.ToString) & " 72"
             saveString = frmTraceEntry.bcodeScan
+
         ElseIf frmJobEntry.drumPerPal = "120" Then
             'CREATE PRODUCT NAME STRING USED WHEN SAVING FILE
             prodNameMod = frmDGV.DGVdata.Rows(0).Cells("POYPRODNAME").Value.ToString
@@ -67,9 +61,6 @@ Public Class frmPackRepMain
             sheetName = prodNameMod.Substring(prodNameMod.Length - 5) & "_120"
 
             'CREATE THE FULL NAME FOR SAVING THE FILE
-            'saveString = (prodNameMod & " " _
-            '    & frmDGV.DGVdata.Rows(0).Cells("MERGENUM").Value.ToString & "_" _
-            '    & frmDGV.DGVdata.Rows(0).Cells("PRNUM").Value.ToString) & " 120"
             saveString = frmTraceEntry.bcodeScan
         End If
 
@@ -140,22 +131,7 @@ Public Class frmPackRepMain
         Else
 
 
-            'If File.Exists(yestname1) Then      'ONE DAY AGO
-            '    prevDaysName = yestname1
-            '    prevDays = Date.Now.AddDays(-1).ToString("ddMMyyyy")
-            '    frmPackPrvGet.PrvGet()
-            '    Me.Close()
-            'ElseIf File.Exists(yestname2) Then  'TWO DAYS AGO
-            '    prevDaysName = yestname2
-            '    prevDays = Date.Now.AddDays(-2).ToString("ddMMyyyy")
-            '    frmPackPrvGet.PrvGet()
-            '    Me.Close()
-            'ElseIf File.Exists(yestname3) Then  'THREE DAYS AGO
-            '    prevDaysName = yestname3
-            '    prevDays = Date.Now.AddDays(-3).ToString("ddMMyyyy")
-            '    frmPackPrvGet.PrvGet()
-            '    Me.Close()
-            'Else
+
             frmPackCreateNew.CreateNew()
                 Me.Close()
             'End If
@@ -174,20 +150,20 @@ Public Class frmPackRepMain
 
         ' routine to check if a today directory exists otherwise creat a new one
         PrevPath1 = (My.Settings.dirPacking & "\" & Date.Now.AddDays(-1).ToString("dd_MM_yyyy"))
-        PrevPath2 = (My.Settings.dirPacking & "\" & Date.Now.AddDays(-2).ToString("dd_MM_yyyy"))
-        PrevPath3 = (My.Settings.dirPacking & "\" & Date.Now.AddDays(-3).ToString("dd_MM_yyyy"))
+        'PrevPath2 = (My.Settings.dirPacking & "\" & Date.Now.AddDays(-2).ToString("dd_MM_yyyy"))
+        'PrevPath3 = (My.Settings.dirPacking & "\" & Date.Now.AddDays(-3).ToString("dd_MM_yyyy"))
 
 
         todayPath = (My.Settings.dirPacking & "\" & Date.Now.ToString("dd_MM_yyyy"))
-        finPath = (My.Settings.dirPackReports & "\" & Date.Now.ToString("dd_MM_yyyy"))
+        'finPath = (My.Settings.dirPackReports & "\" & Date.Now.ToString("dd_MM_yyyy"))
 
         If Not Directory.Exists(todayPath) Then
             Directory.CreateDirectory(todayPath)
         End If
 
-        If Not Directory.Exists(finPath) Then
-            Directory.CreateDirectory(finPath)
-        End If
+        'If Not Directory.Exists(finPath) Then
+        '    Directory.CreateDirectory(finPath)
+        'End If
 
     End Sub
 

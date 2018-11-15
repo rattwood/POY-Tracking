@@ -1,9 +1,10 @@
 ﻿Imports System.Data.SqlClient
+Imports System.IO
 
 Public Class frmToolEntry
     Public SQL As New SQLConn
     Dim bcodescan As String
-
+    Dim dateSearchString As String
 
 
     Private Sub frmToolEntry_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -159,7 +160,7 @@ Public Class frmToolEntry
             Dim startcount As Integer
             Dim endcount As Integer
             Dim rcount As Integer
-
+            Dim done1, done2, done3, done4, done5, done6 As Integer
 
             'Round 1 change to tmp1,2,3,4,5 & 6
             For i = 1 To tmpcount
@@ -167,6 +168,7 @@ Public Class frmToolEntry
                 'Advance without writing a value if no Drum
                 If IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value) Then Continue For
 
+                'Convert all steps to new tmp step numbers
                 Select Case frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value.ToString
                     Case 1
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value = "tmp1"
@@ -183,154 +185,176 @@ Public Class frmToolEntry
                 End Select
             Next
 
+            ''Now get start and end values for the drum number reversal
             For i = 1 To tmpcount
                 Select Case frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value.ToString
                     Case "tmp1"
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value = 6
 
-                        If idxReverse = 120 Then
-                            startcount = 101
-                            endcount = 20
-                        ElseIf idxReverse = 72 Then
-                            startcount = 61
-                            endcount = 12
-                        ElseIf idxReverse = 48 Then
-                            startcount = 41
-                            endcount = 8
+                        If Not (done1 = 1) Then
+                            If idxReverse = 120 Then
+                                startcount = 101
+                                endcount = 20
+                            ElseIf idxReverse = 72 Then
+                                startcount = 61
+                                endcount = 12
+                            ElseIf idxReverse = 48 Then
+                                startcount = 41
+                                endcount = 8
+                            End If
+                            done1 = 1
                         End If
 
-                        For rcount = 1 To endcount
-
-                            modIdxNum = startcount.ToString(fmt)
-                            frmDGV.DGVdata.Rows(rcount - 1).Cells("POYPACKIDX").Value = modIdxNum
-                            startcount = startcount + 1
-
-                        Next
+                        'If Not (done1 = 1) Then
+                        '    For rcount = 1 To endcount
+                        modIdxNum = startcount.ToString(fmt)
+                        ' MsgBox("new number" & modIdxNum)
+                        frmDGV.DGVdata.Rows(i - 1).Cells("POYPACKIDX").Value = modIdxNum
+                        startcount = startcount + 1
+                                'done1 = 1
+                        '    Next
+                        'End If
 
                     Case "tmp2"
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value = 5
 
-                        If idxReverse = 120 Then
-                            startcount = 81
-                            endcount = 20
-                        ElseIf idxReverse = 72 Then
-                            startcount = 61
-                            endcount = 12
-                        ElseIf idxReverse = 48 Then
-                            startcount = 33
-                            endcount = 8
+                        If Not (done2 = 1) Then
+                            If idxReverse = 120 Then
+                                startcount = 81
+                                endcount = 20
+                            ElseIf idxReverse = 72 Then
+                                startcount = 61
+                                endcount = 12
+                            ElseIf idxReverse = 48 Then
+                                startcount = 33
+                                endcount = 8
+                            End If
+                            done2 = 1
                         End If
 
-                        For rcount = 1 To endcount
-
-                            modIdxNum = startcount.ToString(fmt)
-                            frmDGV.DGVdata.Rows(rcount - 1).Cells("POYPACKIDX").Value = modIdxNum
-                            startcount = startcount + 1
-
-                        Next
+                        'If Not (done2 = 1) Then
+                        'For rcount = 1 To endcount
+                        modIdxNum = startcount.ToString(fmt)
+                        frmDGV.DGVdata.Rows(i - 1).Cells("POYPACKIDX").Value = modIdxNum
+                        startcount = startcount + 1
+                               ' done2 = 1
+                        '    Next
+                        'End If
 
                     Case "tmp3"
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value = 4
 
-
-                        If idxReverse = 120 Then
-                            startcount = 61
-                            endcount = 20
-                        ElseIf idxReverse = 72 Then
-                            startcount = 61
-                            endcount = 12
-                        ElseIf idxReverse = 48 Then
-                            startcount = 25
-                            endcount = 8
+                        If Not (done3 = 1) Then
+                            If idxReverse = 120 Then
+                                startcount = 61
+                                endcount = 20
+                            ElseIf idxReverse = 72 Then
+                                startcount = 61
+                                endcount = 12
+                            ElseIf idxReverse = 48 Then
+                                startcount = 25
+                                endcount = 8
+                            End If
+                            done3 = 1
                         End If
 
-                        For rcount = 1 To endcount
-
-                            modIdxNum = startcount.ToString(fmt)
-                            frmDGV.DGVdata.Rows(rcount - 1).Cells("POYPACKIDX").Value = modIdxNum
-                            startcount = startcount + 1
-
-                        Next
-
-
-
+                        'If Not (done3 = 1) Then
+                        '    For rcount = 1 To endcount
+                        modIdxNum = startcount.ToString(fmt)
+                        frmDGV.DGVdata.Rows(i - 1).Cells("POYPACKIDX").Value = modIdxNum
+                        startcount = startcount + 1
+                               ' done3 = 1
+                        '    Next
+                        'End If
 
                     Case "tmp4"
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value = 3
 
 
-
-                        If idxReverse = 120 Then
-                            startcount = 41
-                            endcount = 20
-                        ElseIf idxReverse = 72 Then
-                            startcount = 61
-                            endcount = 12
-                        ElseIf idxReverse = 48 Then
-                            startcount = 17
-                            endcount = 8
+                        If Not (done4 = 1) Then
+                            If idxReverse = 120 Then
+                                startcount = 41
+                                endcount = 20
+                            ElseIf idxReverse = 72 Then
+                                startcount = 61
+                                endcount = 12
+                            ElseIf idxReverse = 48 Then
+                                startcount = 17
+                                endcount = 8
+                            End If
+                            done4 = 1
                         End If
 
-                        For rcount = 1 To endcount
-
-                            modIdxNum = startcount.ToString(fmt)
-                            frmDGV.DGVdata.Rows(rcount - 1).Cells("POYPACKIDX").Value = modIdxNum
-                            startcount = startcount + 1
-
-                        Next
-
+                        'If Not (done4 = 1) Then
+                        '    For rcount = 1 To endcount
+                        modIdxNum = startcount.ToString(fmt)
+                        frmDGV.DGVdata.Rows(i - 1).Cells("POYPACKIDX").Value = modIdxNum
+                        startcount = startcount + 1
+                        '        done4 = 1
+                        '    Next
+                        'End If
 
                     Case "tmp5"
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value = 2
 
-                        If idxReverse = 120 Then
-                            startcount = 21
-                        ElseIf idxReverse = 72 Then
-                            startcount = 61
-                            endcount = 12
-                        ElseIf idxReverse = 48 Then
-                            startcount = 9
-                            endcount = 8
+                        If Not (done5 = 1) Then
+                            If idxReverse = 120 Then
+                                startcount = 21
+                            ElseIf idxReverse = 72 Then
+                                startcount = 61
+                                endcount = 12
+                            ElseIf idxReverse = 48 Then
+                                startcount = 9
+                                endcount = 8
+                            End If
+                            done5 = 1
                         End If
 
-                        For rcount = 1 To endcount
 
-                            modIdxNum = startcount.ToString(fmt)
-                            frmDGV.DGVdata.Rows(rcount - 1).Cells("POYPACKIDX").Value = modIdxNum
-                            startcount = startcount + 1
-
-                        Next
-
+                        'If Not (done5 = 1) Then
+                        '    For rcount = 1 To endcount
+                        modIdxNum = startcount.ToString(fmt)
+                        frmDGV.DGVdata.Rows(i - 1).Cells("POYPACKIDX").Value = modIdxNum
+                        startcount = startcount + 1
+                        '        done5 = 1
+                        '    Next
+                        'End If
 
                     Case "tmp6"
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value = 1
 
-
-                        If idxReverse = 120 Then
-                            startcount = 1
-                            endcount = 20
-                        ElseIf idxReverse = 72 Then
-                            startcount = 61
-                            endcount = 12
-                        ElseIf idxReverse = 48 Then
-                            startcount = 1
-                            endcount = 8
+                        If Not (done6 = 1) Then
+                            If idxReverse = 120 Then
+                                startcount = 1
+                                endcount = 20
+                            ElseIf idxReverse = 72 Then
+                                startcount = 61
+                                endcount = 12
+                            ElseIf idxReverse = 48 Then
+                                startcount = 1
+                                endcount = 8
+                            End If
+                            done6 = 1
                         End If
 
-                        For rcount = 1 To endcount
+                        'If Not (done6 = 1) Then
+                        '    For rcount = 1 To endcount
 
-                            modIdxNum = startcount.ToString(fmt)
-                            frmDGV.DGVdata.Rows(rcount - 1).Cells("POYPACKIDX").Value = modIdxNum
-                            startcount = startcount + 1
-
-                        Next
+                        modIdxNum = startcount.ToString(fmt)
+                        frmDGV.DGVdata.Rows(i - 1).Cells("POYPACKIDX").Value = modIdxNum
+                        startcount = startcount + 1
+                        '        done6 = 1
+                        '    Next
+                        'End If
 
                 End Select
             Next
 
 
 
-            'UpdateDatabase()
+
+
+            UpdateDatabase()
 
             lblComplete.Visible = True
             Exit Sub
@@ -418,6 +442,27 @@ Public Class frmToolEntry
         btnChangeSteps.BackColor = Color.LightGray
         btnChangeTrace.Enabled = False
         btnChangeTrace.BackColor = Color.LightGray
+
+    End Sub
+
+    Private Sub chkPackingExists()  'Routine to see if packing form already exists
+
+        dateSearchString = bcodescan.Substring(1, 2) & "_" & bcodescan.Substring(3, 2) & "_" & bcodescan.Substring(5, 2)
+
+        If Not Directory.Exists(dateSearchString) Then
+            Directory.CreateDirectory(dateSearchString)
+
+        Else
+
+            If File.Exists(bcodescan) Then
+                My.Computer.FileSystem.DeleteFile("C:\" & bcodescan & ".xlxs")
+
+            End If
+        End If
+
+
+
+
 
     End Sub
 

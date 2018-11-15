@@ -27,14 +27,15 @@ Partial Class frmChangeDrums
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DGVChageDrum = New System.Windows.Forms.DataGridView()
-        Me.POYPACKIDX = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.POYSTEPNUM = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.POYBCODEDRUM = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.POYREPBCODEDRUM = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnCheck = New System.Windows.Forms.Button()
+        Me.POYPACKIDX = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.POYSTEPNUM = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.POYBCODEDRUM = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.POYREPBCODEDRUM = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.POYPACKDATE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DGVChageDrum, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -45,55 +46,11 @@ Partial Class frmChangeDrums
         Me.DGVChageDrum.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.DGVChageDrum.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised
         Me.DGVChageDrum.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVChageDrum.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.POYPACKIDX, Me.POYSTEPNUM, Me.POYBCODEDRUM, Me.POYREPBCODEDRUM})
+        Me.DGVChageDrum.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.POYPACKIDX, Me.POYSTEPNUM, Me.POYBCODEDRUM, Me.POYREPBCODEDRUM, Me.POYPACKDATE})
         Me.DGVChageDrum.Location = New System.Drawing.Point(12, 24)
         Me.DGVChageDrum.Name = "DGVChageDrum"
         Me.DGVChageDrum.Size = New System.Drawing.Size(438, 525)
         Me.DGVChageDrum.TabIndex = 0
-        '
-        'POYPACKIDX
-        '
-        Me.POYPACKIDX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.POYPACKIDX.DefaultCellStyle = DataGridViewCellStyle1
-        Me.POYPACKIDX.HeaderText = "Index"
-        Me.POYPACKIDX.Name = "POYPACKIDX"
-        Me.POYPACKIDX.ReadOnly = True
-        Me.POYPACKIDX.Width = 58
-        '
-        'POYSTEPNUM
-        '
-        Me.POYSTEPNUM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.POYSTEPNUM.DefaultCellStyle = DataGridViewCellStyle2
-        Me.POYSTEPNUM.HeaderText = "Step No."
-        Me.POYSTEPNUM.Name = "POYSTEPNUM"
-        Me.POYSTEPNUM.ReadOnly = True
-        Me.POYSTEPNUM.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
-        Me.POYSTEPNUM.Width = 69
-        '
-        'POYBCODEDRUM
-        '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
-        Me.POYBCODEDRUM.DefaultCellStyle = DataGridViewCellStyle3
-        Me.POYBCODEDRUM.HeaderText = "DRUM No."
-        Me.POYBCODEDRUM.Name = "POYBCODEDRUM"
-        Me.POYBCODEDRUM.ReadOnly = True
-        Me.POYBCODEDRUM.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
-        Me.POYBCODEDRUM.Width = 120
-        '
-        'POYREPBCODEDRUM
-        '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black
-        Me.POYREPBCODEDRUM.DefaultCellStyle = DataGridViewCellStyle4
-        Me.POYREPBCODEDRUM.HeaderText = "Replacment Drum No."
-        Me.POYREPBCODEDRUM.Name = "POYREPBCODEDRUM"
-        Me.POYREPBCODEDRUM.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
-        Me.POYREPBCODEDRUM.Width = 130
         '
         'btnUpdate
         '
@@ -148,6 +105,56 @@ Partial Class frmChangeDrums
         Me.btnCheck.Text = "Check Entries"
         Me.btnCheck.UseVisualStyleBackColor = False
         '
+        'POYPACKIDX
+        '
+        Me.POYPACKIDX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.POYPACKIDX.DefaultCellStyle = DataGridViewCellStyle1
+        Me.POYPACKIDX.HeaderText = "Index"
+        Me.POYPACKIDX.Name = "POYPACKIDX"
+        Me.POYPACKIDX.ReadOnly = True
+        Me.POYPACKIDX.Width = 58
+        '
+        'POYSTEPNUM
+        '
+        Me.POYSTEPNUM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.POYSTEPNUM.DefaultCellStyle = DataGridViewCellStyle2
+        Me.POYSTEPNUM.HeaderText = "Step No."
+        Me.POYSTEPNUM.Name = "POYSTEPNUM"
+        Me.POYSTEPNUM.ReadOnly = True
+        Me.POYSTEPNUM.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
+        Me.POYSTEPNUM.Width = 74
+        '
+        'POYBCODEDRUM
+        '
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
+        Me.POYBCODEDRUM.DefaultCellStyle = DataGridViewCellStyle3
+        Me.POYBCODEDRUM.HeaderText = "DRUM No."
+        Me.POYBCODEDRUM.Name = "POYBCODEDRUM"
+        Me.POYBCODEDRUM.ReadOnly = True
+        Me.POYBCODEDRUM.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
+        Me.POYBCODEDRUM.Width = 120
+        '
+        'POYREPBCODEDRUM
+        '
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black
+        Me.POYREPBCODEDRUM.DefaultCellStyle = DataGridViewCellStyle4
+        Me.POYREPBCODEDRUM.HeaderText = "Replacment Drum No."
+        Me.POYREPBCODEDRUM.Name = "POYREPBCODEDRUM"
+        Me.POYREPBCODEDRUM.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
+        Me.POYREPBCODEDRUM.Width = 130
+        '
+        'POYPACKDATE
+        '
+        Me.POYPACKDATE.HeaderText = "Pack Date"
+        Me.POYPACKDATE.Name = "POYPACKDATE"
+        Me.POYPACKDATE.Visible = False
+        '
         'frmChangeDrums
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -176,4 +183,5 @@ Partial Class frmChangeDrums
     Friend WithEvents POYSTEPNUM As DataGridViewTextBoxColumn
     Friend WithEvents POYBCODEDRUM As DataGridViewTextBoxColumn
     Friend WithEvents POYREPBCODEDRUM As DataGridViewTextBoxColumn
+    Friend WithEvents POYPACKDATE As DataGridViewTextBoxColumn
 End Class

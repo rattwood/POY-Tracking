@@ -33,30 +33,30 @@ Public Class frmChangeDrums
 
     End Sub
 
-    Private Sub updateDGV()
+    'Private Sub updateDGV()
 
-        Try
-            For i = 1 To frmDGV.DGVdata.Rows.Count
-                If IsDBNull(DGVChageDrum.Rows(i - 1).Cells("POYREPBCODEDRUM").Value) Then
-                    Continue For
-                End If
+    '    Try
+    '        For i = 1 To frmDGV.DGVdata.Rows.Count
+    '            If IsDBNull(DGVChageDrum.Rows(i - 1).Cells("POYREPBCODEDRUM").Value) Then
+    '                Continue For
+    '            End If
 
-                'write the new value of drum in to db
-                frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value = DGVChageDrum.Rows(i - 1).Cells("POYREPBCODEDRUM").Value
+    '            'write the new value of drum in to db
+    '            frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value = DGVChageDrum.Rows(i - 1).Cells("POYREPBCODEDRUM").Value
+    '            frmDGV.DGVdata.Rows(i - 1).Cells("POYPACKDATE").Value = frmJobEntry.time  'Update update time
+    '            MsgBox("test")
+    '        Next
+
+    '    Catch ex As Exception
+    '        MsgBox("DGV Update Error " & vbNewLine & ex.Message)
+
+    '    End Try
+
+    '    Close()
+    '    frmToolEntry.Show()
 
 
-            Next
-
-        Catch ex As Exception
-            MsgBox("DGV Update Error " & vbNewLine & ex.Message)
-
-        End Try
-
-        Close()
-        frmToolEntry.Show()
-
-
-    End Sub
+    'End Sub
 
     Private Sub loadDGV()
 
@@ -188,7 +188,7 @@ Public Class frmChangeDrums
 
                 'write the new value of drum in to db
                 frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value = DGVChageDrum.Rows(i - 1).Cells("POYREPBCODEDRUM").Value
-
+                frmDGV.DGVdata.Rows(i - 1).Cells("POYPACKDATE").Value = frmJobEntry.time  'Update update time
 
             Next
 
