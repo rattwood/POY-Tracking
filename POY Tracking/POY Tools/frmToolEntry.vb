@@ -1,10 +1,14 @@
 ﻿Imports System.Data.SqlClient
 Imports System.IO
+Imports Excel = Microsoft.Office.Interop.Excel
 
 Public Class frmToolEntry
     Public SQL As New SQLConn
     Dim bcodescan As String
     Dim dateSearchString As String
+    Dim traceFileLoc As String
+    Dim SheetCodeString As String
+    Dim savename As String
 
 
     Private Sub frmToolEntry_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -205,15 +209,11 @@ Public Class frmToolEntry
                             done1 = 1
                         End If
 
-                        'If Not (done1 = 1) Then
-                        '    For rcount = 1 To endcount
+
                         modIdxNum = startcount.ToString(fmt)
-                        ' MsgBox("new number" & modIdxNum)
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYPACKIDX").Value = modIdxNum
                         startcount = startcount + 1
-                                'done1 = 1
-                        '    Next
-                        'End If
+
 
                     Case "tmp2"
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value = 5
@@ -232,14 +232,9 @@ Public Class frmToolEntry
                             done2 = 1
                         End If
 
-                        'If Not (done2 = 1) Then
-                        'For rcount = 1 To endcount
                         modIdxNum = startcount.ToString(fmt)
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYPACKIDX").Value = modIdxNum
                         startcount = startcount + 1
-                               ' done2 = 1
-                        '    Next
-                        'End If
 
                     Case "tmp3"
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value = 4
@@ -258,14 +253,11 @@ Public Class frmToolEntry
                             done3 = 1
                         End If
 
-                        'If Not (done3 = 1) Then
-                        '    For rcount = 1 To endcount
+
                         modIdxNum = startcount.ToString(fmt)
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYPACKIDX").Value = modIdxNum
                         startcount = startcount + 1
-                               ' done3 = 1
-                        '    Next
-                        'End If
+
 
                     Case "tmp4"
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value = 3
@@ -285,14 +277,11 @@ Public Class frmToolEntry
                             done4 = 1
                         End If
 
-                        'If Not (done4 = 1) Then
-                        '    For rcount = 1 To endcount
+
                         modIdxNum = startcount.ToString(fmt)
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYPACKIDX").Value = modIdxNum
                         startcount = startcount + 1
-                        '        done4 = 1
-                        '    Next
-                        'End If
+
 
                     Case "tmp5"
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value = 2
@@ -311,14 +300,11 @@ Public Class frmToolEntry
                         End If
 
 
-                        'If Not (done5 = 1) Then
-                        '    For rcount = 1 To endcount
+
                         modIdxNum = startcount.ToString(fmt)
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYPACKIDX").Value = modIdxNum
                         startcount = startcount + 1
-                        '        done5 = 1
-                        '    Next
-                        'End If
+
 
                     Case "tmp6"
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYSTEPNUM").Value = 1
@@ -337,15 +323,12 @@ Public Class frmToolEntry
                             done6 = 1
                         End If
 
-                        'If Not (done6 = 1) Then
-                        '    For rcount = 1 To endcount
+
 
                         modIdxNum = startcount.ToString(fmt)
                         frmDGV.DGVdata.Rows(i - 1).Cells("POYPACKIDX").Value = modIdxNum
                         startcount = startcount + 1
-                        '        done6 = 1
-                        '    Next
-                        'End If
+
 
                 End Select
             Next
@@ -355,6 +338,7 @@ Public Class frmToolEntry
 
 
             UpdateDatabase()
+            chkPackingExists()
 
             lblComplete.Visible = True
             Exit Sub
@@ -374,9 +358,11 @@ Public Class frmToolEntry
     Private Sub btnChangeDrum_Click(sender As Object, e As EventArgs) Handles btnChangeDrum.Click
         Hide()
         frmChangeDrums.Show()
-        smalldbUpdate()
+
+
 
     End Sub
+
 
     Private Sub btnChangeTrace_Click(sender As Object, e As EventArgs) Handles btnChangeTrace.Click
         frmchangeTrace.txtNewTraceNum.Clear()
@@ -384,10 +370,11 @@ Public Class frmToolEntry
         frmchangeTrace.Show()
         bcodescan = txtTraceNum.Text.ToString  'to get updated trace number
         smalldbUpdate()
+        chkPackingExists()
 
     End Sub
 
-    Private Sub smalldbUpdate()
+    Public Sub smalldbUpdate()
         'This routine is to refresh DGV with data for new Trace Number assigned
         SQL.ExecQuery("Select * from POYTrack where (POYTRACENUM Is Not Null) and POYTRACENUM = '" & bcodescan & "' and POYBCODEDRUM Is Not Null Order by POYPACKIDX ")
         Try
@@ -400,6 +387,7 @@ Public Class frmToolEntry
                 lblError.Text = ""
                 lblError.Visible = False
             End If
+
         Catch ex As Exception
             Me.Cursor = System.Windows.Forms.Cursors.Default
             MsgBox("small update Error" & vbNewLine & ex.Message)
@@ -445,26 +433,254 @@ Public Class frmToolEntry
 
     End Sub
 
-    Private Sub chkPackingExists()  'Routine to see if packing form already exists
+    Public Sub chkPackingExists()  'Routine to see if packing form already exists
 
-        dateSearchString = bcodescan.Substring(1, 2) & "_" & bcodescan.Substring(3, 2) & "_" & bcodescan.Substring(5, 2)
 
-        If Not Directory.Exists(dateSearchString) Then
-            Directory.CreateDirectory(dateSearchString)
 
-        Else
+        dateSearchString = bcodescan.Substring(5, 2) & "_" & bcodescan.Substring(3, 2) & "_20" & bcodescan.Substring(1, 2) 'creates the directory name to look for
+        traceFileLoc = My.Settings.dirPacking & "\" & dateSearchString & "\"   'creates the full file name to look for
+        'MsgBox(traceFileLoc)
 
-            If File.Exists(bcodescan) Then
-                My.Computer.FileSystem.DeleteFile("C:\" & bcodescan & ".xlxs")
+        Dim existName As String = traceFileLoc & "\" & bcodescan & ".xlsx"
+        Dim reName As String = bcodescan & "OLD.xlsx"
 
-            End If
+        'create the save name of the file
+        savename = (traceFileLoc & bcodescan & ".xlsx").ToString
+
+        'fileOpenChk()
+
+        If File.Exists(traceFileLoc & bcodescan & ".xlsx") Then
+            'Check to see if file is open and wait for it to be closed
+            ' fileOpenChk()
+            'rename existing file
+            My.Computer.FileSystem.DeleteFile(existName)
         End If
+        ' End If
 
-
-
+        reportCreate()
 
 
     End Sub
+
+
+    Private Sub fileOpenChk()
+        Dim openExcel As String = traceFileLoc & "\" & bcodescan & ".xlsx"
+        Dim exOpen As Boolean
+        Dim fs As FileStream
+
+
+        Try
+            fs = File.Open(openExcel, FileMode.Open, FileAccess.Read, FileShare.None)
+        Catch ex As Exception
+            exOpen = True
+        Finally
+            If Not IsNothing(fs) Then : fs.Close() : End If
+        End Try
+
+        MsgBox("string = " & openExcel & "  " & exOpen.ToString)
+
+        If exOpen = True Then
+            MsgBox("Excel file is already open, please check all computers and close file before preesing OK." & vbCrLf & "If you press OK before closing the file data will be lost")
+            chkLoop()
+        End If
+
+
+    End Sub
+
+    Private Sub chkLoop()
+
+        fileOpenChk()
+        Exit Sub
+
+    End Sub
+
+
+    Private Sub reportCreate()
+        ' Get template file open and populate
+        Dim MyUpdateExcel As New Excel.Application
+        Dim xlUpdateWorkbook As Excel.Workbook
+        Dim xlUpdatesheets As Excel.Worksheet
+        Dim nfree As Integer
+        Dim ncfree As Integer
+
+
+
+
+        'OPEN A NEW WORKSHEET
+        xlUpdateWorkbook = MyUpdateExcel.Workbooks.Open(My.Settings.dirTemplate & "\" & "tmpTraceDrumPerPall.xlsx")
+
+        '  xlTodayWorkbook = MyUpdateExcel.Workbooks.Open(savename)
+        'mycount = xlTodyWorkbook.Worksheets.Count
+
+
+        Dim colCount As Integer = 2
+        Dim sheetName As String
+        Dim productName As String = frmDGV.DGVdata.Rows(0).Cells("POYPRODNAME").Value.ToString & "_" & frmDGV.DGVdata.Rows(0).Cells("POYMERGENUM").Value.ToString
+        Dim drumInfo As String
+        Dim spinNum As String
+
+        'Create the sheet name
+        Select Case frmDGV.DGVdata.Rows(0).Cells("POYDRUMPERPAL").Value
+            Case "48"
+                sheetName = productName & "_48"
+
+            Case "72"
+                sheetName = productName & "_72"
+
+            Case "120"
+                sheetName = productName & "_120"
+
+        End Select
+
+
+        nfree = 11
+        ncfree = 2
+        colCount = 2
+
+
+        'ReName the work sheet 
+        CType(MyUpdateExcel.Workbooks(1).Worksheets("Sheet1"), Microsoft.Office.Interop.Excel.Worksheet).Name = sheetName
+        MyUpdateExcel.Visible = True
+        'Product Name
+        MyUpdateExcel.Cells(4, 3) = frmDGV.DGVdata.Rows(0).Cells("POYPRODNAME").Value
+        'Product Merge Num
+        MyUpdateExcel.Cells(5, 3) = frmDGV.DGVdata.Rows(0).Cells("POYMERGENUM").Value  'C5
+        'DATE
+        MyUpdateExcel.Cells(3, 11) = Date.Now.ToString("dd MM yyyy")              'K3
+        'PACKING TYPE K value
+        MyUpdateExcel.Cells(4, 9) = frmJobEntry.varKNum                  'I4
+        'CHEESE WEIGHT
+        MyUpdateExcel.Cells(6, 9) = frmJobEntry.varProdWeight                 'I6
+        'Packer Name
+        MyUpdateExcel.Cells(31, 11) = frmDGV.DGVdata.Rows(0).Cells("POYPACKNAME").Value
+        'PALLET NUMBER = Trace Number
+        MyUpdateExcel.Cells(6, 3) = frmTraceEntry.txtTraceNum.Text
+        'Add Barcode to Sheet
+        createBarcode()
+        MyUpdateExcel.Cells(2, 1) = SheetCodeString
+        MyUpdateExcel.Cells(3, 1) = txtTraceNum.Text
+
+
+
+        Try
+
+            Select Case frmDGV.DGVdata.Rows(0).Cells("POYDRUMPERPAL").Value
+                Case "48"
+                    For i = 1 To frmDGV.DGVdata.Rows.Count
+                        If IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value) Then Continue For
+
+
+                        If frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value = "15" Then
+
+
+                            drumInfo = (frmJobEntry.varMachineName & " " & frmJobEntry.varMonth & " " & frmJobEntry.varDoffingNum & " " &
+                                frmDGV.DGVdata.Rows(i - 1).Cells("POYSPINNUM").Value.ToString)
+
+
+
+                            'WRITE CONE NUMBER TO SHEET
+                            'MyUpdateExcel.Cells(nfree, ncfree) = frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value
+                            MyUpdateExcel.Cells(nfree, ncfree) = drumInfo
+                            nfree = nfree + 1
+                            'Increment the Col Number
+                            If nfree = 19 And ncfree < 12 Then
+                                ncfree = ncfree + 2
+                                nfree = 11
+                            End If
+                        End If
+                    Next
+
+                Case "72"
+                    For i = 1 To frmDGV.DGVdata.Rows.Count
+                        If IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value) Then Continue For
+
+
+                        If frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value = "15" Then
+
+                            'WRITE CONE NUMBER TO SHEET
+                            MyUpdateExcel.Cells(nfree, ncfree) = frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value
+
+                            nfree = nfree + 1
+                            'Increment the Col Number
+                            If nfree = 23 And ncfree < 12 Then
+                                ncfree = ncfree + 2
+                                nfree = 11
+                            End If
+                        End If
+                    Next
+
+                Case "120"
+                    For i = 1 To frmDGV.DGVdata.Rows.Count
+                        If IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value) Then Continue For
+
+
+                        If frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value = "15" Then
+
+                            'WRITE CONE NUMBER TO SHEET
+                            MyUpdateExcel.Cells(nfree, ncfree) = frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value
+
+                            nfree = nfree + 1
+                            If nfree = 31 And ncfree < 12 Then
+                                ncfree = ncfree + 2
+                                nfree = 11
+                            End If
+                        End If
+                    Next
+
+            End Select
+        Catch ex As Exception
+
+            MsgBox(ex.ToString)
+
+        End Try
+
+        Try
+
+            'Save changes to new file in Paking Dir
+            MyUpdateExcel.DisplayAlerts = False
+            MsgBox(savename)
+            xlUpdateWorkbook.SaveAs(Filename:=savename, FileFormat:=51)
+
+        Catch ex As Exception
+
+            MsgBox("save As Area" & ex.Message)
+
+        End Try
+
+        Try
+            'Close template file but do not save updates to it
+            xlUpdateWorkbook.Close(SaveChanges:=False)
+        Catch ex As Exception
+            MsgBox("Close Template Area " & ex.Message)
+        End Try
+
+
+        MyUpdateExcel.Quit()
+        releaseObject(xlUpdatesheets)
+        releaseObject(xlUpdateWorkbook)
+        releaseObject(MyUpdateExcel)
+        frmPacking48.UpdateDatabase()  'Update the database with changes and then close and go back to Job Entry screen
+        Me.Close()
+    End Sub
+
+    Private Sub releaseObject(ByVal obj As Object)
+
+        Try
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(obj)
+            obj = Nothing
+        Catch ex As Exception
+            obj = Nothing
+        Finally
+            GC.Collect()
+        End Try
+    End Sub
+
+    Private Sub createBarcode()
+
+        SheetCodeString = ("*" & bcodescan & "*")
+
+    End Sub
+
 
     Public Sub UpdateDatabase()
 
@@ -495,7 +711,7 @@ Public Class frmToolEntry
 
 
         'Reload the DGV with new data that was written to the Database
-        SQL.ExecQuery("Select * from POYTrack where (POYTRACENUM Is Not Null) and POYTRACENUM = '" & bcodescan & "' and POYBCODEDRUM Is Not Null Order by POYPACKIDX ")
+        SQL.ExecQuery("Select * from POYTrack where (POYTRACENUM Is Not Null) And POYTRACENUM = '" & bcodescan & "' and POYBCODEDRUM Is Not Null Order by POYPACKIDX ")
 
 
         frmDGV.DGVdata.DataSource = SQL.SQLDS.Tables(0)
@@ -539,6 +755,7 @@ Public Class frmToolEntry
         End If
 
     End Sub
+
 
 
 End Class

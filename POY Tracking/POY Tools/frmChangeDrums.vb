@@ -199,6 +199,8 @@ Public Class frmChangeDrums
 
         Close()
         frmToolEntry.UpdateDatabase()
+        frmToolEntry.chkPackingExists()
+        frmToolEntry.smalldbUpdate()
         frmToolEntry.Show()
 
     End Sub

@@ -143,6 +143,7 @@ Partial Class frmJobEntry
         'ReportsToolStripMenuItem
         '
         Me.ReportsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PalletReportToolStripMenuItem})
+        Me.ReportsToolStripMenuItem.Image = Global.POY_Tracking.My.Resources.Resources.Reports
         Me.ReportsToolStripMenuItem.Name = "ReportsToolStripMenuItem"
         resources.ApplyResources(Me.ReportsToolStripMenuItem, "ReportsToolStripMenuItem")
         '
@@ -165,6 +166,7 @@ Partial Class frmJobEntry
         'ToolsToolStripMenuItem
         '
         Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditPalletToolStripMenuItem})
+        Me.ToolsToolStripMenuItem.Image = Global.POY_Tracking.My.Resources.Resources.Tools
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
         resources.ApplyResources(Me.ToolsToolStripMenuItem, "ToolsToolStripMenuItem")
         '
@@ -176,6 +178,7 @@ Partial Class frmJobEntry
         'SearchToolStripMenuItem
         '
         Me.SearchToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DRUMToolStripMenuItem, Me.TraceNumberToolStripMenuItem1})
+        Me.SearchToolStripMenuItem.Image = Global.POY_Tracking.My.Resources.Resources.Search
         Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
         resources.ApplyResources(Me.SearchToolStripMenuItem, "SearchToolStripMenuItem")
         '

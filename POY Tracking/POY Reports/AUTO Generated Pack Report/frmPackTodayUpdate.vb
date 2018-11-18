@@ -1,4 +1,4 @@
-﻿'Imports Microsoft.Office.Interop.Excel
+﻿
 Imports System.IO
 Imports Excel = Microsoft.Office.Interop.Excel
 
@@ -14,6 +14,7 @@ Public Class frmPackTodayUpdate
     Dim ncfree As Integer
     Dim SheetCodeString As String
     Dim modBarcode As String
+    Dim drumInfo As String
     Public prtError As Integer
 
 
@@ -32,81 +33,8 @@ Public Class frmPackTodayUpdate
         'FIND NEXT BLANK ROW FOR ON EXCEL SHEET
 
         Dim colCount As Integer = 2
-        Dim endloop As Integer
-
-        Try
-            For ccount = 1 To 12  'Three sets of columns
-                For rcount = 11 To 18
-                    If Not (MyTodyExcel.Cells(rcount, colCount).value = " ") Then  'C9-C40
-                        totCount = totCount + 1
-                        Continue For
-                    Else
-                        nfree = rcount
-                        ncfree = colCount
-                        endloop = 1
-                        Exit For
-                    End If
-                Next
-                If endloop Then
-
-                    Exit For
-                Else
-                    If colCount < 12 Then
-                        colCount = colCount + 2
-                    End If
-                End If
-            Next
-        Catch ex As Exception
-
-            MsgBox(ex.ToString)
-
-        End Try
-
-
-
-
-
-        'CHECK TO SEE IF THE NEW CURRENT SHEET IS FULL IF SO ADD A NEW SHEET
-        If totCount = 48 Then
-
-            xlTodyWorkbook.Sheets(1).Copy(After:=xlTodyWorkbook.Sheets(mycount))
-            'ReName the work sheet 
-            CType(MyTodyExcel.Workbooks(1).Worksheets("Sheet1"), Microsoft.Office.Interop.Excel.Worksheet).Name = frmPackRepMain.sheetName
-
-            nfree = 11
-
-
-            'Product Name
-            MyTodyExcel.Cells(3, 2) = frmDGV.DGVdata.Rows(0).Cells("POYPRODNAME").Value
-
-            'Packer Name
-            MyTodyExcel.Cells(31, 11) = frmJobEntry.PackOp
-
-            'Add Barcode to Sheet
-            boxCount = boxCount + 1
-            createBarcode()
-            MyTodyExcel.Cells(2, 1) = SheetCodeString
-            MyTodyExcel.Cells(3, 1) = modBarcode
-
-
-
-            colCount = 2
-            For ccount = 1 To 6
-                For i = 11 To 18
-                    MyTodyExcel.Cells(i, colCount) = "" 'Clear the contents of cone cells
-                    ' MyTodyExcel.Cells(i, colCount - 2) = "" 'Clear the contents of Carton cells
-                Next
-                If colCount < 12 Then colCount = colCount + 2
-            Next
-            'boxCount = boxCount + 1
-            nfree = 11
-            ncfree = 2
-        End If
-
-
-        'Routine to go through the rows and extract Grade A cones plus keep count
-        Dim cartonNum As String = ""
-        Dim cellNum As Integer
+        ncfree = 2
+        nfree = 11
 
 
         Try
@@ -119,66 +47,28 @@ Public Class frmPackTodayUpdate
                 If IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value) Then Continue For
 
 
-                If frmJobEntry.drumPerPal = "48" And frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value = "15" Then
+                If frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value = "15" Then
+
+                    drumInfo = (frmDGV.DGVdata.Rows(i - 1).Cells("POYMCNAME").Value.ToString() & " " &
+                           frmDGV.DGVdata.Rows(i - 1).Cells("POYPRMM").Value.ToString() & " " &
+                          frmDGV.DGVdata.Rows(i - 1).Cells("POYDOFFNUM").Value.ToString() & " " &
+                          frmDGV.DGVdata.Rows(i - 1).Cells("POYSPINNUM").Value.ToString)
 
 
+                    'WRITE VALUES TOO THE SHEET
+                    '   MyTodyExcel.Cells(nfree, ncfree) = frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value
 
-                    'WRITE CONE NUMBER TO SHEET
-                    MyTodyExcel.Cells(nfree, ncfree) = frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value
+                    MyTodyExcel.Cells(nfree, ncfree) = drumInfo
 
 
-
-                    'WRITE CARTON NUMBER TO SHEET AND PUT IN DGV
-                    ' MyTodyExcel.Cells(cellNum, ncfree - 2) = cartonNum
-                    'frmDGV.DGVdata.Rows(i - 1).Cells(61).Value = cartonNum
                     nfree = nfree + 1
+
                     'Increment the Col Number
                     If nfree = 19 And ncfree < 12 Then
                         ncfree = ncfree + 2
                         nfree = 11
                     End If
 
-                    'ROUTINE IF SHEET IS FULL TO COPY SHEET AND CREATE A NEW SHEET IN THE WORKBOOK
-                    If nfree = 19 And ncfree = 12 Then
-                        Dim tmpsaveName As String
-
-                        tmpsaveName = (frmPackRepMain.finPath & "\" & frmPackRepMain.sheetName & "_" & mycount & ".xlsx")
-                        MyTodyExcel.DisplayAlerts = False
-                        xlTodyWorkbook.Sheets(mycount).SaveAs(Filename:=tmpsaveName, FileFormat:=51)
-
-                        MyTodyExcel.DisplayAlerts = True
-
-                        xlTodyWorkbook.Sheets(frmPackRepMain.sheetName).Copy(After:=xlTodyWorkbook.Sheets(mycount))
-                        CType(MyTodyExcel.Workbooks(1).Worksheets(frmPackRepMain.sheetName), Microsoft.Office.Interop.Excel.Worksheet).Name = frmPackRepMain.sheetName
-
-                        MyTodyExcel.Cells(3, 2) = frmDGV.DGVdata.Rows(0).Cells("POYPRODNAME").Value
-                        ''Product Code
-                        'MyTodyExcel.Cells(7, 5) = frmDGV.DGVdata.Rows(0).Cells("PRNUM").Value
-                        'Packer Name
-                        MyTodyExcel.Cells(32, 11) = frmJobEntry.PackOp
-
-
-
-                        'Add Barcode to Sheet
-                        boxCount = boxCount + 1
-                        createBarcode()
-                        MyTodyExcel.Cells(2, 1) = SheetCodeString
-                        MyTodyExcel.Cells(3, 1) = modBarcode
-
-
-                        ncfree = 2
-                        For nCol = 2 To 12
-                            For x = 11 To 18
-                                MyTodyExcel.Cells(x, ncfree) = "" 'Clear the contents of cone cells
-                                ' MyTodyExcel.Cells(x, ncfree - 2) = "" 'Clear the contents of Carton cells
-                            Next
-                            ncfree = ncfree + 2
-                        Next
-                        'REST ROW AND COLUMN TO DEFAULT VALUES
-                        nfree = 11
-                        ncfree = 2
-
-                    End If
                 End If
             Next
 
@@ -187,6 +77,8 @@ Public Class frmPackTodayUpdate
             MsgBox(ex.ToString)
 
         End Try
+
+
 
         Try
 
@@ -230,81 +122,10 @@ Public Class frmPackTodayUpdate
         'FIND NEXT BLANK ROW FOR ON EXCEL SHEET
 
         Dim colCount As Integer = 2
-        Dim endloop As Integer
-
-        Try
-            For ccount = 1 To 12  'Three sets of columns
-                For rcount = 11 To 22
-                    If Not (MyTodyExcel.Cells(rcount, colCount).value = " ") Then  'C9-C40
-                        totCount = totCount + 1
-                        Continue For
-                    Else
-                        nfree = rcount
-                        ncfree = colCount
-                        endloop = 1
-                        Exit For
-                    End If
-                Next
-                If endloop Then
-
-                    Exit For
-                Else
-                    If colCount < 12 Then
-                        colCount = colCount + 2
-                    End If
-                End If
-            Next
-        Catch ex As Exception
-
-            MsgBox(ex.ToString)
-
-        End Try
+        ncfree = 2
+        nfree = 11
 
 
-
-
-
-        'CHECK TO SEE IF THE NEW CURRENT SHEET IS FULL IF SO ADD A NEW SHEET
-        If totCount = 72 Then
-
-            xlTodyWorkbook.Sheets(1).Copy(After:=xlTodyWorkbook.Sheets(mycount))
-            'ReName the work sheet 
-            CType(MyTodyExcel.Workbooks(1).Worksheets("Sheet1"), Microsoft.Office.Interop.Excel.Worksheet).Name = frmPackRepMain.sheetName
-
-            nfree = 11
-
-
-            'Product Name
-            MyTodyExcel.Cells(3, 2) = frmDGV.DGVdata.Rows(0).Cells("POYPRODNAME").Value
-
-            'Packer Name
-            MyTodyExcel.Cells(31, 11) = frmJobEntry.PackOp
-
-            'Add Barcode to Sheet
-            boxCount = boxCount + 1
-            createBarcode()
-            MyTodyExcel.Cells(2, 1) = SheetCodeString
-            MyTodyExcel.Cells(3, 1) = modBarcode
-
-
-
-            colCount = 2
-            For ccount = 1 To 6
-                For i = 11 To 22
-                    MyTodyExcel.Cells(i, colCount) = "" 'Clear the contents of cone cells
-                    ' MyTodyExcel.Cells(i, colCount - 2) = "" 'Clear the contents of Carton cells
-                Next
-                If colCount < 12 Then colCount = colCount + 2
-            Next
-            'boxCount = boxCount + 1
-            nfree = 11
-            ncfree = 2
-        End If
-
-
-        'Routine to go through the rows and extract Grade A cones plus keep count
-        Dim cartonNum As String = ""
-        Dim cellNum As Integer
 
 
         Try
@@ -317,18 +138,21 @@ Public Class frmPackTodayUpdate
                 If IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value) Then Continue For
 
 
-                If frmJobEntry.drumPerPal = "72" And frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value = "15" Then
+                If frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value = "15" Then
 
 
+                    drumInfo = (frmDGV.DGVdata.Rows(i - 1).Cells("POYMCNAME").Value.ToString() & " " &
+                           frmDGV.DGVdata.Rows(i - 1).Cells("POYPRMM").Value.ToString() & " " &
+                          frmDGV.DGVdata.Rows(i - 1).Cells("POYDOFFNUM").Value.ToString() & " " &
+                          frmDGV.DGVdata.Rows(i - 1).Cells("POYSPINNUM").Value.ToString)
 
-                    'WRITE CONE NUMBER TO SHEET
-                    MyTodyExcel.Cells(nfree, ncfree) = frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value
+
+                    'WRITE VALUES TOO THE SHEET
+                    '   MyTodyExcel.Cells(nfree, ncfree) = frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value
+
+                    MyTodyExcel.Cells(nfree, ncfree) = drumInfo
 
 
-
-                    'WRITE CARTON NUMBER TO SHEET AND PUT IN DGV
-                    ' MyTodyExcel.Cells(cellNum, ncfree - 2) = cartonNum
-                    'frmDGV.DGVdata.Rows(i - 1).Cells(61).Value = cartonNum
                     nfree = nfree + 1
                     'Increment the Col Number
                     If nfree = 23 And ncfree < 12 Then
@@ -336,47 +160,7 @@ Public Class frmPackTodayUpdate
                         nfree = 11
                     End If
 
-                    'ROUTINE IF SHEET IS FULL TO COPY SHEET AND CREATE A NEW SHEET IN THE WORKBOOK
-                    If nfree = 23 And ncfree = 12 Then
-                        Dim tmpsaveName As String
 
-                        tmpsaveName = (frmPackRepMain.finPath & "\" & frmPackRepMain.sheetName & "_" & mycount & ".xlsx")
-                        MyTodyExcel.DisplayAlerts = False
-                        xlTodyWorkbook.Sheets(mycount).SaveAs(Filename:=tmpsaveName, FileFormat:=51)
-
-                        MyTodyExcel.DisplayAlerts = True
-
-                        xlTodyWorkbook.Sheets(frmPackRepMain.sheetName).Copy(After:=xlTodyWorkbook.Sheets(mycount))
-                        CType(MyTodyExcel.Workbooks(1).Worksheets(frmPackRepMain.sheetName), Microsoft.Office.Interop.Excel.Worksheet).Name = frmPackRepMain.sheetName
-
-                        MyTodyExcel.Cells(3, 2) = frmDGV.DGVdata.Rows(0).Cells("POYPRODNAME").Value
-                        ''Product Code
-                        'MyTodyExcel.Cells(7, 5) = frmDGV.DGVdata.Rows(0).Cells("PRNUM").Value
-                        'Packer Name
-                        MyTodyExcel.Cells(32, 11) = frmJobEntry.PackOp
-
-
-
-                        'Add Barcode to Sheet
-                        boxCount = boxCount + 1
-                        createBarcode()
-                        MyTodyExcel.Cells(2, 1) = SheetCodeString
-                        MyTodyExcel.Cells(3, 1) = modBarcode
-
-
-                        ncfree = 2
-                        For nCol = 2 To 12
-                            For x = 11 To 22
-                                MyTodyExcel.Cells(x, ncfree) = "" 'Clear the contents of cone cells
-                                ' MyTodyExcel.Cells(x, ncfree - 2) = "" 'Clear the contents of Carton cells
-                            Next
-                            ncfree = ncfree + 2
-                        Next
-                        'REST ROW AND COLUMN TO DEFAULT VALUES
-                        nfree = 11
-                        ncfree = 2
-
-                    End If
                 End If
             Next
 
@@ -428,81 +212,8 @@ Public Class frmPackTodayUpdate
         'FIND NEXT BLANK ROW FOR ON EXCEL SHEET
 
         Dim colCount As Integer = 2
-        Dim endloop As Integer
-
-        Try
-            For ccount = 1 To 12  'Three sets of columns
-                For rcount = 11 To 30
-                    If Not (MyTodyExcel.Cells(rcount, colCount).value = " ") Then  'C9-C40
-                        totCount = totCount + 1
-                        Continue For
-                    Else
-                        nfree = rcount
-                        ncfree = colCount
-                        endloop = 1
-                        Exit For
-                    End If
-                Next
-                If endloop Then
-
-                    Exit For
-                Else
-                    If colCount < 12 Then
-                        colCount = colCount + 2
-                    End If
-                End If
-            Next
-        Catch ex As Exception
-
-            MsgBox(ex.ToString)
-
-        End Try
-
-
-
-
-
-        'CHECK TO SEE IF THE NEW CURRENT SHEET IS FULL IF SO ADD A NEW SHEET
-        If totCount = 120 Then
-
-            xlTodyWorkbook.Sheets(1).Copy(After:=xlTodyWorkbook.Sheets(mycount))
-            'ReName the work sheet 
-            CType(MyTodyExcel.Workbooks(1).Worksheets("Sheet1"), Microsoft.Office.Interop.Excel.Worksheet).Name = frmPackRepMain.sheetName
-
-            nfree = 11
-
-
-            'Product Name
-            MyTodyExcel.Cells(3, 2) = frmDGV.DGVdata.Rows(0).Cells("POYPRODNAME").Value
-
-            'Packer Name
-            MyTodyExcel.Cells(31, 11) = frmJobEntry.PackOp
-
-            'Add Barcode to Sheet
-            boxCount = boxCount + 1
-            createBarcode()
-            MyTodyExcel.Cells(2, 1) = SheetCodeString
-            MyTodyExcel.Cells(3, 1) = modBarcode
-
-
-
-            colCount = 2
-            For ccount = 1 To 6
-                For i = 11 To 30
-                    MyTodyExcel.Cells(i, colCount) = "" 'Clear the contents of cone cells
-                    ' MyTodyExcel.Cells(i, colCount - 2) = "" 'Clear the contents of Carton cells
-                Next
-                If colCount < 12 Then colCount = colCount + 2
-            Next
-            'boxCount = boxCount + 1
-            nfree = 11
-            ncfree = 2
-        End If
-
-
-        'Routine to go through the rows and extract Grade A cones plus keep count
-        Dim cartonNum As String = ""
-        Dim cellNum As Integer
+        ncfree = 2
+        nfree = 11
 
 
         Try
@@ -515,14 +226,18 @@ Public Class frmPackTodayUpdate
                 If IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value) Then Continue For
 
 
-                If frmJobEntry.drumPerPal = "120" And frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value = "15" Then
+                If frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value = "15" Then
+
+                    drumInfo = (frmDGV.DGVdata.Rows(i - 1).Cells("POYMCNAME").Value.ToString() & " " &
+                           frmDGV.DGVdata.Rows(i - 1).Cells("POYPRMM").Value.ToString() & " " &
+                          frmDGV.DGVdata.Rows(i - 1).Cells("POYDOFFNUM").Value.ToString() & " " &
+                          frmDGV.DGVdata.Rows(i - 1).Cells("POYSPINNUM").Value.ToString)
 
 
+                    'WRITE VALUES TOO THE SHEET
+                    '   MyTodyExcel.Cells(nfree, ncfree) = frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value
 
-                    'WRITE CONE NUMBER TO SHEET
-                    MyTodyExcel.Cells(nfree, ncfree) = frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value
-
-
+                    MyTodyExcel.Cells(nfree, ncfree) = drumInfo
 
                     'WRITE CARTON NUMBER TO SHEET AND PUT IN DGV
                     ' MyTodyExcel.Cells(cellNum, ncfree - 2) = cartonNum
@@ -534,47 +249,7 @@ Public Class frmPackTodayUpdate
                         nfree = 11
                     End If
 
-                    'ROUTINE IF SHEET IS FULL TO COPY SHEET AND CREATE A NEW SHEET IN THE WORKBOOK
-                    If nfree = 31 And ncfree = 12 Then
-                        Dim tmpsaveName As String
 
-                        tmpsaveName = (frmPackRepMain.finPath & "\" & frmPackRepMain.sheetName & "_" & mycount & ".xlsx")
-                        MyTodyExcel.DisplayAlerts = False
-                        xlTodyWorkbook.Sheets(mycount).SaveAs(Filename:=tmpsaveName, FileFormat:=51)
-
-                        MyTodyExcel.DisplayAlerts = True
-
-                        xlTodyWorkbook.Sheets(frmPackRepMain.sheetName).Copy(After:=xlTodyWorkbook.Sheets(mycount))
-                        CType(MyTodyExcel.Workbooks(1).Worksheets(frmPackRepMain.sheetName), Microsoft.Office.Interop.Excel.Worksheet).Name = frmPackRepMain.sheetName
-
-                        MyTodyExcel.Cells(3, 2) = frmDGV.DGVdata.Rows(0).Cells("POYPRODNAME").Value
-                        ''Product Code
-                        'MyTodyExcel.Cells(7, 5) = frmDGV.DGVdata.Rows(0).Cells("PRNUM").Value
-                        'Packer Name
-                        MyTodyExcel.Cells(32, 11) = frmJobEntry.PackOp
-
-
-
-                        'Add Barcode to Sheet
-                        boxCount = boxCount + 1
-                        createBarcode()
-                        MyTodyExcel.Cells(2, 1) = SheetCodeString
-                        MyTodyExcel.Cells(3, 1) = modBarcode
-
-
-                        ncfree = 2
-                        For nCol = 2 To 12
-                            For x = 11 To 30
-                                MyTodyExcel.Cells(x, ncfree) = "" 'Clear the contents of cone cells
-                                ' MyTodyExcel.Cells(x, ncfree - 2) = "" 'Clear the contents of Carton cells
-                            Next
-                            ncfree = ncfree + 2
-                        Next
-                        'REST ROW AND COLUMN TO DEFAULT VALUES
-                        nfree = 11
-                        ncfree = 2
-
-                    End If
                 End If
             Next
 
@@ -673,6 +348,7 @@ Public Class frmPackTodayUpdate
     Private Sub frmPackTodayUpdate_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
 
 
 End Class

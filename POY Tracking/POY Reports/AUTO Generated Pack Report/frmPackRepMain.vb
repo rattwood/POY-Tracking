@@ -91,9 +91,9 @@ Public Class frmPackRepMain
 
 
         'Create PREVIOUS THREE DAYS CHECK NAMES
-        yestname1 = (PrevPath1 & "\" & saveString & ".xlsx").ToString
-        yestname2 = (PrevPath2 & "\" & saveString & ".xlsx").ToString
-        yestname3 = (PrevPath3 & "\" & saveString & ".xlsx").ToString
+        'yestname1 = (PrevPath1 & "\" & saveString & ".xlsx").ToString
+        'yestname2 = (PrevPath2 & "\" & saveString & ".xlsx").ToString
+        'yestname3 = (PrevPath3 & "\" & saveString & ".xlsx").ToString
 
         'CHECK TO SEE IF THE TEMPLATE DIRECTORY HAS A REFRENCE OTHERWISE QUIT
         If template = "" Then

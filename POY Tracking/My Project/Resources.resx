@@ -127,6 +127,9 @@
   <data name="ts_final_logo_yk_FSc_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ts_final_logo_yk_FSc_icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Utilities" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Utilities.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="P30" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\+30.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -142,8 +145,14 @@
   <data name="NoDrum" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NoDrum.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Settings_12x_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Settings_12x_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="TS_logo_SWDK5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TS logo SWDK5.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Tools" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Tools.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Z" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Zero.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,7 +166,10 @@
   <data name="M10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\-10.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Settings_12x_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Settings_12x_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Search.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Reports" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reports.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
