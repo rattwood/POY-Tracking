@@ -111,7 +111,8 @@ Public Class frmJobEntry
     Private Sub updateButtons()
         If thaiLang Then
             btnCancelReport.Text = "ยกเลิก"
-
+            btnNewPallet.Text = "เริ่มพาเลทใหม่"
+            btnOldPallet.Text = "จบพาเลทเก่า"
         End If
 
 

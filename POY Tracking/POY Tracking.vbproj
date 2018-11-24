@@ -328,6 +328,9 @@
     <EmbeddedResource Include="POY Reports\AUTO Generated Pack Report\frmPackTodayUpdate.resx">
       <DependentUpon>frmPackTodayUpdate.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="POY Settings\frmSettings.th-TH.resx">
+      <DependentUpon>frmSettings.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="POY Start\frmJobEntry.en.resx">
       <DependentUpon>frmJobEntry.vb</DependentUpon>
     </EmbeddedResource>

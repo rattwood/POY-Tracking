@@ -22,6 +22,7 @@ Partial Class frmSettings
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSettings))
         Me.lblSerialPortSelect = New System.Windows.Forms.Label()
         Me.lstSerialPorts = New System.Windows.Forms.ListBox()
         Me.btnSetSave = New System.Windows.Forms.Button()
@@ -60,349 +61,193 @@ Partial Class frmSettings
         '
         'lblSerialPortSelect
         '
-        Me.lblSerialPortSelect.AutoSize = True
-        Me.lblSerialPortSelect.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.lblSerialPortSelect.Location = New System.Drawing.Point(16, 10)
-        Me.lblSerialPortSelect.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        resources.ApplyResources(Me.lblSerialPortSelect, "lblSerialPortSelect")
         Me.lblSerialPortSelect.Name = "lblSerialPortSelect"
-        Me.lblSerialPortSelect.Size = New System.Drawing.Size(150, 24)
-        Me.lblSerialPortSelect.TabIndex = 0
-        Me.lblSerialPortSelect.Text = "Comm Settings"
-        Me.lblSerialPortSelect.Visible = False
         '
         'lstSerialPorts
         '
+        resources.ApplyResources(Me.lstSerialPorts, "lstSerialPorts")
         Me.lstSerialPorts.FormattingEnabled = True
-        Me.lstSerialPorts.ItemHeight = 15
-        Me.lstSerialPorts.Location = New System.Drawing.Point(21, 76)
-        Me.lstSerialPorts.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.lstSerialPorts.Name = "lstSerialPorts"
-        Me.lstSerialPorts.Size = New System.Drawing.Size(159, 109)
-        Me.lstSerialPorts.TabIndex = 1
-        Me.lstSerialPorts.Visible = False
         '
         'btnSetSave
         '
-        Me.btnSetSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSetSave.Location = New System.Drawing.Point(327, 351)
-        Me.btnSetSave.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        resources.ApplyResources(Me.btnSetSave, "btnSetSave")
         Me.btnSetSave.Name = "btnSetSave"
-        Me.btnSetSave.Size = New System.Drawing.Size(344, 48)
-        Me.btnSetSave.TabIndex = 2
-        Me.btnSetSave.Text = "Save Settings"
         Me.btnSetSave.UseVisualStyleBackColor = True
         '
         'lstBaudRates
         '
+        resources.ApplyResources(Me.lstBaudRates, "lstBaudRates")
         Me.lstBaudRates.FormattingEnabled = True
-        Me.lstBaudRates.ItemHeight = 15
-        Me.lstBaudRates.Items.AddRange(New Object() {"4800", "9600", "19200", "38400", "57600"})
-        Me.lstBaudRates.Location = New System.Drawing.Point(21, 247)
-        Me.lstBaudRates.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.lstBaudRates.Items.AddRange(New Object() {resources.GetString("lstBaudRates.Items"), resources.GetString("lstBaudRates.Items1"), resources.GetString("lstBaudRates.Items2"), resources.GetString("lstBaudRates.Items3"), resources.GetString("lstBaudRates.Items4")})
         Me.lstBaudRates.Name = "lstBaudRates"
-        Me.lstBaudRates.Size = New System.Drawing.Size(159, 109)
-        Me.lstBaudRates.TabIndex = 16
-        Me.lstBaudRates.Visible = False
         '
         'chkUseColour
         '
-        Me.chkUseColour.AutoSize = True
-        Me.chkUseColour.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkUseColour.Location = New System.Drawing.Point(718, 123)
-        Me.chkUseColour.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        resources.ApplyResources(Me.chkUseColour, "chkUseColour")
         Me.chkUseColour.Name = "chkUseColour"
-        Me.chkUseColour.Size = New System.Drawing.Size(146, 20)
-        Me.chkUseColour.TabIndex = 23
-        Me.chkUseColour.Text = "Use POYPacking"
         Me.chkUseColour.UseVisualStyleBackColor = True
         '
         'chkUseSort
         '
-        Me.chkUseSort.AutoSize = True
-        Me.chkUseSort.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkUseSort.Location = New System.Drawing.Point(718, 171)
-        Me.chkUseSort.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        resources.ApplyResources(Me.chkUseSort, "chkUseSort")
         Me.chkUseSort.Name = "chkUseSort"
-        Me.chkUseSort.Size = New System.Drawing.Size(87, 20)
-        Me.chkUseSort.TabIndex = 24
-        Me.chkUseSort.Text = "Use Sort"
         Me.chkUseSort.UseVisualStyleBackColor = True
         '
         'chkUsePack
         '
-        Me.chkUsePack.AutoSize = True
-        Me.chkUsePack.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkUsePack.Location = New System.Drawing.Point(718, 218)
-        Me.chkUsePack.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        resources.ApplyResources(Me.chkUsePack, "chkUsePack")
         Me.chkUsePack.Name = "chkUsePack"
-        Me.chkUsePack.Size = New System.Drawing.Size(105, 20)
-        Me.chkUsePack.TabIndex = 25
-        Me.chkUsePack.Text = "Use Create"
         Me.chkUsePack.UseVisualStyleBackColor = True
         '
         'Label1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(713, 18)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(178, 24)
-        Me.Label1.TabIndex = 26
-        Me.Label1.Text = "Software Features"
         '
         'txtBoxTemplates
         '
-        Me.txtBoxTemplates.Location = New System.Drawing.Point(367, 84)
-        Me.txtBoxTemplates.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        resources.ApplyResources(Me.txtBoxTemplates, "txtBoxTemplates")
         Me.txtBoxTemplates.Name = "txtBoxTemplates"
-        Me.txtBoxTemplates.Size = New System.Drawing.Size(287, 21)
-        Me.txtBoxTemplates.TabIndex = 27
-        Me.txtBoxTemplates.Visible = False
         '
         'txtBoxCarts
         '
-        Me.txtBoxCarts.Location = New System.Drawing.Point(367, 131)
-        Me.txtBoxCarts.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        resources.ApplyResources(Me.txtBoxCarts, "txtBoxCarts")
         Me.txtBoxCarts.Name = "txtBoxCarts"
-        Me.txtBoxCarts.Size = New System.Drawing.Size(287, 21)
-        Me.txtBoxCarts.TabIndex = 28
-        Me.txtBoxCarts.Visible = False
         '
         'txtBoxJobs
         '
-        Me.txtBoxJobs.Location = New System.Drawing.Point(367, 179)
-        Me.txtBoxJobs.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        resources.ApplyResources(Me.txtBoxJobs, "txtBoxJobs")
         Me.txtBoxJobs.Name = "txtBoxJobs"
-        Me.txtBoxJobs.Size = New System.Drawing.Size(287, 21)
-        Me.txtBoxJobs.TabIndex = 29
-        Me.txtBoxJobs.Visible = False
         '
         'Label2
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(45, 58)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(77, 13)
-        Me.Label2.TabIndex = 33
-        Me.Label2.Text = "Port Number"
-        Me.Label2.Visible = False
         '
         'Label3
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(45, 222)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        resources.ApplyResources(Me.Label3, "Label3")
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(67, 13)
-        Me.Label3.TabIndex = 34
-        Me.Label3.Text = "Baud Rate"
-        Me.Label3.Visible = False
         '
         'Label8
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label8.Location = New System.Drawing.Point(393, 18)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        resources.ApplyResources(Me.Label8, "Label8")
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(150, 24)
-        Me.Label8.TabIndex = 39
-        Me.Label8.Text = "Directory Paths"
-        Me.Label8.Visible = False
         '
         'Button1
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(21, 452)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        resources.ApplyResources(Me.Button1, "Button1")
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(240, 48)
-        Me.Button1.TabIndex = 40
-        Me.Button1.Text = "Activate Software"
         Me.Button1.UseVisualStyleBackColor = True
-        Me.Button1.Visible = False
         '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        resources.ApplyResources(Me.OpenFileDialog1, "OpenFileDialog1")
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(216, 84)
+        resources.ApplyResources(Me.Button2, "Button2")
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(123, 22)
-        Me.Button2.TabIndex = 41
-        Me.Button2.Text = "Templates"
         Me.Button2.UseVisualStyleBackColor = True
-        Me.Button2.Visible = False
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(216, 131)
+        resources.ApplyResources(Me.Button3, "Button3")
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(123, 22)
-        Me.Button3.TabIndex = 42
-        Me.Button3.Text = "Save Carts"
         Me.Button3.UseVisualStyleBackColor = True
-        Me.Button3.Visible = False
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(216, 179)
+        resources.ApplyResources(Me.Button4, "Button4")
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(123, 22)
-        Me.Button4.TabIndex = 43
-        Me.Button4.Text = "Save Carts"
         Me.Button4.UseVisualStyleBackColor = True
-        Me.Button4.Visible = False
         '
         'Label4
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(838, 469)
+        resources.ApplyResources(Me.Label4, "Label4")
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(51, 15)
-        Me.Label4.TabIndex = 44
-        Me.Label4.Text = "Label4"
         '
         'Label5
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(838, 497)
+        resources.ApplyResources(Me.Label5, "Label5")
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(51, 15)
-        Me.Label5.TabIndex = 45
-        Me.Label5.Text = "Label5"
         '
         'Label6
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(687, 469)
+        resources.ApplyResources(Me.Label6, "Label6")
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(144, 15)
-        Me.Label6.TabIndex = 46
-        Me.Label6.Text = "Default Moitor Height"
         '
         'Label7
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(688, 497)
+        resources.ApplyResources(Me.Label7, "Label7")
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(138, 15)
-        Me.Label7.TabIndex = 47
-        Me.Label7.Text = "Default Moitor Width"
+        '
+        'FolderBrowserDialog1
+        '
+        resources.ApplyResources(Me.FolderBrowserDialog1, "FolderBrowserDialog1")
         '
         'chkDGV
         '
-        Me.chkDGV.AutoSize = True
-        Me.chkDGV.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkDGV.Location = New System.Drawing.Point(20, 389)
-        Me.chkDGV.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        resources.ApplyResources(Me.chkDGV, "chkDGV")
         Me.chkDGV.Name = "chkDGV"
-        Me.chkDGV.Size = New System.Drawing.Size(113, 20)
-        Me.chkDGV.TabIndex = 48
-        Me.chkDGV.Text = "TurnDGV On"
         Me.chkDGV.UseVisualStyleBackColor = True
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(216, 223)
+        resources.ApplyResources(Me.Button5, "Button5")
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(123, 22)
-        Me.Button5.TabIndex = 50
-        Me.Button5.Text = "Save Packing"
         Me.Button5.UseVisualStyleBackColor = True
-        Me.Button5.Visible = False
         '
         'txtBoxPack
         '
-        Me.txtBoxPack.Location = New System.Drawing.Point(367, 223)
-        Me.txtBoxPack.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        resources.ApplyResources(Me.txtBoxPack, "txtBoxPack")
         Me.txtBoxPack.Name = "txtBoxPack"
-        Me.txtBoxPack.Size = New System.Drawing.Size(287, 21)
-        Me.txtBoxPack.TabIndex = 49
-        Me.txtBoxPack.Visible = False
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(216, 263)
+        resources.ApplyResources(Me.Button6, "Button6")
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(144, 22)
-        Me.Button6.TabIndex = 52
-        Me.Button6.Text = "Save Pack Reports"
         Me.Button6.UseVisualStyleBackColor = True
-        Me.Button6.Visible = False
         '
         'txtBoxPackReports
         '
-        Me.txtBoxPackReports.Location = New System.Drawing.Point(367, 263)
-        Me.txtBoxPackReports.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        resources.ApplyResources(Me.txtBoxPackReports, "txtBoxPackReports")
         Me.txtBoxPackReports.Name = "txtBoxPackReports"
-        Me.txtBoxPackReports.Size = New System.Drawing.Size(287, 21)
-        Me.txtBoxPackReports.TabIndex = 51
-        Me.txtBoxPackReports.Visible = False
         '
         'Label9
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(15, 362)
+        resources.ApplyResources(Me.Label9, "Label9")
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(147, 16)
-        Me.Label9.TabIndex = 53
-        Me.Label9.Text = "Barcode Control Chr"
         '
         'txtBoxBarcodectrl
         '
-        Me.txtBoxBarcodectrl.Location = New System.Drawing.Point(168, 359)
+        resources.ApplyResources(Me.txtBoxBarcodectrl, "txtBoxBarcodectrl")
         Me.txtBoxBarcodectrl.Name = "txtBoxBarcodectrl"
-        Me.txtBoxBarcodectrl.Size = New System.Drawing.Size(48, 21)
-        Me.txtBoxBarcodectrl.TabIndex = 54
         '
         'chkThai
         '
-        Me.chkThai.AutoSize = True
-        Me.chkThai.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkThai.Location = New System.Drawing.Point(717, 364)
-        Me.chkThai.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        resources.ApplyResources(Me.chkThai, "chkThai")
         Me.chkThai.Name = "chkThai"
-        Me.chkThai.Size = New System.Drawing.Size(58, 20)
-        Me.chkThai.TabIndex = 56
-        Me.chkThai.Text = "Thai"
         Me.chkThai.UseVisualStyleBackColor = True
         '
         'chkEnglish
         '
-        Me.chkEnglish.AutoSize = True
-        Me.chkEnglish.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkEnglish.Location = New System.Drawing.Point(717, 336)
-        Me.chkEnglish.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        resources.ApplyResources(Me.chkEnglish, "chkEnglish")
         Me.chkEnglish.Name = "chkEnglish"
-        Me.chkEnglish.Size = New System.Drawing.Size(78, 20)
-        Me.chkEnglish.TabIndex = 55
-        Me.chkEnglish.Text = "English"
         Me.chkEnglish.UseVisualStyleBackColor = True
         '
         'Label10
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(713, 295)
-        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        resources.ApplyResources(Me.Label10, "Label10")
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(103, 24)
-        Me.Label10.TabIndex = 57
-        Me.Label10.Text = "Language"
         '
         'frmSettings
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
+        resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(913, 579)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.chkThai)
         Me.Controls.Add(Me.chkEnglish)
@@ -435,11 +280,7 @@ Partial Class frmSettings
         Me.Controls.Add(Me.btnSetSave)
         Me.Controls.Add(Me.lstSerialPorts)
         Me.Controls.Add(Me.lblSerialPortSelect)
-        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Name = "frmSettings"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Configuration"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
