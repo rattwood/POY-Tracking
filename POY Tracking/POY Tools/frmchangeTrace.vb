@@ -143,6 +143,8 @@ Public Class frmchangeTrace
         frmToolEntry.txtTraceNum.Text = txtNewTraceNum.Text.ToString
         lblComplete.Visible = True
         frmToolEntry.lblTraceComplete.Visible = True
+        frmToolEntry.updateAfterTraceChange()
+        frmToolEntry.Show()
         Close()
     End Sub
 
