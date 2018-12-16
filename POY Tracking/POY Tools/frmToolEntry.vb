@@ -367,11 +367,18 @@ Public Class frmToolEntry
     Private Sub btnChangeTrace_Click(sender As Object, e As EventArgs) Handles btnChangeTrace.Click
         frmchangeTrace.txtNewTraceNum.Clear()
         frmchangeTrace.txtNewTraceNum.Focus()
+        Me.Hide()
         frmchangeTrace.Show()
+        'bcodescan = txtTraceNum.Text.ToString  'to get updated trace number
+        'smalldbUpdate()
+        'chkPackingExists()
+
+    End Sub
+
+    Public Sub updateAfterTraceChange()
         bcodescan = txtTraceNum.Text.ToString  'to get updated trace number
         smalldbUpdate()
         chkPackingExists()
-
     End Sub
 
     Public Sub smalldbUpdate()
@@ -659,7 +666,7 @@ Public Class frmToolEntry
         releaseObject(xlUpdatesheets)
         releaseObject(xlUpdateWorkbook)
         releaseObject(MyUpdateExcel)
-        frmPacking48.UpdateDatabase()  'Update the database with changes and then close and go back to Job Entry screen
+        'frmPacking48.UpdateDatabase()  'Update the database with changes and then close and go back to Job Entry screen
         Me.Close()
     End Sub
 

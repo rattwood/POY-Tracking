@@ -34,6 +34,7 @@ Public Class frmchangeTrace
 
     Private Sub txtNewTraceNum_TextChanged(sender As Object, e As EventArgs) Handles txtNewTraceNum.TextChanged
         bcodescan = txtNewTraceNum.Text.ToString
+
     End Sub
 
 
@@ -143,6 +144,8 @@ Public Class frmchangeTrace
         frmToolEntry.txtTraceNum.Text = txtNewTraceNum.Text.ToString
         lblComplete.Visible = True
         frmToolEntry.lblTraceComplete.Visible = True
+        frmToolEntry.updateAfterTraceChange()
+        frmToolEntry.Show()
         Close()
     End Sub
 
