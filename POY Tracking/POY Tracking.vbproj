@@ -25,7 +25,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -256,6 +256,12 @@
     <Compile Include="POY Start\SplashScreen1.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="POY Tools\frmPalletSplit.Designer.vb">
+      <DependentUpon>frmPalletSplit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Tools\frmPalletSplit.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SQLConn.vb" />
     <Compile Include="POY Tools\frmChangeDrums.Designer.vb">
       <DependentUpon>frmChangeDrums.vb</DependentUpon>
@@ -384,6 +390,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="POY Tools\frmchangeTrace.resx">
       <DependentUpon>frmchangeTrace.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Tools\frmPalletSplit.resx">
+      <DependentUpon>frmPalletSplit.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POY Tools\frmToolEntry.resx">
       <DependentUpon>frmToolEntry.vb</DependentUpon>

@@ -74,20 +74,20 @@ Partial Class SplashScreen1
         Me.Version.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Version.BackColor = System.Drawing.Color.Transparent
         Me.Version.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Version.Location = New System.Drawing.Point(3, 9)
+        Me.Version.Location = New System.Drawing.Point(3, 4)
         Me.Version.Name = "Version"
-        Me.Version.Size = New System.Drawing.Size(241, 20)
+        Me.Version.Size = New System.Drawing.Size(241, 30)
         Me.Version.TabIndex = 1
-        Me.Version.Text = "Version {0}.{1:00}"
+        Me.Version.Text = "Version 1.00.05" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "support@tecknoserve.com"
         '
         'Copyright
         '
         Me.Copyright.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Copyright.BackColor = System.Drawing.Color.Transparent
         Me.Copyright.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Copyright.Location = New System.Drawing.Point(3, 39)
+        Me.Copyright.Location = New System.Drawing.Point(3, 43)
         Me.Copyright.Name = "Copyright"
-        Me.Copyright.Size = New System.Drawing.Size(241, 40)
+        Me.Copyright.Size = New System.Drawing.Size(241, 31)
         Me.Copyright.TabIndex = 2
         Me.Copyright.Text = "Copyright"
         '
@@ -101,7 +101,7 @@ Partial Class SplashScreen1
         Me.ApplicationTitle.Size = New System.Drawing.Size(247, 212)
         Me.ApplicationTitle.TabIndex = 0
         Me.ApplicationTitle.Text = "POY Tracking"
-        Me.ApplicationTitle.TextAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.ApplicationTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'SplashScreen1
         '

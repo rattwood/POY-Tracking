@@ -22,14 +22,52 @@ Partial Class frmTraceSearch
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.btnJobSearch = New System.Windows.Forms.Button()
-        Me.txtTraceNum = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtTraceNum = New System.Windows.Forms.TextBox()
+        Me.btnJobSearch = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.btnCancel = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(295, 9)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(275, 24)
+        Me.Label1.TabIndex = 63
+        Me.Label1.Text = "Search for Trace Information"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(40, 71)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(141, 20)
+        Me.Label2.TabIndex = 64
+        Me.Label2.Text = "Trace Barcode #"
+        '
+        'txtTraceNum
+        '
+        Me.txtTraceNum.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTraceNum.Location = New System.Drawing.Point(198, 65)
+        Me.txtTraceNum.Name = "txtTraceNum"
+        Me.txtTraceNum.Size = New System.Drawing.Size(285, 29)
+        Me.txtTraceNum.TabIndex = 66
+        '
+        'btnJobSearch
+        '
+        Me.btnJobSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnJobSearch.Location = New System.Drawing.Point(559, 59)
+        Me.btnJobSearch.Name = "btnJobSearch"
+        Me.btnJobSearch.Size = New System.Drawing.Size(118, 47)
+        Me.btnJobSearch.TabIndex = 69
+        Me.btnJobSearch.Text = "Search"
+        Me.btnJobSearch.UseVisualStyleBackColor = True
         '
         'DataGridView1
         '
@@ -42,44 +80,6 @@ Partial Class frmTraceSearch
         Me.DataGridView1.Size = New System.Drawing.Size(678, 373)
         Me.DataGridView1.TabIndex = 88
         Me.DataGridView1.Visible = False
-        '
-        'btnJobSearch
-        '
-        Me.btnJobSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnJobSearch.Location = New System.Drawing.Point(559, 59)
-        Me.btnJobSearch.Name = "btnJobSearch"
-        Me.btnJobSearch.Size = New System.Drawing.Size(118, 47)
-        Me.btnJobSearch.TabIndex = 69
-        Me.btnJobSearch.Text = "Search"
-        Me.btnJobSearch.UseVisualStyleBackColor = True
-        '
-        'txtTraceNum
-        '
-        Me.txtTraceNum.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTraceNum.Location = New System.Drawing.Point(198, 65)
-        Me.txtTraceNum.Name = "txtTraceNum"
-        Me.txtTraceNum.Size = New System.Drawing.Size(285, 29)
-        Me.txtTraceNum.TabIndex = 66
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(40, 71)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(141, 20)
-        Me.Label2.TabIndex = 64
-        Me.Label2.Text = "Trace Barcode #"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(295, 9)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(275, 24)
-        Me.Label1.TabIndex = 63
-        Me.Label1.Text = "Search for Trace Information"
         '
         'btnCancel
         '
@@ -112,10 +112,10 @@ Partial Class frmTraceSearch
 
     End Sub
 
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents btnJobSearch As Button
-    Friend WithEvents txtTraceNum As TextBox
-    Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents txtTraceNum As TextBox
+    Friend WithEvents btnJobSearch As Button
+    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents btnCancel As Button
 End Class

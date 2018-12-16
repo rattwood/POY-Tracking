@@ -150,7 +150,7 @@ Partial Class frmPacking72
         'txtConeBcode
         '
         Me.txtConeBcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.txtConeBcode.Location = New System.Drawing.Point(568, 698)
+        Me.txtConeBcode.Location = New System.Drawing.Point(540, 548)
         Me.txtConeBcode.Name = "txtConeBcode"
         Me.txtConeBcode.Size = New System.Drawing.Size(433, 62)
         Me.txtConeBcode.TabIndex = 143
@@ -159,7 +159,7 @@ Partial Class frmPacking72
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(490, 717)
+        Me.Label3.Location = New System.Drawing.Point(462, 567)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(77, 20)
@@ -170,18 +170,18 @@ Partial Class frmPacking72
         '
         Me.btnFinish.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnFinish.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnFinish.Location = New System.Drawing.Point(31, 590)
+        Me.btnFinish.Location = New System.Drawing.Point(14, 362)
         Me.btnFinish.Name = "btnFinish"
         Me.btnFinish.Size = New System.Drawing.Size(197, 80)
         Me.btnFinish.TabIndex = 170
-        Me.btnFinish.Text = "Finish Job"
+        Me.btnFinish.Text = "Save Job"
         Me.btnFinish.UseVisualStyleBackColor = False
         '
         'btnBack
         '
         Me.btnBack.BackColor = System.Drawing.Color.Red
         Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBack.Location = New System.Drawing.Point(31, 758)
+        Me.btnBack.Location = New System.Drawing.Point(14, 530)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Size = New System.Drawing.Size(197, 80)
         Me.btnBack.TabIndex = 172
@@ -194,7 +194,7 @@ Partial Class frmPacking72
         Me.Label1.BackColor = System.Drawing.Color.Red
         Me.Label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(568, 687)
+        Me.Label1.Location = New System.Drawing.Point(287, 537)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(232, 73)
@@ -1572,7 +1572,7 @@ Partial Class frmPacking72
         '
         Me.btnEndJob.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnEndJob.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEndJob.Location = New System.Drawing.Point(1298, 677)
+        Me.btnEndJob.Location = New System.Drawing.Point(1050, 530)
         Me.btnEndJob.Name = "btnEndJob"
         Me.btnEndJob.Size = New System.Drawing.Size(197, 80)
         Me.btnEndJob.TabIndex = 428
@@ -1583,7 +1583,7 @@ Partial Class frmPacking72
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1584, 861)
+        Me.ClientSize = New System.Drawing.Size(1350, 729)
         Me.Controls.Add(Me.btnEndJob)
         Me.Controls.Add(Me.Label18)
         Me.Controls.Add(Me.Label17)
