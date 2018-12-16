@@ -374,6 +374,13 @@ Public Class frmToolEntry
 
     End Sub
 
+
+    Public Sub updateAfterTraceChange()
+        bcodescan = txtTraceNum.Text.ToString  'to get updated trace number
+        smalldbUpdate()
+        chkPackingExists()
+    End Sub
+
     Public Sub smalldbUpdate()
         'This routine is to refresh DGV with data for new Trace Number assigned
         SQL.ExecQuery("Select * from POYTrack where (POYTRACENUM Is Not Null) and POYTRACENUM = '" & bcodescan & "' and POYBCODEDRUM Is Not Null Order by POYPACKIDX ")
