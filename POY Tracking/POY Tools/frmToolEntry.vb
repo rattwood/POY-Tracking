@@ -369,8 +369,8 @@ Public Class frmToolEntry
         frmchangeTrace.txtNewTraceNum.Focus()
         frmchangeTrace.Show()
         bcodescan = txtTraceNum.Text.ToString  'to get updated trace number
-        smalldbUpdate()
-        chkPackingExists()
+        'smalldbUpdate()
+        'chkPackingExists()
 
     End Sub
 
@@ -663,10 +663,8 @@ Public Class frmToolEntry
 
 
         MyUpdateExcel.Quit()
-        releaseObject(xlUpdatesheets)
         releaseObject(xlUpdateWorkbook)
         releaseObject(MyUpdateExcel)
-        frmPacking48.UpdateDatabase()  'Update the database with changes and then close and go back to Job Entry screen
         Me.Close()
     End Sub
 
