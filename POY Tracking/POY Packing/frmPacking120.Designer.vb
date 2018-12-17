@@ -269,7 +269,7 @@ Partial Class frmPacking120
         Me.Button72.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button72.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button72.ForeColor = System.Drawing.Color.Black
-        Me.Button72.Location = New System.Drawing.Point(1016, 479)
+        Me.Button72.Location = New System.Drawing.Point(1017, 460)
         Me.Button72.Margin = New System.Windows.Forms.Padding(2)
         Me.Button72.Name = "Button72"
         Me.Button72.Size = New System.Drawing.Size(55, 45)
@@ -285,7 +285,7 @@ Partial Class frmPacking120
         Me.Button68.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button68.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button68.ForeColor = System.Drawing.Color.Black
-        Me.Button68.Location = New System.Drawing.Point(1016, 430)
+        Me.Button68.Location = New System.Drawing.Point(1017, 411)
         Me.Button68.Margin = New System.Windows.Forms.Padding(2)
         Me.Button68.Name = "Button68"
         Me.Button68.Size = New System.Drawing.Size(55, 45)
@@ -301,7 +301,7 @@ Partial Class frmPacking120
         Me.Button64.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button64.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button64.ForeColor = System.Drawing.Color.Black
-        Me.Button64.Location = New System.Drawing.Point(1016, 381)
+        Me.Button64.Location = New System.Drawing.Point(1017, 362)
         Me.Button64.Margin = New System.Windows.Forms.Padding(2)
         Me.Button64.Name = "Button64"
         Me.Button64.Size = New System.Drawing.Size(55, 45)
@@ -317,7 +317,7 @@ Partial Class frmPacking120
         Me.Button69.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button69.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button69.ForeColor = System.Drawing.Color.Black
-        Me.Button69.Location = New System.Drawing.Point(1193, 479)
+        Me.Button69.Location = New System.Drawing.Point(1194, 460)
         Me.Button69.Margin = New System.Windows.Forms.Padding(2)
         Me.Button69.Name = "Button69"
         Me.Button69.Size = New System.Drawing.Size(55, 45)
@@ -333,7 +333,7 @@ Partial Class frmPacking120
         Me.Button70.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button70.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button70.ForeColor = System.Drawing.Color.Black
-        Me.Button70.Location = New System.Drawing.Point(1134, 479)
+        Me.Button70.Location = New System.Drawing.Point(1135, 460)
         Me.Button70.Margin = New System.Windows.Forms.Padding(2)
         Me.Button70.Name = "Button70"
         Me.Button70.Size = New System.Drawing.Size(55, 45)
@@ -349,7 +349,7 @@ Partial Class frmPacking120
         Me.Button71.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button71.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button71.ForeColor = System.Drawing.Color.Black
-        Me.Button71.Location = New System.Drawing.Point(1075, 479)
+        Me.Button71.Location = New System.Drawing.Point(1076, 460)
         Me.Button71.Margin = New System.Windows.Forms.Padding(2)
         Me.Button71.Name = "Button71"
         Me.Button71.Size = New System.Drawing.Size(55, 45)
@@ -365,7 +365,7 @@ Partial Class frmPacking120
         Me.Button65.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button65.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button65.ForeColor = System.Drawing.Color.Black
-        Me.Button65.Location = New System.Drawing.Point(1193, 430)
+        Me.Button65.Location = New System.Drawing.Point(1194, 411)
         Me.Button65.Margin = New System.Windows.Forms.Padding(2)
         Me.Button65.Name = "Button65"
         Me.Button65.Size = New System.Drawing.Size(55, 45)
@@ -381,7 +381,7 @@ Partial Class frmPacking120
         Me.Button66.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button66.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button66.ForeColor = System.Drawing.Color.Black
-        Me.Button66.Location = New System.Drawing.Point(1134, 430)
+        Me.Button66.Location = New System.Drawing.Point(1135, 411)
         Me.Button66.Margin = New System.Windows.Forms.Padding(2)
         Me.Button66.Name = "Button66"
         Me.Button66.Size = New System.Drawing.Size(55, 45)
@@ -397,7 +397,7 @@ Partial Class frmPacking120
         Me.Button67.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button67.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button67.ForeColor = System.Drawing.Color.Black
-        Me.Button67.Location = New System.Drawing.Point(1075, 430)
+        Me.Button67.Location = New System.Drawing.Point(1076, 411)
         Me.Button67.Margin = New System.Windows.Forms.Padding(2)
         Me.Button67.Name = "Button67"
         Me.Button67.Size = New System.Drawing.Size(55, 45)
@@ -413,7 +413,7 @@ Partial Class frmPacking120
         Me.Button61.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button61.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button61.ForeColor = System.Drawing.Color.Black
-        Me.Button61.Location = New System.Drawing.Point(1193, 381)
+        Me.Button61.Location = New System.Drawing.Point(1194, 362)
         Me.Button61.Margin = New System.Windows.Forms.Padding(2)
         Me.Button61.Name = "Button61"
         Me.Button61.Size = New System.Drawing.Size(55, 45)
@@ -429,7 +429,7 @@ Partial Class frmPacking120
         Me.Button62.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button62.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button62.ForeColor = System.Drawing.Color.Black
-        Me.Button62.Location = New System.Drawing.Point(1134, 381)
+        Me.Button62.Location = New System.Drawing.Point(1135, 362)
         Me.Button62.Margin = New System.Windows.Forms.Padding(2)
         Me.Button62.Name = "Button62"
         Me.Button62.Size = New System.Drawing.Size(55, 45)
@@ -445,7 +445,7 @@ Partial Class frmPacking120
         Me.Button63.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button63.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button63.ForeColor = System.Drawing.Color.Black
-        Me.Button63.Location = New System.Drawing.Point(1075, 381)
+        Me.Button63.Location = New System.Drawing.Point(1076, 362)
         Me.Button63.Margin = New System.Windows.Forms.Padding(2)
         Me.Button63.Name = "Button63"
         Me.Button63.Size = New System.Drawing.Size(55, 45)
@@ -461,7 +461,7 @@ Partial Class frmPacking120
         Me.Button28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button28.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button28.ForeColor = System.Drawing.Color.Black
-        Me.Button28.Location = New System.Drawing.Point(648, 142)
+        Me.Button28.Location = New System.Drawing.Point(649, 123)
         Me.Button28.Margin = New System.Windows.Forms.Padding(2)
         Me.Button28.Name = "Button28"
         Me.Button28.Size = New System.Drawing.Size(55, 45)
@@ -477,7 +477,7 @@ Partial Class frmPacking120
         Me.Button32.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button32.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button32.ForeColor = System.Drawing.Color.Black
-        Me.Button32.Location = New System.Drawing.Point(648, 191)
+        Me.Button32.Location = New System.Drawing.Point(649, 172)
         Me.Button32.Margin = New System.Windows.Forms.Padding(2)
         Me.Button32.Name = "Button32"
         Me.Button32.Size = New System.Drawing.Size(55, 45)
@@ -493,7 +493,7 @@ Partial Class frmPacking120
         Me.Button36.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button36.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button36.ForeColor = System.Drawing.Color.Black
-        Me.Button36.Location = New System.Drawing.Point(648, 240)
+        Me.Button36.Location = New System.Drawing.Point(649, 221)
         Me.Button36.Margin = New System.Windows.Forms.Padding(2)
         Me.Button36.Name = "Button36"
         Me.Button36.Size = New System.Drawing.Size(55, 45)
@@ -509,7 +509,7 @@ Partial Class frmPacking120
         Me.Button25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button25.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button25.ForeColor = System.Drawing.Color.Black
-        Me.Button25.Location = New System.Drawing.Point(825, 142)
+        Me.Button25.Location = New System.Drawing.Point(826, 123)
         Me.Button25.Margin = New System.Windows.Forms.Padding(2)
         Me.Button25.Name = "Button25"
         Me.Button25.Size = New System.Drawing.Size(55, 45)
@@ -525,7 +525,7 @@ Partial Class frmPacking120
         Me.Button26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button26.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button26.ForeColor = System.Drawing.Color.Black
-        Me.Button26.Location = New System.Drawing.Point(766, 142)
+        Me.Button26.Location = New System.Drawing.Point(767, 123)
         Me.Button26.Margin = New System.Windows.Forms.Padding(2)
         Me.Button26.Name = "Button26"
         Me.Button26.Size = New System.Drawing.Size(55, 45)
@@ -541,7 +541,7 @@ Partial Class frmPacking120
         Me.Button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button27.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button27.ForeColor = System.Drawing.Color.Black
-        Me.Button27.Location = New System.Drawing.Point(707, 142)
+        Me.Button27.Location = New System.Drawing.Point(708, 123)
         Me.Button27.Margin = New System.Windows.Forms.Padding(2)
         Me.Button27.Name = "Button27"
         Me.Button27.Size = New System.Drawing.Size(55, 45)
@@ -557,7 +557,7 @@ Partial Class frmPacking120
         Me.Button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button29.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button29.ForeColor = System.Drawing.Color.Black
-        Me.Button29.Location = New System.Drawing.Point(825, 191)
+        Me.Button29.Location = New System.Drawing.Point(826, 172)
         Me.Button29.Margin = New System.Windows.Forms.Padding(2)
         Me.Button29.Name = "Button29"
         Me.Button29.Size = New System.Drawing.Size(55, 45)
@@ -573,7 +573,7 @@ Partial Class frmPacking120
         Me.Button30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button30.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button30.ForeColor = System.Drawing.Color.Black
-        Me.Button30.Location = New System.Drawing.Point(766, 191)
+        Me.Button30.Location = New System.Drawing.Point(767, 172)
         Me.Button30.Margin = New System.Windows.Forms.Padding(2)
         Me.Button30.Name = "Button30"
         Me.Button30.Size = New System.Drawing.Size(55, 45)
@@ -589,7 +589,7 @@ Partial Class frmPacking120
         Me.Button31.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button31.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button31.ForeColor = System.Drawing.Color.Black
-        Me.Button31.Location = New System.Drawing.Point(707, 191)
+        Me.Button31.Location = New System.Drawing.Point(708, 172)
         Me.Button31.Margin = New System.Windows.Forms.Padding(2)
         Me.Button31.Name = "Button31"
         Me.Button31.Size = New System.Drawing.Size(55, 45)
@@ -605,7 +605,7 @@ Partial Class frmPacking120
         Me.Button33.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button33.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button33.ForeColor = System.Drawing.Color.Black
-        Me.Button33.Location = New System.Drawing.Point(825, 240)
+        Me.Button33.Location = New System.Drawing.Point(826, 221)
         Me.Button33.Margin = New System.Windows.Forms.Padding(2)
         Me.Button33.Name = "Button33"
         Me.Button33.Size = New System.Drawing.Size(55, 45)
@@ -621,7 +621,7 @@ Partial Class frmPacking120
         Me.Button34.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button34.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button34.ForeColor = System.Drawing.Color.Black
-        Me.Button34.Location = New System.Drawing.Point(766, 240)
+        Me.Button34.Location = New System.Drawing.Point(767, 221)
         Me.Button34.Margin = New System.Windows.Forms.Padding(2)
         Me.Button34.Name = "Button34"
         Me.Button34.Size = New System.Drawing.Size(55, 45)
@@ -637,7 +637,7 @@ Partial Class frmPacking120
         Me.Button35.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button35.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button35.ForeColor = System.Drawing.Color.Black
-        Me.Button35.Location = New System.Drawing.Point(707, 240)
+        Me.Button35.Location = New System.Drawing.Point(708, 221)
         Me.Button35.Margin = New System.Windows.Forms.Padding(2)
         Me.Button35.Name = "Button35"
         Me.Button35.Size = New System.Drawing.Size(55, 45)
@@ -653,7 +653,7 @@ Partial Class frmPacking120
         Me.Button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button12.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button12.ForeColor = System.Drawing.Color.Black
-        Me.Button12.Location = New System.Drawing.Point(1016, 190)
+        Me.Button12.Location = New System.Drawing.Point(1017, 171)
         Me.Button12.Margin = New System.Windows.Forms.Padding(2)
         Me.Button12.Name = "Button12"
         Me.Button12.Size = New System.Drawing.Size(55, 45)
@@ -669,7 +669,7 @@ Partial Class frmPacking120
         Me.Button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button8.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button8.ForeColor = System.Drawing.Color.Black
-        Me.Button8.Location = New System.Drawing.Point(1016, 141)
+        Me.Button8.Location = New System.Drawing.Point(1017, 122)
         Me.Button8.Margin = New System.Windows.Forms.Padding(2)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(55, 45)
@@ -685,7 +685,7 @@ Partial Class frmPacking120
         Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.ForeColor = System.Drawing.Color.Black
-        Me.Button4.Location = New System.Drawing.Point(1016, 92)
+        Me.Button4.Location = New System.Drawing.Point(1017, 73)
         Me.Button4.Margin = New System.Windows.Forms.Padding(2)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(55, 45)
@@ -701,7 +701,7 @@ Partial Class frmPacking120
         Me.Button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button9.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button9.ForeColor = System.Drawing.Color.Black
-        Me.Button9.Location = New System.Drawing.Point(1193, 190)
+        Me.Button9.Location = New System.Drawing.Point(1194, 171)
         Me.Button9.Margin = New System.Windows.Forms.Padding(2)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(55, 45)
@@ -717,7 +717,7 @@ Partial Class frmPacking120
         Me.Button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button10.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button10.ForeColor = System.Drawing.Color.Black
-        Me.Button10.Location = New System.Drawing.Point(1134, 190)
+        Me.Button10.Location = New System.Drawing.Point(1135, 171)
         Me.Button10.Margin = New System.Windows.Forms.Padding(2)
         Me.Button10.Name = "Button10"
         Me.Button10.Size = New System.Drawing.Size(55, 45)
@@ -733,7 +733,7 @@ Partial Class frmPacking120
         Me.Button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button11.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button11.ForeColor = System.Drawing.Color.Black
-        Me.Button11.Location = New System.Drawing.Point(1075, 190)
+        Me.Button11.Location = New System.Drawing.Point(1076, 171)
         Me.Button11.Margin = New System.Windows.Forms.Padding(2)
         Me.Button11.Name = "Button11"
         Me.Button11.Size = New System.Drawing.Size(55, 45)
@@ -749,7 +749,7 @@ Partial Class frmPacking120
         Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button5.ForeColor = System.Drawing.Color.Black
-        Me.Button5.Location = New System.Drawing.Point(1193, 141)
+        Me.Button5.Location = New System.Drawing.Point(1194, 122)
         Me.Button5.Margin = New System.Windows.Forms.Padding(2)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(55, 45)
@@ -765,7 +765,7 @@ Partial Class frmPacking120
         Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button6.ForeColor = System.Drawing.Color.Black
-        Me.Button6.Location = New System.Drawing.Point(1134, 141)
+        Me.Button6.Location = New System.Drawing.Point(1135, 122)
         Me.Button6.Margin = New System.Windows.Forms.Padding(2)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(55, 45)
@@ -781,7 +781,7 @@ Partial Class frmPacking120
         Me.Button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button7.ForeColor = System.Drawing.Color.Black
-        Me.Button7.Location = New System.Drawing.Point(1075, 141)
+        Me.Button7.Location = New System.Drawing.Point(1076, 122)
         Me.Button7.Margin = New System.Windows.Forms.Padding(2)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(55, 45)
@@ -797,7 +797,7 @@ Partial Class frmPacking120
         Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.Black
-        Me.Button1.Location = New System.Drawing.Point(1193, 92)
+        Me.Button1.Location = New System.Drawing.Point(1194, 73)
         Me.Button1.Margin = New System.Windows.Forms.Padding(2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(55, 45)
@@ -813,7 +813,7 @@ Partial Class frmPacking120
         Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.Color.Black
-        Me.Button2.Location = New System.Drawing.Point(1134, 92)
+        Me.Button2.Location = New System.Drawing.Point(1135, 73)
         Me.Button2.Margin = New System.Windows.Forms.Padding(2)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(55, 45)
@@ -829,7 +829,7 @@ Partial Class frmPacking120
         Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ForeColor = System.Drawing.Color.Black
-        Me.Button3.Location = New System.Drawing.Point(1075, 92)
+        Me.Button3.Location = New System.Drawing.Point(1076, 73)
         Me.Button3.Margin = New System.Windows.Forms.Padding(2)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(55, 45)
@@ -845,7 +845,7 @@ Partial Class frmPacking120
         Me.Button24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button24.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button24.ForeColor = System.Drawing.Color.Black
-        Me.Button24.Location = New System.Drawing.Point(648, 93)
+        Me.Button24.Location = New System.Drawing.Point(649, 74)
         Me.Button24.Margin = New System.Windows.Forms.Padding(2)
         Me.Button24.Name = "Button24"
         Me.Button24.Size = New System.Drawing.Size(55, 45)
@@ -861,7 +861,7 @@ Partial Class frmPacking120
         Me.Button20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button20.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button20.ForeColor = System.Drawing.Color.Black
-        Me.Button20.Location = New System.Drawing.Point(1016, 288)
+        Me.Button20.Location = New System.Drawing.Point(1017, 269)
         Me.Button20.Margin = New System.Windows.Forms.Padding(2)
         Me.Button20.Name = "Button20"
         Me.Button20.Size = New System.Drawing.Size(55, 45)
@@ -877,7 +877,7 @@ Partial Class frmPacking120
         Me.Button16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button16.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button16.ForeColor = System.Drawing.Color.Black
-        Me.Button16.Location = New System.Drawing.Point(1016, 239)
+        Me.Button16.Location = New System.Drawing.Point(1017, 220)
         Me.Button16.Margin = New System.Windows.Forms.Padding(2)
         Me.Button16.Name = "Button16"
         Me.Button16.Size = New System.Drawing.Size(55, 45)
@@ -893,7 +893,7 @@ Partial Class frmPacking120
         Me.Button21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button21.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button21.ForeColor = System.Drawing.Color.Black
-        Me.Button21.Location = New System.Drawing.Point(825, 93)
+        Me.Button21.Location = New System.Drawing.Point(826, 74)
         Me.Button21.Margin = New System.Windows.Forms.Padding(2)
         Me.Button21.Name = "Button21"
         Me.Button21.Size = New System.Drawing.Size(55, 45)
@@ -909,7 +909,7 @@ Partial Class frmPacking120
         Me.Button22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button22.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button22.ForeColor = System.Drawing.Color.Black
-        Me.Button22.Location = New System.Drawing.Point(766, 93)
+        Me.Button22.Location = New System.Drawing.Point(767, 74)
         Me.Button22.Margin = New System.Windows.Forms.Padding(2)
         Me.Button22.Name = "Button22"
         Me.Button22.Size = New System.Drawing.Size(55, 45)
@@ -925,7 +925,7 @@ Partial Class frmPacking120
         Me.Button23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button23.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button23.ForeColor = System.Drawing.Color.Black
-        Me.Button23.Location = New System.Drawing.Point(707, 93)
+        Me.Button23.Location = New System.Drawing.Point(708, 74)
         Me.Button23.Margin = New System.Windows.Forms.Padding(2)
         Me.Button23.Name = "Button23"
         Me.Button23.Size = New System.Drawing.Size(55, 45)
@@ -941,7 +941,7 @@ Partial Class frmPacking120
         Me.Button17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button17.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button17.ForeColor = System.Drawing.Color.Black
-        Me.Button17.Location = New System.Drawing.Point(1193, 288)
+        Me.Button17.Location = New System.Drawing.Point(1194, 269)
         Me.Button17.Margin = New System.Windows.Forms.Padding(2)
         Me.Button17.Name = "Button17"
         Me.Button17.Size = New System.Drawing.Size(55, 45)
@@ -957,7 +957,7 @@ Partial Class frmPacking120
         Me.Button18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button18.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button18.ForeColor = System.Drawing.Color.Black
-        Me.Button18.Location = New System.Drawing.Point(1134, 288)
+        Me.Button18.Location = New System.Drawing.Point(1135, 269)
         Me.Button18.Margin = New System.Windows.Forms.Padding(2)
         Me.Button18.Name = "Button18"
         Me.Button18.Size = New System.Drawing.Size(55, 45)
@@ -973,7 +973,7 @@ Partial Class frmPacking120
         Me.Button19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button19.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button19.ForeColor = System.Drawing.Color.Black
-        Me.Button19.Location = New System.Drawing.Point(1075, 288)
+        Me.Button19.Location = New System.Drawing.Point(1076, 269)
         Me.Button19.Margin = New System.Windows.Forms.Padding(2)
         Me.Button19.Name = "Button19"
         Me.Button19.Size = New System.Drawing.Size(55, 45)
@@ -989,7 +989,7 @@ Partial Class frmPacking120
         Me.Button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button13.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button13.ForeColor = System.Drawing.Color.Black
-        Me.Button13.Location = New System.Drawing.Point(1193, 239)
+        Me.Button13.Location = New System.Drawing.Point(1194, 220)
         Me.Button13.Margin = New System.Windows.Forms.Padding(2)
         Me.Button13.Name = "Button13"
         Me.Button13.Size = New System.Drawing.Size(55, 45)
@@ -1005,7 +1005,7 @@ Partial Class frmPacking120
         Me.Button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button14.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button14.ForeColor = System.Drawing.Color.Black
-        Me.Button14.Location = New System.Drawing.Point(1134, 239)
+        Me.Button14.Location = New System.Drawing.Point(1135, 220)
         Me.Button14.Margin = New System.Windows.Forms.Padding(2)
         Me.Button14.Name = "Button14"
         Me.Button14.Size = New System.Drawing.Size(55, 45)
@@ -1021,7 +1021,7 @@ Partial Class frmPacking120
         Me.Button15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button15.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button15.ForeColor = System.Drawing.Color.Black
-        Me.Button15.Location = New System.Drawing.Point(1075, 239)
+        Me.Button15.Location = New System.Drawing.Point(1076, 220)
         Me.Button15.Margin = New System.Windows.Forms.Padding(2)
         Me.Button15.Name = "Button15"
         Me.Button15.Size = New System.Drawing.Size(55, 45)
@@ -1037,7 +1037,7 @@ Partial Class frmPacking120
         Me.Button60.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button60.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button60.ForeColor = System.Drawing.Color.Black
-        Me.Button60.Location = New System.Drawing.Point(296, 288)
+        Me.Button60.Location = New System.Drawing.Point(297, 269)
         Me.Button60.Margin = New System.Windows.Forms.Padding(2)
         Me.Button60.Name = "Button60"
         Me.Button60.Size = New System.Drawing.Size(55, 45)
@@ -1053,7 +1053,7 @@ Partial Class frmPacking120
         Me.Button56.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button56.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button56.ForeColor = System.Drawing.Color.Black
-        Me.Button56.Location = New System.Drawing.Point(296, 239)
+        Me.Button56.Location = New System.Drawing.Point(297, 220)
         Me.Button56.Margin = New System.Windows.Forms.Padding(2)
         Me.Button56.Name = "Button56"
         Me.Button56.Size = New System.Drawing.Size(55, 45)
@@ -1069,7 +1069,7 @@ Partial Class frmPacking120
         Me.Button52.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button52.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button52.ForeColor = System.Drawing.Color.Black
-        Me.Button52.Location = New System.Drawing.Point(296, 190)
+        Me.Button52.Location = New System.Drawing.Point(297, 171)
         Me.Button52.Margin = New System.Windows.Forms.Padding(2)
         Me.Button52.Name = "Button52"
         Me.Button52.Size = New System.Drawing.Size(55, 45)
@@ -1085,7 +1085,7 @@ Partial Class frmPacking120
         Me.Button57.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button57.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button57.ForeColor = System.Drawing.Color.Black
-        Me.Button57.Location = New System.Drawing.Point(473, 288)
+        Me.Button57.Location = New System.Drawing.Point(474, 269)
         Me.Button57.Margin = New System.Windows.Forms.Padding(2)
         Me.Button57.Name = "Button57"
         Me.Button57.Size = New System.Drawing.Size(55, 45)
@@ -1101,7 +1101,7 @@ Partial Class frmPacking120
         Me.Button58.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button58.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button58.ForeColor = System.Drawing.Color.Black
-        Me.Button58.Location = New System.Drawing.Point(414, 288)
+        Me.Button58.Location = New System.Drawing.Point(415, 269)
         Me.Button58.Margin = New System.Windows.Forms.Padding(2)
         Me.Button58.Name = "Button58"
         Me.Button58.Size = New System.Drawing.Size(55, 45)
@@ -1117,7 +1117,7 @@ Partial Class frmPacking120
         Me.Button59.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button59.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button59.ForeColor = System.Drawing.Color.Black
-        Me.Button59.Location = New System.Drawing.Point(355, 288)
+        Me.Button59.Location = New System.Drawing.Point(356, 269)
         Me.Button59.Margin = New System.Windows.Forms.Padding(2)
         Me.Button59.Name = "Button59"
         Me.Button59.Size = New System.Drawing.Size(55, 45)
@@ -1133,7 +1133,7 @@ Partial Class frmPacking120
         Me.Button53.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button53.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button53.ForeColor = System.Drawing.Color.Black
-        Me.Button53.Location = New System.Drawing.Point(473, 239)
+        Me.Button53.Location = New System.Drawing.Point(474, 220)
         Me.Button53.Margin = New System.Windows.Forms.Padding(2)
         Me.Button53.Name = "Button53"
         Me.Button53.Size = New System.Drawing.Size(55, 45)
@@ -1149,7 +1149,7 @@ Partial Class frmPacking120
         Me.Button54.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button54.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button54.ForeColor = System.Drawing.Color.Black
-        Me.Button54.Location = New System.Drawing.Point(414, 239)
+        Me.Button54.Location = New System.Drawing.Point(415, 220)
         Me.Button54.Margin = New System.Windows.Forms.Padding(2)
         Me.Button54.Name = "Button54"
         Me.Button54.Size = New System.Drawing.Size(55, 45)
@@ -1165,7 +1165,7 @@ Partial Class frmPacking120
         Me.Button55.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button55.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button55.ForeColor = System.Drawing.Color.Black
-        Me.Button55.Location = New System.Drawing.Point(355, 239)
+        Me.Button55.Location = New System.Drawing.Point(356, 220)
         Me.Button55.Margin = New System.Windows.Forms.Padding(2)
         Me.Button55.Name = "Button55"
         Me.Button55.Size = New System.Drawing.Size(55, 45)
@@ -1181,7 +1181,7 @@ Partial Class frmPacking120
         Me.Button49.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button49.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button49.ForeColor = System.Drawing.Color.Black
-        Me.Button49.Location = New System.Drawing.Point(473, 190)
+        Me.Button49.Location = New System.Drawing.Point(474, 171)
         Me.Button49.Margin = New System.Windows.Forms.Padding(2)
         Me.Button49.Name = "Button49"
         Me.Button49.Size = New System.Drawing.Size(55, 45)
@@ -1197,7 +1197,7 @@ Partial Class frmPacking120
         Me.Button50.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button50.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button50.ForeColor = System.Drawing.Color.Black
-        Me.Button50.Location = New System.Drawing.Point(414, 190)
+        Me.Button50.Location = New System.Drawing.Point(415, 171)
         Me.Button50.Margin = New System.Windows.Forms.Padding(2)
         Me.Button50.Name = "Button50"
         Me.Button50.Size = New System.Drawing.Size(55, 45)
@@ -1213,7 +1213,7 @@ Partial Class frmPacking120
         Me.Button51.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button51.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button51.ForeColor = System.Drawing.Color.Black
-        Me.Button51.Location = New System.Drawing.Point(355, 190)
+        Me.Button51.Location = New System.Drawing.Point(356, 171)
         Me.Button51.Margin = New System.Windows.Forms.Padding(2)
         Me.Button51.Name = "Button51"
         Me.Button51.Size = New System.Drawing.Size(55, 45)
@@ -1226,7 +1226,7 @@ Partial Class frmPacking120
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(376, 359)
+        Me.Label10.Location = New System.Drawing.Point(377, 340)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(80, 24)
         Me.Label10.TabIndex = 355
@@ -1236,7 +1236,7 @@ Partial Class frmPacking120
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(376, 62)
+        Me.Label11.Location = New System.Drawing.Point(377, 43)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(80, 24)
         Me.Label11.TabIndex = 354
@@ -1249,7 +1249,7 @@ Partial Class frmPacking120
         Me.Button48.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button48.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button48.ForeColor = System.Drawing.Color.Black
-        Me.Button48.Location = New System.Drawing.Point(296, 141)
+        Me.Button48.Location = New System.Drawing.Point(297, 122)
         Me.Button48.Margin = New System.Windows.Forms.Padding(2)
         Me.Button48.Name = "Button48"
         Me.Button48.Size = New System.Drawing.Size(55, 45)
@@ -1265,7 +1265,7 @@ Partial Class frmPacking120
         Me.Button44.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button44.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button44.ForeColor = System.Drawing.Color.Black
-        Me.Button44.Location = New System.Drawing.Point(296, 92)
+        Me.Button44.Location = New System.Drawing.Point(297, 73)
         Me.Button44.Margin = New System.Windows.Forms.Padding(2)
         Me.Button44.Name = "Button44"
         Me.Button44.Size = New System.Drawing.Size(55, 45)
@@ -1281,7 +1281,7 @@ Partial Class frmPacking120
         Me.Button40.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button40.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button40.ForeColor = System.Drawing.Color.Black
-        Me.Button40.Location = New System.Drawing.Point(648, 289)
+        Me.Button40.Location = New System.Drawing.Point(649, 270)
         Me.Button40.Margin = New System.Windows.Forms.Padding(2)
         Me.Button40.Name = "Button40"
         Me.Button40.Size = New System.Drawing.Size(55, 45)
@@ -1297,7 +1297,7 @@ Partial Class frmPacking120
         Me.Button45.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button45.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button45.ForeColor = System.Drawing.Color.Black
-        Me.Button45.Location = New System.Drawing.Point(473, 141)
+        Me.Button45.Location = New System.Drawing.Point(474, 122)
         Me.Button45.Margin = New System.Windows.Forms.Padding(2)
         Me.Button45.Name = "Button45"
         Me.Button45.Size = New System.Drawing.Size(55, 45)
@@ -1313,7 +1313,7 @@ Partial Class frmPacking120
         Me.Button46.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button46.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button46.ForeColor = System.Drawing.Color.Black
-        Me.Button46.Location = New System.Drawing.Point(414, 141)
+        Me.Button46.Location = New System.Drawing.Point(415, 122)
         Me.Button46.Margin = New System.Windows.Forms.Padding(2)
         Me.Button46.Name = "Button46"
         Me.Button46.Size = New System.Drawing.Size(55, 45)
@@ -1329,7 +1329,7 @@ Partial Class frmPacking120
         Me.Button47.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button47.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button47.ForeColor = System.Drawing.Color.Black
-        Me.Button47.Location = New System.Drawing.Point(355, 141)
+        Me.Button47.Location = New System.Drawing.Point(356, 122)
         Me.Button47.Margin = New System.Windows.Forms.Padding(2)
         Me.Button47.Name = "Button47"
         Me.Button47.Size = New System.Drawing.Size(55, 45)
@@ -1345,7 +1345,7 @@ Partial Class frmPacking120
         Me.Button41.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button41.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button41.ForeColor = System.Drawing.Color.Black
-        Me.Button41.Location = New System.Drawing.Point(473, 92)
+        Me.Button41.Location = New System.Drawing.Point(474, 73)
         Me.Button41.Margin = New System.Windows.Forms.Padding(2)
         Me.Button41.Name = "Button41"
         Me.Button41.Size = New System.Drawing.Size(55, 45)
@@ -1361,7 +1361,7 @@ Partial Class frmPacking120
         Me.Button42.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button42.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button42.ForeColor = System.Drawing.Color.Black
-        Me.Button42.Location = New System.Drawing.Point(414, 92)
+        Me.Button42.Location = New System.Drawing.Point(415, 73)
         Me.Button42.Margin = New System.Windows.Forms.Padding(2)
         Me.Button42.Name = "Button42"
         Me.Button42.Size = New System.Drawing.Size(55, 45)
@@ -1377,7 +1377,7 @@ Partial Class frmPacking120
         Me.Button43.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button43.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button43.ForeColor = System.Drawing.Color.Black
-        Me.Button43.Location = New System.Drawing.Point(355, 92)
+        Me.Button43.Location = New System.Drawing.Point(356, 73)
         Me.Button43.Margin = New System.Windows.Forms.Padding(2)
         Me.Button43.Name = "Button43"
         Me.Button43.Size = New System.Drawing.Size(55, 45)
@@ -1393,7 +1393,7 @@ Partial Class frmPacking120
         Me.Button37.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button37.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button37.ForeColor = System.Drawing.Color.Black
-        Me.Button37.Location = New System.Drawing.Point(825, 289)
+        Me.Button37.Location = New System.Drawing.Point(826, 270)
         Me.Button37.Margin = New System.Windows.Forms.Padding(2)
         Me.Button37.Name = "Button37"
         Me.Button37.Size = New System.Drawing.Size(55, 45)
@@ -1409,7 +1409,7 @@ Partial Class frmPacking120
         Me.Button38.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button38.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button38.ForeColor = System.Drawing.Color.Black
-        Me.Button38.Location = New System.Drawing.Point(766, 289)
+        Me.Button38.Location = New System.Drawing.Point(767, 270)
         Me.Button38.Margin = New System.Windows.Forms.Padding(2)
         Me.Button38.Name = "Button38"
         Me.Button38.Size = New System.Drawing.Size(55, 45)
@@ -1425,7 +1425,7 @@ Partial Class frmPacking120
         Me.Button39.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button39.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button39.ForeColor = System.Drawing.Color.Black
-        Me.Button39.Location = New System.Drawing.Point(707, 289)
+        Me.Button39.Location = New System.Drawing.Point(708, 270)
         Me.Button39.Margin = New System.Windows.Forms.Padding(2)
         Me.Button39.Name = "Button39"
         Me.Button39.Size = New System.Drawing.Size(55, 45)
@@ -1482,7 +1482,7 @@ Partial Class frmPacking120
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(728, 360)
+        Me.Label8.Location = New System.Drawing.Point(729, 341)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(80, 24)
         Me.Label8.TabIndex = 337
@@ -1492,7 +1492,7 @@ Partial Class frmPacking120
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(1096, 359)
+        Me.Label7.Location = New System.Drawing.Point(1097, 340)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(80, 24)
         Me.Label7.TabIndex = 336
@@ -1502,7 +1502,7 @@ Partial Class frmPacking120
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(728, 63)
+        Me.Label6.Location = New System.Drawing.Point(729, 44)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(80, 24)
         Me.Label6.TabIndex = 335
@@ -1512,7 +1512,7 @@ Partial Class frmPacking120
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(1096, 62)
+        Me.Label4.Location = New System.Drawing.Point(1097, 43)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(80, 24)
         Me.Label4.TabIndex = 334
@@ -1546,7 +1546,7 @@ Partial Class frmPacking120
         Me.Label1.BackColor = System.Drawing.Color.Red
         Me.Label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(578, 684)
+        Me.Label1.Location = New System.Drawing.Point(224, 646)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(232, 73)
@@ -1558,7 +1558,7 @@ Partial Class frmPacking120
         '
         Me.btnBack.BackColor = System.Drawing.Color.Red
         Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBack.Location = New System.Drawing.Point(41, 755)
+        Me.btnBack.Location = New System.Drawing.Point(14, 530)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Size = New System.Drawing.Size(197, 80)
         Me.btnBack.TabIndex = 330
@@ -1569,11 +1569,11 @@ Partial Class frmPacking120
         '
         Me.btnFinish.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnFinish.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnFinish.Location = New System.Drawing.Point(41, 587)
+        Me.btnFinish.Location = New System.Drawing.Point(14, 362)
         Me.btnFinish.Name = "btnFinish"
         Me.btnFinish.Size = New System.Drawing.Size(197, 80)
         Me.btnFinish.TabIndex = 329
-        Me.btnFinish.Text = "Finish Job"
+        Me.btnFinish.Text = "Save Job"
         Me.btnFinish.UseVisualStyleBackColor = False
         '
         'Label5
@@ -1600,7 +1600,7 @@ Partial Class frmPacking120
         'txtConeBcode
         '
         Me.txtConeBcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.txtConeBcode.Location = New System.Drawing.Point(578, 695)
+        Me.txtConeBcode.Location = New System.Drawing.Point(569, 628)
         Me.txtConeBcode.Name = "txtConeBcode"
         Me.txtConeBcode.Size = New System.Drawing.Size(433, 62)
         Me.txtConeBcode.TabIndex = 326
@@ -1609,7 +1609,7 @@ Partial Class frmPacking120
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(500, 714)
+        Me.Label3.Location = New System.Drawing.Point(468, 646)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(77, 20)
@@ -1623,7 +1623,7 @@ Partial Class frmPacking120
         Me.Button73.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button73.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button73.ForeColor = System.Drawing.Color.Black
-        Me.Button73.Location = New System.Drawing.Point(1193, 528)
+        Me.Button73.Location = New System.Drawing.Point(1194, 509)
         Me.Button73.Margin = New System.Windows.Forms.Padding(2)
         Me.Button73.Name = "Button73"
         Me.Button73.Size = New System.Drawing.Size(55, 45)
@@ -1639,7 +1639,7 @@ Partial Class frmPacking120
         Me.Button74.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button74.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button74.ForeColor = System.Drawing.Color.Black
-        Me.Button74.Location = New System.Drawing.Point(1134, 528)
+        Me.Button74.Location = New System.Drawing.Point(1135, 509)
         Me.Button74.Margin = New System.Windows.Forms.Padding(2)
         Me.Button74.Name = "Button74"
         Me.Button74.Size = New System.Drawing.Size(55, 45)
@@ -1655,7 +1655,7 @@ Partial Class frmPacking120
         Me.Button75.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button75.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button75.ForeColor = System.Drawing.Color.Black
-        Me.Button75.Location = New System.Drawing.Point(1075, 528)
+        Me.Button75.Location = New System.Drawing.Point(1076, 509)
         Me.Button75.Margin = New System.Windows.Forms.Padding(2)
         Me.Button75.Name = "Button75"
         Me.Button75.Size = New System.Drawing.Size(55, 45)
@@ -1671,7 +1671,7 @@ Partial Class frmPacking120
         Me.Button76.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button76.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button76.ForeColor = System.Drawing.Color.Black
-        Me.Button76.Location = New System.Drawing.Point(1016, 528)
+        Me.Button76.Location = New System.Drawing.Point(1017, 509)
         Me.Button76.Margin = New System.Windows.Forms.Padding(2)
         Me.Button76.Name = "Button76"
         Me.Button76.Size = New System.Drawing.Size(55, 45)
@@ -1687,7 +1687,7 @@ Partial Class frmPacking120
         Me.Button77.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button77.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button77.ForeColor = System.Drawing.Color.Black
-        Me.Button77.Location = New System.Drawing.Point(1193, 577)
+        Me.Button77.Location = New System.Drawing.Point(1194, 558)
         Me.Button77.Margin = New System.Windows.Forms.Padding(2)
         Me.Button77.Name = "Button77"
         Me.Button77.Size = New System.Drawing.Size(55, 45)
@@ -1703,7 +1703,7 @@ Partial Class frmPacking120
         Me.Button78.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button78.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button78.ForeColor = System.Drawing.Color.Black
-        Me.Button78.Location = New System.Drawing.Point(1134, 577)
+        Me.Button78.Location = New System.Drawing.Point(1135, 558)
         Me.Button78.Margin = New System.Windows.Forms.Padding(2)
         Me.Button78.Name = "Button78"
         Me.Button78.Size = New System.Drawing.Size(55, 45)
@@ -1719,7 +1719,7 @@ Partial Class frmPacking120
         Me.Button79.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button79.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button79.ForeColor = System.Drawing.Color.Black
-        Me.Button79.Location = New System.Drawing.Point(1075, 577)
+        Me.Button79.Location = New System.Drawing.Point(1076, 558)
         Me.Button79.Margin = New System.Windows.Forms.Padding(2)
         Me.Button79.Name = "Button79"
         Me.Button79.Size = New System.Drawing.Size(55, 45)
@@ -1735,7 +1735,7 @@ Partial Class frmPacking120
         Me.Button80.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button80.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button80.ForeColor = System.Drawing.Color.Black
-        Me.Button80.Location = New System.Drawing.Point(1016, 577)
+        Me.Button80.Location = New System.Drawing.Point(1017, 558)
         Me.Button80.Margin = New System.Windows.Forms.Padding(2)
         Me.Button80.Name = "Button80"
         Me.Button80.Size = New System.Drawing.Size(55, 45)
@@ -1751,7 +1751,7 @@ Partial Class frmPacking120
         Me.Button81.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button81.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button81.ForeColor = System.Drawing.Color.Black
-        Me.Button81.Location = New System.Drawing.Point(825, 386)
+        Me.Button81.Location = New System.Drawing.Point(826, 367)
         Me.Button81.Margin = New System.Windows.Forms.Padding(2)
         Me.Button81.Name = "Button81"
         Me.Button81.Size = New System.Drawing.Size(55, 45)
@@ -1767,7 +1767,7 @@ Partial Class frmPacking120
         Me.Button82.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button82.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button82.ForeColor = System.Drawing.Color.Black
-        Me.Button82.Location = New System.Drawing.Point(766, 386)
+        Me.Button82.Location = New System.Drawing.Point(767, 367)
         Me.Button82.Margin = New System.Windows.Forms.Padding(2)
         Me.Button82.Name = "Button82"
         Me.Button82.Size = New System.Drawing.Size(55, 45)
@@ -1783,7 +1783,7 @@ Partial Class frmPacking120
         Me.Button83.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button83.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button83.ForeColor = System.Drawing.Color.Black
-        Me.Button83.Location = New System.Drawing.Point(707, 386)
+        Me.Button83.Location = New System.Drawing.Point(708, 367)
         Me.Button83.Margin = New System.Windows.Forms.Padding(2)
         Me.Button83.Name = "Button83"
         Me.Button83.Size = New System.Drawing.Size(55, 45)
@@ -1799,7 +1799,7 @@ Partial Class frmPacking120
         Me.Button84.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button84.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button84.ForeColor = System.Drawing.Color.Black
-        Me.Button84.Location = New System.Drawing.Point(648, 386)
+        Me.Button84.Location = New System.Drawing.Point(649, 367)
         Me.Button84.Margin = New System.Windows.Forms.Padding(2)
         Me.Button84.Name = "Button84"
         Me.Button84.Size = New System.Drawing.Size(55, 45)
@@ -1815,7 +1815,7 @@ Partial Class frmPacking120
         Me.Button109.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button109.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button109.ForeColor = System.Drawing.Color.Black
-        Me.Button109.Location = New System.Drawing.Point(473, 479)
+        Me.Button109.Location = New System.Drawing.Point(474, 460)
         Me.Button109.Margin = New System.Windows.Forms.Padding(2)
         Me.Button109.Name = "Button109"
         Me.Button109.Size = New System.Drawing.Size(55, 45)
@@ -1831,7 +1831,7 @@ Partial Class frmPacking120
         Me.Button110.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button110.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button110.ForeColor = System.Drawing.Color.Black
-        Me.Button110.Location = New System.Drawing.Point(414, 479)
+        Me.Button110.Location = New System.Drawing.Point(415, 460)
         Me.Button110.Margin = New System.Windows.Forms.Padding(2)
         Me.Button110.Name = "Button110"
         Me.Button110.Size = New System.Drawing.Size(55, 45)
@@ -1847,7 +1847,7 @@ Partial Class frmPacking120
         Me.Button111.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button111.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button111.ForeColor = System.Drawing.Color.Black
-        Me.Button111.Location = New System.Drawing.Point(355, 479)
+        Me.Button111.Location = New System.Drawing.Point(356, 460)
         Me.Button111.Margin = New System.Windows.Forms.Padding(2)
         Me.Button111.Name = "Button111"
         Me.Button111.Size = New System.Drawing.Size(55, 45)
@@ -1863,7 +1863,7 @@ Partial Class frmPacking120
         Me.Button112.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button112.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button112.ForeColor = System.Drawing.Color.Black
-        Me.Button112.Location = New System.Drawing.Point(296, 479)
+        Me.Button112.Location = New System.Drawing.Point(297, 460)
         Me.Button112.Margin = New System.Windows.Forms.Padding(2)
         Me.Button112.Name = "Button112"
         Me.Button112.Size = New System.Drawing.Size(55, 45)
@@ -1879,7 +1879,7 @@ Partial Class frmPacking120
         Me.Button113.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button113.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button113.ForeColor = System.Drawing.Color.Black
-        Me.Button113.Location = New System.Drawing.Point(473, 528)
+        Me.Button113.Location = New System.Drawing.Point(474, 509)
         Me.Button113.Margin = New System.Windows.Forms.Padding(2)
         Me.Button113.Name = "Button113"
         Me.Button113.Size = New System.Drawing.Size(55, 45)
@@ -1895,7 +1895,7 @@ Partial Class frmPacking120
         Me.Button114.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button114.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button114.ForeColor = System.Drawing.Color.Black
-        Me.Button114.Location = New System.Drawing.Point(414, 528)
+        Me.Button114.Location = New System.Drawing.Point(415, 509)
         Me.Button114.Margin = New System.Windows.Forms.Padding(2)
         Me.Button114.Name = "Button114"
         Me.Button114.Size = New System.Drawing.Size(55, 45)
@@ -1911,7 +1911,7 @@ Partial Class frmPacking120
         Me.Button115.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button115.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button115.ForeColor = System.Drawing.Color.Black
-        Me.Button115.Location = New System.Drawing.Point(355, 528)
+        Me.Button115.Location = New System.Drawing.Point(356, 509)
         Me.Button115.Margin = New System.Windows.Forms.Padding(2)
         Me.Button115.Name = "Button115"
         Me.Button115.Size = New System.Drawing.Size(55, 45)
@@ -1927,7 +1927,7 @@ Partial Class frmPacking120
         Me.Button116.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button116.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button116.ForeColor = System.Drawing.Color.Black
-        Me.Button116.Location = New System.Drawing.Point(296, 528)
+        Me.Button116.Location = New System.Drawing.Point(297, 509)
         Me.Button116.Margin = New System.Windows.Forms.Padding(2)
         Me.Button116.Name = "Button116"
         Me.Button116.Size = New System.Drawing.Size(55, 45)
@@ -1943,7 +1943,7 @@ Partial Class frmPacking120
         Me.Button117.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button117.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button117.ForeColor = System.Drawing.Color.Black
-        Me.Button117.Location = New System.Drawing.Point(472, 577)
+        Me.Button117.Location = New System.Drawing.Point(473, 558)
         Me.Button117.Margin = New System.Windows.Forms.Padding(2)
         Me.Button117.Name = "Button117"
         Me.Button117.Size = New System.Drawing.Size(55, 45)
@@ -1959,7 +1959,7 @@ Partial Class frmPacking120
         Me.Button118.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button118.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button118.ForeColor = System.Drawing.Color.Black
-        Me.Button118.Location = New System.Drawing.Point(411, 577)
+        Me.Button118.Location = New System.Drawing.Point(412, 558)
         Me.Button118.Margin = New System.Windows.Forms.Padding(2)
         Me.Button118.Name = "Button118"
         Me.Button118.Size = New System.Drawing.Size(55, 45)
@@ -1975,7 +1975,7 @@ Partial Class frmPacking120
         Me.Button119.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button119.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button119.ForeColor = System.Drawing.Color.Black
-        Me.Button119.Location = New System.Drawing.Point(352, 577)
+        Me.Button119.Location = New System.Drawing.Point(353, 558)
         Me.Button119.Margin = New System.Windows.Forms.Padding(2)
         Me.Button119.Name = "Button119"
         Me.Button119.Size = New System.Drawing.Size(55, 45)
@@ -1991,7 +1991,7 @@ Partial Class frmPacking120
         Me.Button120.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button120.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button120.ForeColor = System.Drawing.Color.Black
-        Me.Button120.Location = New System.Drawing.Point(293, 577)
+        Me.Button120.Location = New System.Drawing.Point(294, 558)
         Me.Button120.Margin = New System.Windows.Forms.Padding(2)
         Me.Button120.Name = "Button120"
         Me.Button120.Size = New System.Drawing.Size(55, 45)
@@ -2007,7 +2007,7 @@ Partial Class frmPacking120
         Me.Button85.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button85.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button85.ForeColor = System.Drawing.Color.Black
-        Me.Button85.Location = New System.Drawing.Point(825, 431)
+        Me.Button85.Location = New System.Drawing.Point(826, 412)
         Me.Button85.Margin = New System.Windows.Forms.Padding(2)
         Me.Button85.Name = "Button85"
         Me.Button85.Size = New System.Drawing.Size(55, 45)
@@ -2023,7 +2023,7 @@ Partial Class frmPacking120
         Me.Button86.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button86.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button86.ForeColor = System.Drawing.Color.Black
-        Me.Button86.Location = New System.Drawing.Point(766, 431)
+        Me.Button86.Location = New System.Drawing.Point(767, 412)
         Me.Button86.Margin = New System.Windows.Forms.Padding(2)
         Me.Button86.Name = "Button86"
         Me.Button86.Size = New System.Drawing.Size(55, 45)
@@ -2039,7 +2039,7 @@ Partial Class frmPacking120
         Me.Button87.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button87.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button87.ForeColor = System.Drawing.Color.Black
-        Me.Button87.Location = New System.Drawing.Point(707, 431)
+        Me.Button87.Location = New System.Drawing.Point(708, 412)
         Me.Button87.Margin = New System.Windows.Forms.Padding(2)
         Me.Button87.Name = "Button87"
         Me.Button87.Size = New System.Drawing.Size(55, 45)
@@ -2055,7 +2055,7 @@ Partial Class frmPacking120
         Me.Button88.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button88.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button88.ForeColor = System.Drawing.Color.Black
-        Me.Button88.Location = New System.Drawing.Point(648, 431)
+        Me.Button88.Location = New System.Drawing.Point(649, 412)
         Me.Button88.Margin = New System.Windows.Forms.Padding(2)
         Me.Button88.Name = "Button88"
         Me.Button88.Size = New System.Drawing.Size(55, 45)
@@ -2071,7 +2071,7 @@ Partial Class frmPacking120
         Me.Button89.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button89.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button89.ForeColor = System.Drawing.Color.Black
-        Me.Button89.Location = New System.Drawing.Point(825, 480)
+        Me.Button89.Location = New System.Drawing.Point(826, 461)
         Me.Button89.Margin = New System.Windows.Forms.Padding(2)
         Me.Button89.Name = "Button89"
         Me.Button89.Size = New System.Drawing.Size(55, 45)
@@ -2087,7 +2087,7 @@ Partial Class frmPacking120
         Me.Button90.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button90.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button90.ForeColor = System.Drawing.Color.Black
-        Me.Button90.Location = New System.Drawing.Point(766, 480)
+        Me.Button90.Location = New System.Drawing.Point(767, 461)
         Me.Button90.Margin = New System.Windows.Forms.Padding(2)
         Me.Button90.Name = "Button90"
         Me.Button90.Size = New System.Drawing.Size(55, 45)
@@ -2103,7 +2103,7 @@ Partial Class frmPacking120
         Me.Button91.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button91.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button91.ForeColor = System.Drawing.Color.Black
-        Me.Button91.Location = New System.Drawing.Point(707, 480)
+        Me.Button91.Location = New System.Drawing.Point(708, 461)
         Me.Button91.Margin = New System.Windows.Forms.Padding(2)
         Me.Button91.Name = "Button91"
         Me.Button91.Size = New System.Drawing.Size(55, 45)
@@ -2119,7 +2119,7 @@ Partial Class frmPacking120
         Me.Button92.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button92.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button92.ForeColor = System.Drawing.Color.Black
-        Me.Button92.Location = New System.Drawing.Point(648, 480)
+        Me.Button92.Location = New System.Drawing.Point(649, 461)
         Me.Button92.Margin = New System.Windows.Forms.Padding(2)
         Me.Button92.Name = "Button92"
         Me.Button92.Size = New System.Drawing.Size(55, 45)
@@ -2135,7 +2135,7 @@ Partial Class frmPacking120
         Me.Button93.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button93.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button93.ForeColor = System.Drawing.Color.Black
-        Me.Button93.Location = New System.Drawing.Point(825, 529)
+        Me.Button93.Location = New System.Drawing.Point(826, 510)
         Me.Button93.Margin = New System.Windows.Forms.Padding(2)
         Me.Button93.Name = "Button93"
         Me.Button93.Size = New System.Drawing.Size(55, 45)
@@ -2151,7 +2151,7 @@ Partial Class frmPacking120
         Me.Button94.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button94.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button94.ForeColor = System.Drawing.Color.Black
-        Me.Button94.Location = New System.Drawing.Point(766, 529)
+        Me.Button94.Location = New System.Drawing.Point(767, 510)
         Me.Button94.Margin = New System.Windows.Forms.Padding(2)
         Me.Button94.Name = "Button94"
         Me.Button94.Size = New System.Drawing.Size(55, 45)
@@ -2167,7 +2167,7 @@ Partial Class frmPacking120
         Me.Button95.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button95.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button95.ForeColor = System.Drawing.Color.Black
-        Me.Button95.Location = New System.Drawing.Point(707, 529)
+        Me.Button95.Location = New System.Drawing.Point(708, 510)
         Me.Button95.Margin = New System.Windows.Forms.Padding(2)
         Me.Button95.Name = "Button95"
         Me.Button95.Size = New System.Drawing.Size(55, 45)
@@ -2183,7 +2183,7 @@ Partial Class frmPacking120
         Me.Button96.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button96.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button96.ForeColor = System.Drawing.Color.Black
-        Me.Button96.Location = New System.Drawing.Point(648, 529)
+        Me.Button96.Location = New System.Drawing.Point(649, 510)
         Me.Button96.Margin = New System.Windows.Forms.Padding(2)
         Me.Button96.Name = "Button96"
         Me.Button96.Size = New System.Drawing.Size(55, 45)
@@ -2199,7 +2199,7 @@ Partial Class frmPacking120
         Me.Button97.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button97.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button97.ForeColor = System.Drawing.Color.Black
-        Me.Button97.Location = New System.Drawing.Point(825, 578)
+        Me.Button97.Location = New System.Drawing.Point(826, 559)
         Me.Button97.Margin = New System.Windows.Forms.Padding(2)
         Me.Button97.Name = "Button97"
         Me.Button97.Size = New System.Drawing.Size(55, 45)
@@ -2215,7 +2215,7 @@ Partial Class frmPacking120
         Me.Button98.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button98.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button98.ForeColor = System.Drawing.Color.Black
-        Me.Button98.Location = New System.Drawing.Point(766, 578)
+        Me.Button98.Location = New System.Drawing.Point(767, 559)
         Me.Button98.Margin = New System.Windows.Forms.Padding(2)
         Me.Button98.Name = "Button98"
         Me.Button98.Size = New System.Drawing.Size(55, 45)
@@ -2231,7 +2231,7 @@ Partial Class frmPacking120
         Me.Button99.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button99.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button99.ForeColor = System.Drawing.Color.Black
-        Me.Button99.Location = New System.Drawing.Point(707, 578)
+        Me.Button99.Location = New System.Drawing.Point(708, 559)
         Me.Button99.Margin = New System.Windows.Forms.Padding(2)
         Me.Button99.Name = "Button99"
         Me.Button99.Size = New System.Drawing.Size(55, 45)
@@ -2247,7 +2247,7 @@ Partial Class frmPacking120
         Me.Button100.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button100.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button100.ForeColor = System.Drawing.Color.Black
-        Me.Button100.Location = New System.Drawing.Point(648, 578)
+        Me.Button100.Location = New System.Drawing.Point(649, 559)
         Me.Button100.Margin = New System.Windows.Forms.Padding(2)
         Me.Button100.Name = "Button100"
         Me.Button100.Size = New System.Drawing.Size(55, 45)
@@ -2263,7 +2263,7 @@ Partial Class frmPacking120
         Me.Button101.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button101.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button101.ForeColor = System.Drawing.Color.Black
-        Me.Button101.Location = New System.Drawing.Point(473, 385)
+        Me.Button101.Location = New System.Drawing.Point(474, 366)
         Me.Button101.Margin = New System.Windows.Forms.Padding(2)
         Me.Button101.Name = "Button101"
         Me.Button101.Size = New System.Drawing.Size(55, 45)
@@ -2279,7 +2279,7 @@ Partial Class frmPacking120
         Me.Button102.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button102.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button102.ForeColor = System.Drawing.Color.Black
-        Me.Button102.Location = New System.Drawing.Point(414, 385)
+        Me.Button102.Location = New System.Drawing.Point(415, 366)
         Me.Button102.Margin = New System.Windows.Forms.Padding(2)
         Me.Button102.Name = "Button102"
         Me.Button102.Size = New System.Drawing.Size(55, 45)
@@ -2295,7 +2295,7 @@ Partial Class frmPacking120
         Me.Button103.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button103.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button103.ForeColor = System.Drawing.Color.Black
-        Me.Button103.Location = New System.Drawing.Point(353, 385)
+        Me.Button103.Location = New System.Drawing.Point(354, 366)
         Me.Button103.Margin = New System.Windows.Forms.Padding(2)
         Me.Button103.Name = "Button103"
         Me.Button103.Size = New System.Drawing.Size(55, 45)
@@ -2311,7 +2311,7 @@ Partial Class frmPacking120
         Me.Button104.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button104.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button104.ForeColor = System.Drawing.Color.Black
-        Me.Button104.Location = New System.Drawing.Point(294, 385)
+        Me.Button104.Location = New System.Drawing.Point(295, 366)
         Me.Button104.Margin = New System.Windows.Forms.Padding(2)
         Me.Button104.Name = "Button104"
         Me.Button104.Size = New System.Drawing.Size(55, 45)
@@ -2327,7 +2327,7 @@ Partial Class frmPacking120
         Me.Button105.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button105.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button105.ForeColor = System.Drawing.Color.Black
-        Me.Button105.Location = New System.Drawing.Point(473, 434)
+        Me.Button105.Location = New System.Drawing.Point(474, 415)
         Me.Button105.Margin = New System.Windows.Forms.Padding(2)
         Me.Button105.Name = "Button105"
         Me.Button105.Size = New System.Drawing.Size(55, 45)
@@ -2343,7 +2343,7 @@ Partial Class frmPacking120
         Me.Button106.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button106.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button106.ForeColor = System.Drawing.Color.Black
-        Me.Button106.Location = New System.Drawing.Point(414, 434)
+        Me.Button106.Location = New System.Drawing.Point(415, 415)
         Me.Button106.Margin = New System.Windows.Forms.Padding(2)
         Me.Button106.Name = "Button106"
         Me.Button106.Size = New System.Drawing.Size(55, 45)
@@ -2359,7 +2359,7 @@ Partial Class frmPacking120
         Me.Button107.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button107.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button107.ForeColor = System.Drawing.Color.Black
-        Me.Button107.Location = New System.Drawing.Point(353, 434)
+        Me.Button107.Location = New System.Drawing.Point(354, 415)
         Me.Button107.Margin = New System.Windows.Forms.Padding(2)
         Me.Button107.Name = "Button107"
         Me.Button107.Size = New System.Drawing.Size(55, 45)
@@ -2375,7 +2375,7 @@ Partial Class frmPacking120
         Me.Button108.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button108.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button108.ForeColor = System.Drawing.Color.Black
-        Me.Button108.Location = New System.Drawing.Point(296, 434)
+        Me.Button108.Location = New System.Drawing.Point(297, 415)
         Me.Button108.Margin = New System.Windows.Forms.Padding(2)
         Me.Button108.Name = "Button108"
         Me.Button108.Size = New System.Drawing.Size(55, 45)
@@ -2388,7 +2388,7 @@ Partial Class frmPacking120
         '
         Me.btnEndJob.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnEndJob.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEndJob.Location = New System.Drawing.Point(1298, 677)
+        Me.btnEndJob.Location = New System.Drawing.Point(1042, 629)
         Me.btnEndJob.Name = "btnEndJob"
         Me.btnEndJob.Size = New System.Drawing.Size(197, 80)
         Me.btnEndJob.TabIndex = 503
@@ -2399,7 +2399,7 @@ Partial Class frmPacking120
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1584, 861)
+        Me.ClientSize = New System.Drawing.Size(1350, 729)
         Me.Controls.Add(Me.btnEndJob)
         Me.Controls.Add(Me.Button85)
         Me.Controls.Add(Me.Button86)

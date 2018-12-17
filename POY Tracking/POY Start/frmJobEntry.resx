@@ -490,7 +490,7 @@
     <value>Drum Number</value>
   </data>
   <data name="PalletReportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>141, 22</value>
   </data>
   <data name="PalletReportToolStripMenuItem.Text" xml:space="preserve">
     <value>Pallet Report</value>
@@ -502,10 +502,16 @@
     <value>Reports</value>
   </data>
   <data name="EditPalletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="EditPalletToolStripMenuItem.Text" xml:space="preserve">
     <value>Edit Pallet</value>
+  </data>
+  <data name="ChangePalletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="ChangePalletToolStripMenuItem.Text" xml:space="preserve">
+    <value>Change Pallet ?</value>
   </data>
   <data name="ToolsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>63, 20</value>
@@ -514,13 +520,13 @@
     <value>Tools</value>
   </data>
   <data name="DRUMToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="DRUMToolStripMenuItem.Text" xml:space="preserve">
     <value>Drum Number</value>
   </data>
   <data name="TraceNumberToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="TraceNumberToolStripMenuItem1.Text" xml:space="preserve">
     <value>Trace Number</value>
@@ -1359,6 +1365,12 @@
     <value>EditPalletToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;EditPalletToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ChangePalletToolStripMenuItem.Name" xml:space="preserve">
+    <value>ChangePalletToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;ChangePalletToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;SearchToolStripMenuItem.Name" xml:space="preserve">

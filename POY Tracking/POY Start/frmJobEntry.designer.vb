@@ -45,6 +45,7 @@ Partial Class frmJobEntry
         Me.DrumNumberToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditPalletToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ChangePalletToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DRUMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TraceNumberToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -165,7 +166,7 @@ Partial Class frmJobEntry
         '
         'ToolsToolStripMenuItem
         '
-        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditPalletToolStripMenuItem})
+        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditPalletToolStripMenuItem, Me.ChangePalletToolStripMenuItem})
         Me.ToolsToolStripMenuItem.Image = Global.POY_Tracking.My.Resources.Resources.Tools
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
         resources.ApplyResources(Me.ToolsToolStripMenuItem, "ToolsToolStripMenuItem")
@@ -174,6 +175,11 @@ Partial Class frmJobEntry
         '
         Me.EditPalletToolStripMenuItem.Name = "EditPalletToolStripMenuItem"
         resources.ApplyResources(Me.EditPalletToolStripMenuItem, "EditPalletToolStripMenuItem")
+        '
+        'ChangePalletToolStripMenuItem
+        '
+        Me.ChangePalletToolStripMenuItem.Name = "ChangePalletToolStripMenuItem"
+        resources.ApplyResources(Me.ChangePalletToolStripMenuItem, "ChangePalletToolStripMenuItem")
         '
         'SearchToolStripMenuItem
         '
@@ -243,4 +249,5 @@ Partial Class frmJobEntry
     Friend WithEvents SearchToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DRUMToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TraceNumberToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ChangePalletToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -910,13 +910,6 @@ Public Class frmJobEntry
         frmPassword.Show()
     End Sub
 
-    Private Sub TraceNumberToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TraceNumberToolStripMenuItem.Click
-
-    End Sub
-
-    Private Sub DrumNumberToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DrumNumberToolStripMenuItem.Click
-
-    End Sub
 
     Private Sub EditPalletToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditPalletToolStripMenuItem.Click
         Hide()
@@ -934,5 +927,8 @@ Public Class frmJobEntry
 
     End Sub
 
-
+    Private Sub ChangePalletToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChangePalletToolStripMenuItem.Click
+        Hide()
+        frmPalletSplit.Show()
+    End Sub
 End Class

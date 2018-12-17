@@ -12,10 +12,10 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("Software solution for tracking all POY Drums")>
 <Assembly: AssemblyCompany("Tecknoserve Co., Ltd")>
 <Assembly: AssemblyProduct("POY Tracking")>
-<Assembly: AssemblyCopyright("Copyright ©  Tecknoserve Co., Ltd 2017")>
+<Assembly: AssemblyCopyright("Copyright ©  Tecknoserve Co., Ltd 2018")>
 <Assembly: AssemblyTrademark("")>
 
-<Assembly: ComVisible(True)>
+<Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
 <Assembly: Guid("16d24c50-c4c8-47c6-8903-29618f10e0ab")>
