@@ -279,6 +279,28 @@ Public Class frmJobEntry
 
     Private Sub prgContinue()
 
+        Try
+
+            If Not (txtDrumNum.TextLength = 14) Then  ' LENGTH OF BARCODE
+                'MsgBox("This is not a DRUM number Please RE Scan")
+                If thaiLang Then MsgBox("หมายเลขนี้ไม่ใช่หมายเลขของดรัม กรุณาสแกนใหม่") Else _
+                    MsgBox("This is not a DRUM number Please RE Scan")
+                Me.txtDrumNum.Clear()
+                Me.txtDrumNum.Focus()
+                Me.txtDrumNum.Refresh()
+                Exit Sub
+            End If
+
+        Catch ex As Exception
+            'MsgBox("DRUM BarCode Is Not Valid " & vbNewLine & ex.Message)
+            If thaiLang Then MsgBox("ไม่มีหมายเลขดรัมนี้ " & vbNewLine & ex.Message) Else _
+                MsgBox("DRUM BarCode Is Not Valid " & vbNewLine & ex.Message)
+            Me.txtDrumNum.Clear()
+            Me.txtDrumNum.Focus()
+            Me.txtDrumNum.Refresh()
+            Exit Sub
+        End Try
+
 
 
         dbBarcode = txtDrumNum.Text 'actualy this is now the drumbarcode number
@@ -307,27 +329,7 @@ Public Class frmJobEntry
 
 
 
-        Try
 
-            If Not (txtDrumNum.TextLength = 14) Then  ' LENGTH OF BARCODE
-                'MsgBox("This is not a DRUM number Please RE Scan")
-                If thaiLang Then MsgBox("หมายเลขนี้ไม่ใช่หมายเลขของดรัม กรุณาสแกนใหม่") Else _
-                    MsgBox("This is not a DRUM number Please RE Scan")
-                Me.txtDrumNum.Clear()
-                Me.txtDrumNum.Focus()
-                Me.txtDrumNum.Refresh()
-                Exit Sub
-            End If
-
-        Catch ex As Exception
-            'MsgBox("DRUM BarCode Is Not Valid " & vbNewLine & ex.Message)
-            If thaiLang Then MsgBox("ไม่มีหมายเลขดรัมนี้ " & vbNewLine & ex.Message) Else _
-                MsgBox("DRUM BarCode Is Not Valid " & vbNewLine & ex.Message)
-            Me.txtDrumNum.Clear()
-            Me.txtDrumNum.Focus()
-            Me.txtDrumNum.Refresh()
-            Exit Sub
-        End Try
 
         comBoxDrumPal.Enabled = False
 
@@ -931,4 +933,5 @@ Public Class frmJobEntry
         Hide()
         frmPalletSplit.Show()
     End Sub
+
 End Class
