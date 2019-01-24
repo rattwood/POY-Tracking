@@ -77,7 +77,7 @@ Public Class frmJobEntry
     Public PackSortOP As String
     Public changedrum As Integer
     Public time As DateTime = DateTime.Now
-    Public dateFormat As String = "yyyy MM dd HH:mm"
+    Public dateFormat As String = "yyyy-MM-dd HH:mm:ss"
     Public thaiLang As Boolean
 
 
@@ -754,7 +754,7 @@ Public Class frmJobEntry
 
         Try
             'Writes the scanned drum in to DB
-            LExecQuery("UPDATE POYTRACK SET POYBCODEDRUM = '" & dbBarcode & "', POYPACKNAME = '" & txtOperator.Text & "', POYPACKDATE = '" & time & "', " _
+            LExecQuery("UPDATE POYTRACK SET POYBCODEDRUM = '" & dbBarcode & "', POYPACKNAME = '" & txtOperator.Text & "', POYPACKDATE = '" & todayTimeDate & "', " _
                        & "POYMCNUM = '" & varMachineCode.ToString & "', POYMCNAME = '" & machineName & "', POYYY = '" & varYear.ToString & "', POYPRMM = '" & varMonth.ToString & "' , " _
                        & "POYDOFFNUM = '" & varDoffingNum.ToString & "', POYSPINNUM = '" & spinNum.ToString & "', POYDRUMSTATE = '15', POYSTEPNUM = '1' " _
                        & "WHERE POYPACKIDX = '001' and POYTMPTRACE = '" & dbBarcode & "' ")
