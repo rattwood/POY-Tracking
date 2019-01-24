@@ -35,7 +35,7 @@ Partial Class frmTraceSearch
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(295, 9)
+        Me.Label1.Location = New System.Drawing.Point(230, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(275, 24)
         Me.Label1.TabIndex = 63
@@ -56,18 +56,22 @@ Partial Class frmTraceSearch
         Me.txtTraceNum.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTraceNum.Location = New System.Drawing.Point(198, 65)
         Me.txtTraceNum.Name = "txtTraceNum"
-        Me.txtTraceNum.Size = New System.Drawing.Size(285, 29)
+        Me.txtTraceNum.Size = New System.Drawing.Size(139, 29)
         Me.txtTraceNum.TabIndex = 66
+        Me.txtTraceNum.Text = "P4180122019"
+        Me.txtTraceNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'btnJobSearch
         '
+        Me.btnJobSearch.BackColor = System.Drawing.Color.LawnGreen
         Me.btnJobSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnJobSearch.Location = New System.Drawing.Point(559, 59)
+        Me.btnJobSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnJobSearch.Location = New System.Drawing.Point(359, 58)
         Me.btnJobSearch.Name = "btnJobSearch"
         Me.btnJobSearch.Size = New System.Drawing.Size(118, 47)
         Me.btnJobSearch.TabIndex = 69
         Me.btnJobSearch.Text = "Search"
-        Me.btnJobSearch.UseVisualStyleBackColor = True
+        Me.btnJobSearch.UseVisualStyleBackColor = False
         '
         'DataGridView1
         '
@@ -86,7 +90,7 @@ Partial Class frmTraceSearch
         Me.btnCancel.BackColor = System.Drawing.Color.Salmon
         Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(884, 59)
+        Me.btnCancel.Location = New System.Drawing.Point(30, 573)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(118, 47)
         Me.btnCancel.TabIndex = 89
@@ -97,7 +101,7 @@ Partial Class frmTraceSearch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1410, 667)
+        Me.ClientSize = New System.Drawing.Size(774, 667)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.btnJobSearch)

@@ -132,7 +132,7 @@ Partial Class frmchangeTrace
         Me.txtNewTraceNum.Location = New System.Drawing.Point(509, 134)
         Me.txtNewTraceNum.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtNewTraceNum.Name = "txtNewTraceNum"
-        Me.txtNewTraceNum.Size = New System.Drawing.Size(173, 38)
+        Me.txtNewTraceNum.Size = New System.Drawing.Size(176, 38)
         Me.txtNewTraceNum.TabIndex = 0
         Me.txtNewTraceNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '

@@ -32,8 +32,7 @@ Public Class frmTraceEntry
 
         Try
 
-
-            If Not (txtTraceNum.TextLength = 10) Then  ' LENGTH OF BARCODE
+            If bcodeScan.Length = 11 And bcodeScan.Substring(0, 1) <> "P" Then
                 lblError.Visible = True
                 lblError.Text = "This is not a TRACE barcode" & vbCrLf & "Please RE Scan"
                 DelayTM()
@@ -41,6 +40,15 @@ Public Class frmTraceEntry
                 txtTraceNum.Clear()
                 txtTraceNum.Focus()
                 Exit Sub
+            ElseIf bcodeScan.Length > 11 Or bcodeScan.Length < 10 Then
+                lblError.Visible = True
+                lblError.Text = "This is not a TRACE barcode" & vbCrLf & "Please RE Scan"
+                DelayTM()
+                lblError.Visible = False
+                txtTraceNum.Clear()
+                txtTraceNum.Focus()
+                Exit Sub
+
             Else
 
                 SQL.ExecQuery("Select * from POYTrack where (POYTRACENUM Is Not Null) and POYTRACENUM = '" & bcodeScan & "' ")

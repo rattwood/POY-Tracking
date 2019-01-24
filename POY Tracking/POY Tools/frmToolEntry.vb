@@ -26,10 +26,19 @@ Public Class frmToolEntry
     End Sub
 
     Private Sub traceCheck()
+
+
         Try
 
+            If bcodescan.Length = 11 And bcodescan.Substring(0, 1) <> "P" Then
+                lblError.Visible = True
+                lblError.Text = "This is not a TRACE barcode" & vbCrLf & "Please RE Scan"
+                DelayTM()
+                lblError.Visible = False
+                txtTraceNum.Clear()
+                txtTraceNum.Focus()
 
-            If Not (txtTraceNum.TextLength = 10) Then  ' LENGTH OF BARCODE
+            ElseIf bcodescan.Length > 11 Or bcodescan.Length < 10 Then
                 lblError.Visible = True
                 lblError.Text = "This is not a TRACE barcode" & vbCrLf & "Please RE Scan"
                 DelayTM()
@@ -38,7 +47,6 @@ Public Class frmToolEntry
                 txtTraceNum.Focus()
                 Exit Sub
             Else
-
                 SQL.ExecQuery("Select * from POYTrack where (POYTRACENUM Is Not Null) and POYTRACENUM = '" & bcodescan & "' and POYBCODEDRUM Is Not Null Order by POYPACKIDX ")
 
                 If SQL.RecordCount = 0 Then
@@ -443,10 +451,20 @@ Public Class frmToolEntry
     Public Sub chkPackingExists()  'Routine to see if packing form already exists
 
 
+        If bcodescan.Substring(0, 1) = "P" Then
+            dateSearchString = bcodescan.Substring(6, 2) & "_" & bcodescan.Substring(4, 2) & "_20" & bcodescan.Substring(2, 2) 'creates the directory name to look for
+            traceFileLoc = My.Settings.dirPacking & "\" & dateSearchString & "\"   'creates the full file name to look for
+        Else
+            dateSearchString = bcodescan.Substring(5, 2) & "_" & bcodescan.Substring(3, 2) & "_20" & bcodescan.Substring(1, 2) 'creates the directory name to look for
+            traceFileLoc = My.Settings.dirPacking & "\" & dateSearchString & "\"   'creates the full file name to look for
+        End If
 
-        dateSearchString = bcodescan.Substring(5, 2) & "_" & bcodescan.Substring(3, 2) & "_20" & bcodescan.Substring(1, 2) 'creates the directory name to look for
-        traceFileLoc = My.Settings.dirPacking & "\" & dateSearchString & "\"   'creates the full file name to look for
-        'MsgBox(traceFileLoc)
+
+
+
+        'dateSearchString = bcodescan.Substring(5, 2) & "_" & bcodescan.Substring(3, 2) & "_20" & bcodescan.Substring(1, 2) 'creates the directory name to look for
+        'traceFileLoc = My.Settings.dirPacking & "\" & dateSearchString & "\"   'creates the full file name to look for
+        ''MsgBox(traceFileLoc)
 
         Dim existName As String = traceFileLoc & "\" & bcodescan & ".xlsx"
         Dim reName As String = bcodescan & "OLD.xlsx"

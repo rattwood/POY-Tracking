@@ -28,27 +28,27 @@ Public Class frmTraceSearch
 
     Private Sub btnJobSearch_Click(sender As Object, e As EventArgs) Handles btnJobSearch.Click
 
-        If txtTraceNum.TextLength < 10 Then
-            MsgBox("Job number is not the correct length")
-            Me.txtTraceNum.Clear()
-
-            Me.btnJobSearch.Enabled = False
-            Me.txtTraceNum.Focus()
-            Me.txtTraceNum.Refresh()
-            Exit Sub
-        ElseIf txtTraceNum.TextLength = 11 Then
+        If txtTraceNum.TextLength = 11 Then
             Dim chkString = txtTraceNum.Text.Substring(0, 1)
             If Not chkString = "P" Then
                 MsgBox("Trace Number is not the correct")
-                Me.txtTraceNum.Clear()
-                Me.btnJobSearch.Enabled = False
-                Me.txtTraceNum.Focus()
+                txtTraceNum.Clear()
                 Me.txtTraceNum.Refresh()
+                txtTraceNum.Focus()
                 Exit Sub
             End If
+        ElseIf txtTraceNum.TextLength > 11 Or txtTraceNum.TextLength < 10 Then
+            MsgBox("Trace Number is not the correct")
+            txtTraceNum.Clear()
+            Me.txtTraceNum.Refresh()
+            txtTraceNum.Focus()
+            Exit Sub
         End If
 
-            Try
+
+
+
+        Try
 
             frmJobEntry.LExecQuery("SELECT POYSTEPNUM, POYPACKIDX, POYDOFFNUM, POYSPINNUM, POYBCODEDRUM, " _
                                & "POYPRODWEIGHT FROM POYTrack Where POYTRACENUM  = '" & txtTraceNum.Text & "' ORDER BY poypackidx ")

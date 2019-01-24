@@ -774,7 +774,7 @@ Partial Class frmPacking48
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(80, 24)
         Me.Label11.TabIndex = 354
-        Me.Label11.Text = "STEP 3"
+        Me.Label11.Text = "STEP 4"
         '
         'Button48
         '
@@ -1020,7 +1020,7 @@ Partial Class frmPacking48
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(80, 24)
         Me.Label7.TabIndex = 336
-        Me.Label7.Text = "STEP 4"
+        Me.Label7.Text = "STEP 5"
         '
         'Label6
         '

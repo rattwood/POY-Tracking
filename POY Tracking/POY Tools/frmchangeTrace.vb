@@ -41,8 +41,16 @@ Public Class frmchangeTrace
     Private Sub traceCheck()
         Try
 
+            If bcodescan.Length = 11 And bcodescan.Substring(0, 1) <> "P" Then
+                lblError.Visible = True
+                lblError.Text = "This is not a TRACE barcode" & vbCrLf & "Please RE Scan"
+                DelayTM()
+                lblError.Visible = False
+                txtTraceNum.Clear()
+                txtTraceNum.Focus()
+                Exit Sub
 
-            If Not (txtNewTraceNum.TextLength = 10) Then  ' LENGTH OF BARCODE
+            ElseIf bcodescan.Length > 11 Or bcodescan.Length < 10 Then
                 lblError.Visible = True
                 lblError.Text = "This is not a TRACE barcode" & vbCrLf & "Please RE Scan"
                 DelayTM()
