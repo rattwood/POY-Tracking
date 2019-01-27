@@ -1,6 +1,5 @@
-﻿
-Imports System.IO
-Imports Excel = Microsoft.Office.Interop.Excel
+﻿Imports Excel = Microsoft.Office.Interop.Excel
+
 
 Public Class frmPackTodayUpdate
 
@@ -22,7 +21,9 @@ Public Class frmPackTodayUpdate
     Public Sub TodatUpdate48()
 
         Dim xlTodyWorkbook As Excel.Workbook
-        Dim xlTodysheets As Excel.Worksheet
+
+
+
 
         xlTodyWorkbook = MyTodyExcel.Workbooks.Open(frmPackRepMain.savename)
         mycount = xlTodyWorkbook.Worksheets.Count
@@ -78,6 +79,27 @@ Public Class frmPackTodayUpdate
 
         End Try
 
+        Dim defPrinter As String
+        defPrinter = MyTodyExcel.ActivePrinter
+
+
+        'Printout results of Pack Form
+        xlTodyWorkbook.PrintOutEx(
+            From:=1,
+            To:=1,
+            Copies:=1,
+            Preview:=False,
+            Collate:=True,
+            IgnorePrintAreas:=True)
+
+        MyTodyExcel.ActivePrinter = defPrinter
+
+
+
+
+
+
+
 
 
         Try
@@ -101,7 +123,7 @@ Public Class frmPackTodayUpdate
 
 
         MyTodyExcel.Quit()
-        releaseObject(xlTodysheets)
+        'releaseObject(xlTodysheets)
         releaseObject(xlTodyWorkbook)
         releaseObject(MyTodyExcel)
         frmPacking48.UpdateDatabase()  'Update the database with changes and then close and go back to Job Entry screen
@@ -181,6 +203,25 @@ Public Class frmPackTodayUpdate
             MsgBox(ex.Message)
 
         End Try
+
+        Dim defPrinter As String
+        defPrinter = MyTodyExcel.ActivePrinter
+
+
+        'Printout results of Pack Form
+        xlTodyWorkbook.PrintOutEx(
+            From:=1,
+            To:=1,
+            Copies:=1,
+            Preview:=False,
+            Collate:=True,
+            IgnorePrintAreas:=True)
+
+        MyTodyExcel.ActivePrinter = defPrinter
+
+
+
+
 
         Try
             'Close template file but do not save updates to it
@@ -271,6 +312,23 @@ Public Class frmPackTodayUpdate
 
         End Try
 
+        Dim defPrinter As String
+        defPrinter = MyTodyExcel.ActivePrinter
+
+
+        'Printout results of Pack Form
+        xlTodyWorkbook.PrintOutEx(
+            From:=1,
+            To:=1,
+            Copies:=1,
+            Preview:=False,
+            Collate:=True,
+            IgnorePrintAreas:=True)
+
+        MyTodyExcel.ActivePrinter = defPrinter
+
+
+
         Try
             'Close template file but do not save updates to it
             xlTodyWorkbook.Close(SaveChanges:=False)
@@ -288,7 +346,13 @@ Public Class frmPackTodayUpdate
 
     End Sub
 
+    Private Sub PrintOut()
 
+
+
+
+
+    End Sub
 
 
 
