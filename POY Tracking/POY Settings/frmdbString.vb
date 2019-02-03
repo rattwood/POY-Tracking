@@ -7,7 +7,7 @@
         'Shows current settings
         txtBoxTemplates.Text = My.Settings.dirTemplate
         txtBoxCarts.Text = My.Settings.dirCarts
-        txtBoxJobs.Text = My.Settings.dirJobs
+        txtLogPath.Text = My.Settings.dirLogs
         txtBoxPack.Text = My.Settings.dirPacking
         txtBoxPackReports.Text = My.Settings.dirPackReports
 
@@ -25,7 +25,7 @@
 
         My.Settings.dirTemplate = txtBoxTemplates.Text
         My.Settings.dirCarts = txtBoxCarts.Text  'Spare
-        My.Settings.dirJobs = txtBoxJobs.Text   'Spare
+        My.Settings.dirLogs = txtLogPath.Text   'Spare
         My.Settings.dirPacking = txtBoxPack.Text   'Pallet Packing report
         My.Settings.dirPackReports = txtBoxPackReports.Text 'Exchange Drum Reports by trace number
 
@@ -55,7 +55,7 @@
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
 
         FolderBrowserDialog1.ShowDialog()
-        txtBoxJobs.Text = FolderBrowserDialog1.SelectedPath
+        txtLogPath.Text = FolderBrowserDialog1.SelectedPath
         btnSave.Enabled = True
     End Sub
 

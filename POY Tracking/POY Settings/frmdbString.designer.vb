@@ -35,7 +35,7 @@ Partial Class frmdbString
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.txtBoxJobs = New System.Windows.Forms.TextBox()
+        Me.txtLogPath = New System.Windows.Forms.TextBox()
         Me.txtBoxCarts = New System.Windows.Forms.TextBox()
         Me.txtBoxTemplates = New System.Windows.Forms.TextBox()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
@@ -125,7 +125,7 @@ Partial Class frmdbString
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(123, 22)
         Me.Button4.TabIndex = 59
-        Me.Button4.Text = "Spare"
+        Me.Button4.Text = "Log File"
         Me.Button4.UseVisualStyleBackColor = True
         '
         'Button3
@@ -159,11 +159,11 @@ Partial Class frmdbString
         '
         'txtBoxJobs
         '
-        Me.txtBoxJobs.Location = New System.Drawing.Point(278, 387)
-        Me.txtBoxJobs.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.txtBoxJobs.Name = "txtBoxJobs"
-        Me.txtBoxJobs.Size = New System.Drawing.Size(287, 20)
-        Me.txtBoxJobs.TabIndex = 55
+        Me.txtLogPath.Location = New System.Drawing.Point(278, 387)
+        Me.txtLogPath.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.txtLogPath.Name = "txtBoxJobs"
+        Me.txtLogPath.Size = New System.Drawing.Size(287, 20)
+        Me.txtLogPath.TabIndex = 55
         '
         'txtBoxCarts
         '
@@ -194,7 +194,7 @@ Partial Class frmdbString
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.txtBoxJobs)
+        Me.Controls.Add(Me.txtLogPath)
         Me.Controls.Add(Me.txtBoxCarts)
         Me.Controls.Add(Me.txtBoxTemplates)
         Me.Controls.Add(Me.btnSave)
@@ -221,7 +221,7 @@ Partial Class frmdbString
     Friend WithEvents Button3 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents Label8 As Label
-    Friend WithEvents txtBoxJobs As TextBox
+    Friend WithEvents txtLogPath As TextBox
     Friend WithEvents txtBoxCarts As TextBox
     Friend WithEvents txtBoxTemplates As TextBox
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog

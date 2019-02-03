@@ -2,6 +2,7 @@
 
 
 Public Class frmPackTodayUpdate
+    Private writeerrorLog As New writeError
 
     Dim MyTodyExcel As New Excel.Application
     Dim xlRowCount As Integer
@@ -37,7 +38,7 @@ Public Class frmPackTodayUpdate
         ncfree = 2
         nfree = 11
 
-
+        Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
         Try
 
             'Packer Name
@@ -76,15 +77,19 @@ Public Class frmPackTodayUpdate
         Catch ex As Exception
 
             MsgBox(ex.ToString)
-
+            writeerrorLog.writelog("48 Excel Create Error", ex.Message, True, "System_Fault")
+            writeerrorLog.writelog("48 Excel Create Error", ex.ToString, True, "System_Fault")
+            Me.Cursor = System.Windows.Forms.Cursors.Default
         End Try
 
-        Dim defPrinter As String
-        defPrinter = MyTodyExcel.ActivePrinter
+
+        Try
+            Dim defPrinter As String
+            defPrinter = MyTodyExcel.ActivePrinter
 
 
-        'Printout results of Pack Form
-        xlTodyWorkbook.PrintOutEx(
+            'Printout results of Pack Form
+            xlTodyWorkbook.PrintOutEx(
             From:=1,
             To:=1,
             Copies:=1,
@@ -92,8 +97,13 @@ Public Class frmPackTodayUpdate
             Collate:=True,
             IgnorePrintAreas:=True)
 
-        MyTodyExcel.ActivePrinter = defPrinter
+            MyTodyExcel.ActivePrinter = defPrinter
 
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            writeerrorLog.writelog("48 Excel Print", ex.Message, True, "System_Fault")
+            writeerrorLog.writelog("48 Excel Print", ex.ToString, True, "System_Fault")
+        End Try
 
 
 
@@ -111,7 +121,9 @@ Public Class frmPackTodayUpdate
         Catch ex As Exception
 
             MsgBox(ex.Message)
-
+            writeerrorLog.writelog("48 Excel Save Error", ex.Message, True, "System_Fault")
+            writeerrorLog.writelog("48 Excel Save Error", ex.ToString, True, "System_Fault")
+            Me.Cursor = System.Windows.Forms.Cursors.Default
         End Try
 
         Try
@@ -119,6 +131,9 @@ Public Class frmPackTodayUpdate
             xlTodyWorkbook.Close(SaveChanges:=False)
         Catch ex As Exception
             MsgBox(ex.Message)
+            writeerrorLog.writelog("48 Excel Close Error", ex.Message, True, "System_Fault")
+            writeerrorLog.writelog("48 Excel Close Error", ex.ToString, True, "System_Fault")
+            Me.Cursor = System.Windows.Forms.Cursors.Default
         End Try
 
 
@@ -127,6 +142,7 @@ Public Class frmPackTodayUpdate
         releaseObject(xlTodyWorkbook)
         releaseObject(MyTodyExcel)
         frmPacking48.UpdateDatabase()  'Update the database with changes and then close and go back to Job Entry screen
+        Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Close()
     End Sub
 
@@ -148,7 +164,7 @@ Public Class frmPackTodayUpdate
         nfree = 11
 
 
-
+        Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
 
         Try
 
@@ -189,7 +205,10 @@ Public Class frmPackTodayUpdate
         Catch ex As Exception
 
             MsgBox(ex.ToString)
+            writeerrorLog.writelog("72 Excel Create Error", ex.Message, True, "System_Fault")
+            writeerrorLog.writelog("72 Excel Create Error", ex.ToString, True, "System_Fault")
 
+            Me.Cursor = System.Windows.Forms.Cursors.Default
         End Try
 
         Try
@@ -199,17 +218,22 @@ Public Class frmPackTodayUpdate
             xlTodyWorkbook.SaveAs(Filename:=frmPackRepMain.savename, FileFormat:=51)
 
         Catch ex As Exception
-
+            writeerrorLog.writelog("72 Excel Save Error", ex.Message, True, "System_Fault")
+            writeerrorLog.writelog("72 Excel Save Error", ex.ToString, True, "System_Fault")
             MsgBox(ex.Message)
 
+            Me.Cursor = System.Windows.Forms.Cursors.Default
         End Try
 
-        Dim defPrinter As String
-        defPrinter = MyTodyExcel.ActivePrinter
+        Try
+            Dim defPrinter As String
+            defPrinter = MyTodyExcel.ActivePrinter
 
 
-        'Printout results of Pack Form
-        xlTodyWorkbook.PrintOutEx(
+
+
+            'Printout results of Pack Form
+            xlTodyWorkbook.PrintOutEx(
             From:=1,
             To:=1,
             Copies:=1,
@@ -217,8 +241,12 @@ Public Class frmPackTodayUpdate
             Collate:=True,
             IgnorePrintAreas:=True)
 
-        MyTodyExcel.ActivePrinter = defPrinter
-
+            MyTodyExcel.ActivePrinter = defPrinter
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            writeerrorLog.writelog("72 Excel Print", ex.Message, True, "System_Fault")
+            writeerrorLog.writelog("72 Excel Print", ex.ToString, True, "System_Fault")
+        End Try
 
 
 
@@ -228,6 +256,9 @@ Public Class frmPackTodayUpdate
             xlTodyWorkbook.Close(SaveChanges:=False)
         Catch ex As Exception
             MsgBox(ex.Message)
+            writeerrorLog.writelog("72 Excel Close Error", ex.Message, True, "System_Fault")
+            writeerrorLog.writelog("72 Excel Close Error", ex.ToString, True, "System_Fault")
+            Me.Cursor = System.Windows.Forms.Cursors.Default
         End Try
 
 
@@ -236,6 +267,7 @@ Public Class frmPackTodayUpdate
         releaseObject(xlTodyWorkbook)
         releaseObject(MyTodyExcel)
         frmPacking72.UpdateDatabase()  'Update the database with changes and then close and go back to Job Entry screen
+        Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Close()
 
     End Sub
@@ -256,7 +288,7 @@ Public Class frmPackTodayUpdate
         ncfree = 2
         nfree = 11
 
-
+        Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
         Try
 
             'Packer Name
@@ -297,6 +329,9 @@ Public Class frmPackTodayUpdate
         Catch ex As Exception
 
             MsgBox(ex.ToString)
+            writeerrorLog.writelog("120 Excel Create Error", ex.Message, True, "System_Fault")
+            writeerrorLog.writelog("120 Excel Create Error", ex.ToString, True, "System_Fault")
+            Me.Cursor = System.Windows.Forms.Cursors.Default
 
         End Try
 
@@ -309,15 +344,18 @@ Public Class frmPackTodayUpdate
         Catch ex As Exception
 
             MsgBox(ex.Message)
-
+            writeerrorLog.writelog("120 Excel Save Error", ex.Message, True, "System_Fault")
+            writeerrorLog.writelog("120 Excel Save Error", ex.ToString, True, "System_Fault")
+            Me.Cursor = System.Windows.Forms.Cursors.Default
         End Try
 
-        Dim defPrinter As String
-        defPrinter = MyTodyExcel.ActivePrinter
+        Try
+            Dim defPrinter As String
+            defPrinter = MyTodyExcel.ActivePrinter
 
 
-        'Printout results of Pack Form
-        xlTodyWorkbook.PrintOutEx(
+            'Printout results of Pack Form
+            xlTodyWorkbook.PrintOutEx(
             From:=1,
             To:=1,
             Copies:=1,
@@ -325,8 +363,13 @@ Public Class frmPackTodayUpdate
             Collate:=True,
             IgnorePrintAreas:=True)
 
-        MyTodyExcel.ActivePrinter = defPrinter
+            MyTodyExcel.ActivePrinter = defPrinter
 
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            writeerrorLog.writelog("120 Excel Print", ex.Message, True, "System_Fault")
+            writeerrorLog.writelog("120 Excel Print", ex.ToString, True, "System_Fault")
+        End Try
 
 
         Try
@@ -334,6 +377,10 @@ Public Class frmPackTodayUpdate
             xlTodyWorkbook.Close(SaveChanges:=False)
         Catch ex As Exception
             MsgBox(ex.Message)
+
+            writeerrorLog.writelog("120 Excel Close Error", ex.Message, True, "System_Fault")
+            writeerrorLog.writelog("120 Excel Close Error", ex.ToString, True, "System_Fault")
+            Me.Cursor = System.Windows.Forms.Cursors.Default
         End Try
 
 
@@ -341,21 +388,11 @@ Public Class frmPackTodayUpdate
         releaseObject(xlTodysheets)
         releaseObject(xlTodyWorkbook)
         releaseObject(MyTodyExcel)
-        frmPacking120.UpdateDatabase()  'Update the database with changes and then close and go back to Job Entry screen
+        frmPacking120.UpdateDatabase()        'Update the database with changes and then close and go back to Job Entry screen
+        Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Close()
 
     End Sub
-
-    Private Sub PrintOut()
-
-
-
-
-
-    End Sub
-
-
-
 
 
 

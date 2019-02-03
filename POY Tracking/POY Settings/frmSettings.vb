@@ -7,11 +7,26 @@ Public Class frmSettings
     Private Sub frmSettings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
 
+        Button2.Visible = False
+        Button3.Visible = False
+        Button4.Visible = False
+        Button5.Visible = False
+        Button6.Visible = False
+        Button7.Visible = False
+
+        txtBoxTemplates.Visible = False
+        txtBoxCarts.Visible = False
+        txtBoxJobs.Visible = False
+        txtBoxPackReports.Visible = False
+        txtBoxPack.Visible = False
+        txtLogReport.Visible = False
+
 
         If My.Settings.chkUseSort Then chkUseSort.Checked = True Else chkUseSort.Checked = False
         If My.Settings.chkUsePack Then chkUsePack.Checked = True Else chkUsePack.Checked = False
 
         If My.Settings.debugSet Then chkDGV.Checked = True Else chkDGV.Checked = False
+        If My.Settings.chkUseLogs Then chkUseLogs.Checked = True Else chkUseLogs.Checked = False
 
         'Set check box for Language selected
         If My.Settings.chkUseEng Then chkEnglish.Checked = True Else chkEnglish.Checked = False
@@ -29,6 +44,12 @@ Public Class frmSettings
             ChangeLanguage("en")
             frmJobEntry.thaiLang = False
         End If
+
+
+
+
+
+
 
     End Sub
 
@@ -55,7 +76,7 @@ Public Class frmSettings
         My.Settings.debugSet = chkDGV.CheckState
         My.Settings.chkUseEng = chkEnglish.CheckState
         My.Settings.chkUseThai = chkThai.CheckState
-
+        My.Settings.chkUseLogs = chkUseLogs.CheckState
 
         Me.Close()
     End Sub
@@ -82,6 +103,10 @@ Public Class frmSettings
     Private Sub chkThai_CheckedChanged(sender As Object, e As EventArgs) Handles chkThai.CheckedChanged
         chkEnglish.CheckState = False
         chkEnglish.Checked = False
+        btnSetSave.Enabled = True
+    End Sub
+
+    Private Sub chkUseLogs_CheckedChanged(sender As Object, e As EventArgs) Handles chkUseLogs.CheckedChanged
         btnSetSave.Enabled = True
     End Sub
 End Class

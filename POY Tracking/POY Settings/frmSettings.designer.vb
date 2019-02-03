@@ -57,6 +57,9 @@ Partial Class frmSettings
         Me.chkThai = New System.Windows.Forms.CheckBox()
         Me.chkEnglish = New System.Windows.Forms.CheckBox()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.chkUseLogs = New System.Windows.Forms.CheckBox()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.txtLogReport = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'lblSerialPortSelect
@@ -66,8 +69,8 @@ Partial Class frmSettings
         '
         'lstSerialPorts
         '
-        resources.ApplyResources(Me.lstSerialPorts, "lstSerialPorts")
         Me.lstSerialPorts.FormattingEnabled = True
+        resources.ApplyResources(Me.lstSerialPorts, "lstSerialPorts")
         Me.lstSerialPorts.Name = "lstSerialPorts"
         '
         'btnSetSave
@@ -78,8 +81,8 @@ Partial Class frmSettings
         '
         'lstBaudRates
         '
-        resources.ApplyResources(Me.lstBaudRates, "lstBaudRates")
         Me.lstBaudRates.FormattingEnabled = True
+        resources.ApplyResources(Me.lstBaudRates, "lstBaudRates")
         Me.lstBaudRates.Items.AddRange(New Object() {resources.GetString("lstBaudRates.Items"), resources.GetString("lstBaudRates.Items1"), resources.GetString("lstBaudRates.Items2"), resources.GetString("lstBaudRates.Items3"), resources.GetString("lstBaudRates.Items4")})
         Me.lstBaudRates.Name = "lstBaudRates"
         '
@@ -145,7 +148,6 @@ Partial Class frmSettings
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        resources.ApplyResources(Me.OpenFileDialog1, "OpenFileDialog1")
         '
         'Button2
         '
@@ -184,10 +186,6 @@ Partial Class frmSettings
         '
         resources.ApplyResources(Me.Label7, "Label7")
         Me.Label7.Name = "Label7"
-        '
-        'FolderBrowserDialog1
-        '
-        resources.ApplyResources(Me.FolderBrowserDialog1, "FolderBrowserDialog1")
         '
         'chkDGV
         '
@@ -244,10 +242,30 @@ Partial Class frmSettings
         resources.ApplyResources(Me.Label10, "Label10")
         Me.Label10.Name = "Label10"
         '
+        'chkUseLogs
+        '
+        resources.ApplyResources(Me.chkUseLogs, "chkUseLogs")
+        Me.chkUseLogs.Name = "chkUseLogs"
+        Me.chkUseLogs.UseVisualStyleBackColor = True
+        '
+        'Button7
+        '
+        resources.ApplyResources(Me.Button7, "Button7")
+        Me.Button7.Name = "Button7"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'txtLogReport
+        '
+        resources.ApplyResources(Me.txtLogReport, "txtLogReport")
+        Me.txtLogReport.Name = "txtLogReport"
+        '
         'frmSettings
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.Button7)
+        Me.Controls.Add(Me.txtLogReport)
+        Me.Controls.Add(Me.chkUseLogs)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.chkThai)
         Me.Controls.Add(Me.chkEnglish)
@@ -320,4 +338,7 @@ Partial Class frmSettings
     Friend WithEvents chkThai As CheckBox
     Friend WithEvents chkEnglish As CheckBox
     Friend WithEvents Label10 As Label
+    Friend WithEvents chkUseLogs As CheckBox
+    Friend WithEvents Button7 As Button
+    Friend WithEvents txtLogReport As TextBox
 End Class

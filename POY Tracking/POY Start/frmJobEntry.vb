@@ -8,7 +8,7 @@ Imports System.Threading
 Public Class frmJobEntry
     'THIS CREATS LOCAL INSTANCE TO REFRENCE THE SQL CLASS FORM, NOT USED WHEN WORKING WITH DATAGRIDVIEW
     'Private SQL As New SQLConn
-
+    Private writeerrorLog As New writeError
 
     '---------------------------------------    SETTING UP LOCAL INSTANCE FOR SQL LINK FOR DATAGRID TO SYNC CORRECTLY WITH SQL -------------------------------------
     Public LConn As New SqlConnection(My.Settings.SQLConn) 'This need to be changed in Project/Propertie/Settings
@@ -167,6 +167,7 @@ Public Class frmJobEntry
             If Not (txtDrumNum.TextLength = 14) Then  ' LENGTH OF BARCODE
                 If thaiLang Then MsgBox("หมายเลขนี้ไม่ใช่หมายเลขของดรัม กรุณาสแกนใหม่") Else _
                     MsgBox("This is not a DRUM number Please RE Scan")
+
                 Me.txtDrumNum.Clear()
                 Me.txtDrumNum.Focus()
                 Me.txtDrumNum.Refresh()
@@ -177,6 +178,10 @@ Public Class frmJobEntry
 
             If thaiLang Then MsgBox("ไม่มีหมายเลขดรัมนี้ " & vbNewLine & ex.Message) Else _
                 MsgBox("DRUM BarCode Is Not Valid " & vbNewLine & ex.Message)
+
+            'Write error to Log File
+            writeerrorLog.writelog("Drum Scan Error", ex.Message, False, "User Fault")
+            writeerrorLog.writelog("Drum Scan Error", ex.ToString, False, "User Fault")
             Me.txtDrumNum.Clear()
             Me.txtDrumNum.Focus()
             Me.txtDrumNum.Refresh()
@@ -190,7 +195,6 @@ Public Class frmJobEntry
 
         Try
             If LRecordCount > 0 Then  'If it exists then 
-                ' MsgBox("This Drum is allready allocated, " & vbCrLf & " Please use the FINISH OLD PALLET Option")
                 If thaiLang Then MsgBox("หมายเลขดรัมนี้ถูกใช้วางตำแหน่งแล้ว กรุณาใช้ option จบพาเลทเก่า") Else _
                     MsgBox("This Drum is allready allocated, " & vbCrLf & " Please use the FINISH OLD PALLET Option")
                 cancelRoutine()
@@ -203,9 +207,10 @@ Public Class frmJobEntry
             End If
 
         Catch ex As Exception
-            ' MsgBox("Job Creation Fault" & vbNewLine & ex.Message)
             If thaiLang Then MsgBox("สร้างงานผิดพลาด " & vbNewLine & ex.Message) Else _
                      MsgBox("Job Creation Fault" & vbNewLine & ex.Message)
+            writeerrorLog.writelog("Job Creation Fault", ex.Message, False, "System_Fault")
+            writeerrorLog.writelog("Job Creation Fault", ex.ToString, False, "System_Fault")
             Me.txtDrumNum.Clear()
             Me.txtDrumNum.Focus()
             Me.txtDrumNum.Refresh()
@@ -244,7 +249,6 @@ Public Class frmJobEntry
                 Dim LCB As SqlCommandBuilder = New SqlCommandBuilder(LDA)
 
             If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYTRACENUM").Value) Then
-                ' MsgBox("This Pallet is already Finished " & vbCrLf & "using TRACE NUMBER " & frmDGV.DGVdata.Rows(0).Cells("POYTRACENUM").Value.ToString)
                 If thaiLang Then MsgBox("โปรดักส์นี้ไม่มีในตารางสินค้า กรุณาตรวจสอบตารางสินค้าในการตั้งค่า " & frmDGV.DGVdata.Rows(0).Cells("POYTRACENUM").Value.ToString) Else _
                     MsgBox("This Pallet is already Finished " & vbCrLf & "using TRACE NUMBER " & frmDGV.DGVdata.Rows(0).Cells("POYTRACENUM").Value.ToString)
                 frmDGV.DGVdata.ClearSelection()
@@ -256,11 +260,8 @@ Public Class frmJobEntry
             End If
 
         Else
-            ' MsgBox("This Drum is not in the system, please scan any Drum already on the Pallet")
             If thaiLang Then MsgBox("ดรัมนี้ไม่มีในระบบ กรุณาสแกนดรัมในพาเลท") Else _
                     MsgBox("This Drum is not in the system, please scan any Drum already on the Pallet")
-
-
             Me.txtDrumNum.Clear()
             Me.txtDrumNum.Focus()
             Me.txtDrumNum.Refresh()
@@ -292,9 +293,10 @@ Public Class frmJobEntry
             End If
 
         Catch ex As Exception
-            'MsgBox("DRUM BarCode Is Not Valid " & vbNewLine & ex.Message)
             If thaiLang Then MsgBox("ไม่มีหมายเลขดรัมนี้ " & vbNewLine & ex.Message) Else _
                 MsgBox("DRUM BarCode Is Not Valid " & vbNewLine & ex.Message)
+            writeerrorLog.writelog("Drum Barcode Error", ex.Message, False, "System_Fault")
+            writeerrorLog.writelog("Drum Barcode Error", ex.ToString, False, "System_Fault")
             Me.txtDrumNum.Clear()
             Me.txtDrumNum.Focus()
             Me.txtDrumNum.Refresh()
@@ -362,6 +364,8 @@ Public Class frmJobEntry
                 'MsgBox("Job Creation Fault" & vbNewLine & ex.Message)
                 If thaiLang Then MsgBox("สร้างงานผิดพลาด " & vbNewLine & ex.Message) Else _
                      MsgBox("Job Creation Fault" & vbNewLine & ex.Message)
+                writeerrorLog.writelog("Job Creation Fault", ex.Message, False, "System_Fault")
+                writeerrorLog.writelog("Job Creation Fault", ex.ToString, False, "System_Fault")
                 Me.txtDrumNum.Clear()
                 Me.txtDrumNum.Focus()
                 Me.txtDrumNum.Refresh()
@@ -402,6 +406,8 @@ Public Class frmJobEntry
                 'MsgBox("Job Find Fault" & vbNewLine & ex.Message)
                 If thaiLang Then MsgBox("พบงานผิดพลาด" & vbNewLine & ex.Message) Else _
                     MsgBox("Job Find Fault" & vbNewLine & ex.Message)
+                writeerrorLog.writelog("Job Find Fault", ex.Message, False, "System_Fault")
+                writeerrorLog.writelog("Job Find Fault", ex.ToString, False, "System_Fault")
                 Me.txtDrumNum.Clear()
                 Me.txtDrumNum.Focus()
                 Me.txtDrumNum.Refresh()
@@ -487,6 +493,8 @@ Public Class frmJobEntry
 
             LException = "ExecQuery Error:    " & vbNewLine & ex.Message
             MsgBox(LException)
+            writeerrorLog.writelog("ExecQuery Error:", ex.Message, False, "System_Fault")
+            writeerrorLog.writelog("ExecQuery Error:", ex.ToString, False, "System_Fault")
 
         End Try
 
@@ -750,7 +758,7 @@ Public Class frmJobEntry
 
         Next
 
-        '.ToUniversalTime
+
 
         Try
             'Writes the scanned drum in to DB
@@ -760,9 +768,11 @@ Public Class frmJobEntry
                        & "WHERE POYPACKIDX = '001' and POYTMPTRACE = '" & dbBarcode & "' ")
         Catch ex As Exception
             Me.Cursor = System.Windows.Forms.Cursors.Default
-            ' MsgBox("Job Update Error" & vbNewLine & ex.Message)
             If thaiLang Then MsgBox("อัพเดทงานผิดพลาด " & vbNewLine & ex.Message) Else _
                MsgBox("Job Update Error" & vbNewLine & ex.Message)
+            writeerrorLog.writelog("ExecQuery Error:", ex.Message, False, "System_Fault")
+            writeerrorLog.writelog("ExecQuery Error:", ex.ToString, False, "System_Fault")
+
         End Try
 
 
@@ -785,6 +795,8 @@ Public Class frmJobEntry
             ' MsgBox("Job creation Error" & vbNewLine & ex.Message)
             If thaiLang Then MsgBox("สร้างงานผิดพลาด " & vbNewLine & ex.Message) Else _
               MsgBox("Job creation Error" & vbNewLine & ex.Message)
+            writeerrorLog.writelog("ExecQuery Error:", ex.Message, False, "System_Fault")
+            writeerrorLog.writelog("ExecQuery Error:", ex.ToString, False, "System_Fault")
         End Try
 
 

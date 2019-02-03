@@ -151,6 +151,7 @@
     <Compile Include="POY Packing\frmTraceEntry.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="POY Reports\AUTO Generated Pack Report\writeError.vb" />
     <Compile Include="POY Reports\AUTO Generated Pack Report\frmPackCreateNew.designer.vb">
       <DependentUpon>frmPackCreateNew.vb</DependentUpon>
     </Compile>
