@@ -30,7 +30,7 @@ Public Class frmToolEntry
 
         Try
 
-            If bcodescan.Length = 11 And bcodescan.Substring(0, 1) <> "P" Then
+            If bcodescan.Length = 12 And bcodescan.Substring(0, 1) <> "P" Then
                 lblError.Visible = True
                 lblError.Text = "This is not a TRACE barcode" & vbCrLf & "Please RE Scan"
                 DelayTM()
@@ -38,7 +38,7 @@ Public Class frmToolEntry
                 txtTraceNum.Clear()
                 txtTraceNum.Focus()
 
-            ElseIf bcodescan.Length > 11 Or bcodescan.Length < 10 Then
+            ElseIf bcodescan.Length > 12 Or bcodescan.Length < 10 Then
                 lblError.Visible = True
                 lblError.Text = "This is not a TRACE barcode" & vbCrLf & "Please RE Scan"
                 DelayTM()

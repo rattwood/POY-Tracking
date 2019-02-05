@@ -56,9 +56,8 @@ Partial Class frmTraceSearch
         Me.txtTraceNum.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTraceNum.Location = New System.Drawing.Point(198, 65)
         Me.txtTraceNum.Name = "txtTraceNum"
-        Me.txtTraceNum.Size = New System.Drawing.Size(139, 29)
+        Me.txtTraceNum.Size = New System.Drawing.Size(193, 29)
         Me.txtTraceNum.TabIndex = 66
-        Me.txtTraceNum.Text = "P4180122019"
         Me.txtTraceNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'btnJobSearch
@@ -66,7 +65,7 @@ Partial Class frmTraceSearch
         Me.btnJobSearch.BackColor = System.Drawing.Color.LawnGreen
         Me.btnJobSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnJobSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnJobSearch.Location = New System.Drawing.Point(359, 58)
+        Me.btnJobSearch.Location = New System.Drawing.Point(410, 58)
         Me.btnJobSearch.Name = "btnJobSearch"
         Me.btnJobSearch.Size = New System.Drawing.Size(118, 47)
         Me.btnJobSearch.TabIndex = 69

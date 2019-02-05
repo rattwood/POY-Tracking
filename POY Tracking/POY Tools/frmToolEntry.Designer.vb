@@ -95,10 +95,10 @@ Partial Class frmToolEntry
         '
         'txtTraceNum
         '
-        Me.txtTraceNum.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTraceNum.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTraceNum.Location = New System.Drawing.Point(487, 64)
         Me.txtTraceNum.Name = "txtTraceNum"
-        Me.txtTraceNum.Size = New System.Drawing.Size(134, 26)
+        Me.txtTraceNum.Size = New System.Drawing.Size(176, 26)
         Me.txtTraceNum.TabIndex = 4
         Me.txtTraceNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '

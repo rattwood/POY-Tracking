@@ -28,7 +28,7 @@ Public Class frmTraceSearch
 
     Private Sub btnJobSearch_Click(sender As Object, e As EventArgs) Handles btnJobSearch.Click
 
-        If txtTraceNum.TextLength = 11 Then
+        If txtTraceNum.TextLength = 12 Then
             Dim chkString = txtTraceNum.Text.Substring(0, 1)
             If Not chkString = "P" Then
                 MsgBox("Trace Number is not the correct")
@@ -37,7 +37,7 @@ Public Class frmTraceSearch
                 txtTraceNum.Focus()
                 Exit Sub
             End If
-        ElseIf txtTraceNum.TextLength > 11 Or txtTraceNum.TextLength < 10 Then
+        ElseIf txtTraceNum.TextLength > 12 Or txtTraceNum.TextLength < 10 Then
             MsgBox("Trace Number is not the correct")
             txtTraceNum.Clear()
             Me.txtTraceNum.Refresh()

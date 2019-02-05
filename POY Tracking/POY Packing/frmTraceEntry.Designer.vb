@@ -34,9 +34,9 @@ Partial Class frmTraceEntry
         'txtTraceNum
         '
         Me.txtTraceNum.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTraceNum.Location = New System.Drawing.Point(301, 161)
+        Me.txtTraceNum.Location = New System.Drawing.Point(267, 161)
         Me.txtTraceNum.Name = "txtTraceNum"
-        Me.txtTraceNum.Size = New System.Drawing.Size(176, 38)
+        Me.txtTraceNum.Size = New System.Drawing.Size(286, 38)
         Me.txtTraceNum.TabIndex = 0
         Me.txtTraceNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -44,7 +44,7 @@ Partial Class frmTraceEntry
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(13, 164)
+        Me.Label1.Location = New System.Drawing.Point(6, 164)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(261, 31)
         Me.Label1.TabIndex = 1
@@ -83,7 +83,7 @@ Partial Class frmTraceEntry
         '
         Me.btnUpdate.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnUpdate.Location = New System.Drawing.Point(495, 154)
+        Me.btnUpdate.Location = New System.Drawing.Point(559, 154)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(151, 61)
         Me.btnUpdate.TabIndex = 6
@@ -109,7 +109,7 @@ Partial Class frmTraceEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(658, 379)
+        Me.ClientSize = New System.Drawing.Size(722, 379)
         Me.Controls.Add(Me.lblError)
         Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.btnCancel)

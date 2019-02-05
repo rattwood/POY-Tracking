@@ -39,7 +39,7 @@ Partial Class frmchangeTrace
         '
         Me.btnClear.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.Location = New System.Drawing.Point(513, 445)
+        Me.btnClear.Location = New System.Drawing.Point(547, 445)
         Me.btnClear.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(180, 71)
@@ -63,7 +63,7 @@ Partial Class frmchangeTrace
         '
         Me.btnUpdate.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnUpdate.Location = New System.Drawing.Point(513, 205)
+        Me.btnUpdate.Location = New System.Drawing.Point(547, 205)
         Me.btnUpdate.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(180, 71)
@@ -86,10 +86,10 @@ Partial Class frmchangeTrace
         'txtTraceNum
         '
         Me.txtTraceNum.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTraceNum.Location = New System.Drawing.Point(99, 134)
+        Me.txtTraceNum.Location = New System.Drawing.Point(18, 134)
         Me.txtTraceNum.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtTraceNum.Name = "txtTraceNum"
-        Me.txtTraceNum.Size = New System.Drawing.Size(176, 38)
+        Me.txtTraceNum.Size = New System.Drawing.Size(260, 38)
         Me.txtTraceNum.TabIndex = 341
         Me.txtTraceNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -97,7 +97,7 @@ Partial Class frmchangeTrace
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(122, 109)
+        Me.Label2.Location = New System.Drawing.Point(81, 109)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(125, 20)
@@ -108,7 +108,7 @@ Partial Class frmchangeTrace
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(283, 147)
+        Me.Label3.Location = New System.Drawing.Point(283, 143)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(218, 20)
@@ -119,7 +119,7 @@ Partial Class frmchangeTrace
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(532, 109)
+        Me.Label4.Location = New System.Drawing.Point(573, 109)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(125, 20)
@@ -132,7 +132,7 @@ Partial Class frmchangeTrace
         Me.txtNewTraceNum.Location = New System.Drawing.Point(509, 134)
         Me.txtNewTraceNum.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtNewTraceNum.Name = "txtNewTraceNum"
-        Me.txtNewTraceNum.Size = New System.Drawing.Size(176, 38)
+        Me.txtNewTraceNum.Size = New System.Drawing.Size(260, 38)
         Me.txtNewTraceNum.TabIndex = 0
         Me.txtNewTraceNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -155,7 +155,7 @@ Partial Class frmchangeTrace
         Me.lblComplete.AutoSize = True
         Me.lblComplete.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblComplete.ForeColor = System.Drawing.Color.Tomato
-        Me.lblComplete.Location = New System.Drawing.Point(565, 281)
+        Me.lblComplete.Location = New System.Drawing.Point(599, 281)
         Me.lblComplete.Name = "lblComplete"
         Me.lblComplete.Size = New System.Drawing.Size(66, 13)
         Me.lblComplete.TabIndex = 348
@@ -166,7 +166,7 @@ Partial Class frmchangeTrace
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(765, 548)
+        Me.ClientSize = New System.Drawing.Size(806, 548)
         Me.Controls.Add(Me.lblComplete)
         Me.Controls.Add(Me.lblError)
         Me.Controls.Add(Me.txtNewTraceNum)
