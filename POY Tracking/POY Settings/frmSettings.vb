@@ -77,7 +77,7 @@ Public Class frmSettings
         My.Settings.chkUseEng = chkEnglish.CheckState
         My.Settings.chkUseThai = chkThai.CheckState
         My.Settings.chkUseLogs = chkUseLogs.CheckState
-
+        My.Settings.Save()
         Me.Close()
     End Sub
 
