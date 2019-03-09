@@ -492,7 +492,7 @@ Public Class frmPacking120
 
 
     Private Sub btnEndJob_Click_1(sender As Object, e As EventArgs) Handles btnEndJob.Click
-        Dim result = MessageBox.Show("Edit Job Yes Or No", "Are you sure you wish to end this Pallet ?", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+        Dim result = MessageBox.Show("End Pallet Yes Or No", "Are you sure you wish to end this Pallet ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
         If result = DialogResult.Yes Then
 

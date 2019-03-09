@@ -51,7 +51,7 @@ Public Class frmJobEntry
     Public dbBarcode As String
     Public POYValUpdate As Integer
     Public JobBarcode As String
-    Public varProdWeight As String
+    Public varProdWeight As Double
     Public varweightcode As String
     Public drumPerPal As String
     Public ExistingProd As String
@@ -651,6 +651,8 @@ Public Class frmJobEntry
         LRecordCount = 0
         LException = ""
         If LConn.State = ConnectionState.Open Then LConn.Close()
+        Dim varProdGrade
+
 
         LExecQuery("Select * FROM POYPRODUCT WHERE POYPRNUM = '" & productCode & "' ")
         If LRecordCount > 0 Then
@@ -660,12 +662,21 @@ Public Class frmJobEntry
             varProductName = frmDGV.DGVdata.Rows(0).Cells("POYPRNAME").Value
             mergeNum = frmDGV.DGVdata.Rows(0).Cells("POYMERGENUM").Value
 
+            If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYPRODGRADE").Value) Then
+                varProdGrade = frmDGV.DGVdata.Rows(0).Cells("POYPRODGRADE").Value.ToString
+
+            Else
+                varProdGrade = "NA"
+            End If
+
+
 
 
             If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYPRODWEIGHT").Value) Then
                 varProdWeight = frmDGV.DGVdata.Rows(0).Cells("POYPRODWEIGHT").Value
+                varProdWeight = varProdWeight / 100
             Else
-                varProdWeight = "0.0"
+                varProdWeight = "0.00"
             End If
 
             If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYWEIGHTCODE").Value) Then
@@ -747,6 +758,7 @@ Public Class frmJobEntry
             LAddParam("@poydrumperpal", drumPerPal)
             LAddParam("@poyprodname", varProductName)
             LAddParam("@poyprodweight", varProdWeight)
+            LAddParam("@poyprodgrade", varProdGrade)
 
 
             'LExecQuery("INSERT INTO POYTrack (POYMCNUM, POYPRNUM, POYYY, POYMM, POYDOFFNUM, POYSPINNUM, POYMERGENUM, POYPACKNAME,POYSHIPNAME," _
@@ -754,7 +766,7 @@ Public Class frmJobEntry
             '       & "VALUES (@poymcnum, @poyprodnum,@yy,@mm,@doff,@drum,@merge,@poypackname,@poyshipname,@poydrumstate,@poyfulldrum,@poyshortdrum,@poypackdate,@poyshipdate,@poystepnum," _
             '       & "@poybcodedrum,@poypalnum,@poypackidx,@poytracenum) ")
 
-            LExecQuery("INSERT INTO POYTrack (POYPRNUM,POYDRUMPERPAL,POYPACKIDX,POYTMPTRACE,POYPRODNAME,POYMERGENUM,POYPRODWEIGHT) VALUES (@poyprodnum,@poydrumperpal,@poypackidx,@poytmptrace,@poyprodname,@merge,@poyprodweight)")
+            LExecQuery("INSERT INTO POYTrack (POYPRNUM,POYDRUMPERPAL,POYPACKIDX,POYTMPTRACE,POYPRODNAME,POYMERGENUM,POYPRODWEIGHT,POYPRODGRADE) VALUES (@poyprodnum,@poydrumperpal,@poypackidx,@poytmptrace,@poyprodname,@merge,@poyprodweight,@poyprodgrade)")
 
         Next
 

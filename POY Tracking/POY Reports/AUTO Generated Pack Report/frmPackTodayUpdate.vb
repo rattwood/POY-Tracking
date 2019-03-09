@@ -61,6 +61,7 @@ Public Class frmPackTodayUpdate
                     '   MyTodyExcel.Cells(nfree, ncfree) = frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value
 
                     MyTodyExcel.Cells(nfree, ncfree) = drumInfo
+                    MyTodyExcel.Cells(nfree, ncfree + 1) = frmDGV.DGVdata.Rows(i - 1).Cells("POYPRODWEIGHT").Value
 
 
                     nfree = nfree + 1
@@ -84,6 +85,7 @@ Public Class frmPackTodayUpdate
 
 
         Try
+
             Dim defPrinter As String
             defPrinter = MyTodyExcel.ActivePrinter
 
@@ -189,7 +191,7 @@ Public Class frmPackTodayUpdate
                     '   MyTodyExcel.Cells(nfree, ncfree) = frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value
 
                     MyTodyExcel.Cells(nfree, ncfree) = drumInfo
-
+                    MyTodyExcel.Cells(nfree, ncfree + 1) = frmDGV.DGVdata.Rows(i - 1).Cells("POYPRODWEIGHT").Value
 
                     nfree = nfree + 1
                     'Increment the Col Number
@@ -311,10 +313,9 @@ Public Class frmPackTodayUpdate
                     '   MyTodyExcel.Cells(nfree, ncfree) = frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value
 
                     MyTodyExcel.Cells(nfree, ncfree) = drumInfo
+                    MyTodyExcel.Cells(nfree, ncfree + 1) = frmDGV.DGVdata.Rows(i - 1).Cells("POYPRODWEIGHT").Value
 
-                    'WRITE CARTON NUMBER TO SHEET AND PUT IN DGV
-                    ' MyTodyExcel.Cells(cellNum, ncfree - 2) = cartonNum
-                    'frmDGV.DGVdata.Rows(i - 1).Cells(61).Value = cartonNum
+
                     nfree = nfree + 1
                     'Increment the Col Number
                     If nfree = 31 And ncfree < 12 Then

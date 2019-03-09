@@ -31,73 +31,118 @@ Public Class frmPackCreateNew
             Case "48"
 
                 nfree = 11
+
+                '---------------- HEADER SECTION OF EXCEL SHEET ---------------------------------------------
+
                 'PRODUCT NAME
                 MyPakExcel.Cells(4, 3) = frmDGV.DGVdata.Rows(0).Cells("POYPRODNAME").Value  'C4
+
                 'Product Merge Num
                 MyPakExcel.Cells(5, 3) = frmDGV.DGVdata.Rows(0).Cells("POYMERGENUM").Value  'C5
+
                 'Product Code
                 'MyPakExcel.Cells(6, 12) = frmDGV.DGVdata.Rows(0).Cells("PRNUM").Value       'L7
+
                 'DATE
-                MyPakExcel.Cells(3, 11) = Date.Now.ToString("dd MM yyyy")              'K3
+                MyPakExcel.Cells(3, 12) = Date.Now.ToString("DATE : " & "dd MM yyyy")              'L2
+
                 'PACKING TYPE K value
                 MyPakExcel.Cells(4, 9) = frmJobEntry.varKNum                  'I4
-                'CHEESE WEIGHT
-                MyPakExcel.Cells(6, 9) = frmJobEntry.varProdWeight                 'I6
+
+                'Product Grade
+                MyPakExcel.Cells(5, 9) = frmDGV.DGVdata.Rows(0).Cells("POYPRODGRADE").Value   'I5
+
+                'Drum WEIGHT
+                MyPakExcel.Cells(6, 9) = frmDGV.DGVdata.Rows(0).Cells("POYPRODWEIGHT").Value              'I6
+
                 'PACKER NAME
                 MyPakExcel.Cells(32, 11) = frmJobEntry.PackOp      'K32
+
                 'Barcode = Trace Number
                 createBarcode()
-                MyPakExcel.Cells(2, 1) = SheetCodeString
-                MyPakExcel.Cells(3, 1) = modBarcode
+                ' MyPakExcel.Cells(2, 1) = SheetCodeString
+                MyPakExcel.Cells(6, 3) = SheetCodeString
+                'MyPakExcel.Cells(3, 1) = modBarcode
+
                 'PALLET NUMBER = Trace Number
-                MyPakExcel.Cells(6, 3) = frmTraceEntry.txtTraceNum.Text
+                MyPakExcel.Cells(8, 3) = "TRACE NO. " & modBarcode
 
             Case "72"
                 nfree = 11
+
+                '---------------- HEADER SECTION OF EXCEL SHEET ---------------------------------------------
+
                 'PRODUCT NAME
                 MyPakExcel.Cells(4, 3) = frmDGV.DGVdata.Rows(0).Cells("POYPRODNAME").Value  'C4
+
                 'Product Merge Num
                 MyPakExcel.Cells(5, 3) = frmDGV.DGVdata.Rows(0).Cells("POYMERGENUM").Value  'C5
+
                 'Product Code
                 'MyPakExcel.Cells(6, 12) = frmDGV.DGVdata.Rows(0).Cells("PRNUM").Value       'L7
+
                 'DATE
-                MyPakExcel.Cells(3, 11) = Date.Now.ToString("dd MM yyyy")              'K3
+                MyPakExcel.Cells(3, 12) = Date.Now.ToString("DATE : " & "dd MM yyyy")              'L2
+
                 'PACKING TYPE K value
                 MyPakExcel.Cells(4, 9) = frmJobEntry.varKNum                  'I4
-                'CHEESE WEIGHT
-                MyPakExcel.Cells(6, 9) = frmJobEntry.varProdWeight                 'I6
+
+                'Product Grade
+                MyPakExcel.Cells(5, 9) = frmDGV.DGVdata.Rows(0).Cells("POYPRODGRADE").Value   'I5
+
+                'Drum WEIGHT
+                MyPakExcel.Cells(6, 9) = frmDGV.DGVdata.Rows(0).Cells("POYPRODWEIGHT").Value              'I6
+
                 'PACKER NAME
                 MyPakExcel.Cells(32, 11) = frmJobEntry.PackOp      'K32
+
                 'Barcode = Trace Number
                 createBarcode()
-                MyPakExcel.Cells(2, 1) = SheetCodeString
-                MyPakExcel.Cells(3, 1) = modBarcode
+                ' MyPakExcel.Cells(2, 1) = SheetCodeString
+                MyPakExcel.Cells(6, 3) = SheetCodeString
+                'MyPakExcel.Cells(3, 1) = modBarcode
+
                 'PALLET NUMBER = Trace Number
-                MyPakExcel.Cells(6, 3) = frmTraceEntry.txtTraceNum.Text
+                MyPakExcel.Cells(8, 3) = "TRACE NO. " & modBarcode
 
 
             Case "120"
                 nfree = 11
+
+                '---------------- HEADER SECTION OF EXCEL SHEET ---------------------------------------------
+
                 'PRODUCT NAME
                 MyPakExcel.Cells(4, 3) = frmDGV.DGVdata.Rows(0).Cells("POYPRODNAME").Value  'C4
+
                 'Product Merge Num
                 MyPakExcel.Cells(5, 3) = frmDGV.DGVdata.Rows(0).Cells("POYMERGENUM").Value  'C5
+
                 'Product Code
                 'MyPakExcel.Cells(6, 12) = frmDGV.DGVdata.Rows(0).Cells("PRNUM").Value       'L7
+
                 'DATE
-                MyPakExcel.Cells(3, 11) = Date.Now.ToString("dd MM yyyy")              'K3
+                MyPakExcel.Cells(3, 12) = Date.Now.ToString("DATE : " & "dd MM yyyy")              'L2
+
                 'PACKING TYPE K value
                 MyPakExcel.Cells(4, 9) = frmJobEntry.varKNum                  'I4
-                'CHEESE WEIGHT
-                MyPakExcel.Cells(6, 9) = frmJobEntry.varProdWeight                 'I6
+
+                'Product Grade
+                MyPakExcel.Cells(5, 9) = frmDGV.DGVdata.Rows(0).Cells("POYPRODGRADE").Value   'I5
+
+                'Drum WEIGHT
+                MyPakExcel.Cells(6, 9) = frmDGV.DGVdata.Rows(0).Cells("POYPRODWEIGHT").Value              'I6
+
                 'PACKER NAME
                 MyPakExcel.Cells(32, 11) = frmJobEntry.PackOp      'K32
+
                 'Barcode = Trace Number
                 createBarcode()
-                MyPakExcel.Cells(2, 1) = SheetCodeString
-                MyPakExcel.Cells(3, 1) = modBarcode
+                ' MyPakExcel.Cells(2, 1) = SheetCodeString
+                MyPakExcel.Cells(6, 3) = SheetCodeString
+                'MyPakExcel.Cells(3, 1) = modBarcode
+
                 'PALLET NUMBER = Trace Number
-                MyPakExcel.Cells(6, 3) = frmTraceEntry.txtTraceNum.Text
+                MyPakExcel.Cells(8, 3) = "TRACE NO. " & modBarcode
 
 
 
