@@ -75,6 +75,22 @@ Public Class frmPackTodayUpdate
                 End If
             Next
 
+            'Calculate total weight and update sheet
+            Dim weightSum As Decimal
+
+            For i = 1 To frmDGV.DGVdata.Rows.Count
+                If IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value) Then Continue For
+
+                weightSum += frmDGV.DGVdata.Rows(i - 1).Cells("POYPRODWEIGHT").Value
+            Next
+
+
+
+            MyTodyExcel.Cells(6, 9) = weightSum.ToString(0)
+
+
+
+
         Catch ex As Exception
 
             MsgBox(ex.ToString)
@@ -204,6 +220,19 @@ Public Class frmPackTodayUpdate
                 End If
             Next
 
+            'Calculate total weight and update sheet
+            Dim weightSum As Decimal
+
+            For i = 1 To frmDGV.DGVdata.Rows.Count
+                If IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value) Then Continue For
+
+                weightSum += frmDGV.DGVdata.Rows(i - 1).Cells("POYPRODWEIGHT").Value
+            Next
+
+
+
+            MyTodyExcel.Cells(6, 9) = weightSum.ToString(0)
+
         Catch ex As Exception
 
             MsgBox(ex.ToString)
@@ -326,6 +355,19 @@ Public Class frmPackTodayUpdate
 
                 End If
             Next
+
+            'Calculate total weight and update sheet
+            Dim weightSum As Decimal
+
+            For i = 1 To frmDGV.DGVdata.Rows.Count
+                If IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value) Then Continue For
+
+                weightSum += frmDGV.DGVdata.Rows(i - 1).Cells("POYPRODWEIGHT").Value
+            Next
+
+
+
+            MyTodyExcel.Cells(6, 9) = weightSum.ToString(0)
 
         Catch ex As Exception
 

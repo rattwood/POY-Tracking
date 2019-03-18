@@ -53,7 +53,7 @@ Public Class frmPackCreateNew
                 MyPakExcel.Cells(5, 9) = frmDGV.DGVdata.Rows(0).Cells("POYPRODGRADE").Value   'I5
 
                 'Drum WEIGHT
-                MyPakExcel.Cells(6, 9) = frmDGV.DGVdata.Rows(0).Cells("POYPRODWEIGHT").Value              'I6
+                ' MyPakExcel.Cells(6, 9) = frmDGV.DGVdata.Rows(0).Cells("POYPRODWEIGHT").Value              'I6
 
                 'PACKER NAME
                 MyPakExcel.Cells(32, 11) = frmJobEntry.PackOp      'K32
