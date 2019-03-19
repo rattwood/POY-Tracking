@@ -44,6 +44,17 @@ Public Class frmPackTodayUpdate
             'Packer Name
             MyTodyExcel.Cells(32, 11) = frmJobEntry.PackOp
 
+            Dim tmpDrumweight As String
+
+            tmpDrumweight = frmJobEntry.varKNum
+
+            'Dim drumweight As String
+
+            Dim drumweight = tmpDrumweight.Substring(1, 2)
+
+            drumweight = (drumweight / 10).ToString("0.0")
+
+
 
             For i = 1 To frmDGV.DGVdata.Rows.Count
                 If IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value) Then Continue For
@@ -60,9 +71,8 @@ Public Class frmPackTodayUpdate
                     'WRITE VALUES TOO THE SHEET
                     '   MyTodyExcel.Cells(nfree, ncfree) = frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value
 
-                    MyTodyExcel.Cells(nfree, ncfree) = drumInfo
-                    MyTodyExcel.Cells(nfree, ncfree + 1) = frmDGV.DGVdata.Rows(i - 1).Cells("POYPRODWEIGHT").Value
-
+                    MyTodyExcel.Cells(nfree, ncfree) = drumInfo.ToString
+                    MyTodyExcel.Cells(nfree, ncfree + 1) = drumweight.ToString
 
                     nfree = nfree + 1
 
@@ -81,7 +91,7 @@ Public Class frmPackTodayUpdate
             For i = 1 To frmDGV.DGVdata.Rows.Count
                 If IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value) Then Continue For
 
-                weightSum += frmDGV.DGVdata.Rows(i - 1).Cells("POYPRODWEIGHT").Value
+                weightSum += drumweight
             Next
 
 

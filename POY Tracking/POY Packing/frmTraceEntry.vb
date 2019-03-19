@@ -92,8 +92,9 @@ Public Class frmTraceEntry
             frmDGV.DGVdata.Rows(i - 1).Cells("POYTRACENUM").Value = bcodeScan
 
         Next
-
+        Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
         frmPackRepMain.PackRepMainSub()
+        Me.Cursor = System.Windows.Forms.Cursors.Default
         jobEntryScreen()
         Close()
 
@@ -123,7 +124,7 @@ Public Class frmTraceEntry
 
         frmJobEntry.lblAutoCorrect.Visible = False
         frmJobEntry.comBoxDrumPal.Enabled = True
-
+        Me.Cursor = System.Windows.Forms.Cursors.Default
     End Sub
 
 
