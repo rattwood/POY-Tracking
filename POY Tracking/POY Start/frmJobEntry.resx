@@ -141,7 +141,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtOperator.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -171,7 +171,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -183,13 +183,10 @@
     <value>356, 300</value>
   </data>
   <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 31</value>
+    <value>0, 31</value>
   </data>
   <data name="Label2.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
-  </data>
-  <data name="Label2.Text" xml:space="preserve">
-    <value>Drum Barcode #</value>
   </data>
   <data name="Label2.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -204,7 +201,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="txtDrumNum.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 24pt, style=Bold</value>
@@ -231,7 +228,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtDrumNum.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="btnCancelReport.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
@@ -258,7 +255,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnCancelReport.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -295,7 +292,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -328,7 +325,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="comBoxDrumPal.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 20.25pt, style=Bold</value>
@@ -364,7 +361,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comBoxDrumPal.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <metadata name="ToraydbBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>113, 17</value>
@@ -400,7 +397,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblAutoCorrect.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="btnNewPallet.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -423,6 +420,9 @@
   <data name="btnNewPallet.Text" xml:space="preserve">
     <value>Start New Pallete</value>
   </data>
+  <data name="btnNewPallet.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;btnNewPallet.Name" xml:space="preserve">
     <value>btnNewPallet</value>
   </data>
@@ -433,7 +433,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnNewPallet.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="btnOldPallet.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -456,6 +456,9 @@
   <data name="btnOldPallet.Text" xml:space="preserve">
     <value>Finish Old Pallet</value>
   </data>
+  <data name="btnOldPallet.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;btnOldPallet.Name" xml:space="preserve">
     <value>btnOldPallet</value>
   </data>
@@ -466,7 +469,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnOldPallet.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <metadata name="MenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>288, 17</value>
@@ -559,7 +562,70 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;MenuStrip1.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
+  </data>
+  <data name="txtCartNum.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 24pt, style=Bold</value>
+  </data>
+  <data name="txtCartNum.Location" type="System.Drawing.Point, System.Drawing">
+    <value>418, 170</value>
+  </data>
+  <data name="txtCartNum.Size" type="System.Drawing.Size, System.Drawing">
+    <value>299, 44</value>
+  </data>
+  <data name="txtCartNum.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="txtCartNum.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;txtCartNum.Name" xml:space="preserve">
+    <value>txtCartNum</value>
+  </data>
+  <data name="&gt;&gt;txtCartNum.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtCartNum.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtCartNum.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 20.25pt, style=Bold</value>
+  </data>
+  <data name="Label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>136, 176</value>
+  </data>
+  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>266, 31</value>
+  </data>
+  <data name="Label5.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="Label5.Text" xml:space="preserve">
+    <value>Scan Cart BarCode</value>
+  </data>
+  <data name="Label5.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;Label5.Name" xml:space="preserve">
+    <value>Label5</value>
+  </data>
+  <data name="&gt;&gt;Label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

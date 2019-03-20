@@ -57,6 +57,7 @@ Public Class frmJobEntry
     Public ExistingProd As String
     Public drumToAllcount As String
 
+    Dim CartNum As String
     Dim machineName As String = ""
     Dim machineCode As String
     Dim productCode As String
@@ -73,7 +74,7 @@ Public Class frmJobEntry
     Dim traceExists As Integer = 0
     Public SortOP As String
     Public PackOp As String
-    Public ColorOP As String
+    ' Public ColorOP As String
     Public PackSortOP As String
     Public changedrum As Integer
     Public time As DateTime = DateTime.Now
@@ -88,6 +89,8 @@ Public Class frmJobEntry
 
 
 
+
+
         If My.Settings.chkUseThai Then
             ChangeLanguage("th-TH")
             thaiLang = True
@@ -97,10 +100,16 @@ Public Class frmJobEntry
         End If
 
 
-        Me.txtDrumNum.Visible = False
 
 
-        Me.Text = "POY Packing"
+        ''Set Up correct Screen layout for selected method
+        'If Not (My.Settings.chkUseSort) And Not (My.Settings.chkUsePack) Then
+        '    MsgBox("Please check your settings, no work method selected")
+        'End If
+
+
+
+
         updateButtons()
 
         If My.Settings.debugSet Then frmDGV.Show()
@@ -131,16 +140,49 @@ Public Class frmJobEntry
 
     Public Sub txtOperator_TextChanged(sender As Object, e As EventArgs) Handles txtOperator.TextChanged
 
-        btnNewPallet.Enabled = True
-        btnOldPallet.Enabled = True
+        'Set Up correct Screen layout for selected method
+        If My.Settings.chkUseSort Then
+            btnNewPallet.Visible = False
+            btnOldPallet.Visible = False
+            Label4.Visible = False
+            comBoxDrumPal.Visible = False
+            Label5.Text = "Scan Cart Sheet"
+            Label5.Visible = True
+            txtCartNum.Visible = True
+            Me.Text = "POY Sorting"
+            SortOP = txtOperator.Text
+            varUserName = SortOP
 
-        txtDrumNum.Visible = False
-        comBoxDrumPal.Visible = False
-        comBoxDrumPal.SelectedIndex = -1 'Blank the value so operater has to select
+
+        ElseIf My.Settings.chkUsePack Then  'Use Packing Screen
+
+            btnNewPallet.Visible = True
+            btnOldPallet.Visible = True
+            btnNewPallet.Enabled = True
+            btnOldPallet.Enabled = True
+
+            txtDrumNum.Visible = False
+            comBoxDrumPal.Visible = False
+            comBoxDrumPal.SelectedIndex = -1 'Blank the value so operater has to select
+            Label4.Visible = True
+            comBoxDrumPal.Visible = True
+            Label2.Text = "Drum Barcode #"
+            Label2.Visible = True
+            Me.Text = "POY Packing"
+
+            btnNewPallet.Enabled = True
+            btnOldPallet.Enabled = True
+
+            txtDrumNum.Visible = False
+            comBoxDrumPal.Visible = False
+            comBoxDrumPal.SelectedIndex = -1 'Blank the value so operater has to select
+
+            PackOp = txtOperator.Text
+            varUserName = txtOperator.Text
+
+        End If
 
 
-        PackOp = txtOperator.Text
-        varUserName = txtOperator.Text
 
     End Sub
 
@@ -280,122 +322,128 @@ Public Class frmJobEntry
 
     Private Sub prgContinue()
 
-        Try
 
-            If Not (txtDrumNum.TextLength = 14) Then  ' LENGTH OF BARCODE
-                'MsgBox("This is not a DRUM number Please RE Scan")
-                If thaiLang Then MsgBox("หมายเลขนี้ไม่ใช่หมายเลขของดรัม กรุณาสแกนใหม่") Else _
-                    MsgBox("This is not a DRUM number Please RE Scan")
-                Me.txtDrumNum.Clear()
-                Me.txtDrumNum.Focus()
-                Me.txtDrumNum.Refresh()
-                Exit Sub
-            End If
-
-        Catch ex As Exception
-            If thaiLang Then MsgBox("ไม่มีหมายเลขดรัมนี้ " & vbNewLine & ex.Message) Else _
-                MsgBox("DRUM BarCode Is Not Valid " & vbNewLine & ex.Message)
-            writeerrorLog.writelog("Drum Barcode Error", ex.Message, False, "System_Fault")
-            writeerrorLog.writelog("Drum Barcode Error", ex.ToString, False, "System_Fault")
-            Me.txtDrumNum.Clear()
-            Me.txtDrumNum.Focus()
-            Me.txtDrumNum.Refresh()
-            Exit Sub
-        End Try
+        If My.Settings.chkUseSort Then
 
 
 
-        dbBarcode = txtDrumNum.Text 'actualy this is now the drumbarcode number
-
-        getMCName()
-        machineCode = txtDrumNum.Text.Substring(0, 2)
-        productCode = txtDrumNum.Text.Substring(2, 3)
-        year = txtDrumNum.Text.Substring(5, 2)
-        month = txtDrumNum.Text.Substring(7, 2)
-        doffingNum = txtDrumNum.Text.Substring(9, 3)
-        spinNum = txtDrumNum.Text.Substring(12, 2)
-        mergeNum = txtDrumNum.Text.Substring(9, 3)
-        varCartBCode = txtDrumNum
-
-        varMachineCode = machineCode
-        getMCName()
-        varMachineName = machineName
-        varProductCode = productCode
-        varYear = year
-        varMonth = month
-        varDoffingNum = doffingNum
-        varCartNum = spinNum
-        varCartSelect = cartSelect
-
-
-
-
-
-
-
-        comBoxDrumPal.Enabled = False
-
-
-
-
-        '*************************  CHECK TO SEE IF JOB ALREADY EXISITS IF NOT CREATE JOB
-        'LExecQuery("SELECT * FROM POYTrack WHERE POYTMPTRACE = '" & dbBarcode & "' Order By POYPACKIDX")
-
-                If newJobFlag Then
-            '*************************  CHECK TO SEE IF JOB ALREADY EXISITS IF NOT CREATE JOB
-            LExecQuery("SELECT * FROM POYTrack WHERE POYBCODEDRUM = '" & dbBarcode & "' Order By POYPACKIDX")
             Try
-                If LRecordCount > 0 Then  'If it exists then 
-                    ' MsgBox("This Drum is allready allocated, " & vbCrLf & " Please use the FINISH OLD PALLET Option")
-                    If thaiLang Then MsgBox("หมายเลขดรัมนี้ถูกใช้วางตำแหน่งแล้ว กรุณาใช้ option จบพาเลทเก่า") Else _
-                    MsgBox("This Drum is allready allocated, " & vbCrLf & " Please use the FINISH OLD PALLET Option")
-                    frmDGV.DGVdata.ClearSelection()
-                    newJobFlag = 0
-                    cancelRoutine()
+                If Not (txtCartNum.TextLength = 14) Then  ' LENGTH OF BARCODE
+                    If thaiLang Then MsgBox("หมายเลขนี้ไม่ใช่หมายเลขของดรัม กรุณาสแกนใหม่") Else _
+                        MsgBox("This is not a CART number Please RE Scan")
+                    Me.txtCartNum.Clear()
+                    Me.txtCartNum.Focus()
+                    Me.txtCartNum.Refresh()
+
                     Exit Sub
-
-                Else
-                    'go and create new pallette
-                    POYPaletteCreate()
-
                 End If
 
+                'Decode the cart string in to variables
+                dbBarcode = txtCartNum.Text 'actualy this is now the drumbarcode number
+
+                machineCode = txtCartNum.Text.Substring(0, 2)
+                productCode = txtCartNum.Text.Substring(2, 3)
+                year = txtCartNum.Text.Substring(5, 2)
+                month = txtCartNum.Text.Substring(7, 2)
+                doffingNum = txtCartNum.Text.Substring(9, 3)
+                CartNum = txtCartNum.Text.Substring(12, 2)
+                varCartBCode = txtCartNum
+                getMCName()
+                varMachineCode = machineCode
+                getMCName()
+                varMachineName = machineName
+                varProductCode = productCode
+                varYear = year
+                varMonth = month
+                varDoffingNum = doffingNum
+                varCartNum = CartNum
+                varCartSelect = cartSelect
+
+                Select Case machineCode
+
+                    Case 12, 3, 5, 7
+                        Select Case CartNum
+                            Case "P5", "P6", "P7", "P8"
+                                MsgBox("The Cart Number is not correct for this machine, Please check Barcode")
+                                machineCode = ""
+                                productCode = ""
+                                year = ""
+                                month = ""
+                                doffingNum = ""
+                                CartNum = ""
+                                varCartBCode = ""
+                                varMachineCode = ""
+                                varMachineName = ""
+                                varProductCode = ""
+                                varYear = ""
+                                varMonth = ""
+                                varDoffingNum = ""
+                                varCartNum = ""
+                                varCartSelect = ""
+
+                                Me.txtDrumNum.Clear()
+                                Me.txtDrumNum.Focus()
+                                Me.txtDrumNum.Refresh()
+                                Exit Sub
+                        End Select
+
+                    Case 2, 4, 6, 8
+                        Select Case CartNum
+                            Case "P1", "P2", "P3", "P4"
+                                machineCode = ""
+                                productCode = ""
+                                year = ""
+                                month = ""
+                                doffingNum = ""
+                                CartNum = ""
+                                varCartBCode = ""
+                                varMachineCode = ""
+                                varMachineName = ""
+                                varProductCode = ""
+                                varYear = ""
+                                varMonth = ""
+                                varDoffingNum = ""
+                                varCartNum = ""
+                                varCartSelect = ""
+                                Exit Sub
+
+                                Me.txtDrumNum.Clear()
+                                Me.txtDrumNum.Focus()
+                                Me.txtDrumNum.Refresh()
+                        End Select
+
+
+                End Select
+
+
+
+
             Catch ex As Exception
-                'MsgBox("Job Creation Fault" & vbNewLine & ex.Message)
-                If thaiLang Then MsgBox("สร้างงานผิดพลาด " & vbNewLine & ex.Message) Else _
-                     MsgBox("Job Creation Fault" & vbNewLine & ex.Message)
-                writeerrorLog.writelog("Job Creation Fault", ex.Message, False, "System_Fault")
-                writeerrorLog.writelog("Job Creation Fault", ex.ToString, False, "System_Fault")
+                If thaiLang Then MsgBox("ไม่มีหมายเลขดรัมนี้ " & vbNewLine & ex.Message) Else _
+                    MsgBox("CART BarCode Is Not Valid " & vbNewLine & ex.Message)
+                writeerrorLog.writelog("CART Barcode Error", ex.Message, False, "System_Fault")
+                writeerrorLog.writelog("CART Barcode Error", ex.ToString, False, "System_Fault")
                 Me.txtDrumNum.Clear()
                 Me.txtDrumNum.Focus()
                 Me.txtDrumNum.Refresh()
                 Exit Sub
             End Try
 
-            txtDrumNum.Visible = True
-            txtDrumNum.Focus()
 
-        Else
-            '*************************  CHECK TO SEE IF JOB ALREADY EXISITS IF NOT CREATE JOB
-            LExecQuery("SELECT * FROM POYTrack WHERE POYBCODEDRUM = '" & dbBarcode & "' Order By POYPACKIDX")
+
+            'where to go from here , we need to creat the basic cart data in the database
+            CheckCartExist()   'Check to see if Cart has already been created and if it has ask if you wish to edit
+
+
+        ElseIf My.Settings.chkUsePack Then
+
 
             Try
-                If LRecordCount > 0 Then  'If it exists then 
 
-                    oldPallet()
-                    If traceExists Then
-                        traceExists = 0
-                        frmDGV.DGVdata.ClearSelection()
-                        newJobFlag = 0
-                        cancelRoutine()
-                        Exit Sub
-                    End If
-
-                Else
-                    ' MsgBox("This Drum is not in the system, please scan any Drum already on the Pallet")
-                    If thaiLang Then MsgBox("ดรัมนี้ไม่มีในระบบ กรุณาสแกนดรัมในพาเลท") Else _
-                    MsgBox("This Drum is not in the system, please scan any Drum already on the Pallet")
-                    cancelRoutine()
+                If Not (txtDrumNum.TextLength = 14) Then  ' LENGTH OF BARCODE
+                    'MsgBox("This is not a DRUM number Please RE Scan")
+                    If thaiLang Then MsgBox("หมายเลขนี้ไม่ใช่หมายเลขของดรัม กรุณาสแกนใหม่") Else _
+                        MsgBox("This is not a DRUM number Please RE Scan")
                     Me.txtDrumNum.Clear()
                     Me.txtDrumNum.Focus()
                     Me.txtDrumNum.Refresh()
@@ -403,62 +451,217 @@ Public Class frmJobEntry
                 End If
 
             Catch ex As Exception
-                'MsgBox("Job Find Fault" & vbNewLine & ex.Message)
-                If thaiLang Then MsgBox("พบงานผิดพลาด" & vbNewLine & ex.Message) Else _
-                    MsgBox("Job Find Fault" & vbNewLine & ex.Message)
-                writeerrorLog.writelog("Job Find Fault", ex.Message, False, "System_Fault")
-                writeerrorLog.writelog("Job Find Fault", ex.ToString, False, "System_Fault")
+                If thaiLang Then MsgBox("ไม่มีหมายเลขดรัมนี้ " & vbNewLine & ex.Message) Else _
+                    MsgBox("DRUM BarCode Is Not Valid " & vbNewLine & ex.Message)
+                writeerrorLog.writelog("Drum Barcode Error", ex.Message, False, "System_Fault")
+                writeerrorLog.writelog("Drum Barcode Error", ex.ToString, False, "System_Fault")
                 Me.txtDrumNum.Clear()
                 Me.txtDrumNum.Focus()
                 Me.txtDrumNum.Refresh()
                 Exit Sub
             End Try
-        End If
-
-        txtDrumNum.Visible = True
-            txtDrumNum.Focus()
-        'dbBarcode = ""
 
 
 
+            dbBarcode = txtDrumNum.Text 'actualy this is now the drumbarcode number
 
-        Try
 
-            If newJobFlag = 0 Then  'We are in Old Pallete routine if newjobflag is zero
-                If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYPRNUM").Value) Then
-                    ExistingProd = frmDGV.DGVdata.Rows(0).Cells("POYPRNUM").Value.ToString
-                    If String.Equals(productCode, ExistingProd) = False Then
-                        ' MsgBox("This cart Is for Product # " & productCode.ToString & " And Palette Product Is " & ExistingProd.ToString & " Please check")
-                        If thaiLang Then MsgBox("ดรัมนี้คือโปรดักส์ " & productCode.ToString & " และพาเลทโปรดักส์คือ " & ExistingProd.ToString & " กรุณาตรวจสอบ") Else _
-                    MsgBox("This cart Is for Product # " & productCode.ToString & " And Palette Product Is " & ExistingProd.ToString & " Please check")
+            machineCode = txtDrumNum.Text.Substring(0, 2)
+            productCode = txtDrumNum.Text.Substring(2, 3)
+            year = txtDrumNum.Text.Substring(5, 2)
+            month = txtDrumNum.Text.Substring(7, 2)
+            doffingNum = txtDrumNum.Text.Substring(9, 3)
+            cartNum = txtDrumNum.Text.Substring(12, 2)
+
+            varCartBCode = txtDrumNum
+
+            varMachineCode = machineCode
+            getMCName()
+            varMachineName = machineName
+            varProductCode = productCode
+            varYear = year
+            varMonth = month
+            varDoffingNum = doffingNum
+            varCartNum =
+            varCartSelect = cartSelect
+
+
+
+
+
+
+
+            comBoxDrumPal.Enabled = False
+
+
+
+
+            '*************************  CHECK TO SEE IF JOB ALREADY EXISITS IF NOT CREATE JOB
+            'LExecQuery("SELECT * FROM POYTrack WHERE POYTMPTRACE = '" & dbBarcode & "' Order By POYPACKIDX")
+
+            If newJobFlag Then
+                '*************************  CHECK TO SEE IF JOB ALREADY EXISITS IF NOT CREATE JOB
+                LExecQuery("SELECT * FROM POYTrack WHERE POYBCODEDRUM = '" & dbBarcode & "' Order By POYPACKIDX")
+                Try
+                    If LRecordCount > 0 Then  'If it exists then 
+                        ' MsgBox("This Drum is allready allocated, " & vbCrLf & " Please use the FINISH OLD PALLET Option")
+                        If thaiLang Then MsgBox("หมายเลขดรัมนี้ถูกใช้วางตำแหน่งแล้ว กรุณาใช้ option จบพาเลทเก่า") Else _
+                        MsgBox("This Drum is allready allocated, " & vbCrLf & " Please use the FINISH OLD PALLET Option")
+                        frmDGV.DGVdata.ClearSelection()
+                        newJobFlag = 0
+                        cancelRoutine()
+                        Exit Sub
+
+                    Else
+                        'go and create new pallette
+                        POYPaletteCreate()
+
+                    End If
+
+                Catch ex As Exception
+                    'MsgBox("Job Creation Fault" & vbNewLine & ex.Message)
+                    If thaiLang Then MsgBox("สร้างงานผิดพลาด " & vbNewLine & ex.Message) Else _
+                         MsgBox("Job Creation Fault" & vbNewLine & ex.Message)
+                    writeerrorLog.writelog("Job Creation Fault", ex.Message, False, "System_Fault")
+                    writeerrorLog.writelog("Job Creation Fault", ex.ToString, False, "System_Fault")
+                    Me.txtDrumNum.Clear()
+                    Me.txtDrumNum.Focus()
+                    Me.txtDrumNum.Refresh()
+                    Exit Sub
+                End Try
+
+                txtDrumNum.Visible = True
+                txtDrumNum.Focus()
+
+            Else
+                '*************************  CHECK TO SEE IF JOB ALREADY EXISITS IF NOT CREATE JOB
+                LExecQuery("SELECT * FROM POYTrack WHERE POYBCODEDRUM = '" & dbBarcode & "' Order By POYPACKIDX")
+
+                Try
+                    If LRecordCount > 0 Then  'If it exists then 
+
+                        oldPallet()
+                        If traceExists Then
+                            traceExists = 0
+                            frmDGV.DGVdata.ClearSelection()
+                            newJobFlag = 0
+                            cancelRoutine()
+                            Exit Sub
+                        End If
+
+                    Else
+                        ' MsgBox("This Drum is not in the system, please scan any Drum already on the Pallet")
+                        If thaiLang Then MsgBox("ดรัมนี้ไม่มีในระบบ กรุณาสแกนดรัมในพาเลท") Else _
+                        MsgBox("This Drum is not in the system, please scan any Drum already on the Pallet")
+                        cancelRoutine()
                         Me.txtDrumNum.Clear()
                         Me.txtDrumNum.Focus()
                         Me.txtDrumNum.Refresh()
                         Exit Sub
                     End If
-                End If
+
+                Catch ex As Exception
+                    'MsgBox("Job Find Fault" & vbNewLine & ex.Message)
+                    If thaiLang Then MsgBox("พบงานผิดพลาด" & vbNewLine & ex.Message) Else _
+                        MsgBox("Job Find Fault" & vbNewLine & ex.Message)
+                    writeerrorLog.writelog("Job Find Fault", ex.Message, False, "System_Fault")
+                    writeerrorLog.writelog("Job Find Fault", ex.ToString, False, "System_Fault")
+                    Me.txtDrumNum.Clear()
+                    Me.txtDrumNum.Focus()
+                    Me.txtDrumNum.Refresh()
+                    Exit Sub
+                End Try
             End If
 
+            txtDrumNum.Visible = True
+            txtDrumNum.Focus()
+            'dbBarcode = ""
 
 
+
+
+            Try
+
+                If newJobFlag = 0 Then  'We are in Old Pallete routine if newjobflag is zero
+                    If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYPRNUM").Value) Then
+                        ExistingProd = frmDGV.DGVdata.Rows(0).Cells("POYPRNUM").Value.ToString
+                        If String.Equals(productCode, ExistingProd) = False Then
+                            ' MsgBox("This cart Is for Product # " & productCode.ToString & " And Palette Product Is " & ExistingProd.ToString & " Please check")
+                            If thaiLang Then MsgBox("ดรัมนี้คือโปรดักส์ " & productCode.ToString & " และพาเลทโปรดักส์คือ " & ExistingProd.ToString & " กรุณาตรวจสอบ") Else _
+                        MsgBox("This cart Is for Product # " & productCode.ToString & " And Palette Product Is " & ExistingProd.ToString & " Please check")
+                            Me.txtDrumNum.Clear()
+                            Me.txtDrumNum.Focus()
+                            Me.txtDrumNum.Refresh()
+                            Exit Sub
+                        End If
+                    End If
+                End If
+
+
+
+
+            Catch ex As Exception
+                'MsgBox("Drum BarCode Is Not Valid " & vbNewLine & ex.Message)
+                If thaiLang Then MsgBox("ไม่มีหมายเลขดรัมนี้ " & vbNewLine & ex.Message) Else _
+                    MsgBox("DRUM BarCode Is Not Valid " & vbNewLine & ex.Message)
+                Me.txtDrumNum.Clear()
+                Me.txtDrumNum.Focus()
+                Me.txtDrumNum.Refresh()
+                Exit Sub
+            End Try
+
+
+
+            PackCheck()
+
+        Else
+
+
+        End If
+
+
+
+
+    End Sub
+
+    Private Sub CheckCartExist()
+
+        '*************************  CHECK TO SEE IF JOB ALREADY EXISITS IF NOT CREATE JOB
+        LExecQuery("SELECT * FROM POYTrack WHERE POYBCODECART = '" & dbBarcode & "'")
+
+        Try
+
+            If LRecordCount > 0 Then
+            Dim result = MessageBox.Show("Edit cart Yes or No ?", "Select Yes or No ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+            If result = DialogResult.Yes Then
+
+                'Go to open form for edit
+
+                Me.Hide()
+                    Exit Sub
+                    txtCartNum.Clear()
+                    txtCartNum.Focus()
+                End If
+
+            If result = DialogResult.No Then
+                txtCartNum.Clear()
+                txtCartNum.Focus()
+                Exit Sub
+            End If
+
+        End If
 
         Catch ex As Exception
-            'MsgBox("Drum BarCode Is Not Valid " & vbNewLine & ex.Message)
-            If thaiLang Then MsgBox("ไม่มีหมายเลขดรัมนี้ " & vbNewLine & ex.Message) Else _
-                MsgBox("DRUM BarCode Is Not Valid " & vbNewLine & ex.Message)
-            Me.txtDrumNum.Clear()
-            Me.txtDrumNum.Focus()
-            Me.txtDrumNum.Refresh()
-            Exit Sub
+            If thaiLang Then MsgBox("พบงานผิดพลาด" & vbNewLine & ex.Message) Else _
+                       MsgBox("Job Find Fault" & vbNewLine & ex.Message)
+            writeerrorLog.writelog("Error with SQL", ex.Message, False, "System_Fault")
+            writeerrorLog.writelog("Error with SQL", ex.ToString, False, "System_Fault")
         End Try
 
 
 
-        PackCheck()
-
     End Sub
-
-
 
 
     Public Sub LExecQuery(Query As String)
@@ -958,4 +1161,9 @@ Public Class frmJobEntry
         frmPalletSplit.Show()
     End Sub
 
+
+
+    Private Sub txtCartNum_Click(sender As Object, e As EventArgs) Handles txtCartNum.Click
+        Me.KeyPreview = True  'Allows us to look for advace character from barcode
+    End Sub
 End Class

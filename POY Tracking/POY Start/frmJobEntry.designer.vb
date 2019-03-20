@@ -49,6 +49,8 @@ Partial Class frmJobEntry
         Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DRUMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TraceNumberToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.txtCartNum = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         CType(Me.ToraydbBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Toraydb, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
@@ -198,10 +200,22 @@ Partial Class frmJobEntry
         Me.TraceNumberToolStripMenuItem1.Name = "TraceNumberToolStripMenuItem1"
         resources.ApplyResources(Me.TraceNumberToolStripMenuItem1, "TraceNumberToolStripMenuItem1")
         '
+        'txtCartNum
+        '
+        resources.ApplyResources(Me.txtCartNum, "txtCartNum")
+        Me.txtCartNum.Name = "txtCartNum"
+        '
+        'Label5
+        '
+        resources.ApplyResources(Me.Label5, "Label5")
+        Me.Label5.Name = "Label5"
+        '
         'frmJobEntry
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.txtCartNum)
         Me.Controls.Add(Me.btnOldPallet)
         Me.Controls.Add(Me.btnNewPallet)
         Me.Controls.Add(Me.lblAutoCorrect)
@@ -250,4 +264,6 @@ Partial Class frmJobEntry
     Friend WithEvents DRUMToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TraceNumberToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ChangePalletToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents txtCartNum As TextBox
+    Friend WithEvents Label5 As Label
 End Class

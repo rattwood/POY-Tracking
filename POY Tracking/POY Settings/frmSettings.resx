@@ -274,13 +274,13 @@
     <value>4, 3, 4, 3</value>
   </data>
   <data name="chkUseColour.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 20</value>
+    <value>69, 20</value>
   </data>
   <data name="chkUseColour.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
   </data>
   <data name="chkUseColour.Text" xml:space="preserve">
-    <value>Use POYPacking</value>
+    <value>Spare</value>
   </data>
   <data name="chkUseColour.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -304,22 +304,19 @@
     <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
   </data>
   <data name="chkUseSort.Location" type="System.Drawing.Point, System.Drawing">
-    <value>718, 171</value>
+    <value>387, 105</value>
   </data>
   <data name="chkUseSort.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
   <data name="chkUseSort.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 20</value>
+    <value>118, 20</value>
   </data>
   <data name="chkUseSort.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
   </data>
   <data name="chkUseSort.Text" xml:space="preserve">
-    <value>Use Sort</value>
-  </data>
-  <data name="chkUseSort.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+    <value>Use POYSort</value>
   </data>
   <data name="&gt;&gt;chkUseSort.Name" xml:space="preserve">
     <value>chkUseSort</value>
@@ -340,22 +337,19 @@
     <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
   </data>
   <data name="chkUsePack.Location" type="System.Drawing.Point, System.Drawing">
-    <value>718, 218</value>
+    <value>387, 152</value>
   </data>
   <data name="chkUsePack.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
   <data name="chkUsePack.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 20</value>
+    <value>129, 20</value>
   </data>
   <data name="chkUsePack.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
   </data>
   <data name="chkUsePack.Text" xml:space="preserve">
-    <value>Use Create</value>
-  </data>
-  <data name="chkUsePack.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+    <value>Use POY Pack</value>
   </data>
   <data name="&gt;&gt;chkUsePack.Name" xml:space="preserve">
     <value>chkUsePack</value>
@@ -376,7 +370,7 @@
     <value>Microsoft Sans Serif, 14.25pt, style=Bold</value>
   </data>
   <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>713, 18</value>
+    <value>363, 57</value>
   </data>
   <data name="Label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -981,6 +975,9 @@
   <data name="Label9.Text" xml:space="preserve">
     <value>Barcode Control Chr</value>
   </data>
+  <data name="Label9.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;Label9.Name" xml:space="preserve">
     <value>Label9</value>
   </data>
@@ -1002,6 +999,9 @@
   <data name="txtBoxBarcodectrl.TabIndex" type="System.Int32, mscorlib">
     <value>54</value>
   </data>
+  <data name="txtBoxBarcodectrl.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;txtBoxBarcodectrl.Name" xml:space="preserve">
     <value>txtBoxBarcodectrl</value>
   </data>
@@ -1021,7 +1021,7 @@
     <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
   </data>
   <data name="chkThai.Location" type="System.Drawing.Point, System.Drawing">
-    <value>717, 364</value>
+    <value>840, 389</value>
   </data>
   <data name="chkThai.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -1054,7 +1054,7 @@
     <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
   </data>
   <data name="chkEnglish.Location" type="System.Drawing.Point, System.Drawing">
-    <value>717, 336</value>
+    <value>738, 389</value>
   </data>
   <data name="chkEnglish.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -1087,7 +1087,7 @@
     <value>Microsoft Sans Serif, 14.25pt, style=Bold</value>
   </data>
   <data name="Label10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>713, 295</value>
+    <value>765, 342</value>
   </data>
   <data name="Label10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>

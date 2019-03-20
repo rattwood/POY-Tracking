@@ -177,12 +177,6 @@
     <Compile Include="POY Reports\AUTO Generated Pack Report\frmPackTodayUpdate.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="POY Start\frmPaletteCreate.Designer.vb">
-      <DependentUpon>frmPaletteCreate.vb</DependentUpon>
-    </Compile>
-    <Compile Include="POY Start\frmPaletteCreate.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="POY Settings\frmdbString.designer.vb">
       <DependentUpon>frmdbString.vb</DependentUpon>
     </Compile>
@@ -349,9 +343,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="POY Start\frmJobEntry.th-TH.resx">
       <DependentUpon>frmJobEntry.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="POY Start\frmPaletteCreate.resx">
-      <DependentUpon>frmPaletteCreate.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POY Settings\frmdbString.resx">
       <DependentUpon>frmdbString.vb</DependentUpon>
@@ -599,6 +590,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Reports.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

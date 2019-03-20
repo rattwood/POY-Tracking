@@ -18,6 +18,8 @@
             ApplicationTitle.Text = System.IO.Path.GetFileNameWithoutExtension(My.Application.Info.AssemblyName)
         End If
 
+
+
         'Format the version information using the text set into the Version control at design time as the
         '  formatting string.  This allows for effective localization if desired.
         '  Build and revision information could be included by using the following code and changing the 
@@ -30,6 +32,11 @@
 
         'Copyright info
         Copyright.Text = My.Application.Info.Copyright
+
+        'Set Up correct Screen layout for selected method
+        If My.Settings.chkUseSort = False And My.Settings.chkUsePack = False Then
+            MsgBox("Please check your settings, no work method selected")
+        End If
     End Sub
 
 

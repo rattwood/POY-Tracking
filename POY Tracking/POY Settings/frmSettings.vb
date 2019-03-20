@@ -109,4 +109,6 @@ Public Class frmSettings
     Private Sub chkUseLogs_CheckedChanged(sender As Object, e As EventArgs) Handles chkUseLogs.CheckedChanged
         btnSetSave.Enabled = True
     End Sub
+
+
 End Class
