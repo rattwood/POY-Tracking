@@ -632,25 +632,27 @@ Public Class frmJobEntry
         Try
 
             If LRecordCount > 0 Then
-            Dim result = MessageBox.Show("Edit cart Yes or No ?", "Select Yes or No ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                Dim result = MessageBox.Show("Edit cart Yes or No ?", "Select Yes or No ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
-            If result = DialogResult.Yes Then
+                If result = DialogResult.Yes Then
 
-                'Go to open form for edit
+                    'Go to open form for edit
 
-                Me.Hide()
+                    Me.Hide()
                     Exit Sub
                     txtCartNum.Clear()
                     txtCartNum.Focus()
                 End If
 
-            If result = DialogResult.No Then
-                txtCartNum.Clear()
-                txtCartNum.Focus()
-                Exit Sub
-            End If
+                If result = DialogResult.No Then
+                    txtCartNum.Clear()
+                    txtCartNum.Focus()
+                    Exit Sub
+                End If
+            Else
+                POYCartCreate()     'Create a new cart
 
-        End If
+            End If
 
         Catch ex As Exception
             If thaiLang Then MsgBox("พบงานผิดพลาด" & vbNewLine & ex.Message) Else _
@@ -885,7 +887,7 @@ Public Class frmJobEntry
             If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYWEIGHTCODE").Value) Then
                 varKNum = frmDGV.DGVdata.Rows(0).Cells("POYWEIGHTCODE").Value
             Else
-                varKNum = "K0"
+                varKNum = "K00"
             End If
 
 
@@ -922,7 +924,7 @@ Public Class frmJobEntry
         'Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
 
 
-        Dim fmt As String = "000"
+        Dim fmt As String = "00"   'Only 2 digits
         Dim modIdxNum As String
 
 
@@ -932,18 +934,16 @@ Public Class frmJobEntry
 
             modIdxNum = i.ToString(fmt)
 
-            'moddrumNum = i.ToString(fmt)   ' FORMATS THE drum NUMBER TO 3 DIGITS
-            '  drumBarcode = modLotStr & moddrumNum   'CREATE THE drum BARCODE NUMBER
-            '  JobBarcode = modLotStr
+
 
             'Parameters List for full db
 
             'ADD SQL PARAMETERS & RUN THE COMMAND
-            ' LAddParam("@poymcnum", varMachineCode)
+            LAddParam("@poymcnum", varMachineCode)
             LAddParam("@poyprodnum", productCode)
-            ' LAddParam("@yy", varYear)
-            ' LAddParam("@mm", varMonth)
-            ' LAddParam("@doff", varDoffingNum)
+            LAddParam("@yy", varYear)
+            LAddParam("@mm", varMonth)
+            LAddParam("@doff", varDoffingNum)
             ' LAddParam("@drum", moddrumNum)
             LAddParam("@merge", mergeNum)
             ' LAddParam("@poypackname", "")
@@ -956,11 +956,11 @@ Public Class frmJobEntry
             ' LAddParam("@poystepnum", "0")
             ' LAddParam("@poybcodedrum", "0")
             'LAddParam("@poypalnum", 0)
-            LAddParam("@poypackidx", modIdxNum)
-            LAddParam("@poytmptrace", dbBarcode)
-            LAddParam("@poydrumperpal", drumPerPal)
+            ' LAddParam("@poypackidx", modIdxNum)
+            ' LAddParam("@poytmptrace", dbBarcode)
+            ' LAddParam("@poydrumperpal", drumPerPal)
             LAddParam("@poyprodname", varProductName)
-            LAddParam("@poyprodweight", varProdWeight)
+            ' LAddParam("@poyprodweight", varProdWeight)
             LAddParam("@poyprodgrade", varProdGrade)
 
 
@@ -979,7 +979,7 @@ Public Class frmJobEntry
             'Writes the scanned drum in to DB
             LExecQuery("UPDATE POYTRACK SET POYBCODEDRUM = '" & dbBarcode & "', POYPACKNAME = '" & txtOperator.Text & "', POYPACKDATE = '" & todayTimeDate & "', " _
                        & "POYMCNUM = '" & varMachineCode.ToString & "', POYMCNAME = '" & machineName & "', POYYY = '" & varYear.ToString & "', POYPRMM = '" & varMonth.ToString & "' , " _
-                       & "POYDOFFNUM = '" & varDoffingNum.ToString & "', POYSPINNUM = '" & spinNum.ToString & "', POYDRUMSTATE = '15', POYSTEPNUM = '1' " _
+                       & "POYDOFFNUM = '" & varDoffingNum.ToString & "', POYSPINNUM = '" & spinNum.ToString & "', POYDRUMSTATE = '0' " _
                        & "WHERE POYPACKIDX = '001' and POYTMPTRACE = '" & dbBarcode & "' ")
         Catch ex As Exception
             Me.Cursor = System.Windows.Forms.Cursors.Default
@@ -993,30 +993,98 @@ Public Class frmJobEntry
 
 
 
-        LExecQuery("Select * FROM PoyTrack WHERE POYTMPTRACE = '" & dbBarcode & "' ORDER BY POYPACKIDX")
 
-        Try
-            If LRecordCount > 0 Then
-                frmDGV.DGVdata.DataSource = LDS.Tables(0)
-                frmDGV.DGVdata.Rows(0).Selected = True
-                Dim LCB As SqlCommandBuilder = New SqlCommandBuilder(LDA)
-
-                Me.Cursor = System.Windows.Forms.Cursors.Default
-                Label3.Text = ""
-                Label3.Visible = False
-            End If
-        Catch ex As Exception
-            Me.Cursor = System.Windows.Forms.Cursors.Default
-            ' MsgBox("Job creation Error" & vbNewLine & ex.Message)
-            If thaiLang Then MsgBox("สร้างงานผิดพลาด " & vbNewLine & ex.Message) Else _
-              MsgBox("Job creation Error" & vbNewLine & ex.Message)
-            writeerrorLog.writelog("ExecQuery Error:", ex.Message, False, "System_Fault")
-            writeerrorLog.writelog("ExecQuery Error:", ex.ToString, False, "System_Fault")
-        End Try
 
 
 
     End Sub
+
+    Private Sub POYCartCreate()
+
+        ' RESET QUERY STATISTCIS
+        LRecordCount = 0
+        LException = ""
+        If LConn.State = ConnectionState.Open Then LConn.Close()
+        Dim varProdGrade
+
+
+        LExecQuery("Select * FROM POYPRODUCT WHERE POYPRNUM = '" & productCode & "' ")
+        If LRecordCount > 0 Then
+            frmDGV.DGVdata.DataSource = LDS.Tables(0)
+            frmDGV.DGVdata.Rows(0).Selected = True
+
+            varProductName = frmDGV.DGVdata.Rows(0).Cells("POYPRNAME").Value
+            mergeNum = frmDGV.DGVdata.Rows(0).Cells("POYMERGENUM").Value
+
+            If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYPRODGRADE").Value) Then     'This is the K value which is weight integer
+                varProdGrade = frmDGV.DGVdata.Rows(0).Cells("POYPRODGRADE").Value.ToString
+
+            Else
+                varProdGrade = "N/A"
+            End If
+
+
+
+
+            If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYPRODWEIGHT").Value) Then
+                varProdWeight = frmDGV.DGVdata.Rows(0).Cells("POYPRODWEIGHT").Value
+                varProdWeight = varProdWeight
+            Else
+                varProdWeight = "0.00"
+            End If
+
+            If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYWEIGHTCODE").Value) Then
+                varKNum = frmDGV.DGVdata.Rows(0).Cells("POYWEIGHTCODE").Value
+            Else
+                varKNum = "K00"
+            End If
+
+
+
+
+            If LConn.State = ConnectionState.Open Then LConn.Close()
+
+
+
+
+
+        Else
+            'MsgBox("This product is not in Product table, please check product table in SETTINGS ")
+            If thaiLang Then MsgBox("โปรดักส์นี้ไม่มีในตารางสินค้า กรุณาตรวจสอบตารางสินค้าในการตั้งค่า") Else _
+                MsgBox("This product is not in Product table, please check product table in SETTINGS ")
+            cancelRoutine()
+            Exit Sub
+
+        End If
+
+
+        If thaiLang Then
+            Label3.Text = "สร้างพาเลทใหม่"
+            Label3.Visible = True
+            Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
+        Else
+            Label3.Text = "Creating New Cart"
+            Label3.Visible = True
+            Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
+        End If
+
+        'Label3.Text = "Creating New Pallet"
+        'Label3.Visible = True
+        'Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
+
+
+        Dim fmt As String = "000"
+        Dim modIdxNum As String
+
+
+
+
+
+
+
+
+    End Sub
+
 
 
     ' ADD PARAMS

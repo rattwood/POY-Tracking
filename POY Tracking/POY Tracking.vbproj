@@ -129,6 +129,12 @@
     <Compile Include="frmDGVJobReport.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="POYSort\frmSortCart.Designer.vb">
+      <DependentUpon>frmSortCart.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POYSort\frmSortCart.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -395,6 +401,9 @@
     <EmbeddedResource Include="POY Tools\frmTraceSearch.resx">
       <DependentUpon>frmTraceSearch.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="POYSort\frmSortCart.resx">
+      <DependentUpon>frmSortCart.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="My Project\app.manifest" />
@@ -592,7 +601,7 @@
     <None Include="Resources\Reports.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="NewFolder1\" />
+    <None Include="Resources\NotScan.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
