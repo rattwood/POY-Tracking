@@ -574,7 +574,7 @@
     <value>299, 44</value>
   </data>
   <data name="txtCartNum.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
+    <value>1</value>
   </data>
   <data name="txtCartNum.Visible" type="System.Boolean, mscorlib">
     <value>False</value>

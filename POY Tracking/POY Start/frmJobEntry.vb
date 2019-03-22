@@ -359,61 +359,30 @@ Public Class frmJobEntry
                 varCartNum = CartNum
                 varCartSelect = cartSelect
 
-                Select Case machineCode
+                If txtCartNum.Text.Substring(12, 1) <> "P" Then
+                    MsgBox("The Cart Number is not correct for this machine, Please check Barcode")
 
-                    Case 12, 3, 5, 7
-                        Select Case CartNum
-                            Case "P5", "P6", "P7", "P8"
-                                MsgBox("The Cart Number is not correct for this machine, Please check Barcode")
-                                machineCode = ""
-                                productCode = ""
-                                year = ""
-                                month = ""
-                                doffingNum = ""
-                                CartNum = ""
-                                varCartBCode = ""
-                                varMachineCode = ""
-                                varMachineName = ""
-                                varProductCode = ""
-                                varYear = ""
-                                varMonth = ""
-                                varDoffingNum = ""
-                                varCartNum = ""
-                                varCartSelect = ""
+                    machineCode = ""
+                    productCode = ""
+                    year = ""
+                    month = ""
+                    doffingNum = ""
+                    CartNum = ""
+                    varCartBCode = ""
+                    varMachineCode = ""
+                    varMachineName = ""
+                    varProductCode = ""
+                    varYear = ""
+                    varMonth = ""
+                    varDoffingNum = ""
+                    varCartNum = ""
+                    varCartSelect = ""
 
-                                Me.txtDrumNum.Clear()
-                                Me.txtDrumNum.Focus()
-                                Me.txtDrumNum.Refresh()
-                                Exit Sub
-                        End Select
-
-                    Case 2, 4, 6, 8
-                        Select Case CartNum
-                            Case "P1", "P2", "P3", "P4"
-                                machineCode = ""
-                                productCode = ""
-                                year = ""
-                                month = ""
-                                doffingNum = ""
-                                CartNum = ""
-                                varCartBCode = ""
-                                varMachineCode = ""
-                                varMachineName = ""
-                                varProductCode = ""
-                                varYear = ""
-                                varMonth = ""
-                                varDoffingNum = ""
-                                varCartNum = ""
-                                varCartSelect = ""
-                                Exit Sub
-
-                                Me.txtDrumNum.Clear()
-                                Me.txtDrumNum.Focus()
-                                Me.txtDrumNum.Refresh()
-                        End Select
-
-
-                End Select
+                    Me.txtDrumNum.Clear()
+                    Me.txtDrumNum.Focus()
+                    Me.txtDrumNum.Refresh()
+                    Exit Sub
+                End If
 
 
 
@@ -627,7 +596,7 @@ Public Class frmJobEntry
     Private Sub CheckCartExist()
 
         '*************************  CHECK TO SEE IF JOB ALREADY EXISITS IF NOT CREATE JOB
-        LExecQuery("SELECT * FROM POYTrack WHERE POYBCODECART = '" & dbBarcode & "'")
+        LExecQuery("SELECT * FROM POYTrack WHERE POYBCODECART = '" & dbBarcode & "'  ORDER BY CREATECARTIDX")
 
         Try
 
@@ -636,9 +605,15 @@ Public Class frmJobEntry
 
                 If result = DialogResult.Yes Then
 
-                    'Go to open form for edit
+                    LExecQuery("SELECT * FROM POYTrack WHERE POYBCODECART = '" & dbBarcode & "'  ORDER BY CREATECARTIDX")
+                    frmDGV.DGVdata.DataSource = LDS.Tables(0)
+                    frmDGV.DGVdata.Rows(0).Selected = True
+                    Dim LCB As SqlCommandBuilder = New SqlCommandBuilder(LDA)
+
 
                     Me.Hide()
+                    frmSortCart.Show()
+
                     Exit Sub
                     txtCartNum.Clear()
                     txtCartNum.Focus()
@@ -651,6 +626,22 @@ Public Class frmJobEntry
                 End If
             Else
                 POYCartCreate()     'Create a new cart
+
+
+                LExecQuery("SELECT * FROM POYTrack WHERE POYBCODECART = '" & dbBarcode & "'  ORDER BY CREATECARTIDX")
+                frmDGV.DGVdata.DataSource = LDS.Tables(0)
+                frmDGV.DGVdata.Rows(0).Selected = True
+                Dim LCB As SqlCommandBuilder = New SqlCommandBuilder(LDA)
+
+                Me.Hide()
+                frmSortCart.Show()
+
+
+                Exit Sub
+                txtCartNum.Clear()
+                txtCartNum.Focus()
+
+
 
             End If
 
@@ -1007,55 +998,58 @@ Public Class frmJobEntry
         If LConn.State = ConnectionState.Open Then LConn.Close()
         Dim varProdGrade
 
-
+        'GET PRODUCT GRADE FOR JOB
         LExecQuery("Select * FROM POYPRODUCT WHERE POYPRNUM = '" & productCode & "' ")
-        If LRecordCount > 0 Then
-            frmDGV.DGVdata.DataSource = LDS.Tables(0)
-            frmDGV.DGVdata.Rows(0).Selected = True
 
-            varProductName = frmDGV.DGVdata.Rows(0).Cells("POYPRNAME").Value
-            mergeNum = frmDGV.DGVdata.Rows(0).Cells("POYMERGENUM").Value
+        Try
 
-            If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYPRODGRADE").Value) Then     'This is the K value which is weight integer
-                varProdGrade = frmDGV.DGVdata.Rows(0).Cells("POYPRODGRADE").Value.ToString
+            If LRecordCount > 0 Then
+                frmDGV.DGVdata.DataSource = LDS.Tables(0)
+                frmDGV.DGVdata.Rows(0).Selected = True
+
+                varProductName = frmDGV.DGVdata.Rows(0).Cells("POYPRNAME").Value
+                mergeNum = frmDGV.DGVdata.Rows(0).Cells("POYMERGENUM").Value
+
+                If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYPRODGRADE").Value) Then     'This is the K value which is weight integer
+                    varProdGrade = frmDGV.DGVdata.Rows(0).Cells("POYPRODGRADE").Value.ToString
+
+                Else
+                    varProdGrade = "N/A"
+                End If
+
+                'GET PRODUCT WEIGHT FOR JOB
+
+                If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYPRODWEIGHT").Value) Then
+                    varProdWeight = frmDGV.DGVdata.Rows(0).Cells("POYPRODWEIGHT").Value
+                    varProdWeight = varProdWeight
+                Else
+                    varProdWeight = "0.00"
+                End If
+
+                If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYWEIGHTCODE").Value) Then
+                    varKNum = frmDGV.DGVdata.Rows(0).Cells("POYWEIGHTCODE").Value
+                Else
+                    varKNum = "K00"
+                End If
+
+                If LConn.State = ConnectionState.Open Then LConn.Close()
 
             Else
-                varProdGrade = "N/A"
+                'MsgBox("This product is not in Product table, please check product table in SETTINGS ")
+                If thaiLang Then MsgBox("โปรดักส์นี้ไม่มีในตารางสินค้า กรุณาตรวจสอบตารางสินค้าในการตั้งค่า") Else _
+                    MsgBox("This product is not in Product table, please check product table in SETTINGS ")
+                cancelRoutine()
+                Exit Sub
+
             End If
 
+        Catch ex As Exception
+            If thaiLang Then MsgBox("อัพเดทงานผิดพลาด " & vbNewLine & ex.Message) Else _
+             MsgBox("Job Update Error" & vbNewLine & ex.Message)
+            writeerrorLog.writelog("ExecQuery Error:", ex.Message, False, "System_Fault")
+            writeerrorLog.writelog("ExecQuery Error:", ex.ToString, False, "System_Fault")
+        End Try
 
-
-
-            If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYPRODWEIGHT").Value) Then
-                varProdWeight = frmDGV.DGVdata.Rows(0).Cells("POYPRODWEIGHT").Value
-                varProdWeight = varProdWeight
-            Else
-                varProdWeight = "0.00"
-            End If
-
-            If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYWEIGHTCODE").Value) Then
-                varKNum = frmDGV.DGVdata.Rows(0).Cells("POYWEIGHTCODE").Value
-            Else
-                varKNum = "K00"
-            End If
-
-
-
-
-            If LConn.State = ConnectionState.Open Then LConn.Close()
-
-
-
-
-
-        Else
-            'MsgBox("This product is not in Product table, please check product table in SETTINGS ")
-            If thaiLang Then MsgBox("โปรดักส์นี้ไม่มีในตารางสินค้า กรุณาตรวจสอบตารางสินค้าในการตั้งค่า") Else _
-                MsgBox("This product is not in Product table, please check product table in SETTINGS ")
-            cancelRoutine()
-            Exit Sub
-
-        End If
 
 
         If thaiLang Then
@@ -1068,19 +1062,314 @@ Public Class frmJobEntry
             Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
         End If
 
-        'Label3.Text = "Creating New Pallet"
-        'Label3.Visible = True
-        'Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
-
-
-        Dim fmt As String = "000"
-        Dim modIdxNum As String
 
 
 
+        Dim fmt As String = "00"   'Only 2 digits
+        Dim modDrumIdx As String
+        Dim drumNum As String
+        Dim moddrumBarcode As String
+        Dim drumBarcode As String
+
+        moddrumBarcode = txtCartNum.Text.Substring(0, 12) 'gets the barcode less cart number
+
+        Dim cartA As String
+        Dim CartB As String
+        Dim poycartname As String
+
+        For i As Integer = 1 To 16
+
+            modDrumIdx = i.ToString(fmt)
 
 
 
+            Select Case CartNum
+
+                Case "P1", "P2"
+                    cartA = "P1"
+                    CartB = "P2"
+                    Select Case modDrumIdx
+
+                        Case "01"
+                            drumNum = "01"
+                            poycartname = cartA
+                        Case "02"
+                            drumNum = "02"
+                            poycartname = cartA
+                        Case "03"
+                            drumNum = "03"
+                            poycartname = cartA
+                        Case "04"
+                            drumNum = "04"
+                            poycartname = cartA
+                        Case "05"
+                            drumNum = "09"
+                            poycartname = cartA
+                        Case "06"
+                            drumNum = "10"
+                            poycartname = cartA
+                        Case "07"
+                            drumNum = "11"
+                            poycartname = cartA
+                        Case "08"
+                            drumNum = "12"
+                            poycartname = cartA
+                        Case "09"
+                            drumNum = "17"
+                            poycartname = CartB
+                        Case "10"
+                            drumNum = "18"
+                            poycartname = CartB
+                        Case "11"
+                            drumNum = "19"
+                            poycartname = CartB
+                        Case "12"
+                            drumNum = "20"
+                            poycartname = CartB
+                        Case "13"
+                            drumNum = "25"
+                            poycartname = CartB
+                        Case "14"
+                            drumNum = "26"
+                            poycartname = CartB
+                        Case "15"
+                            drumNum = "27"
+                            poycartname = CartB
+                        Case "16"
+                            drumNum = "28"
+                            poycartname = CartB
+                    End Select
+
+                Case "P3", "P4"
+                    cartA = "P3"
+                    CartB = "P4"
+                    Select Case modDrumIdx
+                        Case "01"
+                            drumNum = "05"
+                            poycartname = cartA
+                        Case "02"
+                            drumNum = "06"
+                            poycartname = cartA
+                        Case "03"
+                            drumNum = "07"
+                            poycartname = cartA
+                        Case "04"
+                            drumNum = "08"
+                            poycartname = cartA
+                        Case "05"
+                            drumNum = "13"
+                            poycartname = cartA
+                        Case "06"
+                            drumNum = "14"
+                            poycartname = cartA
+                        Case "07"
+                            drumNum = "15"
+                            poycartname = cartA
+                        Case "08"
+                            drumNum = "16"
+                            poycartname = cartA
+                        Case "09"
+                            drumNum = "21"
+                            poycartname = CartB
+                        Case "10"
+                            drumNum = "22"
+                            poycartname = CartB
+                        Case "11"
+                            drumNum = "23"
+                            poycartname = CartB
+                        Case "12"
+                            drumNum = "24"
+                            poycartname = CartB
+                        Case "13"
+                            drumNum = "29"
+                            poycartname = CartB
+                        Case "14"
+                            drumNum = "30"
+                            poycartname = CartB
+                        Case "15"
+                            drumNum = "31"
+                            poycartname = CartB
+                        Case "16"
+                            drumNum = "32"
+                            poycartname = CartB
+                    End Select
+
+                Case "P5", "P6"
+                    cartA = "P5"
+                    CartB = "P6"
+                    Select Case modDrumIdx
+                        Case "01"
+                            drumNum = "33"
+                            poycartname = cartA
+                        Case "02"
+                            drumNum = "34"
+                            poycartname = cartA
+                        Case "03"
+                            drumNum = "35"
+                            poycartname = cartA
+                        Case "04"
+                            drumNum = "36"
+                            poycartname = cartA
+                        Case "05"
+                            drumNum = "41"
+                            poycartname = cartA
+                        Case "06"
+                            drumNum = "42"
+                            poycartname = cartA
+                        Case "07"
+                            drumNum = "43"
+                            poycartname = cartA
+                        Case "08"
+                            drumNum = "44"
+                            poycartname = cartA
+                        Case "09"
+                            drumNum = "49"
+                            poycartname = CartB
+                        Case "10"
+                            drumNum = "50"
+                            poycartname = CartB
+                        Case "11"
+                            drumNum = "51"
+                            poycartname = CartB
+                        Case "12"
+                            drumNum = "52"
+                            poycartname = CartB
+                        Case "13"
+                            drumNum = "57"
+                            poycartname = CartB
+                        Case "14"
+                            drumNum = "58"
+                            poycartname = CartB
+                        Case "15"
+                            drumNum = "59"
+                            poycartname = CartB
+                        Case "16"
+                            drumNum = "60"
+                            poycartname = CartB
+                    End Select
+
+                Case "P7", "P8"
+                    cartA = "P7"
+                    CartB = "P8"
+                    Select Case modDrumIdx
+                        Case "01"
+                            drumNum = "37"
+                            poycartname = cartA
+                        Case "02"
+                            drumNum = "38"
+                            poycartname = cartA
+                        Case "03"
+                            drumNum = "39"
+                            poycartname = cartA
+                        Case "04"
+                            drumNum = "40"
+                            poycartname = cartA
+                        Case "05"
+                            drumNum = "45"
+                            poycartname = cartA
+                        Case "06"
+                            drumNum = "46"
+                            poycartname = cartA
+                        Case "07"
+                            drumNum = "47"
+                            poycartname = cartA
+                        Case "08"
+                            drumNum = "48"
+                            poycartname = cartA
+                        Case "09"
+                            drumNum = "53"
+                            poycartname = CartB
+                        Case "10"
+                            drumNum = "54"
+                            poycartname = CartB
+                        Case "11"
+                            drumNum = "55"
+                            poycartname = CartB
+                        Case "12"
+                            drumNum = "56"
+                            poycartname = CartB
+                        Case "13"
+                            drumNum = "61"
+                            poycartname = CartB
+                        Case "14"
+                            drumNum = "62"
+                            poycartname = CartB
+                        Case "15"
+                            drumNum = "63"
+                            poycartname = CartB
+                        Case "16"
+                            drumNum = "64"
+                            poycartname = CartB
+                    End Select
+
+            End Select
+
+
+            drumBarcode = moddrumBarcode & drumNum
+
+            todayTimeDate = time.ToString(dateFormat)
+
+
+            'Parameters List for full db
+
+            'ADD SQL PARAMETERS & RUN THE COMMAND
+            LAddParam("@poymcnum", varMachineCode)
+            LAddParam("@poymcname", varMachineName)
+            LAddParam("@poyprodnum", productCode)
+            LAddParam("@yy", varYear)
+            LAddParam("@mm", varMonth)
+            LAddParam("@doff", varDoffingNum)
+            LAddParam("@poyspinnum", drumNum)
+            LAddParam("@merge", mergeNum)
+            LAddParam("@poydrumstate", "0")
+            LAddParam("@poyprodname", varProductName)
+            LAddParam("@poybcodeDrum", drumBarcode)
+            LAddParam("@poyprodweight", varKNum)
+            LAddParam("@poyprodgrade", varProdGrade)
+            LAddParam("@poysorttm", todayTimeDate)
+            LAddParam("@poysortname", varUserName)
+            LAddParam("@poybcodecart", dbBarcode)
+            LAddParam("@poycreateidx", modDrumIdx)
+            LAddParam("@poycartname", poycartname)
+            LAddParam("@fdab", "False")
+            LAddParam("@ffg", "False")
+            LAddParam("@fo", "False")
+            LAddParam("@fsl", "False")
+            LAddParam("@fpts", "False")
+            LAddParam("@fptb", "False")
+            LAddParam("@fyab", "False")
+            LAddParam("@fcab", "False")
+            LAddParam("@frw", "False")
+            LAddParam("@fpab", "False")
+            LAddParam("@fdo", "False")
+            LAddParam("@fcnc", "False")
+            LAddParam("@fh", "False")
+            LAddParam("@fcbc", "False")
+            LAddParam("@fshort", "False")
+            LAddParam("@fMissing", "False")
+
+
+
+
+            LExecQuery("INSERT INTO POYTrack (POYMCNUM,POYMCNAME,POYPRNUM,POYYY,POYPRMM,POYDOFFNUM,POYSPINNUM,POYMERGENUM,POYDRUMSTATE,POYPRODNAME,POYBCODEDRUM, " _
+                       & "POYPRODWEIGHT,POYPRODGRADE,POYSORTSTART,POYSORTNAME,POYBCODECART,CREATECARTIDX,POYCARTNAME, " _
+                       & " FLT_DAB,FLT_FG,FLT_O,FLT_SL, FLT_PTS,FLT_PTB,FLT_YAB,FLT_CAB,FLT_RW,FLT_PAB,FLT_DO,FLT_CNC,FLT_H,FLT_CBC,FLT_S,FLT_X) " _
+                       & "VALUES (@poymcnum,@poymcname,@poyprodnum,@yy,@mm,@doff,@poyspinnum,@merge,@poydrumstate,@poyprodname,@poybcodeDrum,@poyprodweight,@poyprodgrade,@poysorttm,@poysortname, " _
+                       & "@poybcodecart,@poycreateidx,@poycartname, " _
+                       & "@fdab,@ffg,@fo,@fsl,@fpts,@fptb,@fyab,@fcab,@frw,@fpab,@fdo,@fcnc,@fh,@fcbc,@fshort,@fmissing)")
+
+
+
+
+
+
+
+
+
+
+
+
+        Next
 
 
     End Sub
@@ -1092,12 +1381,6 @@ Public Class frmJobEntry
         Dim NewParam As New SqlParameter(Name, Value)
         LParams.Add(NewParam)
     End Sub
-
-
-    'Private Sub btnSettings_Click_1(sender As Object, e As EventArgs)
-    '    frmPassword.Show()
-    'End Sub
-
 
 
 

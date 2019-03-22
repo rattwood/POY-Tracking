@@ -603,5 +603,20 @@
   <ItemGroup>
     <None Include="Resources\NotScan.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DefectStrip.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ShortDrum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ShortWithDefect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DefectDrum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MissingDrum.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
