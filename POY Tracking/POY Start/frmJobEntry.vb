@@ -1008,7 +1008,28 @@ Public Class frmJobEntry
 
         End Try
 
-         Me.Cursor = System.Windows.Forms.Cursors.Default
+
+
+        LExecQuery("Select * FROM PoyTrack WHERE POYTMPTRACE = '" & dbBarcode & "' ORDER BY POYPACKIDX")
+
+        Try
+            If LRecordCount > 0 Then
+                frmDGV.DGVdata.DataSource = LDS.Tables(0)
+                frmDGV.DGVdata.Rows(0).Selected = True
+                Dim LCB As SqlCommandBuilder = New SqlCommandBuilder(LDA)
+
+                Me.Cursor = System.Windows.Forms.Cursors.Default
+                Label3.Text = ""
+                Label3.Visible = False
+            End If
+        Catch ex As Exception
+            Me.Cursor = System.Windows.Forms.Cursors.Default
+            ' MsgBox("Job creation Error" & vbNewLine & ex.Message)
+            If thaiLang Then MsgBox("สร้างงานผิดพลาด " & vbNewLine & ex.Message) Else _
+              MsgBox("Job creation Error" & vbNewLine & ex.Message)
+            writeerrorLog.writelog("ExecQuery Error:", ex.Message, False, "System_Fault")
+            writeerrorLog.writelog("ExecQuery Error:", ex.ToString, False, "System_Fault")
+        End Try
 
 
 
