@@ -577,7 +577,7 @@ Public Class frmJobEntry
 
             PackCheck()
 
-        Else
+
 
 
         End If
