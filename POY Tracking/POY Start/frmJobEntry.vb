@@ -904,7 +904,7 @@ Public Class frmJobEntry
             If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYWEIGHTCODE").Value) Then
                 varKNum = frmDGV.DGVdata.Rows(0).Cells("POYWEIGHTCODE").Value
             Else
-                varKNum = "K00"
+                varKNum = "K0"
             End If
 
 
@@ -926,7 +926,6 @@ Public Class frmJobEntry
         End If
 
 
-
         If thaiLang Then
             Label3.Text = "สร้างพาเลทใหม่"
             Label3.Visible = True
@@ -942,7 +941,7 @@ Public Class frmJobEntry
         'Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
 
 
-        Dim fmt As String = "00"   'Only 2 digits
+        Dim fmt As String = "000"
         Dim modIdxNum As String
 
 
@@ -952,16 +951,18 @@ Public Class frmJobEntry
 
             modIdxNum = i.ToString(fmt)
 
-
+            'moddrumNum = i.ToString(fmt)   ' FORMATS THE drum NUMBER TO 3 DIGITS
+            '  drumBarcode = modLotStr & moddrumNum   'CREATE THE drum BARCODE NUMBER
+            '  JobBarcode = modLotStr
 
             'Parameters List for full db
 
             'ADD SQL PARAMETERS & RUN THE COMMAND
-            LAddParam("@poymcnum", varMachineCode)
+            ' LAddParam("@poymcnum", varMachineCode)
             LAddParam("@poyprodnum", productCode)
-            LAddParam("@yy", varYear)
-            LAddParam("@mm", varMonth)
-            LAddParam("@doff", varDoffingNum)
+            ' LAddParam("@yy", varYear)
+            ' LAddParam("@mm", varMonth)
+            ' LAddParam("@doff", varDoffingNum)
             ' LAddParam("@drum", moddrumNum)
             LAddParam("@merge", mergeNum)
             ' LAddParam("@poypackname", "")
@@ -997,7 +998,7 @@ Public Class frmJobEntry
             'Writes the scanned drum in to DB
             LExecQuery("UPDATE POYTRACK SET POYBCODEDRUM = '" & dbBarcode & "', POYPACKNAME = '" & txtOperator.Text & "', POYPACKDATE = '" & todayTimeDate & "', " _
                        & "POYMCNUM = '" & varMachineCode.ToString & "', POYMCNAME = '" & machineName & "', POYYY = '" & varYear.ToString & "', POYPRMM = '" & varMonth.ToString & "' , " _
-                       & "POYDOFFNUM = '" & varDoffingNum.ToString & "', POYSPINNUM = '" & spinNum.ToString & "', POYDRUMSTATE = '0' " _
+                       & "POYDOFFNUM = '" & varDoffingNum.ToString & "', POYSPINNUM = '" & spinNum.ToString & "', POYDRUMSTATE = '15', POYSTEPNUM = '1' " _
                        & "WHERE POYPACKIDX = '001' and POYTMPTRACE = '" & dbBarcode & "' ")
         Catch ex As Exception
             Me.Cursor = System.Windows.Forms.Cursors.Default
@@ -1007,6 +1008,7 @@ Public Class frmJobEntry
             writeerrorLog.writelog("ExecQuery Error:", ex.ToString, False, "System_Fault")
 
         End Try
+
 
 
 
