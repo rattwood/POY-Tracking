@@ -51,6 +51,10 @@ Partial Class frmJobEntry
         Me.TraceNumberToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.txtCartNum = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         CType(Me.ToraydbBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Toraydb, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
@@ -168,7 +172,7 @@ Partial Class frmJobEntry
         '
         'ToolsToolStripMenuItem
         '
-        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditPalletToolStripMenuItem, Me.ChangePalletToolStripMenuItem})
+        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator1, Me.EditPalletToolStripMenuItem, Me.ToolStripSeparator2, Me.ChangePalletToolStripMenuItem})
         Me.ToolsToolStripMenuItem.Image = Global.POY_Tracking.My.Resources.Resources.Tools
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
         resources.ApplyResources(Me.ToolsToolStripMenuItem, "ToolsToolStripMenuItem")
@@ -185,7 +189,7 @@ Partial Class frmJobEntry
         '
         'SearchToolStripMenuItem
         '
-        Me.SearchToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DRUMToolStripMenuItem, Me.TraceNumberToolStripMenuItem1})
+        Me.SearchToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator3, Me.DRUMToolStripMenuItem, Me.ToolStripSeparator4, Me.TraceNumberToolStripMenuItem1})
         Me.SearchToolStripMenuItem.Image = Global.POY_Tracking.My.Resources.Resources.Search
         Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
         resources.ApplyResources(Me.SearchToolStripMenuItem, "SearchToolStripMenuItem")
@@ -209,6 +213,26 @@ Partial Class frmJobEntry
         '
         resources.ApplyResources(Me.Label5, "Label5")
         Me.Label5.Name = "Label5"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        resources.ApplyResources(Me.ToolStripSeparator1, "ToolStripSeparator1")
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        resources.ApplyResources(Me.ToolStripSeparator2, "ToolStripSeparator2")
+        '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        resources.ApplyResources(Me.ToolStripSeparator3, "ToolStripSeparator3")
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        resources.ApplyResources(Me.ToolStripSeparator4, "ToolStripSeparator4")
         '
         'frmJobEntry
         '
@@ -266,4 +290,8 @@ Partial Class frmJobEntry
     Friend WithEvents ChangePalletToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents txtCartNum As TextBox
     Friend WithEvents Label5 As Label
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
+    Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
+    Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
 End Class

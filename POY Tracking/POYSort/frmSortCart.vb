@@ -55,7 +55,7 @@ Public Class frmSortCart
         UpdateDrumVal()
 
         'Update screen Header
-        Me.txtCartNum.Text = frmJobEntry.cartSelect
+        Me.txtCartNum.Text = frmJobEntry.varCartNum
         Me.lblMcNum.Text = frmDGV.DGVdata.Rows(0).Cells("POYMCNAME").Value.ToString
         lblProdName.Text = frmDGV.DGVdata.Rows(0).Cells("POYPRODNAME").Value.ToString
         lblTFNum.Text = frmDGV.DGVdata.Rows(0).Cells("POYMERGENUM").Value.ToString
@@ -130,18 +130,21 @@ Public Class frmSortCart
             If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYSHORTDRUM").Value) Then
                 cellVal = frmDGV.DGVdata.Rows(rw - 1).Cells("POYSHORTDRUM").Value.ToString
                 If cellVal > 0 Then
-                    If IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYDEFDRUM").Value) Then
-                        Me.Controls("btn" & rw).BackgroundImage = My.Resources.ShortDrum
-                        Me.Controls("btn" & rw).Enabled = True
-                        shortC(rw) = 1
-                    Else
-                        Me.Controls("btn" & rw).BackgroundImage = My.Resources.ShortWithDefect
-                        Me.Controls("btn" & rw).Enabled = True
-                        shortC(rw) = 1
-                    End If
+
+                    Me.Controls("btn" & rw).BackgroundImage = My.Resources.ShortDrum
+                    Me.Controls("btn" & rw).Enabled = True
+                    shortC(rw) = 1
 
 
-                    cellVal = Nothing
+                    If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYDEFDRUM").Value) Then
+                            If frmDGV.DGVdata.Rows(rw - 1).Cells("POYDEFDRUM").Value > 0 Then
+                                Me.Controls("btn" & rw).BackgroundImage = My.Resources.ShortWithDefect
+                                Me.Controls("btn" & rw).Enabled = True
+                                shortC(rw) = 1
+                            End If
+                        End If
+
+                        cellVal = Nothing
 
                 End If
             End If
@@ -164,10 +167,13 @@ Public Class frmSortCart
                 cellVal = frmDGV.DGVdata.Rows(rw - 1).Cells("POYDEFDRUM").Value.ToString
 
                 If cellVal > 0 Then
-                    If IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYSHORTDRUM").Value) Then
-                        Me.Controls("btn" & rw).BackgroundImage = My.Resources.DefectDrum
-                    Else
-                        Me.Controls("btn" & rw).BackgroundImage = My.Resources.ShortWithDefect
+
+                    Me.Controls("btn" & rw).BackgroundImage = My.Resources.DefectDrum
+
+                    If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYSHORTDRUM").Value) Then
+                        If frmDGV.DGVdata.Rows(rw - 1).Cells("POYSHORTDRUM").Value > 0 Then
+                            Me.Controls("btn" & rw).BackgroundImage = My.Resources.ShortWithDefect
+                        End If
                     End If
 
                     cellVal = Nothing
@@ -343,19 +349,11 @@ Public Class frmSortCart
 
 
             If frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value = bcodeScan And frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value = 0 Then
-                'curDRUM = frmDGV.DGVdata.Rows(i - 1).Cells("DRUMNUM").Value
-                Me.Controls("btn" & i.ToString).BackColor = Color.LightGreen     'DRUM HAS BEEN SCANNED IN
+
+                Me.Controls("btn" & i.ToString).BackgroundImage = My.Resources.Have_Drum  'DRUM HAS BEEN SCANNED IN
                 frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value = 1
                 frmDGV.DGVdata.Rows(i - 1).Cells("POYSORTNAME").Value = frmJobEntry.SortOP
-                'frmDGV.DGVdata.Rows(i - 1).Cells("OPNAME").Value = frmJobEntry.SortOP
-                'frmDGV.DGVdata.Rows(i - 1).Cells("CARTENDTM").Value = Today
 
-                'CHECK TO SEE IF DATE ALREADY SET FOR END TIME
-                'If IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("CARTCREATEENDTM").Value) Then
-
-                '    frmDGV.DGVdata.Rows(i - 1).Cells("CARTCREATEENDTM").Value = todayTimeDate  'CART CREATE END TIME.
-
-                'End If
 
 
                 allocatedCount = allocatedCount + 1
@@ -499,7 +497,7 @@ Public Class frmSortCart
 
             defect = 1
             Me.Controls("btn" & varDRUMNum).BackgroundImage = My.Resources.DefectDrum     'Yellow Strip
-            'Me.btnDefect.BackColor = Color.Yellow
+
             Me.btnDefectSave.Visible = True 'Show Save button when form opens
             Me.btnClear.Visible = True  'Show Cancel button when form opens
             Me.btnDefect.Enabled = False
@@ -573,58 +571,60 @@ Public Class frmSortCart
                 If result2 = DialogResult.Yes Then
                     'ERASE DRUM VALUES
 
-                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYSHORTDRUM").Value = Nothing  'POYSHORTDRUM
+                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYSHORTDRUM").Value = Nothing 'POYSHORTDRUM
 
-                    If frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYMISSDRUM").Value > 0 Then
-                        frmDGV.DGVdata.Rows((varDRUMNum - 1) - DRUMNumOffset).Cells("POYMISSDRUM").Value = Nothing
+                    If Not IsDBNull(frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYMISSDRUM").Value) Then
+                        If frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYMISSDRUM").Value > 0 Then
+                            frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYMISSDRUM").Value = "False"
+                        End If
                     End If
 
-                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYMISSDRUM").Value = Nothing 'missingDRUM
-                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYDEFDRUM").Value = Nothing 'defectDRUM
+                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYMISSDRUM").Value = "False" 'missingDRUM
+                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYDEFDRUM").Value = "False" 'defectDRUM
                     frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYDRUMSTATE").Value = 0
-                    'FAULTS FROM POY-DTY Dept
-                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_DAB").Value = "False"   'KEBA Fault  TODO
-                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_FG").Value = "False"  'DIRTY Fault  TODO
-                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_O").Value = "False"     'FORM AB Fault  TODO
-                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_SL").Value = "False"     'OVERTHROWN Fault  TODO
-                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_PTS").Value = "False"    'TENSION AB. Fault  TODO
-                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_PTB").Value = "False"    'PAPER TUBE AB. Fault  TODO
-                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_YAB").Value = "False"          'SHORT Drum Fault  TODO
-                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_CAB").Value = "False"          'No HAVE Drum Fault  TODO
-                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_RW").Value = "False"     'NO TAIL & ABNORMAL Fault  TODO
-                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_PAB").Value = "False"   'WASTE Fault  TODO
-                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_DO").Value = "False"    'HITTING Fault  TODO
-                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_CNC").Value = "False"    'TARUMI Fault  TODO
-                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_H").Value = "False"    'B- GRADE BY M/C  Fault   TODO
-                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_CBC").Value = "False"    'C- GRADE BY M/C  Fault  TODO
+                        'FAULTS FROM POY-DTY Dept
+                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_DAB").Value = "False"   'KEBA Fault  TODO
+                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_FG").Value = "False"  'DIRTY Fault  TODO
+                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_O").Value = "False"     'FORM AB Fault  TODO
+                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_SL").Value = "False"     'OVERTHROWN Fault  TODO
+                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_PTS").Value = "False"    'TENSION AB. Fault  TODO
+                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_PTB").Value = "False"    'PAPER TUBE AB. Fault  TODO
+                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_YAB").Value = "False"          'SHORT Drum Fault  TODO
+                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_CAB").Value = "False"          'No HAVE Drum Fault  TODO
+                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_RW").Value = "False"     'NO TAIL & ABNORMAL Fault  TODO
+                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_PAB").Value = "False"   'WASTE Fault  TODO
+                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_DO").Value = "False"    'HITTING Fault  TODO
+                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_CNC").Value = "False"    'TARUMI Fault  TODO
+                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_H").Value = "False"    'B- GRADE BY M/C  Fault   TODO
+                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_CBC").Value = "False"    'C- GRADE BY M/C  Fault  TODO
 
 
 
-                    shortC(varDRUMNum) = Nothing
-                    Me.Controls("btn" & varDRUMNum).BackColor = SystemColors.ControlDark
-                    Me.Controls("btn" & varDRUMNum).BackgroundImage = My.Resources.NotScan
+                        shortC(varDRUMNum) = Nothing
+                        ' Me.Controls("btn" & varDRUMNum).BackColor = SystemColors.ControlDark
+                        Me.Controls("btn" & varDRUMNum).BackgroundImage = My.Resources.NotScan
 
-                    'Reduce allocated by 1 and increase to allocate by 1
-                    If allocatedCount > 0 Then allocatedCount = allocatedCount - 1
-                    txtScannedDrums.Text = allocatedCount 'SHOW COUNT ON SCREEN
-
-
-                    UpdateDrumVal()
+                        'Reduce allocated by 1 and increase to allocate by 1
+                        If allocatedCount > 0 Then allocatedCount = allocatedCount - 1
+                        txtScannedDrums.Text = allocatedCount 'SHOW COUNT ON SCREEN
 
 
-                    varDRUMNum = Nothing
-                    txtDrumNum.Text = ""
+                        UpdateDrumVal()
+
+
+                        varDRUMNum = Nothing
+                        txtDrumNum.Text = ""
 
 
 
-                    btnUnlock.Text = "UNLOCK OFF"
-                    btnUnlock.ForeColor = Color.Red
-                    btnDelete.Visible = False
-                    reFocus()
-                    Exit Sub
-                End If
+                        btnUnlock.Text = "UNLOCK OFF"
+                        btnUnlock.ForeColor = Color.Red
+                        btnDelete.Visible = False
+                        reFocus()
+                        Exit Sub
+                    End If
 
-                If result2 = DialogResult.No Then
+                    If result2 = DialogResult.No Then
                     varDRUMNum = Nothing
                     txtDrumNum.Text = ""
                     reFocus()
@@ -1401,13 +1401,7 @@ Public Class frmSortCart
             MsgBox("Update Error: " & vbNewLine & ex.Message)
         End Try
 
-        'Dim coneref
 
-        'For rows = 1 To frmDGV.DGVdata.Rows.Count
-
-        '    coneref = frmDGV.DGVdata.Rows(rows - 1).Cells("BCODECONE").Value
-
-        'Next
     End Sub
 
 

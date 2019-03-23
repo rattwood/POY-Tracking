@@ -74,7 +74,7 @@ Public Class frmJobEntry
     Dim traceExists As Integer = 0
     Public SortOP As String
     Public PackOp As String
-    ' Public ColorOP As String
+    Dim moddbarcode As String
     Public PackSortOP As String
     Public changedrum As Integer
     Public time As DateTime = DateTime.Now
@@ -88,9 +88,6 @@ Public Class frmJobEntry
         todayTimeDate = time.ToString(dateFormat)
 
 
-
-
-
         If My.Settings.chkUseThai Then
             ChangeLanguage("th-TH")
             thaiLang = True
@@ -99,16 +96,11 @@ Public Class frmJobEntry
             thaiLang = False
         End If
 
-
-
-
-        ''Set Up correct Screen layout for selected method
-        'If Not (My.Settings.chkUseSort) And Not (My.Settings.chkUsePack) Then
-        '    MsgBox("Please check your settings, no work method selected")
-        'End If
-
-
-
+        'show menu items for packing
+        If My.Settings.chkUsePack Then
+            ToolsToolStripMenuItem.Visible = True
+            SearchToolStripMenuItem.Visible = True
+        End If
 
         updateButtons()
 
@@ -182,6 +174,8 @@ Public Class frmJobEntry
 
         End If
 
+
+        Me.KeyPreview = True  'Allows us to look for advace character from barcode
 
 
     End Sub
@@ -340,15 +334,15 @@ Public Class frmJobEntry
 
                 'Decode the cart string in to variables
                 dbBarcode = txtCartNum.Text 'actualy this is now the drumbarcode number
-
+                moddbarcode = dbBarcode.Substring(0, 11)
                 machineCode = txtCartNum.Text.Substring(0, 2)
                 productCode = txtCartNum.Text.Substring(2, 3)
                 year = txtCartNum.Text.Substring(5, 2)
                 month = txtCartNum.Text.Substring(7, 2)
                 doffingNum = txtCartNum.Text.Substring(9, 3)
                 CartNum = txtCartNum.Text.Substring(12, 2)
-                varCartBCode = txtCartNum
-                getMCName()
+                updateCartNum()  'checks the cart number and if second  number (P2,P4,P6 or P8) then change to (P1,P3,P5 or P7) and update the barcode
+                varCartBCode = txtCartNum.Text
                 varMachineCode = machineCode
                 getMCName()
                 varMachineName = machineName
@@ -356,7 +350,7 @@ Public Class frmJobEntry
                 varYear = year
                 varMonth = month
                 varDoffingNum = doffingNum
-                varCartNum = CartNum
+
                 varCartSelect = cartSelect
 
                 If txtCartNum.Text.Substring(12, 1) <> "P" Then
@@ -440,7 +434,7 @@ Public Class frmJobEntry
             year = txtDrumNum.Text.Substring(5, 2)
             month = txtDrumNum.Text.Substring(7, 2)
             doffingNum = txtDrumNum.Text.Substring(9, 3)
-            cartNum = txtDrumNum.Text.Substring(12, 2)
+            spinNum = txtDrumNum.Text.Substring(12, 2)
 
             varCartBCode = txtDrumNum
 
@@ -451,7 +445,7 @@ Public Class frmJobEntry
             varYear = year
             varMonth = month
             varDoffingNum = doffingNum
-            varCartNum =
+            varCartNum = CartNum
             varCartSelect = cartSelect
 
 
@@ -593,7 +587,39 @@ Public Class frmJobEntry
 
     End Sub
 
+    Private Sub updateCartNum()
+        'Routine to force Cart Number to lower Value of the two carts if Cart 2 is scanned and reasign the barcode number
+        Select Case CartNum
+
+            Case "P1", "P2"
+                CartNum = "P1"
+                varCartNum = CartNum
+                dbBarcode = moddbarcode & "P1"
+            Case "P3", "P4"
+                CartNum = "P3"
+                varCartNum = CartNum
+                dbBarcode = moddbarcode & "P3"
+            Case "P5", "P6"
+                CartNum = "P5"
+                varCartNum = CartNum
+                dbBarcode = moddbarcode & "P5"
+            Case "P7", "P8"
+                CartNum = "P7"
+                varCartNum = CartNum
+                dbBarcode = moddbarcode & "P7"
+
+        End Select
+
+    End Sub
+
     Private Sub CheckCartExist()
+
+        'this is check to see if second section barcode of cart P2,P4,P6,P8 if it is then we will change to P1,p3,P5  or P7
+
+
+
+
+
 
         '*************************  CHECK TO SEE IF JOB ALREADY EXISITS IF NOT CREATE JOB
         LExecQuery("SELECT * FROM POYTrack WHERE POYBCODECART = '" & dbBarcode & "'  ORDER BY CREATECARTIDX")
@@ -900,6 +926,7 @@ Public Class frmJobEntry
         End If
 
 
+
         If thaiLang Then
             Label3.Text = "สร้างพาเลทใหม่"
             Label3.Visible = True
@@ -947,11 +974,11 @@ Public Class frmJobEntry
             ' LAddParam("@poystepnum", "0")
             ' LAddParam("@poybcodedrum", "0")
             'LAddParam("@poypalnum", 0)
-            ' LAddParam("@poypackidx", modIdxNum)
-            ' LAddParam("@poytmptrace", dbBarcode)
-            ' LAddParam("@poydrumperpal", drumPerPal)
+            LAddParam("@poypackidx", modIdxNum)
+            LAddParam("@poytmptrace", dbBarcode)
+            LAddParam("@poydrumperpal", drumPerPal)
             LAddParam("@poyprodname", varProductName)
-            ' LAddParam("@poyprodweight", varProdWeight)
+            LAddParam("@poyprodweight", varProdWeight)
             LAddParam("@poyprodgrade", varProdGrade)
 
 
@@ -981,7 +1008,7 @@ Public Class frmJobEntry
 
         End Try
 
-
+         Me.Cursor = System.Windows.Forms.Cursors.Default
 
 
 
@@ -1371,6 +1398,9 @@ Public Class frmJobEntry
 
         Next
 
+        Label3.Text = ""
+        Label3.Visible = False
+        Me.Cursor = System.Windows.Forms.Cursors.Default
 
     End Sub
 
@@ -1517,4 +1547,6 @@ Public Class frmJobEntry
     Private Sub txtCartNum_Click(sender As Object, e As EventArgs) Handles txtCartNum.Click
         Me.KeyPreview = True  'Allows us to look for advace character from barcode
     End Sub
+
+
 End Class

@@ -293,7 +293,7 @@ Partial Class frmSortCart
         Me.lblMessage.BackColor = System.Drawing.Color.Red
         Me.lblMessage.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.lblMessage.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMessage.Location = New System.Drawing.Point(43, 614)
+        Me.lblMessage.Location = New System.Drawing.Point(11, 617)
         Me.lblMessage.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblMessage.Name = "lblMessage"
         Me.lblMessage.Size = New System.Drawing.Size(232, 73)
@@ -677,7 +677,7 @@ Partial Class frmSortCart
         Me.txtCartNum.Location = New System.Drawing.Point(17, 79)
         Me.txtCartNum.Name = "txtCartNum"
         Me.txtCartNum.ReadOnly = True
-        Me.txtCartNum.Size = New System.Drawing.Size(100, 62)
+        Me.txtCartNum.Size = New System.Drawing.Size(75, 62)
         Me.txtCartNum.TabIndex = 490
         Me.txtCartNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -980,6 +980,7 @@ Partial Class frmSortCart
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(1175, 699)
+        Me.Controls.Add(Me.lblMessage)
         Me.Controls.Add(Me.lblShort)
         Me.Controls.Add(Me.lblDefect)
         Me.Controls.Add(Me.lblMissing)
@@ -1045,7 +1046,6 @@ Partial Class frmSortCart
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.lblCartNo)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.lblMessage)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.btnFinish)
         Me.Controls.Add(Me.txtDrumBcode)
