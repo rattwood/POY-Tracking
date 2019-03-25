@@ -129,6 +129,12 @@
     <Compile Include="frmDGVJobReport.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="POY Job Displays\frmSortJobDisplay.Designer.vb">
+      <DependentUpon>frmSortJobDisplay.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Job Displays\frmSortJobDisplay.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="POYSort\frmSortCart.Designer.vb">
       <DependentUpon>frmSortCart.vb</DependentUpon>
     </Compile>
@@ -316,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDGVJobReport.resx">
       <DependentUpon>frmDGVJobReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Job Displays\frmSortJobDisplay.resx">
+      <DependentUpon>frmSortJobDisplay.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POY Packing\frmPacking48.resx">
       <DependentUpon>frmPacking48.vb</DependentUpon>

@@ -369,9 +369,6 @@
   <metadata name="Toraydb.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="Toraydb.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="lblAutoCorrect.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -483,6 +480,30 @@
   <data name="SettingsToolStripMenuItem.Text" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="TraceNumberToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 22</value>
+  </data>
+  <data name="TraceNumberToolStripMenuItem.Text" xml:space="preserve">
+    <value>Trace Number</value>
+  </data>
+  <data name="DrumNumberToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 22</value>
+  </data>
+  <data name="DrumNumberToolStripMenuItem.Text" xml:space="preserve">
+    <value>Drum Number</value>
+  </data>
+  <data name="PalletReportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="PalletReportToolStripMenuItem.Text" xml:space="preserve">
+    <value>Pallet Report</value>
+  </data>
+  <data name="DISPLAYToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="DISPLAYToolStripMenuItem.Text" xml:space="preserve">
+    <value>DISPLAY</value>
+  </data>
   <data name="ReportsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 20</value>
   </data>
@@ -490,19 +511,19 @@
     <value>Reports</value>
   </data>
   <data name="ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 6</value>
+    <value>152, 6</value>
   </data>
   <data name="EditPalletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>155, 22</value>
   </data>
   <data name="EditPalletToolStripMenuItem.Text" xml:space="preserve">
     <value>Edit Pallet</value>
   </data>
   <data name="ToolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 6</value>
+    <value>152, 6</value>
   </data>
   <data name="ChangePalletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>155, 22</value>
   </data>
   <data name="ChangePalletToolStripMenuItem.Text" xml:space="preserve">
     <value>Change Pallet ?</value>
@@ -517,19 +538,19 @@
     <value>False</value>
   </data>
   <data name="ToolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 6</value>
+    <value>148, 6</value>
   </data>
   <data name="DRUMToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>151, 22</value>
   </data>
   <data name="DRUMToolStripMenuItem.Text" xml:space="preserve">
     <value>Drum Number</value>
   </data>
   <data name="ToolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 6</value>
+    <value>148, 6</value>
   </data>
   <data name="TraceNumberToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>151, 22</value>
   </data>
   <data name="TraceNumberToolStripMenuItem1.Text" xml:space="preserve">
     <value>Trace Number</value>
@@ -542,6 +563,30 @@
   </data>
   <data name="SearchToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
+  </data>
+  <data name="ReleaseToPackingToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="ReleaseToPackingToolStripMenuItem.Text" xml:space="preserve">
+    <value>Release to Packing</value>
+  </data>
+  <data name="SetToHoldToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="SetToHoldToolStripMenuItem.Text" xml:space="preserve">
+    <value>Set to Hold</value>
+  </data>
+  <data name="ReleaseHoldToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="ReleaseHoldToolStripMenuItem.Text" xml:space="preserve">
+    <value>Release hold</value>
+  </data>
+  <data name="JobControlToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 20</value>
+  </data>
+  <data name="JobControlToolStripMenuItem.Text" xml:space="preserve">
+    <value>Job Control</value>
   </data>
   <data name="MenuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -566,24 +611,6 @@
   </data>
   <data name="&gt;&gt;MenuStrip1.ZOrder" xml:space="preserve">
     <value>13</value>
-  </data>
-  <data name="PalletReportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="PalletReportToolStripMenuItem.Text" xml:space="preserve">
-    <value>Pallet Report</value>
-  </data>
-  <data name="TraceNumberToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 22</value>
-  </data>
-  <data name="TraceNumberToolStripMenuItem.Text" xml:space="preserve">
-    <value>Trace Number</value>
-  </data>
-  <data name="DrumNumberToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 22</value>
-  </data>
-  <data name="DrumNumberToolStripMenuItem.Text" xml:space="preserve">
-    <value>Drum Number</value>
   </data>
   <data name="txtCartNum.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 24pt, style=Bold</value>
@@ -1442,17 +1469,35 @@
   <data name="&gt;&gt;DrumNumberToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;DISPLAYToolStripMenuItem.Name" xml:space="preserve">
+    <value>DISPLAYToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;DISPLAYToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;ToolsToolStripMenuItem.Name" xml:space="preserve">
     <value>ToolsToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;ToolsToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;ToolStripSeparator1.Name" xml:space="preserve">
+    <value>ToolStripSeparator1</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;EditPalletToolStripMenuItem.Name" xml:space="preserve">
     <value>EditPalletToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;EditPalletToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator2.Name" xml:space="preserve">
+    <value>ToolStripSeparator2</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ChangePalletToolStripMenuItem.Name" xml:space="preserve">
     <value>ChangePalletToolStripMenuItem</value>
@@ -1466,11 +1511,23 @@
   <data name="&gt;&gt;SearchToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;ToolStripSeparator3.Name" xml:space="preserve">
+    <value>ToolStripSeparator3</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;DRUMToolStripMenuItem.Name" xml:space="preserve">
     <value>DRUMToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;DRUMToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator4.Name" xml:space="preserve">
+    <value>ToolStripSeparator4</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;TraceNumberToolStripMenuItem1.Name" xml:space="preserve">
     <value>TraceNumberToolStripMenuItem1</value>
@@ -1478,29 +1535,29 @@
   <data name="&gt;&gt;TraceNumberToolStripMenuItem1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ToolStripSeparator1.Name" xml:space="preserve">
-    <value>ToolStripSeparator1</value>
+  <data name="&gt;&gt;JobControlToolStripMenuItem.Name" xml:space="preserve">
+    <value>JobControlToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;ToolStripSeparator1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;JobControlToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ToolStripSeparator2.Name" xml:space="preserve">
-    <value>ToolStripSeparator2</value>
+  <data name="&gt;&gt;ReleaseToPackingToolStripMenuItem.Name" xml:space="preserve">
+    <value>ReleaseToPackingToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;ToolStripSeparator2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;ReleaseToPackingToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ToolStripSeparator3.Name" xml:space="preserve">
-    <value>ToolStripSeparator3</value>
+  <data name="&gt;&gt;SetToHoldToolStripMenuItem.Name" xml:space="preserve">
+    <value>SetToHoldToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;ToolStripSeparator3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;SetToHoldToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ToolStripSeparator4.Name" xml:space="preserve">
-    <value>ToolStripSeparator4</value>
+  <data name="&gt;&gt;ReleaseHoldToolStripMenuItem.Name" xml:space="preserve">
+    <value>ReleaseHoldToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;ToolStripSeparator4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;ReleaseHoldToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>frmJobEntry</value>

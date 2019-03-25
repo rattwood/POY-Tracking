@@ -43,18 +43,23 @@ Partial Class frmJobEntry
         Me.PalletReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TraceNumberToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DrumNumberToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DISPLAYToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.EditPalletToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ChangePalletToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.DRUMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.TraceNumberToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.txtCartNum = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.JobControlToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReleaseToPackingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SetToHoldToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReleaseHoldToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.ToraydbBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Toraydb, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
@@ -137,7 +142,7 @@ Partial Class frmJobEntry
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem, Me.ReportsToolStripMenuItem, Me.ToolsToolStripMenuItem, Me.SearchToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem, Me.ReportsToolStripMenuItem, Me.ToolsToolStripMenuItem, Me.SearchToolStripMenuItem, Me.JobControlToolStripMenuItem})
         resources.ApplyResources(Me.MenuStrip1, "MenuStrip1")
         Me.MenuStrip1.Name = "MenuStrip1"
         '
@@ -149,7 +154,7 @@ Partial Class frmJobEntry
         '
         'ReportsToolStripMenuItem
         '
-        Me.ReportsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PalletReportToolStripMenuItem})
+        Me.ReportsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PalletReportToolStripMenuItem, Me.DISPLAYToolStripMenuItem})
         Me.ReportsToolStripMenuItem.Image = Global.POY_Tracking.My.Resources.Resources.Reports
         Me.ReportsToolStripMenuItem.Name = "ReportsToolStripMenuItem"
         resources.ApplyResources(Me.ReportsToolStripMenuItem, "ReportsToolStripMenuItem")
@@ -170,6 +175,11 @@ Partial Class frmJobEntry
         Me.DrumNumberToolStripMenuItem.Name = "DrumNumberToolStripMenuItem"
         resources.ApplyResources(Me.DrumNumberToolStripMenuItem, "DrumNumberToolStripMenuItem")
         '
+        'DISPLAYToolStripMenuItem
+        '
+        Me.DISPLAYToolStripMenuItem.Name = "DISPLAYToolStripMenuItem"
+        resources.ApplyResources(Me.DISPLAYToolStripMenuItem, "DISPLAYToolStripMenuItem")
+        '
         'ToolsToolStripMenuItem
         '
         Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator1, Me.EditPalletToolStripMenuItem, Me.ToolStripSeparator2, Me.ChangePalletToolStripMenuItem})
@@ -177,10 +187,20 @@ Partial Class frmJobEntry
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
         resources.ApplyResources(Me.ToolsToolStripMenuItem, "ToolsToolStripMenuItem")
         '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        resources.ApplyResources(Me.ToolStripSeparator1, "ToolStripSeparator1")
+        '
         'EditPalletToolStripMenuItem
         '
         Me.EditPalletToolStripMenuItem.Name = "EditPalletToolStripMenuItem"
         resources.ApplyResources(Me.EditPalletToolStripMenuItem, "EditPalletToolStripMenuItem")
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        resources.ApplyResources(Me.ToolStripSeparator2, "ToolStripSeparator2")
         '
         'ChangePalletToolStripMenuItem
         '
@@ -194,10 +214,20 @@ Partial Class frmJobEntry
         Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
         resources.ApplyResources(Me.SearchToolStripMenuItem, "SearchToolStripMenuItem")
         '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        resources.ApplyResources(Me.ToolStripSeparator3, "ToolStripSeparator3")
+        '
         'DRUMToolStripMenuItem
         '
         Me.DRUMToolStripMenuItem.Name = "DRUMToolStripMenuItem"
         resources.ApplyResources(Me.DRUMToolStripMenuItem, "DRUMToolStripMenuItem")
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        resources.ApplyResources(Me.ToolStripSeparator4, "ToolStripSeparator4")
         '
         'TraceNumberToolStripMenuItem1
         '
@@ -214,25 +244,26 @@ Partial Class frmJobEntry
         resources.ApplyResources(Me.Label5, "Label5")
         Me.Label5.Name = "Label5"
         '
-        'ToolStripSeparator1
+        'JobControlToolStripMenuItem
         '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        resources.ApplyResources(Me.ToolStripSeparator1, "ToolStripSeparator1")
+        Me.JobControlToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReleaseToPackingToolStripMenuItem, Me.SetToHoldToolStripMenuItem, Me.ReleaseHoldToolStripMenuItem})
+        Me.JobControlToolStripMenuItem.Name = "JobControlToolStripMenuItem"
+        resources.ApplyResources(Me.JobControlToolStripMenuItem, "JobControlToolStripMenuItem")
         '
-        'ToolStripSeparator2
+        'ReleaseToPackingToolStripMenuItem
         '
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        resources.ApplyResources(Me.ToolStripSeparator2, "ToolStripSeparator2")
+        Me.ReleaseToPackingToolStripMenuItem.Name = "ReleaseToPackingToolStripMenuItem"
+        resources.ApplyResources(Me.ReleaseToPackingToolStripMenuItem, "ReleaseToPackingToolStripMenuItem")
         '
-        'ToolStripSeparator3
+        'SetToHoldToolStripMenuItem
         '
-        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        resources.ApplyResources(Me.ToolStripSeparator3, "ToolStripSeparator3")
+        Me.SetToHoldToolStripMenuItem.Name = "SetToHoldToolStripMenuItem"
+        resources.ApplyResources(Me.SetToHoldToolStripMenuItem, "SetToHoldToolStripMenuItem")
         '
-        'ToolStripSeparator4
+        'ReleaseHoldToolStripMenuItem
         '
-        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        resources.ApplyResources(Me.ToolStripSeparator4, "ToolStripSeparator4")
+        Me.ReleaseHoldToolStripMenuItem.Name = "ReleaseHoldToolStripMenuItem"
+        resources.ApplyResources(Me.ReleaseHoldToolStripMenuItem, "ReleaseHoldToolStripMenuItem")
         '
         'frmJobEntry
         '
@@ -294,4 +325,9 @@ Partial Class frmJobEntry
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
     Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
+    Friend WithEvents DISPLAYToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents JobControlToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReleaseToPackingToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SetToHoldToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReleaseHoldToolStripMenuItem As ToolStripMenuItem
 End Class

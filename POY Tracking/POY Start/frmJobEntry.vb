@@ -334,7 +334,7 @@ Public Class frmJobEntry
 
                 'Decode the cart string in to variables
                 dbBarcode = txtCartNum.Text 'actualy this is now the drumbarcode number
-                moddbarcode = dbBarcode.Substring(0, 11)
+                moddbarcode = dbBarcode.Substring(0, 12)
                 machineCode = txtCartNum.Text.Substring(0, 2)
                 productCode = txtCartNum.Text.Substring(2, 3)
                 year = txtCartNum.Text.Substring(5, 2)
@@ -372,9 +372,9 @@ Public Class frmJobEntry
                     varCartNum = ""
                     varCartSelect = ""
 
-                    Me.txtDrumNum.Clear()
-                    Me.txtDrumNum.Focus()
-                    Me.txtDrumNum.Refresh()
+                    Me.txtCartNum.Clear()
+                    Me.txtCartNum.Focus()
+                    Me.txtCartNum.Refresh()
                     Exit Sub
                 End If
 
@@ -459,8 +459,6 @@ Public Class frmJobEntry
 
 
 
-            '*************************  CHECK TO SEE IF JOB ALREADY EXISITS IF NOT CREATE JOB
-            'LExecQuery("SELECT * FROM POYTrack WHERE POYTMPTRACE = '" & dbBarcode & "' Order By POYPACKIDX")
 
             If newJobFlag Then
                 '*************************  CHECK TO SEE IF JOB ALREADY EXISITS IF NOT CREATE JOB
@@ -622,7 +620,7 @@ Public Class frmJobEntry
 
 
         '*************************  CHECK TO SEE IF JOB ALREADY EXISITS IF NOT CREATE JOB
-        LExecQuery("SELECT * FROM POYTrack WHERE POYBCODECART = '" & dbBarcode & "'  ORDER BY CREATECARTIDX")
+        LExecQuery("SELECT * FROM POYTrack2 WHERE POYBCODECART = '" & dbBarcode & "'  ORDER BY CREATECARTIDX")
 
         Try
 
@@ -631,7 +629,7 @@ Public Class frmJobEntry
 
                 If result = DialogResult.Yes Then
 
-                    LExecQuery("SELECT * FROM POYTrack WHERE POYBCODECART = '" & dbBarcode & "'  ORDER BY CREATECARTIDX")
+                    LExecQuery("SELECT * FROM POYTrack2 WHERE POYBCODECART = '" & dbBarcode & "'  ORDER BY CREATECARTIDX")
                     frmDGV.DGVdata.DataSource = LDS.Tables(0)
                     frmDGV.DGVdata.Rows(0).Selected = True
                     Dim LCB As SqlCommandBuilder = New SqlCommandBuilder(LDA)
@@ -654,7 +652,7 @@ Public Class frmJobEntry
                 POYCartCreate()     'Create a new cart
 
 
-                LExecQuery("SELECT * FROM POYTrack WHERE POYBCODECART = '" & dbBarcode & "'  ORDER BY CREATECARTIDX")
+                LExecQuery("SELECT * FROM POYTrack2 WHERE POYBCODECART = '" & dbBarcode & "'  ORDER BY CREATECARTIDX")
                 frmDGV.DGVdata.DataSource = LDS.Tables(0)
                 frmDGV.DGVdata.Rows(0).Selected = True
                 Dim LCB As SqlCommandBuilder = New SqlCommandBuilder(LDA)
@@ -1379,6 +1377,7 @@ Public Class frmJobEntry
             LAddParam("@poysorttm", todayTimeDate)
             LAddParam("@poysortname", varUserName)
             LAddParam("@poybcodecart", dbBarcode)
+            LAddParam("@poybcodejob", moddrumBarcode)
             LAddParam("@poycreateidx", modDrumIdx)
             LAddParam("@poycartname", poycartname)
             LAddParam("@fdab", "False")
@@ -1401,11 +1400,11 @@ Public Class frmJobEntry
 
 
 
-            LExecQuery("INSERT INTO POYTrack (POYMCNUM,POYMCNAME,POYPRNUM,POYYY,POYPRMM,POYDOFFNUM,POYSPINNUM,POYMERGENUM,POYDRUMSTATE,POYPRODNAME,POYBCODEDRUM, " _
-                       & "POYPRODWEIGHT,POYPRODGRADE,POYSORTSTART,POYSORTNAME,POYBCODECART,CREATECARTIDX,POYCARTNAME, " _
+            LExecQuery("INSERT INTO POYTrack2 (POYMCNUM,POYMCNAME,POYPRNUM,POYYY,POYPRMM,POYDOFFNUM,POYSPINNUM,POYMERGENUM,POYDRUMSTATE,POYPRODNAME,POYBCODEDRUM, " _
+                       & "POYPRODWEIGHT,POYPRODGRADE,POYSORTSTART,POYSORTNAME,POYBCODECART,POYBCODEJOB,CREATECARTIDX,POYCARTNAME, " _
                        & " FLT_DAB,FLT_FG,FLT_O,FLT_SL, FLT_PTS,FLT_PTB,FLT_YAB,FLT_CAB,FLT_RW,FLT_PAB,FLT_DO,FLT_CNC,FLT_H,FLT_CBC,FLT_S,FLT_X) " _
                        & "VALUES (@poymcnum,@poymcname,@poyprodnum,@yy,@mm,@doff,@poyspinnum,@merge,@poydrumstate,@poyprodname,@poybcodeDrum,@poyprodweight,@poyprodgrade,@poysorttm,@poysortname, " _
-                       & "@poybcodecart,@poycreateidx,@poycartname, " _
+                       & "@poybcodecart,@poybcodejob,@poycreateidx,@poycartname, " _
                        & "@fdab,@ffg,@fo,@fsl,@fpts,@fptb,@fyab,@fcab,@frw,@fpab,@fdo,@fcnc,@fh,@fcbc,@fshort,@fmissing)")
 
 
@@ -1571,5 +1570,8 @@ Public Class frmJobEntry
         Me.KeyPreview = True  'Allows us to look for advace character from barcode
     End Sub
 
-
+    Private Sub DISPLAYToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DISPLAYToolStripMenuItem.Click
+        frmSortJobDisplay.Show()
+        Me.Hide()
+    End Sub
 End Class

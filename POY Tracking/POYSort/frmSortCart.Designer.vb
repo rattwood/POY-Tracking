@@ -112,7 +112,7 @@ Partial Class frmSortCart
         Me.btn8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn8.ForeColor = System.Drawing.Color.Black
-        Me.btn8.Location = New System.Drawing.Point(490, 134)
+        Me.btn8.Location = New System.Drawing.Point(619, 310)
         Me.btn8.Margin = New System.Windows.Forms.Padding(2)
         Me.btn8.Name = "btn8"
         Me.btn8.Size = New System.Drawing.Size(125, 84)
@@ -128,7 +128,7 @@ Partial Class frmSortCart
         Me.btn4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn4.ForeColor = System.Drawing.Color.Black
-        Me.btn4.Location = New System.Drawing.Point(415, 47)
+        Me.btn4.Location = New System.Drawing.Point(483, 310)
         Me.btn4.Margin = New System.Windows.Forms.Padding(2)
         Me.btn4.Name = "btn4"
         Me.btn4.Size = New System.Drawing.Size(125, 84)
@@ -144,7 +144,7 @@ Partial Class frmSortCart
         Me.btn5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn5.ForeColor = System.Drawing.Color.Black
-        Me.btn5.Location = New System.Drawing.Point(935, 134)
+        Me.btn5.Location = New System.Drawing.Point(550, 46)
         Me.btn5.Margin = New System.Windows.Forms.Padding(2)
         Me.btn5.Name = "btn5"
         Me.btn5.Size = New System.Drawing.Size(125, 84)
@@ -160,7 +160,7 @@ Partial Class frmSortCart
         Me.btn6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn6.ForeColor = System.Drawing.Color.Black
-        Me.btn6.Location = New System.Drawing.Point(787, 134)
+        Me.btn6.Location = New System.Drawing.Point(619, 134)
         Me.btn6.Margin = New System.Windows.Forms.Padding(2)
         Me.btn6.Name = "btn6"
         Me.btn6.Size = New System.Drawing.Size(125, 84)
@@ -176,7 +176,7 @@ Partial Class frmSortCart
         Me.btn7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn7.ForeColor = System.Drawing.Color.Black
-        Me.btn7.Location = New System.Drawing.Point(639, 134)
+        Me.btn7.Location = New System.Drawing.Point(550, 222)
         Me.btn7.Margin = New System.Windows.Forms.Padding(2)
         Me.btn7.Name = "btn7"
         Me.btn7.Size = New System.Drawing.Size(125, 84)
@@ -192,7 +192,7 @@ Partial Class frmSortCart
         Me.btn1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn1.ForeColor = System.Drawing.Color.Black
-        Me.btn1.Location = New System.Drawing.Point(864, 49)
+        Me.btn1.Location = New System.Drawing.Point(415, 46)
         Me.btn1.Margin = New System.Windows.Forms.Padding(2)
         Me.btn1.Name = "btn1"
         Me.btn1.Size = New System.Drawing.Size(125, 84)
@@ -208,7 +208,7 @@ Partial Class frmSortCart
         Me.btn2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn2.ForeColor = System.Drawing.Color.Black
-        Me.btn2.Location = New System.Drawing.Point(714, 49)
+        Me.btn2.Location = New System.Drawing.Point(483, 134)
         Me.btn2.Margin = New System.Windows.Forms.Padding(2)
         Me.btn2.Name = "btn2"
         Me.btn2.Size = New System.Drawing.Size(125, 84)
@@ -224,7 +224,7 @@ Partial Class frmSortCart
         Me.btn3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn3.ForeColor = System.Drawing.Color.Black
-        Me.btn3.Location = New System.Drawing.Point(565, 46)
+        Me.btn3.Location = New System.Drawing.Point(415, 222)
         Me.btn3.Margin = New System.Windows.Forms.Padding(2)
         Me.btn3.Name = "btn3"
         Me.btn3.Size = New System.Drawing.Size(125, 84)
@@ -393,7 +393,7 @@ Partial Class frmSortCart
         Me.btn12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn12.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn12.ForeColor = System.Drawing.Color.Black
-        Me.btn12.Location = New System.Drawing.Point(415, 222)
+        Me.btn12.Location = New System.Drawing.Point(755, 310)
         Me.btn12.Margin = New System.Windows.Forms.Padding(2)
         Me.btn12.Name = "btn12"
         Me.btn12.Size = New System.Drawing.Size(125, 84)
@@ -409,7 +409,7 @@ Partial Class frmSortCart
         Me.btn9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn9.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn9.ForeColor = System.Drawing.Color.Black
-        Me.btn9.Location = New System.Drawing.Point(864, 222)
+        Me.btn9.Location = New System.Drawing.Point(686, 46)
         Me.btn9.Margin = New System.Windows.Forms.Padding(2)
         Me.btn9.Name = "btn9"
         Me.btn9.Size = New System.Drawing.Size(125, 84)
@@ -425,7 +425,7 @@ Partial Class frmSortCart
         Me.btn10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn10.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn10.ForeColor = System.Drawing.Color.Black
-        Me.btn10.Location = New System.Drawing.Point(714, 222)
+        Me.btn10.Location = New System.Drawing.Point(755, 134)
         Me.btn10.Margin = New System.Windows.Forms.Padding(2)
         Me.btn10.Name = "btn10"
         Me.btn10.Size = New System.Drawing.Size(125, 84)
@@ -441,7 +441,7 @@ Partial Class frmSortCart
         Me.btn11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn11.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn11.ForeColor = System.Drawing.Color.Black
-        Me.btn11.Location = New System.Drawing.Point(565, 222)
+        Me.btn11.Location = New System.Drawing.Point(686, 222)
         Me.btn11.Margin = New System.Windows.Forms.Padding(2)
         Me.btn11.Name = "btn11"
         Me.btn11.Size = New System.Drawing.Size(125, 84)
@@ -457,7 +457,7 @@ Partial Class frmSortCart
         Me.btn16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn16.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn16.ForeColor = System.Drawing.Color.Black
-        Me.btn16.Location = New System.Drawing.Point(490, 310)
+        Me.btn16.Location = New System.Drawing.Point(889, 310)
         Me.btn16.Margin = New System.Windows.Forms.Padding(2)
         Me.btn16.Name = "btn16"
         Me.btn16.Size = New System.Drawing.Size(125, 84)
@@ -473,7 +473,7 @@ Partial Class frmSortCart
         Me.btn13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn13.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn13.ForeColor = System.Drawing.Color.Black
-        Me.btn13.Location = New System.Drawing.Point(935, 310)
+        Me.btn13.Location = New System.Drawing.Point(823, 46)
         Me.btn13.Margin = New System.Windows.Forms.Padding(2)
         Me.btn13.Name = "btn13"
         Me.btn13.Size = New System.Drawing.Size(125, 84)
@@ -489,7 +489,7 @@ Partial Class frmSortCart
         Me.btn14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn14.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn14.ForeColor = System.Drawing.Color.Black
-        Me.btn14.Location = New System.Drawing.Point(787, 310)
+        Me.btn14.Location = New System.Drawing.Point(889, 134)
         Me.btn14.Margin = New System.Windows.Forms.Padding(2)
         Me.btn14.Name = "btn14"
         Me.btn14.Size = New System.Drawing.Size(125, 84)
@@ -505,7 +505,7 @@ Partial Class frmSortCart
         Me.btn15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn15.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn15.ForeColor = System.Drawing.Color.Black
-        Me.btn15.Location = New System.Drawing.Point(639, 310)
+        Me.btn15.Location = New System.Drawing.Point(823, 222)
         Me.btn15.Margin = New System.Windows.Forms.Padding(2)
         Me.btn15.Name = "btn15"
         Me.btn15.Size = New System.Drawing.Size(125, 84)

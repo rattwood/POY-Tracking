@@ -301,7 +301,7 @@ Public Class frmSortCart
                 Me.Controls("btn13").Text = "57"
                 Me.Controls("btn14").Text = "58"
                 Me.Controls("btn15").Text = "59"
-                Me.Controls("btn16").Text = "20"
+                Me.Controls("btn16").Text = "60"
 
             Case "P7", "P8"
                 'Put new Drum numbers on images
@@ -912,66 +912,66 @@ Public Class frmSortCart
             If varDRUMNum = 1 Then
                 btn1.Enabled = False
                 btn1.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = varDRUMNum
+                NoDRUM = txtDrumNum.Text
             ElseIf varDRUMNum = 2 Then
                 btn2.Enabled = False
                 btn2.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = varDRUMNum
+                NoDRUM = txtDrumNum.Text
             ElseIf varDRUMNum = 3 Then
                 btn3.Enabled = False
                 btn3.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = varDRUMNum
+                NoDRUM = txtDrumNum.Text
             ElseIf varDRUMNum = 4 Then
                 btn4.Enabled = False
                 btn4.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = varDRUMNum
+                NoDRUM = txtDrumNum.Text
             ElseIf varDRUMNum = 5 Then
                 btn5.Enabled = False
                 btn5.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = varDRUMNum
+                NoDRUM = txtDrumNum.Text
             ElseIf varDRUMNum = 6 Then
                 btn6.Enabled = False
                 btn6.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = varDRUMNum
+                NoDRUM = txtDrumNum.Text
             ElseIf varDRUMNum = 7 Then
                 btn7.Enabled = False
                 btn7.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = varDRUMNum
+                NoDRUM = txtDrumNum.Text
             ElseIf varDRUMNum = 8 Then
                 btn8.Enabled = False
                 btn8.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = varDRUMNum
+                NoDRUM = txtDrumNum.Text
             ElseIf varDRUMNum = 9 Then
                 btn9.Enabled = False
                 btn9.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = varDRUMNum
+                NoDRUM = txtDrumNum.Text
             ElseIf varDRUMNum = 10 Then
                 btn10.Enabled = False
                 btn10.BackgroundImage = My.Resources.NoDrum
             ElseIf varDRUMNum = 11 Then
                 btn11.Enabled = False
                 btn11.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = varDRUMNum
+                NoDRUM = txtDrumNum.Text
             ElseIf varDRUMNum = 12 Then
                 btn12.Enabled = False
                 btn12.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = varDRUMNum
+                NoDRUM = txtDrumNum.Text
             ElseIf varDRUMNum = 13 Then
                 btn13.Enabled = False
                 btn13.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = varDRUMNum
+                NoDRUM = txtDrumNum.Text
             ElseIf varDRUMNum = 14 Then
                 btn14.Enabled = False
                 btn14.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = varDRUMNum
+                NoDRUM = txtDrumNum.Text
             ElseIf varDRUMNum = 15 Then
                 btn15.Enabled = False
                 btn15.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = varDRUMNum
+                NoDRUM = txtDrumNum.Text
             ElseIf varDRUMNum = 16 Then
                 btn16.Enabled = False
                 btn16.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = varDRUMNum
+                NoDRUM = txtDrumNum.Text
 
             End If
             allocatedCount = allocatedCount + 1
@@ -982,67 +982,67 @@ Public Class frmSortCart
             If varDRUMNum = 1 Then
                 btn1.Enabled = False
                 btn1.BackgroundImage = My.Resources.DefectDrum
-                defect = varDRUMNum
+                defect = txtDrumNum.Text
             ElseIf varDRUMNum = 2 Then
                 btn2.Enabled = False
                 btn2.BackgroundImage = My.Resources.DefectDrum
-                defect = varDRUMNum
+                defect = txtDrumNum.Text
             ElseIf varDRUMNum = 3 Then
                 btn3.Enabled = False
                 btn3.BackgroundImage = My.Resources.DefectDrum
-                defect = varDRUMNum
+                defect = txtDrumNum.Text
             ElseIf varDRUMNum = 4 Then
                 btn4.Enabled = False
                 btn4.BackgroundImage = My.Resources.DefectDrum
-                defect = varDRUMNum
+                defect = txtDrumNum.Text
             ElseIf varDRUMNum = 5 Then
                 btn5.Enabled = False
                 btn5.BackgroundImage = My.Resources.DefectDrum
-                defect = varDRUMNum
+                defect = txtDrumNum.Text
             ElseIf varDRUMNum = 6 Then
                 btn6.Enabled = False
                 btn6.BackgroundImage = My.Resources.DefectDrum
-                defect = varDRUMNum
+                defect = txtDrumNum.Text
             ElseIf varDRUMNum = 7 Then
                 btn7.Enabled = False
                 btn7.BackgroundImage = My.Resources.DefectDrum
-                defect = varDRUMNum
+                defect = txtDrumNum.Text
             ElseIf varDRUMNum = 8 Then
                 btn8.Enabled = False
                 btn8.BackgroundImage = My.Resources.DefectDrum
-                defect = varDRUMNum
+                defect = txtDrumNum.Text
             ElseIf varDRUMNum = 9 Then
                 btn9.Enabled = False
                 btn9.BackgroundImage = My.Resources.DefectDrum
-                defect = varDRUMNum
+                defect = txtDrumNum.Text
             ElseIf varDRUMNum = 10 Then
                 btn10.Enabled = False
                 btn10.BackgroundImage = My.Resources.DefectDrum
-                defect = varDRUMNum
+                defect = txtDrumNum.Text
             ElseIf varDRUMNum = 11 Then
                 btn11.Enabled = False
                 btn11.BackgroundImage = My.Resources.DefectDrum
-                defect = varDRUMNum
+                defect = txtDrumNum.Text
             ElseIf varDRUMNum = 12 Then
                 btn12.Enabled = False
                 btn12.BackgroundImage = My.Resources.DefectDrum
-                defect = varDRUMNum
+                defect = txtDrumNum.Text
             ElseIf varDRUMNum = 13 Then
                 btn13.Enabled = False
                 btn13.BackgroundImage = My.Resources.DefectDrum
-                defect = varDRUMNum
+                defect = txtDrumNum.Text
             ElseIf varDRUMNum = 14 Then
                 btn14.Enabled = False
                 btn14.BackgroundImage = My.Resources.DefectDrum
-                defect = varDRUMNum
+                defect = txtDrumNum.Text
             ElseIf varDRUMNum = 15 Then
                 btn15.Enabled = False
                 btn15.BackgroundImage = My.Resources.DefectDrum
-                defect = varDRUMNum
+                defect = txtDrumNum.Text
             ElseIf varDRUMNum = 16 Then
                 btn16.Enabled = False
                 btn16.BackgroundImage = My.Resources.DefectDrum
-                defect = varDRUMNum
+                defect = txtDrumNum.Text
 
             End If
         End If
@@ -1150,7 +1150,7 @@ Public Class frmSortCart
 
         Else
             varCartEndTime = time.ToString(dateFormat)
-            If POYSHORTDRUM = 2 Then POYSHORTDRUM = varDRUMNum
+            If POYSHORTDRUM = 2 Then POYSHORTDRUM = txtDrumNum.Text
             If POYSHORTDRUM > 0 Then Fault_S = "True"
             jobArrayUpdate()
 
@@ -1297,7 +1297,7 @@ Public Class frmSortCart
 
                 frmDGV.DGVdata.Rows(rw - 1).Cells("POYMISSDRUM").Value = tempdrumnum
 
-                frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value = 1
+                frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value = 3
 
             End If
 
