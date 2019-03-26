@@ -60,6 +60,8 @@ Partial Class frmSettings
         Me.chkUseLogs = New System.Windows.Forms.CheckBox()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.txtLogReport = New System.Windows.Forms.TextBox()
+        Me.txtscrRefresh = New System.Windows.Forms.TextBox()
+        Me.lblscnRefresh = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'lblSerialPortSelect
@@ -259,10 +261,22 @@ Partial Class frmSettings
         resources.ApplyResources(Me.txtLogReport, "txtLogReport")
         Me.txtLogReport.Name = "txtLogReport"
         '
+        'txtscrRefresh
+        '
+        resources.ApplyResources(Me.txtscrRefresh, "txtscrRefresh")
+        Me.txtscrRefresh.Name = "txtscrRefresh"
+        '
+        'lblscnRefresh
+        '
+        resources.ApplyResources(Me.lblscnRefresh, "lblscnRefresh")
+        Me.lblscnRefresh.Name = "lblscnRefresh"
+        '
         'frmSettings
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.lblscnRefresh)
+        Me.Controls.Add(Me.txtscrRefresh)
         Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.txtLogReport)
         Me.Controls.Add(Me.chkUseLogs)
@@ -341,4 +355,6 @@ Partial Class frmSettings
     Friend WithEvents chkUseLogs As CheckBox
     Friend WithEvents Button7 As Button
     Friend WithEvents txtLogReport As TextBox
+    Friend WithEvents txtscrRefresh As TextBox
+    Friend WithEvents lblscnRefresh As Label
 End Class

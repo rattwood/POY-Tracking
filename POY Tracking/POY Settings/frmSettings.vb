@@ -20,7 +20,10 @@ Public Class frmSettings
         txtBoxPackReports.Visible = False
         txtBoxPack.Visible = False
         txtLogReport.Visible = False
+        txtscrRefresh.Visible = True
+        lblscnRefresh.Visible = True
 
+        txtscrRefresh.Text = My.Settings.scrRefresh
 
         If My.Settings.chkUseSort Then chkUseSort.Checked = True Else chkUseSort.Checked = False
         If My.Settings.chkUsePack Then chkUsePack.Checked = True Else chkUsePack.Checked = False
@@ -77,6 +80,7 @@ Public Class frmSettings
         My.Settings.chkUseEng = chkEnglish.CheckState
         My.Settings.chkUseThai = chkThai.CheckState
         My.Settings.chkUseLogs = chkUseLogs.CheckState
+        My.Settings.scrRefresh = txtscrRefresh.Text
         My.Settings.Save()
         Me.Close()
     End Sub
@@ -110,5 +114,7 @@ Public Class frmSettings
         btnSetSave.Enabled = True
     End Sub
 
-
+    Private Sub txtscrRefresh_TextChanged(sender As Object, e As EventArgs) Handles txtscrRefresh.TextChanged
+        btnSetSave.Enabled = True
+    End Sub
 End Class

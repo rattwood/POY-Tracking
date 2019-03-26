@@ -22,16 +22,13 @@ Partial Class frmSortJobDisplay
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.DGVDisplays = New System.Windows.Forms.DataGridView()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.DGVTmp2 = New System.Windows.Forms.DataGridView()
-        Me.DGVTmp = New System.Windows.Forms.DataGridView()
-        Me.DGVTmp3 = New System.Windows.Forms.DataGridView()
         Me.poystate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.poymcnum = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.poyprodname = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -46,6 +43,12 @@ Partial Class frmSortJobDisplay
         Me.poySortStartTM = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.poySortEndTM = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.poycartcount = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.DGVTmp2 = New System.Windows.Forms.DataGridView()
+        Me.DGVTmp = New System.Windows.Forms.DataGridView()
+        Me.DGVTmp3 = New System.Windows.Forms.DataGridView()
+        Me.tmrUpdateTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.lblMessage = New System.Windows.Forms.Label()
         CType(Me.DGVDisplays, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         CType(Me.DGVTmp2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -66,14 +69,14 @@ Partial Class frmSortJobDisplay
         '
         Me.DGVDisplays.AllowUserToAddRows = False
         Me.DGVDisplays.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DGVDisplays.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DGVDisplays.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
         Me.DGVDisplays.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGVDisplays.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.poystate, Me.poymcnum, Me.poyprodname, Me.poymergenum, Me.poyprodweight, Me.poydoffnum, Me.poyGradeA, Me.poyGradeAB, Me.gradeShort, Me.gradeShortAB, Me.missing, Me.poySortStartTM, Me.poySortEndTM, Me.poycartcount})
         Me.DGVDisplays.Location = New System.Drawing.Point(3, 3)
@@ -84,48 +87,13 @@ Partial Class frmSortJobDisplay
         Me.DGVDisplays.Size = New System.Drawing.Size(1476, 552)
         Me.DGVDisplays.TabIndex = 0
         '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.DGVDisplays)
-        Me.Panel2.Location = New System.Drawing.Point(12, 20)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1482, 552)
-        Me.Panel2.TabIndex = 1
-        '
-        'DGVTmp2
-        '
-        Me.DGVTmp2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVTmp2.Location = New System.Drawing.Point(1472, 88)
-        Me.DGVTmp2.Name = "DGVTmp2"
-        Me.DGVTmp2.Size = New System.Drawing.Size(79, 100)
-        Me.DGVTmp2.TabIndex = 4
-        Me.DGVTmp2.Visible = False
-        '
-        'DGVTmp
-        '
-        Me.DGVTmp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVTmp.Location = New System.Drawing.Point(1472, 209)
-        Me.DGVTmp.Name = "DGVTmp"
-        Me.DGVTmp.Size = New System.Drawing.Size(89, 83)
-        Me.DGVTmp.TabIndex = 3
-        Me.DGVTmp.Visible = False
-        '
-        'DGVTmp3
-        '
-        Me.DGVTmp3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVTmp3.Location = New System.Drawing.Point(1480, 328)
-        Me.DGVTmp3.Name = "DGVTmp3"
-        Me.DGVTmp3.Size = New System.Drawing.Size(71, 54)
-        Me.DGVTmp3.TabIndex = 3
-        Me.DGVTmp3.Visible = False
-        '
         'poystate
         '
         Me.poystate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.poystate.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle10.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.poystate.DefaultCellStyle = DataGridViewCellStyle10
         Me.poystate.DividerWidth = 5
         Me.poystate.HeaderText = ""
         Me.poystate.MaxInputLength = 5
@@ -163,8 +131,8 @@ Partial Class frmSortJobDisplay
         '
         'poyprodweight
         '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.poyprodweight.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.poyprodweight.DefaultCellStyle = DataGridViewCellStyle11
         Me.poyprodweight.DividerWidth = 5
         Me.poyprodweight.HeaderText = "CODE"
         Me.poyprodweight.MaxInputLength = 5
@@ -195,8 +163,8 @@ Partial Class frmSortJobDisplay
         '
         'gradeShort
         '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.gradeShort.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.gradeShort.DefaultCellStyle = DataGridViewCellStyle12
         Me.gradeShort.DividerWidth = 5
         Me.gradeShort.HeaderText = "S"
         Me.gradeShort.MaxInputLength = 5
@@ -241,11 +209,65 @@ Partial Class frmSortJobDisplay
         Me.poycartcount.ReadOnly = True
         Me.poycartcount.Width = 130
         '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.DGVDisplays)
+        Me.Panel2.Location = New System.Drawing.Point(12, 20)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(1482, 552)
+        Me.Panel2.TabIndex = 1
+        '
+        'DGVTmp2
+        '
+        Me.DGVTmp2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGVTmp2.Location = New System.Drawing.Point(1472, 88)
+        Me.DGVTmp2.Name = "DGVTmp2"
+        Me.DGVTmp2.Size = New System.Drawing.Size(79, 100)
+        Me.DGVTmp2.TabIndex = 4
+        Me.DGVTmp2.Visible = False
+        '
+        'DGVTmp
+        '
+        Me.DGVTmp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGVTmp.Location = New System.Drawing.Point(1472, 209)
+        Me.DGVTmp.Name = "DGVTmp"
+        Me.DGVTmp.Size = New System.Drawing.Size(89, 83)
+        Me.DGVTmp.TabIndex = 3
+        Me.DGVTmp.Visible = False
+        '
+        'DGVTmp3
+        '
+        Me.DGVTmp3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGVTmp3.Location = New System.Drawing.Point(1480, 328)
+        Me.DGVTmp3.Name = "DGVTmp3"
+        Me.DGVTmp3.Size = New System.Drawing.Size(71, 54)
+        Me.DGVTmp3.TabIndex = 3
+        Me.DGVTmp3.Visible = False
+        '
+        'tmrUpdateTimer
+        '
+        Me.tmrUpdateTimer.Enabled = True
+        Me.tmrUpdateTimer.Interval = 10000
+        '
+        'lblMessage
+        '
+        Me.lblMessage.AutoSize = True
+        Me.lblMessage.BackColor = System.Drawing.SystemColors.Menu
+        Me.lblMessage.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMessage.ForeColor = System.Drawing.Color.LimeGreen
+        Me.lblMessage.Location = New System.Drawing.Point(558, 586)
+        Me.lblMessage.Name = "lblMessage"
+        Me.lblMessage.Size = New System.Drawing.Size(140, 24)
+        Me.lblMessage.TabIndex = 1
+        Me.lblMessage.Text = "Updating Data"
+        Me.lblMessage.Visible = False
+        '
         'frmSortJobDisplay
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1563, 634)
+        Me.Controls.Add(Me.lblMessage)
         Me.Controls.Add(Me.DGVTmp3)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.DGVTmp)
@@ -259,6 +281,7 @@ Partial Class frmSortJobDisplay
         CType(Me.DGVTmp, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DGVTmp3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents btnCancel As Button
@@ -281,4 +304,6 @@ Partial Class frmSortJobDisplay
     Friend WithEvents poySortStartTM As DataGridViewTextBoxColumn
     Friend WithEvents poySortEndTM As DataGridViewTextBoxColumn
     Friend WithEvents poycartcount As DataGridViewTextBoxColumn
+    Friend WithEvents tmrUpdateTimer As Timer
+    Friend WithEvents lblMessage As Label
 End Class
