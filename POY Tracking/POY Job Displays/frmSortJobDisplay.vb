@@ -298,7 +298,7 @@ Public Class frmSortJobDisplay
                     'GET CART COUNT
                     LExecQuery("Select poycartname FROM POYTRACK2 Where POYMCNUM = '" & tmpMcNum & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
                                    & " AND   POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null And  POYSORTRELEASE Is NULL) Group by poycartname ")
-                    If LRecordCount > 0 Then tmpCartCount = LRecordCount / 2
+                    If LRecordCount > 0 Then tmpCartCount = LRecordCount
 
                     'GET "A" COUNT
                     LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMcNum & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
