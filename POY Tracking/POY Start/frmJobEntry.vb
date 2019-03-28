@@ -589,22 +589,40 @@ Public Class frmJobEntry
         'Routine to force Cart Number to lower Value of the two carts if Cart 2 is scanned and reasign the barcode number
         Select Case CartNum
 
-            Case "P1", "P2"
+            Case "P1"
                 CartNum = "P1"
                 varCartNum = CartNum
                 dbBarcode = moddbarcode & "P1"
-            Case "P3", "P4"
+            Case "P2"
+                CartNum = "P2"
+                varCartNum = CartNum
+                dbBarcode = moddbarcode & "P2"
+            Case "P3"
                 CartNum = "P3"
                 varCartNum = CartNum
                 dbBarcode = moddbarcode & "P3"
-            Case "P5", "P6"
+            Case "P4"
+                CartNum = "P4"
+                varCartNum = CartNum
+                dbBarcode = moddbarcode & "P4"
+            Case "P5"
                 CartNum = "P5"
                 varCartNum = CartNum
                 dbBarcode = moddbarcode & "P5"
-            Case "P7", "P8"
+            Case "P6"
+                CartNum = "P6"
+                varCartNum = CartNum
+                dbBarcode = moddbarcode & "P6"
+            Case "P7"
                 CartNum = "P7"
                 varCartNum = CartNum
                 dbBarcode = moddbarcode & "P7"
+            Case "P8"
+                CartNum = "P8"
+                varCartNum = CartNum
+                dbBarcode = moddbarcode & "P8"
+
+
 
         End Select
 
@@ -1121,8 +1139,7 @@ Public Class frmJobEntry
 
         moddrumBarcode = txtCartNum.Text.Substring(0, 12) 'gets the barcode less cart number
 
-        Dim cartA As String
-        Dim CartB As String
+
         Dim poycartname As String
 
         For i As Integer = 1 To 16
@@ -1133,221 +1150,218 @@ Public Class frmJobEntry
 
             Select Case CartNum
 
-                Case "P1", "P2"
-                    cartA = "P1"
-                    CartB = "P2"
+                Case "P1", "P5"
+
                     Select Case modDrumIdx
 
                         Case "01"
                             drumNum = "01"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "02"
                             drumNum = "02"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "03"
                             drumNum = "03"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "04"
                             drumNum = "04"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "05"
                             drumNum = "09"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "06"
                             drumNum = "10"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "07"
                             drumNum = "11"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "08"
                             drumNum = "12"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "09"
                             drumNum = "17"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "10"
                             drumNum = "18"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "11"
                             drumNum = "19"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "12"
                             drumNum = "20"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "13"
                             drumNum = "25"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "14"
                             drumNum = "26"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "15"
                             drumNum = "27"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "16"
                             drumNum = "28"
-                            poycartname = CartB
+                            poycartname = CartNum
                     End Select
 
-                Case "P3", "P4"
-                    cartA = "P3"
-                    CartB = "P4"
+                Case "P2", "P6"
+
+
                     Select Case modDrumIdx
                         Case "01"
                             drumNum = "05"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "02"
                             drumNum = "06"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "03"
                             drumNum = "07"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "04"
                             drumNum = "08"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "05"
                             drumNum = "13"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "06"
                             drumNum = "14"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "07"
                             drumNum = "15"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "08"
                             drumNum = "16"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "09"
                             drumNum = "21"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "10"
                             drumNum = "22"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "11"
                             drumNum = "23"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "12"
                             drumNum = "24"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "13"
                             drumNum = "29"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "14"
                             drumNum = "30"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "15"
                             drumNum = "31"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "16"
                             drumNum = "32"
-                            poycartname = CartB
+                            poycartname = CartNum
                     End Select
 
-                Case "P5", "P6"
-                    cartA = "P5"
-                    CartB = "P6"
+                Case "P3", "P7"
+
                     Select Case modDrumIdx
                         Case "01"
                             drumNum = "33"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "02"
                             drumNum = "34"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "03"
                             drumNum = "35"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "04"
                             drumNum = "36"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "05"
                             drumNum = "41"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "06"
                             drumNum = "42"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "07"
                             drumNum = "43"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "08"
                             drumNum = "44"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "09"
                             drumNum = "49"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "10"
                             drumNum = "50"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "11"
                             drumNum = "51"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "12"
                             drumNum = "52"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "13"
                             drumNum = "57"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "14"
                             drumNum = "58"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "15"
                             drumNum = "59"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "16"
                             drumNum = "60"
-                            poycartname = CartB
+                            poycartname = CartNum
                     End Select
 
-                Case "P7", "P8"
-                    cartA = "P7"
-                    CartB = "P8"
+                Case "P4", "P8"
+
                     Select Case modDrumIdx
                         Case "01"
                             drumNum = "37"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "02"
                             drumNum = "38"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "03"
                             drumNum = "39"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "04"
                             drumNum = "40"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "05"
                             drumNum = "45"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "06"
                             drumNum = "46"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "07"
                             drumNum = "47"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "08"
                             drumNum = "48"
-                            poycartname = cartA
+                            poycartname = CartNum
                         Case "09"
                             drumNum = "53"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "10"
                             drumNum = "54"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "11"
                             drumNum = "55"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "12"
                             drumNum = "56"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "13"
                             drumNum = "61"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "14"
                             drumNum = "62"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "15"
                             drumNum = "63"
-                            poycartname = CartB
+                            poycartname = CartNum
                         Case "16"
                             drumNum = "64"
-                            poycartname = CartB
+                            poycartname = CartNum
                     End Select
 
             End Select

@@ -36,8 +36,8 @@ Public Class frmSortJobDisplay
 
     Private Sub ScreenReportCreate()
 
-        LExecQuery("Select POYMCNUM ,poyprodname,POYmergenum , poyprodweight, POYDOFFNUM FROM " _
-                 & "POYTRACK2 Where POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null And  POYSORTRELEASE Is NULL) GROUP BY POYMCNUM ,poyprodname ,POYmergenum , poyprodweight , POYDOFFNUM Order by poymcnum,poydoffnum ")
+        LExecQuery("Select POYMCNUM ,poymcname,poyprodname,POYmergenum , poyprodweight, POYDOFFNUM FROM " _
+                 & "POYTRACK2 Where POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null And  POYSORTRELEASE Is NULL) GROUP BY POYMCNUM,poymcname,poyprodname ,POYmergenum , poyprodweight , POYDOFFNUM Order by poymcnum,poydoffnum ")
 
         If LRecordCount > 0 Then
             DGVTmp.DataSource = LDS.Tables(0)
@@ -71,7 +71,8 @@ Public Class frmSortJobDisplay
 
                     ' DGVDisplays.Rows(i - 1).Cells("poystate").Value = DGVTmp.Rows(i - 1).Cells("POYS").Value.ToString()   'GET STATE
 
-                    DGVDisplays.Rows(i - 1).Cells("poymcnum").Value = DGVTmp.Rows(i - 1).Cells("POYMCNUM").Value.ToString()
+                    DGVDisplays.Rows(i - 1).Cells("poymccode").Value = DGVTmp.Rows(i - 1).Cells("POYMCNUM").Value.ToString()
+                    ' DGVDisplays.Rows(i - 1).Cells("poymcname").Value = DGVTmp.Rows(i - 1).Cells("POYMCNAME").Value.ToString()
                     DGVDisplays.Rows(i - 1).Cells("poyprodname").Value = DGVTmp.Rows(i - 1).Cells("POYPRODNAME").Value.ToString()
                     DGVDisplays.Rows(i - 1).Cells("poymergenum").Value = DGVTmp.Rows(i - 1).Cells("POYMERGENUM").Value.ToString()
                     DGVDisplays.Rows(i - 1).Cells("poyprodweight").Value = DGVTmp.Rows(i - 1).Cells("POYPRODWEIGHT").Value.ToString()
@@ -79,7 +80,7 @@ Public Class frmSortJobDisplay
 
 
                     'Set variables needed
-                    tmpMcNum = DGVDisplays.Rows(i - 1).Cells("poymcnum").Value
+                    tmpMcNum = DGVDisplays.Rows(i - 1).Cells("poymccode").Value
                     tmpProdName = DGVDisplays.Rows(i - 1).Cells("poyprodname").Value
                     tmpDOFFNum = DGVDisplays.Rows(i - 1).Cells("poydoffnum").Value
                     tmpTFNum = DGVDisplays.Rows(i - 1).Cells("poymergenum").Value
@@ -128,7 +129,7 @@ Public Class frmSortJobDisplay
                     'GET "CART" COUNT
                     LExecQuery("Select poycartname FROM POYTRACK2 Where POYMCNUM = '" & tmpMcNum & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
                                    & " AND   POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null And  POYSORTRELEASE Is NULL) Group by poycartname ")
-                    If LRecordCount > 0 Then tmpCartCount = LRecordCount / 2
+                    If LRecordCount > 0 Then tmpCartCount = LRecordCount
 
                     'GET "A" COUNT
                     LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMcNum & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
@@ -221,6 +222,7 @@ Public Class frmSortJobDisplay
             Dim tmpStartTime As String
             Dim tmpEndTime As String
             Dim tmpMcNum As String
+            Dim tmpMCName As String
             Dim tmpProdName As String
             Dim tmpDOFFNum As String
             Dim tmpTFNum As String
@@ -233,7 +235,10 @@ Public Class frmSortJobDisplay
 
                     ' DGVDisplays.Rows(i - 1).Cells("poystate").Value = DGVTmp.Rows(i - 1).Cells("POYS").Value.ToString()   'GET STATE
 
-                    DGVDisplays.Rows(i - 1).Cells("poymcnum").Value = DGVTmp.Rows(i - 1).Cells("POYMCNUM").Value.ToString()
+
+
+                    DGVDisplays.Rows(i - 1).Cells("poymccode").Value = DGVTmp.Rows(i - 1).Cells("POYMCNUM").Value.ToString()
+                    '   DGVDisplays.Rows(i - 1).Cells("poymcname").Value = DGVTmp.Rows(i - 1).Cells("POYMCNAME").Value.ToString()
                     DGVDisplays.Rows(i - 1).Cells("poyprodname").Value = DGVTmp.Rows(i - 1).Cells("POYPRODNAME").Value.ToString()
                     DGVDisplays.Rows(i - 1).Cells("poymergenum").Value = DGVTmp.Rows(i - 1).Cells("POYMERGENUM").Value.ToString()
                     DGVDisplays.Rows(i - 1).Cells("poyprodweight").Value = DGVTmp.Rows(i - 1).Cells("POYPRODWEIGHT").Value.ToString()
@@ -241,7 +246,7 @@ Public Class frmSortJobDisplay
 
 
                     'Set variables needed
-                    tmpMcNum = DGVDisplays.Rows(i - 1).Cells("poymcnum").Value
+                    tmpMcNum = DGVDisplays.Rows(i - 1).Cells("poymccode").Value
                     tmpProdName = DGVDisplays.Rows(i - 1).Cells("poyprodname").Value
                     tmpDOFFNum = DGVDisplays.Rows(i - 1).Cells("poydoffnum").Value
                     tmpTFNum = DGVDisplays.Rows(i - 1).Cells("poymergenum").Value
@@ -319,6 +324,7 @@ Public Class frmSortJobDisplay
                     DGVDisplays.Rows(i - 1).Cells("poySortEndTM").Value = tmpEndTime
 
                     'Set State colour
+
                     DGVDisplays.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Orange
 
 
