@@ -225,7 +225,7 @@ Public Class frmPackTodayUpdate
                     'WRITE VALUES TOO THE SHEET
                     '   MyTodyExcel.Cells(nfree, ncfree) = frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value
 
-                    MyTodyExcel.Cells(nfree, ncfree) = drumInfo
+                    MyTodyExcel.Cells(nfree, ncfree) = drumInfo.ToString
                     MyTodyExcel.Cells(nfree, ncfree + 1) = drumweight.ToString
 
                     nfree = nfree + 1
@@ -252,25 +252,13 @@ Public Class frmPackTodayUpdate
 
             MyTodyExcel.Cells(6, 9) = weightSum.ToString(0)
 
-        Catch ex As Exception
 
-            MsgBox(ex.ToString)
-            writeerrorLog.writelog("72 Excel Create Error", ex.Message, True, "System_Fault")
-            writeerrorLog.writelog("72 Excel Create Error", ex.ToString, True, "System_Fault")
-
-            Me.Cursor = System.Windows.Forms.Cursors.Default
-        End Try
-
-        Try
-
-            'Save changes to new file in Paking Dir
-            MyTodyExcel.DisplayAlerts = False
-            xlTodyWorkbook.SaveAs(Filename:=frmPackRepMain.savename, FileFormat:=51)
 
         Catch ex As Exception
+            MsgBox(ex.Message)
             writeerrorLog.writelog("72 Excel Save Error", ex.Message, True, "System_Fault")
             writeerrorLog.writelog("72 Excel Save Error", ex.ToString, True, "System_Fault")
-            MsgBox(ex.Message)
+
 
             Me.Cursor = System.Windows.Forms.Cursors.Default
         End Try
@@ -298,6 +286,20 @@ Public Class frmPackTodayUpdate
             writeerrorLog.writelog("72 Excel Print", ex.ToString, True, "System_Fault")
         End Try
 
+
+        Try
+
+            'Save changes to new file in Paking Dir
+            MyTodyExcel.DisplayAlerts = False
+            xlTodyWorkbook.SaveAs(Filename:=frmPackRepMain.savename, FileFormat:=51)
+
+        Catch ex As Exception
+
+            MsgBox(ex.Message)
+            writeerrorLog.writelog("72 Excel Save Error", ex.Message, True, "System_Fault")
+            writeerrorLog.writelog("72 Excel Save Error", ex.ToString, True, "System_Fault")
+            Me.Cursor = System.Windows.Forms.Cursors.Default
+        End Try
 
 
 
@@ -370,7 +372,7 @@ Public Class frmPackTodayUpdate
                     'WRITE VALUES TOO THE SHEET
                     '   MyTodyExcel.Cells(nfree, ncfree) = frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value
 
-                    MyTodyExcel.Cells(nfree, ncfree) = drumInfo
+                    MyTodyExcel.Cells(nfree, ncfree) = drumInfo.ToString
                     MyTodyExcel.Cells(nfree, ncfree + 1) = drumweight.ToString
 
 
@@ -398,24 +400,11 @@ Public Class frmPackTodayUpdate
 
             MyTodyExcel.Cells(6, 9) = weightSum.ToString(0)
 
+
+
         Catch ex As Exception
 
             MsgBox(ex.ToString)
-            writeerrorLog.writelog("120 Excel Create Error", ex.Message, True, "System_Fault")
-            writeerrorLog.writelog("120 Excel Create Error", ex.ToString, True, "System_Fault")
-            Me.Cursor = System.Windows.Forms.Cursors.Default
-
-        End Try
-
-        Try
-
-            'Save changes to new file in Paking Dir
-            MyTodyExcel.DisplayAlerts = False
-            xlTodyWorkbook.SaveAs(Filename:=frmPackRepMain.savename, FileFormat:=51)
-
-        Catch ex As Exception
-
-            MsgBox(ex.Message)
             writeerrorLog.writelog("120 Excel Save Error", ex.Message, True, "System_Fault")
             writeerrorLog.writelog("120 Excel Save Error", ex.ToString, True, "System_Fault")
             Me.Cursor = System.Windows.Forms.Cursors.Default
@@ -442,6 +431,25 @@ Public Class frmPackTodayUpdate
             writeerrorLog.writelog("120 Excel Print", ex.Message, True, "System_Fault")
             writeerrorLog.writelog("120 Excel Print", ex.ToString, True, "System_Fault")
         End Try
+
+
+
+        Try
+
+            'Save changes to new file in Paking Dir
+            MyTodyExcel.DisplayAlerts = False
+            xlTodyWorkbook.SaveAs(Filename:=frmPackRepMain.savename, FileFormat:=51)
+        Catch ex As Exception
+
+            MsgBox(ex.Message)
+            writeerrorLog.writelog("120 Excel Create Error", ex.Message, True, "System_Fault")
+            writeerrorLog.writelog("120 Excel Create Error", ex.ToString, True, "System_Fault")
+            Me.Cursor = System.Windows.Forms.Cursors.Default
+
+
+        End Try
+
+
 
 
         Try

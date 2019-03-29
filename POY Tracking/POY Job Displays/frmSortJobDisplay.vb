@@ -421,9 +421,30 @@ Public Class frmSortJobDisplay
 
             screenReportUpdate()
         End If
-
-
-
-
     End Sub
+
+    REM Keeps track of selection status
+    Private selectionChanged As Boolean
+
+    REM Fires Second
+    Private Sub DGVDisplays_CellClick(sender As Object, e As DataGridViewCellEventArgs)
+        If Not selectionChanged Then
+            DGVDisplays.ClearSelection()
+            selectionChanged = True
+        Else
+            selectionChanged = False
+        End If
+    End Sub
+
+    REM Fires first
+    Private Sub DGVDisplays_SelectionChanged(sender As Object, e As EventArgs)
+        selectionChanged = True
+    End Sub
+
+
+
+
+
+
+
 End Class
