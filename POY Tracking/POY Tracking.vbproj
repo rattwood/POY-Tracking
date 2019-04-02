@@ -26,7 +26,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\172.20.26.90\DTY DATA\DTY Software Update\POYTrack\</UpdateUrl>
-    <ApplicationRevision>14</ApplicationRevision>
+    <ApplicationRevision>15</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -617,30 +617,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\DefectStrip.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\DefectDrum1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Have Drum1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\MissingDrum1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\NotScan1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\DefectDrum2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Have Drum2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\MissingDrum2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\NoDrum1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\NotScan2.png" />

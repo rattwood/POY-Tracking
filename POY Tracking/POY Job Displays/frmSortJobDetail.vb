@@ -28,21 +28,33 @@ Public Class frmSortJobDetail
 
     Dim rwcount As Integer
     Dim DisplayDoffIndex As Integer
+    Dim localRowCount As Integer
+
+
+    'TIME
+    Dim time As New DateTime
+    Dim dateFormat As String = "yyyy-MM-dd HH:mm:ss"
+    Public todayTimeDate As String
+
     '-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
     Private Sub frmSortJobDetail_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         mcDoffDisplay()
+    End Sub
 
+    Public Sub timeUpdate()   'get current time and date
+
+        todayTimeDate = time.Now.ToString(dateFormat)
 
     End Sub
 
 
+
     Private Sub mcDoffDisplay()
 
-        Dim localRowCount As Integer  'variable to get number of rows requiered for the CARTS
+
         Dim localrowindx = frmSortJobDisplay.DisplayDoffIndex
 
         Dim tmpMCCode = frmSortJobDisplay.DGVDisplays.Rows(localrowindx).Cells("POYMCCODE").Value.ToString()
@@ -56,7 +68,7 @@ Public Class frmSortJobDetail
 
 
 
-        LExecQuery("Select distinct poycartname FROM  POYTRACK2 Where POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null And  POYSORTRELEASE Is NULL) and poymcname = '" & tmpMCNUM & "'" _
+        LExecQuery("Select distinct poycartname,poybcodecart,poydrumstate FROM  POYTRACK2 Where POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null ) and poymcname = '" & tmpMCNUM & "'" _
                     & " and poyprodname = '" & tmpProdName & "' and poymergenum = '" & tmpTFNum & "' and poydoffnum = '" & tmpDOFFNum & "' " _
                     & "order by poycartname  ")
 
@@ -68,12 +80,37 @@ Public Class frmSortJobDetail
 
             'CREATE THE ROWN ON DGV 
             localRowCount = LRecordCount
+
+            DGVMcDoffInfo.AllowUserToDeleteRows = True
+            DGVMcDoffInfo.SelectAll()
+
+            ' lblMessage.Visible = True
+            For i As Integer = DGVMcDoffInfo.SelectedRows.Count - 1 To 0 Step -1                'DGVDisplays.Rows.RemoveAt(i - 1)
+                DGVMcDoffInfo.Rows.RemoveAt(DGVMcDoffInfo.SelectedRows(i).Index)
+
+            Next
+
+            DGVMcDoffInfo.Refresh()
+
+            DGVMcDoffInfo.DataSource = Nothing
             DGVMcDoffInfo.Rows.Add(localRowCount)
+            DGVMcDoffInfo.AllowUserToDeleteRows = False
+
+
+
+
+
+            ' DGVMcDoffInfo.Rows.Add(localRowCount)
 
             DGVDoffTmp1.DataSource = LDS.Tables(0)
             DGVDoffTmp1.Rows(0).Selected = True
 
             ' DGVMcDoffInfo.Visible = True
+
+
+
+
+
 
 
             'Define temp variables
@@ -112,7 +149,7 @@ Public Class frmSortJobDetail
 
                     'GET ALL MISSING DRUMS IN THIS DOFF
                     LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null And  POYSORTRELEASE Is NULL) AND poymissdrum > 0 ")
+                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null ) AND poymissdrum > 0 ")
 
                     If LRecordCount > 0 Then tmpmissing = LRecordCount
 
@@ -120,7 +157,7 @@ Public Class frmSortJobDetail
 
                     'GET ALL "SHORT" DRUMS IN THIS DOFF
                     LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & " and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null And  POYSORTRELEASE Is NULL) AND POYSHORTDRUM > 0 and (POYDEFDRUM = 0 Or POYDEFDRUM is Null) ")
+                                   & " and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null ) AND POYSHORTDRUM > 0 and (POYDEFDRUM = 0 Or POYDEFDRUM is Null) ")
 
                     If LRecordCount > 0 Then tmpShortCount = LRecordCount
 
@@ -129,21 +166,21 @@ Public Class frmSortJobDetail
 
                     'GET ALL "SHORTAB" DRUMS IN THIS DOFF
                     LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & " and poycartname = '" & tmpCartName & "' AND    POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null And  POYSORTRELEASE Is NULL) AND (POYSHORTDRUM > 0 and POYDEFDRUM >  0) ")
+                                   & " and poycartname = '" & tmpCartName & "' AND    POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null) AND (POYSHORTDRUM > 0 and POYDEFDRUM >  0) ")
 
                     If LRecordCount > 0 Then tmpShortABCount = LRecordCount
 
 
                     'GET ALL "Defect" DRUMS IN THIS DOFF
                     LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null And  POYSORTRELEASE Is NULL) AND  POYDEFDRUM > 0 And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) ")
+                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null ) AND  POYDEFDRUM > 0 And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) ")
 
                     If LRecordCount > 0 Then tmpABCount = LRecordCount
 
 
                     'GET "A" COUNT
                     LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null And  POYSORTRELEASE Is NULL) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
+                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
 
 
                     If LRecordCount > 0 Then tmpACount = LRecordCount
@@ -153,7 +190,7 @@ Public Class frmSortJobDetail
                     'GET "ENDTIME
 
                     LExecQuery("Select poysortendtm,poysortstart FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null And  POYSORTRELEASE Is NULL)  ")
+                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null )  ")
                     If LRecordCount > 0 Then tmpCartCount = LRecordCount
 
 
@@ -179,7 +216,21 @@ Public Class frmSortJobDetail
                     DGVMcDoffInfo.Rows(i - 1).Cells("poySortEndTM").Value = tmpEndTime
 
                     'Set State colour
-                    DGVMcDoffInfo.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Orange
+                    Dim tmpDrumState = DGVDoffTmp1.Rows(i - 1).Cells("POYDRUMSTATE").Value
+
+                    Select Case tmpDrumState
+                        Case 1
+                            DGVMcDoffInfo.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Orange
+                        Case 2
+
+
+                        Case 3
+                            DGVMcDoffInfo.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Green
+
+                        Case 4
+
+
+                    End Select
 
 
 
@@ -196,8 +247,8 @@ Public Class frmSortJobDetail
                     tmpStartTime = ""
                     tmpEndTime = ""
                 Next
-                ' DGVMcDoffInfo.ClearSelection()
-
+                DGVMcDoffInfo.ClearSelection()
+                DGVMcDoffInfo.SelectionMode = DataGridViewSelectionMode.FullRowSelect
 
 
 
@@ -301,11 +352,57 @@ Public Class frmSortJobDetail
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+        frmSortJobDisplay.DGVDisplays.ClearSelection()
+        frmSortJobDisplay.DGVDisplays.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         frmSortJobDisplay.Show()
+        frmSortJobDisplay.ScreenReportCreate()
         Close()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub btnReleaseJob_Click(sender As Object, e As EventArgs) Handles btnReleaseJob.Click
+
+        Dim selectIndex As String
+        'Find all selected rows and get info for SQL Update to DB
+        Dim selectedCount As Integer = DGVMcDoffInfo.Rows.GetRowCount(DataGridViewElementStates.Selected)    'COUNT NUMBER OF SELECTED ROWS
+        Dim poycartbcode As String
+        timeUpdate()
+
+        If selectedCount > 0 Then
+
+
+            For i = 1 To selectedCount
+
+                selectIndex = DGVMcDoffInfo.SelectedRows(i - 1).Index.ToString
+
+
+
+                poycartbcode = DGVDoffTmp1.Rows(selectIndex).Cells("poybcodecart").Value
+
+                LExecQuery("update poytrack2 Set POYSORTRELEASE = '" & todayTimeDate & "', POYRELEASENAME = '" & frmJobEntry.varUserName & "', POYDRUMSTATE = '3' Where " _
+                          & "poybcodecart = '" & poycartbcode & "' ")
+
+                DGVMcDoffInfo.ClearSelection()  'CLEAR ONSCREEN SELECTION
+
+            Next
+        Else
+
+            MsgBox("You must select carts before RELEASE")
+
+
+        End If
+
+        mcDoffDisplay()  'REFRESH DISPLAY
+        DGVMcDoffInfo.ClearSelection()  'CLEAR ONSCREEN SELECTION
+
+
+
+
+
+
+
+
+
+
 
     End Sub
 End Class
