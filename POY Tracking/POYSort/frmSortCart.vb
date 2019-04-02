@@ -368,7 +368,7 @@ Public Class frmSortCart
                 Exit For
 
 
-            ElseIf frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value = bcodeScan And frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value = 1 Then
+            ElseIf frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value = bcodeScan And frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value > 0 Then
                 lblMessage.Visible = True
                 lblMessage.Text = "Drum already allocated"
                 DelayTM()
@@ -671,7 +671,7 @@ Public Class frmSortCart
             Me.btnDefect.Enabled = True
             ' Me.btnSave.Visible = False
             Me.btnDefectSave.Visible = False
-
+            lblFaultCodes.Visible = False
 
 
             'FAULTS FROM POY Dept
@@ -1197,17 +1197,17 @@ Public Class frmSortCart
             Me.chk_CBC.Visible = False
             Fault_S = "False"
             Fault_X = "False"
-            ''SORT Dept FAULTS
-            'Me.chk_DO.Visible = False
-            'Me.chk_DH.Visible = False
-            'Me.chk_CL.Visible = False
-            'Me.chk_FI.Visible = False
-            'Me.chk_YN.Visible = False
-            'Me.chk_HT.Visible = False
-            'Me.chk_LT.Visible = False
+        ''SORT Dept FAULTS
+        'Me.chk_DO.Visible = False
+        'Me.chk_DH.Visible = False
+        'Me.chk_CL.Visible = False
+        'Me.chk_FI.Visible = False
+        'Me.chk_YN.Visible = False
+        'Me.chk_HT.Visible = False
+        'Me.chk_LT.Visible = False
+        lblFaultCodes.Visible = False
 
-
-            txtDrumNum.Text = ""
+        txtDrumNum.Text = ""
 
         'End If
 
@@ -1359,45 +1359,45 @@ Public Class frmSortCart
 
 
 
-    Public Sub endCheck()
+    'Public Sub endCheck()
 
-        'If toAllocateCount = allocatedCount Then
-        'ONLY PRINT IF COLOUR SELECTED
-        ' Dim today As String = DateAndTime.Today
-        timeUpdate()
+    '    'If toAllocateCount = allocatedCount Then
+    '    'ONLY PRINT IF COLOUR SELECTED
+    '    ' Dim today As String = DateAndTime.Today
+    '    timeUpdate()
 
-            Dim tempDRUMnum As String
+    '        Dim tempDRUMnum As String
 
-            For rw As Integer = 1 To frmDGV.DGVdata.Rows.Count
-
-
-                If frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value = 0 Then
-
-                    'get current DRUM number
-                    tempDRUMnum = frmDGV.DGVdata.Rows(rw - 1).Cells("POYSPINNUM").Value
-
-                    frmDGV.DGVdata.Rows(rw - 1).Cells("POYMISSDRUM").Value = tempDRUMnum
-
-                    frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value = 1
-
-                    'frmDGV.DGVdata.Rows(rw - 1).Cells("POYSORTENDTM").Value = todayTimeDate
-                End If
+    '        For rw As Integer = 1 To frmDGV.DGVdata.Rows.Count
 
 
-                frmDGV.DGVdata.Rows(rw - 1).Cells("OPCREATECART").Value = frmJobEntry.SortOP
-                frmDGV.DGVdata.Rows(rw - 1).Cells("POYSORTENDTM").Value = todayTimeDate
+    '            If frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value = 0 Then
+
+    '                'get current DRUM number
+    '                tempDRUMnum = frmDGV.DGVdata.Rows(rw - 1).Cells("POYSPINNUM").Value
+
+    '                frmDGV.DGVdata.Rows(rw - 1).Cells("POYMISSDRUM").Value = tempDRUMnum
+
+    '                frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value = 1
+
+    '                'frmDGV.DGVdata.Rows(rw - 1).Cells("POYSORTENDTM").Value = todayTimeDate
+    '            End If
+
+
+    '            frmDGV.DGVdata.Rows(rw - 1).Cells("OPCREATECART").Value = frmJobEntry.SortOP
+    '            frmDGV.DGVdata.Rows(rw - 1).Cells("POYSORTENDTM").Value = todayTimeDate
 
 
 
-            Next
+    '        Next
 
-            UpdateDatabase()
+    '        UpdateDatabase()
 
-        'End If
-        btnFinishedJob.Enabled = True
-        btnFinishedJob.BackColor = Color.Green
+    '    'End If
+    '    btnFinishedJob.Enabled = True
+    '    btnFinishedJob.BackColor = Color.Green
 
-    End Sub
+    'End Sub
 
     Public Sub tsbtnSave()
 

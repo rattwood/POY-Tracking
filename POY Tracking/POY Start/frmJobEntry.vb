@@ -920,7 +920,7 @@ Public Class frmJobEntry
             If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYWEIGHTCODE").Value) Then
                 varKNum = frmDGV.DGVdata.Rows(0).Cells("POYWEIGHTCODE").Value
             Else
-                varKNum = "K0"
+                varKNum = "K00"
             End If
 
 

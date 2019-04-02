@@ -82,6 +82,7 @@ Public Class frmSettings
         My.Settings.chkUseLogs = chkUseLogs.CheckState
         My.Settings.scrRefresh = txtscrRefresh.Text
         My.Settings.Save()
+        frmSortJobDisplay.tmrUpdateTimer.Interval = My.Settings.scrRefresh * 1000
         Me.Close()
     End Sub
 

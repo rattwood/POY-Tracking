@@ -112,10 +112,10 @@ Partial Class frmSortCart
         Me.btn8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn8.ForeColor = System.Drawing.Color.Black
-        Me.btn8.Location = New System.Drawing.Point(619, 310)
+        Me.btn8.Location = New System.Drawing.Point(866, 440)
         Me.btn8.Margin = New System.Windows.Forms.Padding(2)
         Me.btn8.Name = "btn8"
-        Me.btn8.Size = New System.Drawing.Size(125, 84)
+        Me.btn8.Size = New System.Drawing.Size(177, 115)
         Me.btn8.TabIndex = 445
         Me.btn8.Text = "12"
         Me.btn8.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -128,10 +128,10 @@ Partial Class frmSortCart
         Me.btn4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn4.ForeColor = System.Drawing.Color.Black
-        Me.btn4.Location = New System.Drawing.Point(483, 310)
+        Me.btn4.Location = New System.Drawing.Point(665, 440)
         Me.btn4.Margin = New System.Windows.Forms.Padding(2)
         Me.btn4.Name = "btn4"
-        Me.btn4.Size = New System.Drawing.Size(125, 84)
+        Me.btn4.Size = New System.Drawing.Size(177, 115)
         Me.btn4.TabIndex = 441
         Me.btn4.Text = "04"
         Me.btn4.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -144,10 +144,10 @@ Partial Class frmSortCart
         Me.btn5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn5.ForeColor = System.Drawing.Color.Black
-        Me.btn5.Location = New System.Drawing.Point(550, 46)
+        Me.btn5.Location = New System.Drawing.Point(758, 35)
         Me.btn5.Margin = New System.Windows.Forms.Padding(2)
         Me.btn5.Name = "btn5"
-        Me.btn5.Size = New System.Drawing.Size(125, 84)
+        Me.btn5.Size = New System.Drawing.Size(177, 115)
         Me.btn5.TabIndex = 442
         Me.btn5.Text = "09"
         Me.btn5.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -160,10 +160,10 @@ Partial Class frmSortCart
         Me.btn6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn6.ForeColor = System.Drawing.Color.Black
-        Me.btn6.Location = New System.Drawing.Point(619, 134)
+        Me.btn6.Location = New System.Drawing.Point(866, 168)
         Me.btn6.Margin = New System.Windows.Forms.Padding(2)
         Me.btn6.Name = "btn6"
-        Me.btn6.Size = New System.Drawing.Size(125, 84)
+        Me.btn6.Size = New System.Drawing.Size(177, 115)
         Me.btn6.TabIndex = 443
         Me.btn6.Text = "10"
         Me.btn6.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -176,10 +176,10 @@ Partial Class frmSortCart
         Me.btn7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn7.ForeColor = System.Drawing.Color.Black
-        Me.btn7.Location = New System.Drawing.Point(550, 222)
+        Me.btn7.Location = New System.Drawing.Point(758, 303)
         Me.btn7.Margin = New System.Windows.Forms.Padding(2)
         Me.btn7.Name = "btn7"
-        Me.btn7.Size = New System.Drawing.Size(125, 84)
+        Me.btn7.Size = New System.Drawing.Size(177, 115)
         Me.btn7.TabIndex = 444
         Me.btn7.Text = "11"
         Me.btn7.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -192,10 +192,10 @@ Partial Class frmSortCart
         Me.btn1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn1.ForeColor = System.Drawing.Color.Black
-        Me.btn1.Location = New System.Drawing.Point(415, 46)
+        Me.btn1.Location = New System.Drawing.Point(557, 35)
         Me.btn1.Margin = New System.Windows.Forms.Padding(2)
         Me.btn1.Name = "btn1"
-        Me.btn1.Size = New System.Drawing.Size(125, 84)
+        Me.btn1.Size = New System.Drawing.Size(177, 115)
         Me.btn1.TabIndex = 438
         Me.btn1.Text = "01"
         Me.btn1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -208,10 +208,10 @@ Partial Class frmSortCart
         Me.btn2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn2.ForeColor = System.Drawing.Color.Black
-        Me.btn2.Location = New System.Drawing.Point(483, 134)
+        Me.btn2.Location = New System.Drawing.Point(665, 168)
         Me.btn2.Margin = New System.Windows.Forms.Padding(2)
         Me.btn2.Name = "btn2"
-        Me.btn2.Size = New System.Drawing.Size(125, 84)
+        Me.btn2.Size = New System.Drawing.Size(177, 115)
         Me.btn2.TabIndex = 439
         Me.btn2.Text = "02"
         Me.btn2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -224,10 +224,10 @@ Partial Class frmSortCart
         Me.btn3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn3.ForeColor = System.Drawing.Color.Black
-        Me.btn3.Location = New System.Drawing.Point(415, 222)
+        Me.btn3.Location = New System.Drawing.Point(557, 303)
         Me.btn3.Margin = New System.Windows.Forms.Padding(2)
         Me.btn3.Name = "btn3"
-        Me.btn3.Size = New System.Drawing.Size(125, 84)
+        Me.btn3.Size = New System.Drawing.Size(177, 115)
         Me.btn3.TabIndex = 440
         Me.btn3.Text = "03"
         Me.btn3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -293,7 +293,7 @@ Partial Class frmSortCart
         Me.lblMessage.BackColor = System.Drawing.Color.Red
         Me.lblMessage.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.lblMessage.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMessage.Location = New System.Drawing.Point(11, 617)
+        Me.lblMessage.Location = New System.Drawing.Point(267, 640)
         Me.lblMessage.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblMessage.Name = "lblMessage"
         Me.lblMessage.Size = New System.Drawing.Size(232, 73)
@@ -326,7 +326,7 @@ Partial Class frmSortCart
         'txtDrumBcode
         '
         Me.txtDrumBcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.txtDrumBcode.Location = New System.Drawing.Point(559, 522)
+        Me.txtDrumBcode.Location = New System.Drawing.Point(785, 682)
         Me.txtDrumBcode.Name = "txtDrumBcode"
         Me.txtDrumBcode.Size = New System.Drawing.Size(433, 62)
         Me.txtDrumBcode.TabIndex = 429
@@ -335,7 +335,7 @@ Partial Class frmSortCart
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(481, 541)
+        Me.Label3.Location = New System.Drawing.Point(707, 701)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(77, 20)
@@ -368,7 +368,7 @@ Partial Class frmSortCart
         '
         Me.btnCancel.BackColor = System.Drawing.Color.Red
         Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(16, 604)
+        Me.btnCancel.Location = New System.Drawing.Point(12, 744)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(165, 62)
         Me.btnCancel.TabIndex = 451
@@ -379,7 +379,7 @@ Partial Class frmSortCart
         '
         Me.btnFinishedJob.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnFinishedJob.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnFinishedJob.Location = New System.Drawing.Point(17, 502)
+        Me.btnFinishedJob.Location = New System.Drawing.Point(12, 567)
         Me.btnFinishedJob.Name = "btnFinishedJob"
         Me.btnFinishedJob.Size = New System.Drawing.Size(165, 62)
         Me.btnFinishedJob.TabIndex = 450
@@ -393,10 +393,10 @@ Partial Class frmSortCart
         Me.btn12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn12.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn12.ForeColor = System.Drawing.Color.Black
-        Me.btn12.Location = New System.Drawing.Point(755, 310)
+        Me.btn12.Location = New System.Drawing.Point(1067, 440)
         Me.btn12.Margin = New System.Windows.Forms.Padding(2)
         Me.btn12.Name = "btn12"
-        Me.btn12.Size = New System.Drawing.Size(125, 84)
+        Me.btn12.Size = New System.Drawing.Size(177, 115)
         Me.btn12.TabIndex = 467
         Me.btn12.Text = "20"
         Me.btn12.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -409,10 +409,10 @@ Partial Class frmSortCart
         Me.btn9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn9.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn9.ForeColor = System.Drawing.Color.Black
-        Me.btn9.Location = New System.Drawing.Point(686, 46)
+        Me.btn9.Location = New System.Drawing.Point(959, 35)
         Me.btn9.Margin = New System.Windows.Forms.Padding(2)
         Me.btn9.Name = "btn9"
-        Me.btn9.Size = New System.Drawing.Size(125, 84)
+        Me.btn9.Size = New System.Drawing.Size(177, 115)
         Me.btn9.TabIndex = 464
         Me.btn9.Text = "17"
         Me.btn9.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -425,10 +425,10 @@ Partial Class frmSortCart
         Me.btn10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn10.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn10.ForeColor = System.Drawing.Color.Black
-        Me.btn10.Location = New System.Drawing.Point(755, 134)
+        Me.btn10.Location = New System.Drawing.Point(1067, 168)
         Me.btn10.Margin = New System.Windows.Forms.Padding(2)
         Me.btn10.Name = "btn10"
-        Me.btn10.Size = New System.Drawing.Size(125, 84)
+        Me.btn10.Size = New System.Drawing.Size(177, 115)
         Me.btn10.TabIndex = 465
         Me.btn10.Text = "18"
         Me.btn10.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -441,10 +441,10 @@ Partial Class frmSortCart
         Me.btn11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn11.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn11.ForeColor = System.Drawing.Color.Black
-        Me.btn11.Location = New System.Drawing.Point(686, 222)
+        Me.btn11.Location = New System.Drawing.Point(959, 303)
         Me.btn11.Margin = New System.Windows.Forms.Padding(2)
         Me.btn11.Name = "btn11"
-        Me.btn11.Size = New System.Drawing.Size(125, 84)
+        Me.btn11.Size = New System.Drawing.Size(177, 115)
         Me.btn11.TabIndex = 466
         Me.btn11.Text = "19"
         Me.btn11.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -457,10 +457,10 @@ Partial Class frmSortCart
         Me.btn16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn16.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn16.ForeColor = System.Drawing.Color.Black
-        Me.btn16.Location = New System.Drawing.Point(889, 310)
+        Me.btn16.Location = New System.Drawing.Point(1268, 440)
         Me.btn16.Margin = New System.Windows.Forms.Padding(2)
         Me.btn16.Name = "btn16"
-        Me.btn16.Size = New System.Drawing.Size(125, 84)
+        Me.btn16.Size = New System.Drawing.Size(177, 115)
         Me.btn16.TabIndex = 455
         Me.btn16.Text = "28"
         Me.btn16.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -468,15 +468,15 @@ Partial Class frmSortCart
         '
         'btn13
         '
-        Me.btn13.BackColor = System.Drawing.SystemColors.Control
+        Me.btn13.BackColor = System.Drawing.Color.Transparent
         Me.btn13.BackgroundImage = CType(resources.GetObject("btn13.BackgroundImage"), System.Drawing.Image)
         Me.btn13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn13.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn13.ForeColor = System.Drawing.Color.Black
-        Me.btn13.Location = New System.Drawing.Point(823, 46)
+        Me.btn13.Location = New System.Drawing.Point(1159, 35)
         Me.btn13.Margin = New System.Windows.Forms.Padding(2)
         Me.btn13.Name = "btn13"
-        Me.btn13.Size = New System.Drawing.Size(125, 84)
+        Me.btn13.Size = New System.Drawing.Size(177, 115)
         Me.btn13.TabIndex = 452
         Me.btn13.Text = "25"
         Me.btn13.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -489,10 +489,10 @@ Partial Class frmSortCart
         Me.btn14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn14.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn14.ForeColor = System.Drawing.Color.Black
-        Me.btn14.Location = New System.Drawing.Point(889, 134)
+        Me.btn14.Location = New System.Drawing.Point(1268, 168)
         Me.btn14.Margin = New System.Windows.Forms.Padding(2)
         Me.btn14.Name = "btn14"
-        Me.btn14.Size = New System.Drawing.Size(125, 84)
+        Me.btn14.Size = New System.Drawing.Size(177, 115)
         Me.btn14.TabIndex = 453
         Me.btn14.Text = "26"
         Me.btn14.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -505,10 +505,10 @@ Partial Class frmSortCart
         Me.btn15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn15.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn15.ForeColor = System.Drawing.Color.Black
-        Me.btn15.Location = New System.Drawing.Point(823, 222)
+        Me.btn15.Location = New System.Drawing.Point(1159, 303)
         Me.btn15.Margin = New System.Windows.Forms.Padding(2)
         Me.btn15.Name = "btn15"
-        Me.btn15.Size = New System.Drawing.Size(125, 84)
+        Me.btn15.Size = New System.Drawing.Size(177, 115)
         Me.btn15.TabIndex = 454
         Me.btn15.Text = "27"
         Me.btn15.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -517,156 +517,169 @@ Partial Class frmSortCart
         'chk_DO
         '
         Me.chk_DO.AutoSize = True
+        Me.chk_DO.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chk_DO.ForeColor = System.Drawing.Color.Black
-        Me.chk_DO.Location = New System.Drawing.Point(232, 303)
+        Me.chk_DO.Location = New System.Drawing.Point(392, 402)
         Me.chk_DO.Name = "chk_DO"
-        Me.chk_DO.Size = New System.Drawing.Size(42, 17)
+        Me.chk_DO.Size = New System.Drawing.Size(82, 20)
         Me.chk_DO.TabIndex = 483
-        Me.chk_DO.Text = "DO"
+        Me.chk_DO.Text = "Dirty Oil"
         Me.chk_DO.UseVisualStyleBackColor = True
         Me.chk_DO.Visible = False
         '
         'chk_CBC
         '
         Me.chk_CBC.AutoSize = True
+        Me.chk_CBC.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chk_CBC.ForeColor = System.Drawing.Color.Black
-        Me.chk_CBC.Location = New System.Drawing.Point(232, 371)
+        Me.chk_CBC.Location = New System.Drawing.Point(392, 504)
         Me.chk_CBC.Name = "chk_CBC"
-        Me.chk_CBC.Size = New System.Drawing.Size(47, 17)
+        Me.chk_CBC.Size = New System.Drawing.Size(137, 20)
         Me.chk_CBC.TabIndex = 481
-        Me.chk_CBC.Text = "CBC"
+        Me.chk_CBC.Text = "Cutting by cutter"
         Me.chk_CBC.UseVisualStyleBackColor = True
         Me.chk_CBC.Visible = False
         '
         'chk_YAB
         '
         Me.chk_YAB.AutoSize = True
+        Me.chk_YAB.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chk_YAB.ForeColor = System.Drawing.Color.Black
-        Me.chk_YAB.Location = New System.Drawing.Point(179, 405)
+        Me.chk_YAB.Location = New System.Drawing.Point(267, 504)
         Me.chk_YAB.Name = "chk_YAB"
-        Me.chk_YAB.Size = New System.Drawing.Size(47, 17)
+        Me.chk_YAB.Size = New System.Drawing.Size(83, 20)
         Me.chk_YAB.TabIndex = 480
-        Me.chk_YAB.Text = "YAB"
+        Me.chk_YAB.Text = "Yarn AB"
         Me.chk_YAB.UseVisualStyleBackColor = True
         Me.chk_YAB.Visible = False
         '
         'chk_CNC
         '
         Me.chk_CNC.AutoSize = True
+        Me.chk_CNC.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chk_CNC.ForeColor = System.Drawing.Color.Black
-        Me.chk_CNC.Location = New System.Drawing.Point(232, 337)
+        Me.chk_CNC.Location = New System.Drawing.Point(392, 436)
         Me.chk_CNC.Name = "chk_CNC"
-        Me.chk_CNC.Size = New System.Drawing.Size(48, 17)
+        Me.chk_CNC.Size = New System.Drawing.Size(116, 20)
         Me.chk_CNC.TabIndex = 479
-        Me.chk_CNC.Text = "CNC"
+        Me.chk_CNC.Text = "Cutter not cut"
         Me.chk_CNC.UseVisualStyleBackColor = True
         Me.chk_CNC.Visible = False
         '
         'chk_PTB
         '
         Me.chk_PTB.AutoSize = True
+        Me.chk_PTB.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chk_PTB.ForeColor = System.Drawing.Color.Black
-        Me.chk_PTB.Location = New System.Drawing.Point(179, 371)
+        Me.chk_PTB.Location = New System.Drawing.Point(267, 470)
         Me.chk_PTB.Name = "chk_PTB"
-        Me.chk_PTB.Size = New System.Drawing.Size(47, 17)
+        Me.chk_PTB.Size = New System.Drawing.Size(90, 20)
         Me.chk_PTB.TabIndex = 478
-        Me.chk_PTB.Text = "PTB"
+        Me.chk_PTB.Text = "P.T Burst"
         Me.chk_PTB.UseVisualStyleBackColor = True
         Me.chk_PTB.Visible = False
         '
         'chk_PTS
         '
         Me.chk_PTS.AutoSize = True
+        Me.chk_PTS.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chk_PTS.ForeColor = System.Drawing.Color.Black
-        Me.chk_PTS.Location = New System.Drawing.Point(179, 337)
+        Me.chk_PTS.Location = New System.Drawing.Point(267, 436)
         Me.chk_PTS.Name = "chk_PTS"
-        Me.chk_PTS.Size = New System.Drawing.Size(47, 17)
+        Me.chk_PTS.Size = New System.Drawing.Size(107, 20)
         Me.chk_PTS.TabIndex = 476
-        Me.chk_PTS.Text = "PTS"
+        Me.chk_PTS.Text = "P.T Scratch"
         Me.chk_PTS.UseVisualStyleBackColor = True
         Me.chk_PTS.Visible = False
         '
         'chk_PAB
         '
         Me.chk_PAB.AutoSize = True
+        Me.chk_PAB.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chk_PAB.ForeColor = System.Drawing.Color.Black
-        Me.chk_PAB.Location = New System.Drawing.Point(232, 269)
+        Me.chk_PAB.Location = New System.Drawing.Point(392, 368)
         Me.chk_PAB.Name = "chk_PAB"
-        Me.chk_PAB.Size = New System.Drawing.Size(47, 17)
+        Me.chk_PAB.Size = New System.Drawing.Size(99, 20)
         Me.chk_PAB.TabIndex = 475
-        Me.chk_PAB.Text = "PAB"
+        Me.chk_PAB.Text = "Pusher AB"
         Me.chk_PAB.UseVisualStyleBackColor = True
         Me.chk_PAB.Visible = False
         '
         'chk_SL
         '
         Me.chk_SL.AutoSize = True
+        Me.chk_SL.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chk_SL.ForeColor = System.Drawing.Color.Black
-        Me.chk_SL.Location = New System.Drawing.Point(179, 303)
+        Me.chk_SL.Location = New System.Drawing.Point(267, 402)
         Me.chk_SL.Name = "chk_SL"
-        Me.chk_SL.Size = New System.Drawing.Size(39, 17)
+        Me.chk_SL.Size = New System.Drawing.Size(103, 20)
         Me.chk_SL.TabIndex = 474
-        Me.chk_SL.Text = "SL"
+        Me.chk_SL.Text = "Spiral loop"
         Me.chk_SL.UseVisualStyleBackColor = True
         Me.chk_SL.Visible = False
         '
         'chk_RW
         '
         Me.chk_RW.AutoSize = True
+        Me.chk_RW.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chk_RW.ForeColor = System.Drawing.Color.Black
-        Me.chk_RW.Location = New System.Drawing.Point(232, 235)
+        Me.chk_RW.Location = New System.Drawing.Point(392, 334)
         Me.chk_RW.Name = "chk_RW"
-        Me.chk_RW.Size = New System.Drawing.Size(45, 17)
+        Me.chk_RW.Size = New System.Drawing.Size(133, 20)
         Me.chk_RW.TabIndex = 473
-        Me.chk_RW.Text = "RW"
+        Me.chk_RW.Text = "Ribbon winding"
         Me.chk_RW.UseVisualStyleBackColor = True
         Me.chk_RW.Visible = False
         '
         'chk_O
         '
         Me.chk_O.AutoSize = True
+        Me.chk_O.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chk_O.ForeColor = System.Drawing.Color.Black
-        Me.chk_O.Location = New System.Drawing.Point(179, 269)
+        Me.chk_O.Location = New System.Drawing.Point(267, 368)
         Me.chk_O.Name = "chk_O"
-        Me.chk_O.Size = New System.Drawing.Size(34, 17)
+        Me.chk_O.Size = New System.Drawing.Size(108, 20)
         Me.chk_O.TabIndex = 472
-        Me.chk_O.Text = "O"
+        Me.chk_O.Text = "Over thrown"
         Me.chk_O.UseVisualStyleBackColor = True
         Me.chk_O.Visible = False
         '
         'chk_CAB
         '
         Me.chk_CAB.AutoSize = True
+        Me.chk_CAB.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chk_CAB.ForeColor = System.Drawing.Color.Black
-        Me.chk_CAB.Location = New System.Drawing.Point(232, 201)
+        Me.chk_CAB.Location = New System.Drawing.Point(392, 300)
         Me.chk_CAB.Name = "chk_CAB"
-        Me.chk_CAB.Size = New System.Drawing.Size(47, 17)
+        Me.chk_CAB.Size = New System.Drawing.Size(96, 20)
         Me.chk_CAB.TabIndex = 471
-        Me.chk_CAB.Text = "CAB"
+        Me.chk_CAB.Text = "Colour AB"
         Me.chk_CAB.UseVisualStyleBackColor = True
         Me.chk_CAB.Visible = False
         '
         'chk_FG
         '
         Me.chk_FG.AutoSize = True
+        Me.chk_FG.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chk_FG.ForeColor = System.Drawing.Color.Black
-        Me.chk_FG.Location = New System.Drawing.Point(179, 235)
+        Me.chk_FG.Location = New System.Drawing.Point(267, 334)
         Me.chk_FG.Name = "chk_FG"
-        Me.chk_FG.Size = New System.Drawing.Size(40, 17)
+        Me.chk_FG.Size = New System.Drawing.Size(99, 20)
         Me.chk_FG.TabIndex = 470
-        Me.chk_FG.Text = "FG"
+        Me.chk_FG.Text = "Fluff guide"
         Me.chk_FG.UseVisualStyleBackColor = True
         Me.chk_FG.Visible = False
         '
         'chk_DAB
         '
         Me.chk_DAB.AutoSize = True
+        Me.chk_DAB.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chk_DAB.ForeColor = System.Drawing.Color.Black
-        Me.chk_DAB.Location = New System.Drawing.Point(179, 201)
+        Me.chk_DAB.Location = New System.Drawing.Point(267, 300)
         Me.chk_DAB.Name = "chk_DAB"
-        Me.chk_DAB.Size = New System.Drawing.Size(48, 17)
+        Me.chk_DAB.Size = New System.Drawing.Size(121, 20)
         Me.chk_DAB.TabIndex = 468
-        Me.chk_DAB.Text = "DAB"
+        Me.chk_DAB.Text = "Drum form AB"
         Me.chk_DAB.UseVisualStyleBackColor = True
         Me.chk_DAB.Visible = False
         '
@@ -770,10 +783,10 @@ Partial Class frmSortCart
         '
         Me.btnDefectSave.BackColor = System.Drawing.Color.LimeGreen
         Me.btnDefectSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDefectSave.Location = New System.Drawing.Point(456, 419)
+        Me.btnDefectSave.Location = New System.Drawing.Point(665, 586)
         Me.btnDefectSave.Margin = New System.Windows.Forms.Padding(2)
         Me.btnDefectSave.Name = "btnDefectSave"
-        Me.btnDefectSave.Size = New System.Drawing.Size(85, 80)
+        Me.btnDefectSave.Size = New System.Drawing.Size(136, 61)
         Me.btnDefectSave.TabIndex = 501
         Me.btnDefectSave.Text = "SAVE"
         Me.btnDefectSave.UseVisualStyleBackColor = False
@@ -784,10 +797,10 @@ Partial Class frmSortCart
         Me.btnShort.BackColor = System.Drawing.Color.Red
         Me.btnShort.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnShort.ForeColor = System.Drawing.Color.Black
-        Me.btnShort.Location = New System.Drawing.Point(772, 419)
+        Me.btnShort.Location = New System.Drawing.Point(1042, 586)
         Me.btnShort.Margin = New System.Windows.Forms.Padding(2)
         Me.btnShort.Name = "btnShort"
-        Me.btnShort.Size = New System.Drawing.Size(85, 80)
+        Me.btnShort.Size = New System.Drawing.Size(136, 61)
         Me.btnShort.TabIndex = 500
         Me.btnShort.Text = "Short"
         Me.btnShort.UseVisualStyleBackColor = False
@@ -796,10 +809,10 @@ Partial Class frmSortCart
         '
         Me.btnDefect.BackColor = System.Drawing.Color.Yellow
         Me.btnDefect.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDefect.Location = New System.Drawing.Point(615, 419)
+        Me.btnDefect.Location = New System.Drawing.Point(852, 586)
         Me.btnDefect.Margin = New System.Windows.Forms.Padding(2)
         Me.btnDefect.Name = "btnDefect"
-        Me.btnDefect.Size = New System.Drawing.Size(85, 80)
+        Me.btnDefect.Size = New System.Drawing.Size(136, 61)
         Me.btnDefect.TabIndex = 499
         Me.btnDefect.Text = "Defect"
         Me.btnDefect.UseVisualStyleBackColor = False
@@ -809,10 +822,10 @@ Partial Class frmSortCart
         Me.btnNoDrum.BackColor = System.Drawing.Color.LightPink
         Me.btnNoDrum.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNoDrum.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.btnNoDrum.Location = New System.Drawing.Point(941, 419)
+        Me.btnNoDrum.Location = New System.Drawing.Point(1225, 586)
         Me.btnNoDrum.Margin = New System.Windows.Forms.Padding(2)
         Me.btnNoDrum.Name = "btnNoDrum"
-        Me.btnNoDrum.Size = New System.Drawing.Size(85, 80)
+        Me.btnNoDrum.Size = New System.Drawing.Size(136, 61)
         Me.btnNoDrum.TabIndex = 498
         Me.btnNoDrum.Text = "No Drum"
         Me.btnNoDrum.UseVisualStyleBackColor = False
@@ -820,11 +833,11 @@ Partial Class frmSortCart
         'btnUnlock
         '
         Me.btnUnlock.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnUnlock.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUnlock.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnUnlock.ForeColor = System.Drawing.Color.Red
         Me.btnUnlock.Location = New System.Drawing.Point(19, 271)
         Me.btnUnlock.Name = "btnUnlock"
-        Me.btnUnlock.Size = New System.Drawing.Size(100, 62)
+        Me.btnUnlock.Size = New System.Drawing.Size(165, 62)
         Me.btnUnlock.TabIndex = 506
         Me.btnUnlock.Text = "UNLOCK OFF"
         Me.btnUnlock.UseVisualStyleBackColor = False
@@ -832,9 +845,10 @@ Partial Class frmSortCart
         'btnDelete
         '
         Me.btnDelete.BackColor = System.Drawing.Color.Red
+        Me.btnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDelete.Location = New System.Drawing.Point(17, 346)
         Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(100, 62)
+        Me.btnDelete.Size = New System.Drawing.Size(165, 62)
         Me.btnDelete.TabIndex = 505
         Me.btnDelete.Text = "DELETE"
         Me.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
@@ -871,7 +885,7 @@ Partial Class frmSortCart
         Me.btnClear.Location = New System.Drawing.Point(16, 419)
         Me.btnClear.Margin = New System.Windows.Forms.Padding(2)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(100, 62)
+        Me.btnClear.Size = New System.Drawing.Size(165, 62)
         Me.btnClear.TabIndex = 502
         Me.btnClear.Text = "Clear"
         Me.btnClear.UseVisualStyleBackColor = False
@@ -880,12 +894,13 @@ Partial Class frmSortCart
         'chk_H
         '
         Me.chk_H.AutoSize = True
+        Me.chk_H.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chk_H.ForeColor = System.Drawing.Color.Black
-        Me.chk_H.Location = New System.Drawing.Point(233, 402)
+        Me.chk_H.Location = New System.Drawing.Point(392, 470)
         Me.chk_H.Name = "chk_H"
-        Me.chk_H.Size = New System.Drawing.Size(34, 17)
+        Me.chk_H.Size = New System.Drawing.Size(71, 20)
         Me.chk_H.TabIndex = 507
-        Me.chk_H.Text = "H"
+        Me.chk_H.Text = "Hitting"
         Me.chk_H.UseVisualStyleBackColor = True
         Me.chk_H.Visible = False
         '
@@ -893,7 +908,7 @@ Partial Class frmSortCart
         '
         Me.lblFaultCodes.AutoSize = True
         Me.lblFaultCodes.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFaultCodes.Location = New System.Drawing.Point(170, 168)
+        Me.lblFaultCodes.Location = New System.Drawing.Point(316, 263)
         Me.lblFaultCodes.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblFaultCodes.Name = "lblFaultCodes"
         Me.lblFaultCodes.Size = New System.Drawing.Size(106, 20)
@@ -907,7 +922,7 @@ Partial Class frmSortCart
         Me.lblShort.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.lblShort.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblShort.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblShort.Location = New System.Drawing.Point(489, 665)
+        Me.lblShort.Location = New System.Drawing.Point(605, 828)
         Me.lblShort.Name = "lblShort"
         Me.lblShort.Size = New System.Drawing.Size(82, 22)
         Me.lblShort.TabIndex = 514
@@ -919,7 +934,7 @@ Partial Class frmSortCart
         Me.lblDefect.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.lblDefect.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblDefect.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDefect.Location = New System.Drawing.Point(489, 635)
+        Me.lblDefect.Location = New System.Drawing.Point(605, 798)
         Me.lblDefect.Name = "lblDefect"
         Me.lblDefect.Size = New System.Drawing.Size(86, 22)
         Me.lblDefect.TabIndex = 513
@@ -932,7 +947,7 @@ Partial Class frmSortCart
         Me.lblMissing.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblMissing.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.lblMissing.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMissing.Location = New System.Drawing.Point(489, 604)
+        Me.lblMissing.Location = New System.Drawing.Point(605, 767)
         Me.lblMissing.Name = "lblMissing"
         Me.lblMissing.Size = New System.Drawing.Size(87, 22)
         Me.lblMissing.TabIndex = 512
@@ -944,7 +959,7 @@ Partial Class frmSortCart
         Me.txtShort.Cursor = System.Windows.Forms.Cursors.Default
         Me.txtShort.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.txtShort.ForeColor = System.Drawing.Color.Ivory
-        Me.txtShort.Location = New System.Drawing.Point(591, 665)
+        Me.txtShort.Location = New System.Drawing.Point(707, 828)
         Me.txtShort.Name = "txtShort"
         Me.txtShort.ReadOnly = True
         Me.txtShort.Size = New System.Drawing.Size(398, 24)
@@ -956,7 +971,7 @@ Partial Class frmSortCart
         Me.txtDefect.Cursor = System.Windows.Forms.Cursors.Default
         Me.txtDefect.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.txtDefect.ForeColor = System.Drawing.Color.Black
-        Me.txtDefect.Location = New System.Drawing.Point(591, 635)
+        Me.txtDefect.Location = New System.Drawing.Point(707, 798)
         Me.txtDefect.Name = "txtDefect"
         Me.txtDefect.ReadOnly = True
         Me.txtDefect.Size = New System.Drawing.Size(398, 24)
@@ -968,7 +983,7 @@ Partial Class frmSortCart
         Me.txtMissing.Cursor = System.Windows.Forms.Cursors.Default
         Me.txtMissing.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.txtMissing.ForeColor = System.Drawing.Color.Black
-        Me.txtMissing.Location = New System.Drawing.Point(591, 605)
+        Me.txtMissing.Location = New System.Drawing.Point(707, 768)
         Me.txtMissing.Name = "txtMissing"
         Me.txtMissing.ReadOnly = True
         Me.txtMissing.Size = New System.Drawing.Size(398, 24)
@@ -979,7 +994,7 @@ Partial Class frmSortCart
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(1175, 699)
+        Me.ClientSize = New System.Drawing.Size(1584, 861)
         Me.Controls.Add(Me.lblMessage)
         Me.Controls.Add(Me.lblShort)
         Me.Controls.Add(Me.lblDefect)

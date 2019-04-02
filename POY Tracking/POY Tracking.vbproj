@@ -26,7 +26,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\172.20.26.90\DTY DATA\DTY Software Update\POYTrack\</UpdateUrl>
-    <ApplicationRevision>12</ApplicationRevision>
+    <ApplicationRevision>14</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -127,6 +127,12 @@
       <DependentUpon>frmDGVJobReport.vb</DependentUpon>
     </Compile>
     <Compile Include="frmDGVJobReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Job Displays\frmSortJobDetail.Designer.vb">
+      <DependentUpon>frmSortJobDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Job Displays\frmSortJobDetail.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="POY Job Displays\frmSortJobDisplay.Designer.vb">
@@ -322,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDGVJobReport.resx">
       <DependentUpon>frmDGVJobReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Job Displays\frmSortJobDetail.resx">
+      <DependentUpon>frmSortJobDetail.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POY Job Displays\frmSortJobDisplay.resx">
       <DependentUpon>frmSortJobDisplay.vb</DependentUpon>
@@ -577,9 +586,6 @@
     <None Include="Resources\0.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\NoDrum.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Have Drum.png" />
   </ItemGroup>
   <ItemGroup>
@@ -610,10 +616,40 @@
     <None Include="Resources\Reports.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\NotScan.png" />
+    <None Include="Resources\DefectStrip.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\DefectStrip.jpg" />
+    <None Include="Resources\DefectDrum1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Have Drum1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MissingDrum1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NotScan1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DefectDrum2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Have Drum2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MissingDrum2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NoDrum1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NotScan2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ShortWithDefect1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NotScan.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ShortDrum.png" />
@@ -625,7 +661,13 @@
     <None Include="Resources\DefectDrum.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Have-Drum.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\MissingDrum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NoDrum.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
