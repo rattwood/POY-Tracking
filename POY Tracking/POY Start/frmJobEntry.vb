@@ -378,7 +378,22 @@ Public Class frmJobEntry
                     Exit Sub
                 End If
 
+                Select Case CartNum
+                    Case "P3", "P4", "P7", "P8"
+                        Label3.Text = "Cart " & CartNum & " is not valid"
+                        Label3.Visible = True
+                        DelayTM()
+                        Label3.Text = ""
+                        Label3.Visible = False
+                        Me.txtCartNum.Clear()
+                        Me.txtCartNum.Focus()
+                        Me.txtCartNum.Refresh()
+                        Exit Sub
 
+
+
+
+                End Select
 
 
             Catch ex As Exception
@@ -597,14 +612,7 @@ Public Class frmJobEntry
                 CartNum = "P2"
                 varCartNum = CartNum
                 dbBarcode = moddbarcode & "P2"
-            Case "P3"
-                CartNum = "P3"
-                varCartNum = CartNum
-                dbBarcode = moddbarcode & "P3"
-            Case "P4"
-                CartNum = "P4"
-                varCartNum = CartNum
-                dbBarcode = moddbarcode & "P4"
+
             Case "P5"
                 CartNum = "P5"
                 varCartNum = CartNum
@@ -613,14 +621,7 @@ Public Class frmJobEntry
                 CartNum = "P6"
                 varCartNum = CartNum
                 dbBarcode = moddbarcode & "P6"
-            Case "P7"
-                CartNum = "P7"
-                varCartNum = CartNum
-                dbBarcode = moddbarcode & "P7"
-            Case "P8"
-                CartNum = "P8"
-                varCartNum = CartNum
-                dbBarcode = moddbarcode & "P8"
+
 
 
 
@@ -1150,9 +1151,10 @@ Public Class frmJobEntry
 
             Select Case CartNum
 
-                Case "P1", "P5"
+                Case "P1"
 
                     Select Case modDrumIdx
+
 
                         Case "01"
                             drumNum = "01"
@@ -1204,7 +1206,7 @@ Public Class frmJobEntry
                             poycartname = CartNum
                     End Select
 
-                Case "P2", "P6"
+                Case "P2"
 
 
                     Select Case modDrumIdx
@@ -1258,7 +1260,7 @@ Public Class frmJobEntry
                             poycartname = CartNum
                     End Select
 
-                Case "P3", "P7"
+                Case "P5"
 
                     Select Case modDrumIdx
                         Case "01"
@@ -1311,7 +1313,7 @@ Public Class frmJobEntry
                             poycartname = CartNum
                     End Select
 
-                Case "P4", "P8"
+                Case "P6"
 
                     Select Case modDrumIdx
                         Case "01"
@@ -1363,6 +1365,9 @@ Public Class frmJobEntry
                             drumNum = "64"
                             poycartname = CartNum
                     End Select
+
+
+
 
             End Select
 

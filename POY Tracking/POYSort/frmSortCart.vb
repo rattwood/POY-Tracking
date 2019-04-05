@@ -252,7 +252,7 @@ Public Class frmSortCart
 
 
         Select Case frmJobEntry.varCartNum
-            Case "P1", "P5"
+            Case "P1"
                 'Put new Drum numbers on images
                 Me.Controls("btn1").Text = "01"
                 Me.Controls("btn2").Text = "02"
@@ -270,7 +270,7 @@ Public Class frmSortCart
                 Me.Controls("btn14").Text = "26"
                 Me.Controls("btn15").Text = "27"
                 Me.Controls("btn16").Text = "28"
-            Case "P2", "P6"
+            Case "P2"
                 'Put new Drum numbers on images
                 Me.Controls("btn1").Text = "05"
                 Me.Controls("btn2").Text = "06"
@@ -289,7 +289,7 @@ Public Class frmSortCart
                 Me.Controls("btn15").Text = "31"
                 Me.Controls("btn16").Text = "32"
 
-            Case "P3", "P7"
+            Case "P5"
                 'Put new Drum numbers on images
                 Me.Controls("btn1").Text = "33"
                 Me.Controls("btn2").Text = "34"
@@ -308,7 +308,7 @@ Public Class frmSortCart
                 Me.Controls("btn15").Text = "59"
                 Me.Controls("btn16").Text = "60"
 
-            Case "P4", "P8"
+            Case "P6"
                 'Put new Drum numbers on images
                 Me.Controls("btn1").Text = "37"
                 Me.Controls("btn2").Text = "38"
