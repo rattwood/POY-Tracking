@@ -228,7 +228,7 @@ Public Class frmSortJobDetail
                             DGVMcDoffInfo.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Green
 
                         Case 4
-
+                            DGVMcDoffInfo.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Red
 
                     End Select
 
@@ -365,6 +365,7 @@ Public Class frmSortJobDetail
         'Find all selected rows and get info for SQL Update to DB
         Dim selectedCount As Integer = DGVMcDoffInfo.Rows.GetRowCount(DataGridViewElementStates.Selected)    'COUNT NUMBER OF SELECTED ROWS
         Dim poycartbcode As String
+        Dim poyDrumState As String
         timeUpdate()
 
         If selectedCount > 0 Then
@@ -377,12 +378,22 @@ Public Class frmSortJobDetail
 
 
                 poycartbcode = DGVDoffTmp1.Rows(selectIndex).Cells("poybcodecart").Value
+                poyDrumState = DGVDoffTmp1.Rows(selectIndex).Cells("poydrumstate").Value
 
-                LExecQuery("update poytrack2 Set POYSORTRELEASE = '" & todayTimeDate & "', POYRELEASENAME = '" & frmJobEntry.varUserName & "', POYDRUMSTATE = '3' Where " _
+                Select Case poyDrumState
+                    Case 1  'check to see if this is a fresh release to packing
+
+                        LExecQuery("update poytrack2 Set POYSORTRELEASE = '" & todayTimeDate & "', POYRELEASENAME = '" & frmJobEntry.varUserName & "', POYDRUMSTATE = '3' Where " _
                           & "poybcodecart = '" & poycartbcode & "' ")
 
-                DGVMcDoffInfo.ClearSelection()  'CLEAR ONSCREEN SELECTION
+                    Case 4  'Check if on hold if it is then change state bback to Packing
 
+                        LExecQuery("update poytrack2 Set POYHOLDRELEASETM = '" & todayTimeDate & "', POYRELEASENAME = '" & frmJobEntry.varUserName & "', POYDRUMSTATE = '3' Where " _
+                          & "poybcodecart = '" & poycartbcode & "' ")
+
+                End Select
+
+                DGVMcDoffInfo.ClearSelection()  'CLEAR ONSCREEN SELECTION
             Next
         Else
 
@@ -402,6 +413,61 @@ Public Class frmSortJobDetail
 
 
 
+
+
+    End Sub
+
+    Private Sub btnHold_Click(sender As Object, e As EventArgs) Handles btnHold.Click
+
+        Dim selectIndex As String
+        'Find all selected rows and get info for SQL Update to DB
+        Dim selectedCount As Integer = DGVMcDoffInfo.Rows.GetRowCount(DataGridViewElementStates.Selected)    'COUNT NUMBER OF SELECTED ROWS
+        Dim poycartbcode As String
+        Dim poyDrumState As String
+        timeUpdate()
+
+        If selectedCount > 0 Then
+
+
+            For i = 1 To selectedCount
+
+                selectIndex = DGVMcDoffInfo.SelectedRows(i - 1).Index.ToString
+
+
+
+                poycartbcode = DGVDoffTmp1.Rows(selectIndex).Cells("poybcodecart").Value
+                poyDrumState = DGVDoffTmp1.Rows(selectIndex).Cells("poydrumstate").Value
+
+
+
+                Select Case poyDrumState
+
+                    Case 2   'check for release from sorting to packing
+                        LExecQuery("update poytrack2 Set POYSORTRELEASE = '" & todayTimeDate & "', POYRELEASENAME = '" & frmJobEntry.varUserName & "', POYDRUMSTATE = '3' Where " _
+                           & "poybcodecart = '" & poycartbcode & "' ")
+
+                    Case 3
+                        LExecQuery("update poytrack2 Set POYHOLDSTARTTM = '" & todayTimeDate & "', POYRELEASENAME = '" & frmJobEntry.varUserName & "', POYDRUMSTATE = '4' Where " _
+                          & "poybcodecart = '" & poycartbcode & "' ")
+
+
+
+
+                        'LExecQuery("update poytrack2 Set POYSORTRELEASE = '" & todayTimeDate & "', POYRELEASENAME = '" & frmJobEntry.varUserName & "', POYDRUMSTATE = '3' Where " _
+                        '  & "poybcodecart = '" & poycartbcode & "' ")
+
+                        'DGVMcDoffInfo.ClearSelection()  'CLEAR ONSCREEN SELECTION
+                End Select
+            Next
+        Else
+
+            MsgBox("You must select carts before RELEASE")
+
+
+        End If
+
+        mcDoffDisplay()  'REFRESH DISPLAY
+        DGVMcDoffInfo.ClearSelection()  'CLEAR ONSCREEN SELECTION
 
 
     End Sub

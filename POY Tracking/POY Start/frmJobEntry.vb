@@ -100,6 +100,11 @@ Public Class frmJobEntry
         If My.Settings.chkUsePack Then
             ToolsToolStripMenuItem.Visible = True
             SearchToolStripMenuItem.Visible = True
+            PalletReportToolStripMenuItem.Visible = True
+            btnCancelReport.Visible = True
+            Me.Text = "Job Entry Packing"
+        Else
+            Me.Text = "Job Entry Sorting"
         End If
 
         updateButtons()
@@ -1590,7 +1595,19 @@ Public Class frmJobEntry
     End Sub
 
     Private Sub DISPLAYToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DISPLAYToolStripMenuItem.Click
-        frmSortJobDisplay.Show()
-        Me.Hide()
+
+        If My.Settings.chkUsePack Then
+            frmPackDisplay.Show()
+            Me.Hide()
+
+        Else
+            frmSortJobDisplay.Show()
+            Me.Hide()
+
+        End If
+
+
     End Sub
+
+
 End Class

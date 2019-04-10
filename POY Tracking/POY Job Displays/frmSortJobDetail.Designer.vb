@@ -31,7 +31,7 @@ Partial Class frmSortJobDetail
         Me.DGVDoffTmp2 = New System.Windows.Forms.DataGridView()
         Me.DGVDoffTmp1 = New System.Windows.Forms.DataGridView()
         Me.btnCancel = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnHold = New System.Windows.Forms.Button()
         Me.btnReleaseJob = New System.Windows.Forms.Button()
         Me.DGVMcDoffInfo = New System.Windows.Forms.DataGridView()
         Me.poystate = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -68,7 +68,7 @@ Partial Class frmSortJobDetail
         Me.SplitContainer1.Panel1.Controls.Add(Me.DGVDoffTmp2)
         Me.SplitContainer1.Panel1.Controls.Add(Me.DGVDoffTmp1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnCancel)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Button2)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.btnHold)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnReleaseJob)
         '
         'SplitContainer1.Panel2
@@ -110,17 +110,17 @@ Partial Class frmSortJobDetail
         Me.btnCancel.Text = "CANCEL"
         Me.btnCancel.UseVisualStyleBackColor = False
         '
-        'Button2
+        'btnHold
         '
-        Me.Button2.BackColor = System.Drawing.Color.DarkRed
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button2.Location = New System.Drawing.Point(3, 176)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(185, 35)
-        Me.Button2.TabIndex = 1
-        Me.Button2.Text = "HOLD"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.btnHold.BackColor = System.Drawing.Color.DarkRed
+        Me.btnHold.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnHold.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btnHold.Location = New System.Drawing.Point(3, 176)
+        Me.btnHold.Name = "btnHold"
+        Me.btnHold.Size = New System.Drawing.Size(185, 35)
+        Me.btnHold.TabIndex = 1
+        Me.btnHold.Text = "HOLD"
+        Me.btnHold.UseVisualStyleBackColor = False
         '
         'btnReleaseJob
         '
@@ -309,7 +309,7 @@ Partial Class frmSortJobDetail
     Friend WithEvents SplitContainer1 As SplitContainer
     Friend WithEvents DGVMcDoffInfo As DataGridView
     Friend WithEvents btnCancel As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnHold As Button
     Friend WithEvents btnReleaseJob As Button
     Friend WithEvents DGVDoffTmp1 As DataGridView
     Friend WithEvents DGVDoffTmp2 As DataGridView

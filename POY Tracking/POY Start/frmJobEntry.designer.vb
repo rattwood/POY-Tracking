@@ -54,12 +54,12 @@ Partial Class frmJobEntry
         Me.DRUMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.TraceNumberToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.txtCartNum = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.JobControlToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReleaseToPackingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SetToHoldToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReleaseHoldToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.txtCartNum = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         CType(Me.ToraydbBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Toraydb, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
@@ -234,16 +234,6 @@ Partial Class frmJobEntry
         Me.TraceNumberToolStripMenuItem1.Name = "TraceNumberToolStripMenuItem1"
         resources.ApplyResources(Me.TraceNumberToolStripMenuItem1, "TraceNumberToolStripMenuItem1")
         '
-        'txtCartNum
-        '
-        resources.ApplyResources(Me.txtCartNum, "txtCartNum")
-        Me.txtCartNum.Name = "txtCartNum"
-        '
-        'Label5
-        '
-        resources.ApplyResources(Me.Label5, "Label5")
-        Me.Label5.Name = "Label5"
-        '
         'JobControlToolStripMenuItem
         '
         Me.JobControlToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReleaseToPackingToolStripMenuItem, Me.SetToHoldToolStripMenuItem, Me.ReleaseHoldToolStripMenuItem})
@@ -264,6 +254,16 @@ Partial Class frmJobEntry
         '
         Me.ReleaseHoldToolStripMenuItem.Name = "ReleaseHoldToolStripMenuItem"
         resources.ApplyResources(Me.ReleaseHoldToolStripMenuItem, "ReleaseHoldToolStripMenuItem")
+        '
+        'txtCartNum
+        '
+        resources.ApplyResources(Me.txtCartNum, "txtCartNum")
+        Me.txtCartNum.Name = "txtCartNum"
+        '
+        'Label5
+        '
+        resources.ApplyResources(Me.Label5, "Label5")
+        Me.Label5.Name = "Label5"
         '
         'frmJobEntry
         '
