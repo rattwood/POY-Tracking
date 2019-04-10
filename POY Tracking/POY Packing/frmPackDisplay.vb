@@ -43,6 +43,8 @@ Public Class frmPackDisplay
     Public Sub ScreenReportCreate()
 
 
+
+
         '******************************  ORIGINAL SCRIPT DO NOT DELETE ********************************************************************************
         LExecQuery("Select POYMCNUM ,poymcname,poyprodname,POYmergenum , poyprodweight, POYDOFFNUM, poydrumstate FROM " _
               & "POYTRACK2 Where POYDRUMSTATE BETWEEN 3 and 5 And (POYSORTENDTM Is Not Null )  GROUP BY POYMCNUM,poymcname,poyprodname ,POYmergenum , poyprodweight , POYDOFFNUM, poydrumstate Order by poymcnum,poydoffnum ")
@@ -119,22 +121,18 @@ Public Class frmPackDisplay
 
 
 
-
+               
                     'GET "CARTHOLD" COUNT and if on hold find drum count
                     LExecQuery("Select poycartname FROM POYTRACK2 Where POYMCNUM = '" & tmpMcNum & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                       & " AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null and POYHoldStartTm is not null ) Group by poycartname ")
-                    If LRecordCount > 0 Then
-                        tmpCartCountHold = LRecordCount
-
-                        'GET "A" COUNT on Hold
-                        LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMcNum & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                           & " AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null and POYSORTRELEASE is not null ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
-
-                        If LRecordCount > 0 Then tmpAHold = LRecordCount
-
-                    End If
+                                       & " AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null) Group by poycartname ")
+                    If LRecordCount > 0 Then tmpCartCountHold = LRecordCount
 
 
+
+                    'COUNT NUMBER OF "A" DRUMS ON HOLD IN PRODUCT GROUP
+                    LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMcNum & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                                   & " AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null and POYSORTRELEASE > 0 ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
+                    If LRecordCount > 0 Then tmpAHold = LRecordCount   'sets A count on hold
 
 
                     'GET "CARTPAK" COUNT
@@ -143,28 +141,23 @@ Public Class frmPackDisplay
                     If LRecordCount > 0 Then tmpcartcountPack = LRecordCount
 
 
-
-                    'GET "A" COUNT
+                    'COUNT NUMBER OF "A" DRUMS OK to PACK IN PRODUCT GROUP
                     LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMcNum & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                       & " AND   POYDRUMSTATE = 3 And (POYSORTENDTM Is Not Null and POYSORTRELEASE is not null ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
+                                   & " AND   POYDRUMSTATE = 3 And (POYSORTENDTM Is Not Null and POYSORTRELEASE > 0 ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
 
-                    If LRecordCount > 0 Then tmpACount = LRecordCount
+                    If LRecordCount > 0 Then tmpACount = LRecordCount   'sets A count on hold
 
 
-
-                    tmpCartHoldTM = DGVTmp2.Rows(i - 1).Cells("POYHOLDSTARTTM").Value.ToString '.ToString("yy-MM-dd hh:mm")
-                    'tmpEndTime = DGVTmp2.Rows(i - 1).Cells("POYSORTENDTM").Value   '.ToString("yy-MM-dd hh:mm")
-
+                    If Not IsDBNull(DGVTmp2.Rows(i - 1).Cells("POYHOLDSTARTTM").Value) Then
+                        tmpCartHoldTM = DGVTmp2.Rows(i - 1).Cells("POYHOLDSTARTTM").Value '.ToString("yy-MM-dd hh:mm")
+                    End If
 
 
                     ' DGVPackDisplays.Rows(i - 1).Cells("drumCount").Value = tmpACount
                     DGVPackDisplays.Rows(i - 1).Cells("PALLET48").Value = Int(tmpACount / 48)
                     DGVPackDisplays.Rows(i - 1).Cells("PALLET72").Value = Int(tmpACount / 72)
                     DGVPackDisplays.Rows(i - 1).Cells("PALLET120").Value = Int(tmpACount / 120)
-                    'DGVPackDisplays.Rows(i - 1).Cells("missing").Value = tmpmissing
-                    ' DGVPackDisplays.Rows(i - 1).Cells("poycartcount").Value = tmpCartCountSort
-                    ' DGVPackDisplays.Rows(i - 1).Cells("poySortStartTM").Value = tmpStartTime
-                    ' DGVPackDisplays.Rows(i - 1).Cells("poySortEndTM").Value = tmpEndTime
+
 
                     'Set State colour
                     Dim tmpDrumState = DGVTmp.Rows(i - 1).Cells("POYDRUMSTATE").Value
@@ -179,12 +172,12 @@ Public Class frmPackDisplay
                             DGVPackDisplays.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Green
                             DGVPackDisplays.Rows(i - 1).Cells("poycartcount").Value = tmpcartcountPack
                             DGVPackDisplays.Rows(i - 1).Cells("drumCount").Value = tmpACount
-
+                            DGVPackDisplays.Rows(i - 1).Cells("HoldStartTime").Value = ""
                         Case 4
                             DGVPackDisplays.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Red
                             DGVPackDisplays.Rows(i - 1).Cells("poycartcount").Value = tmpCartCountHold
-                            DGVPackDisplays.Rows(i - 1).Cells("holdstarttm").Value = tmpCartHoldTM
                             DGVPackDisplays.Rows(i - 1).Cells("drumCount").Value = tmpAHold
+                            DGVPackDisplays.Rows(i - 1).Cells("HoldStartTime").Value = tmpCartHoldTM
                         Case 5
 
 
@@ -192,14 +185,14 @@ Public Class frmPackDisplay
 
 
 
-                        'Set State colour
-                        'DGVDisplays.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Orange
 
 
-                        'reset variables for next scan
-                        tmpcartcountPack = 0
+
+                    'reset variables for next scan
+                    tmpcartcountPack = 0
                     tmpCartCountHold = 0
                     tmpACount = 0
+                    tmpAHold = 0
                     'tmpABCount = 0
                     'tmpShortCount = 0
                     'tmpShortABCount = 0
@@ -215,8 +208,8 @@ Public Class frmPackDisplay
                 TimerRefresh.Interval = My.Settings.scrRefresh * 1000
                 TimerRefresh.Enabled = True
             Catch ex As Exception
-
-                End Try
+                MsgBox("DGV CREATE ERROR" & vbCrLf & ex.ToString)
+            End Try
 
             Else
                 lblMessage.Visible = False
