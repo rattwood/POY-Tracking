@@ -962,56 +962,9 @@ Public Class frmJobDetail
         btnHold.Visible = False
         btnHoldCart.Visible = True
         btnHoldDrums.Visible = True
-        DGVDrumList.MultiSelect = True  ' Turn on Multiselect for Displayed DRUMS
 
 
 
-        'If selectedCount > 0 Then
-
-
-        '    For i = 1 To selectedCount
-
-        '        selectIndex = DGVNewDoff.SelectedRows(i - 1).Index.ToString
-
-
-
-        '        poycartbcode = DGVDoffTmp1.Rows(selectIndex).Cells("poybcodecart").Value
-        '        poyDrumState = DGVDoffTmp1.Rows(selectIndex).Cells("poydrumstate").Value
-
-
-
-        '        Select Case poyDrumState
-
-        '            Case 2   'check for release from sorting to packing
-        '                LExecQuery("update poytrack2 Set POYSORTRELEASE = '" & todayTimeDate & "', POYRELEASENAME = '" & frmJobEntry.varUserName & "', POYDRUMSTATE = '3' Where " _
-        '                   & "poybcodecart = '" & poycartbcode & "' ")
-
-        '            Case 3
-        '                LExecQuery("update poytrack2 Set POYHOLDSTARTTM = '" & todayTimeDate & "', POYRELEASENAME = '" & frmJobEntry.varUserName & "', POYDRUMSTATE = '4' Where " _
-        '                  & "poybcodecart = '" & poycartbcode & "' ")
-
-
-
-
-        '                'LExecQuery("update poytrack2 Set POYSORTRELEASE = '" & todayTimeDate & "', POYRELEASENAME = '" & frmJobEntry.varUserName & "', POYDRUMSTATE = '3' Where " _
-        '                '  & "poybcodecart = '" & poycartbcode & "' ")
-
-        '                'DGVMcDoffInfo.ClearSelection()  'CLEAR ONSCREEN SELECTION
-        '        End Select
-        '    Next
-        'Else
-
-        '    MsgBox("You must select carts before RELEASE")
-
-
-        'End If
-        'If My.Settings.chkUseSort Then
-        '    mcSortDoffDisplay()  'REFRESH DISPLAY
-        '    DGVNewDoff.ClearSelection()  'CLEAR ONSCREEN SELECTION
-        'Else
-        '    mcPackDoffDisplay()  'REFRESH DISPLAY
-        '    DGVNewDoff.ClearSelection()  'CLEAR ONSCREEN SELECTION
-        'End If
 
     End Sub
 
@@ -1084,6 +1037,7 @@ Public Class frmJobDetail
     Private Sub btnHoldCart_Click(sender As Object, e As EventArgs) Handles btnHoldCart.Click
 
         Dim selectIndex As String
+
         'Find all selected rows and get info for SQL Update to DB
         Dim selectedCount As Integer = DGVNewDoff.Rows.GetRowCount(DataGridViewElementStates.Selected)    'COUNT NUMBER OF SELECTED ROWS
 
@@ -1147,10 +1101,21 @@ Public Class frmJobDetail
     End Sub
 
     Private Sub btnHoldDrums_Click(sender As Object, e As EventArgs) Handles btnHoldDrums.Click
+
+        btnHoldDrums.Visible = False
+        btnSave.Visible = True
+        DGVDrumList.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        DGVDrumList.MultiSelect = True  ' Turn on Multiselect for Displayed DRUMS
+
+    End Sub
+
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+
         Dim selectIndex As String
+
         'Find all selected rows and get info for SQL Update to DB
 
-        Dim selectedCount As Integer = DGVNewDoff.Rows.GetRowCount(DataGridViewElementStates.Selected)    'COUNT NUMBER OF SELECTED ROWS
+        Dim DrumCount As Integer = DGVDrumList.Rows.GetRowCount(DataGridViewElementStates.Selected)    'COUNT NUMBER OF SELECTED ROWS
 
         Dim poycartbcode As String
         Dim poyDrumState As String
@@ -1158,42 +1123,53 @@ Public Class frmJobDetail
         timeUpdate()
 
 
-        If selectedCount > 0 Then
+        Try
 
 
-            For i = 1 To selectedCount
+            If DrumCount = 0 Then
 
-                selectIndex = DGVDrumList.SelectedRows(i - 1).Index.ToString
+                MsgBox("No Drums Selected")
+                Exit Sub
 
-
-
-                'poycartbcode = DGVDoffTmp1.Rows(selectIndex).Cells("poybcodecart").Value
-                poyDrumState = DGVDoffTmp1.Rows(selectIndex).Cells("poydrumstate").Value
-                poybcodeDrum = DGVDrumList.Rows(selectIndex).Cells("poybcodedrum").Value
+            ElseIf DrumCount > 0 Then
 
 
-                Select Case poyDrumState
+                For i = 0 To DrumCount - 1
 
-                    Case 2   'check for release from sorting to packing
-                        LExecQuery("update poytrack2 Set POYSORTRELEASE = '" & todayTimeDate & "', POYRELEASENAME = '" & frmJobEntry.varUserName & "', POYDRUMSTATE = '3' Where " _
-                           & "poybcodedrum = '" & poybcodedrum & "' ")
+                    selectIndex = DGVDrumList.SelectedRows(i).Index.ToString
 
-                    Case 3
-                        LExecQuery("update poytrack2 Set POYHOLDSTARTTM = '" & todayTimeDate & "', POYRELEASENAME = '" & frmJobEntry.varUserName & "', POYDRUMSTATE = '4' Where " _
+
+
+                    'poycartbcode = DGVDoffTmp1.Rows(selectIndex).Cells("poybcodecart").Value
+                    poyDrumState = DGVDoffTmp1.Rows(selectIndex).Cells("poydrumstate").Value
+                    poybcodeDrum = DGVDrumList.Rows(selectIndex).Cells("Drum Barcode").Value
+
+
+                    Select Case poyDrumState
+
+                        Case 2   'check for release from sorting to packing
+                            LExecQuery("update poytrack2 Set POYSORTRELEASE = '" & todayTimeDate & "', POYRELEASENAME = '" & frmJobEntry.varUserName & "', POYDRUMSTATE = '3' Where " _
+                           & "poybcodedrum = '" & poybcodeDrum & "' ")
+
+                        Case 3
+                            LExecQuery("update poytrack2 Set POYHOLDSTARTTM = '" & todayTimeDate & "', POYRELEASENAME = '" & frmJobEntry.varUserName & "', POYDRUMSTATE = '4' Where " _
                           & "poybcodedrum = '" & poybcodeDrum & "' ")
 
 
 
 
-                        'LExecQuery("update poytrack2 Set POYSORTRELEASE = '" & todayTimeDate & "', POYRELEASENAME = '" & frmJobEntry.varUserName & "', POYDRUMSTATE = '3' Where " _
-                        '  & "poybcodecart = '" & poycartbcode & "' ")
+                            'LExecQuery("update poytrack2 Set POYSORTRELEASE = '" & todayTimeDate & "', POYRELEASENAME = '" & frmJobEntry.varUserName & "', POYDRUMSTATE = '3' Where " _
+                            '  & "poybcodecart = '" & poycartbcode & "' ")
 
-                        'DGVMcDoffInfo.ClearSelection()  'CLEAR ONSCREEN SELECTION
-                End Select
-            Next
+                            'DGVMcDoffInfo.ClearSelection()  'CLEAR ONSCREEN SELECTION
+                    End Select
+                Next
 
 
-        End If
+            End If
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
 
         DGVDrumList.MultiSelect = False ' Turn on Multiselect for Displayed DRUMS
 
@@ -1203,6 +1179,8 @@ Public Class frmJobDetail
             btnHold.Visible = True
             btnHoldCart.Visible = False
             btnHoldDrums.Visible = False
+            btnSave.Visible = False
+            DGVDrumList.MultiSelect = False  ' Turn OFF Multiselect for Displayed DRUMS
 
         Else
             DGVNewDoff.ClearSelection()  'CLEAR ONSCREEN SELECTION
@@ -1210,8 +1188,9 @@ Public Class frmJobDetail
             btnHold.Visible = True
             btnHoldCart.Visible = False
             btnHoldDrums.Visible = False
+            btnSave.Visible = False
+            DGVDrumList.MultiSelect = False  ' Turn OFF Multiselect for Displayed DRUMS
         End If
     End Sub
-
 
 End Class

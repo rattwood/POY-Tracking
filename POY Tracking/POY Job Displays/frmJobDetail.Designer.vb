@@ -30,6 +30,8 @@ Partial Class frmJobDetail
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmJobDetail))
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.btnHoldDrums = New System.Windows.Forms.Button()
+        Me.btnHoldCart = New System.Windows.Forms.Button()
         Me.DGVDrumList = New System.Windows.Forms.DataGridView()
         Me.DGVDoffTmp2 = New System.Windows.Forms.DataGridView()
         Me.DGVDoffTmp1 = New System.Windows.Forms.DataGridView()
@@ -52,8 +54,7 @@ Partial Class frmJobDetail
         Me.gradeshortAB = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.missing = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.poysortendtm = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btnHoldCart = New System.Windows.Forms.Button()
-        Me.btnHoldDrums = New System.Windows.Forms.Button()
+        Me.btnSave = New System.Windows.Forms.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -74,6 +75,7 @@ Partial Class frmJobDetail
         'SplitContainer1.Panel1
         '
         Me.SplitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.SplitContainer1.Panel1.Controls.Add(Me.btnSave)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnHoldDrums)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnHoldCart)
         Me.SplitContainer1.Panel1.Controls.Add(Me.DGVDrumList)
@@ -88,9 +90,35 @@ Partial Class frmJobDetail
         Me.SplitContainer1.Panel2.Controls.Add(Me.lblMessage)
         Me.SplitContainer1.Panel2.Controls.Add(Me.DGVNewDoff)
         Me.SplitContainer1.Panel2.Controls.Add(Me.DGVMcDoffInfoOrig)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1584, 861)
-        Me.SplitContainer1.SplitterDistance = 199
+        Me.SplitContainer1.Size = New System.Drawing.Size(1155, 687)
+        Me.SplitContainer1.SplitterDistance = 144
         Me.SplitContainer1.TabIndex = 0
+        '
+        'btnHoldDrums
+        '
+        Me.btnHoldDrums.BackColor = System.Drawing.Color.DarkRed
+        Me.btnHoldDrums.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnHoldDrums.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btnHoldDrums.Location = New System.Drawing.Point(5, 214)
+        Me.btnHoldDrums.Name = "btnHoldDrums"
+        Me.btnHoldDrums.Size = New System.Drawing.Size(185, 35)
+        Me.btnHoldDrums.TabIndex = 8
+        Me.btnHoldDrums.Text = "HOLD Drums"
+        Me.btnHoldDrums.UseVisualStyleBackColor = False
+        Me.btnHoldDrums.Visible = False
+        '
+        'btnHoldCart
+        '
+        Me.btnHoldCart.BackColor = System.Drawing.Color.DarkRed
+        Me.btnHoldCart.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnHoldCart.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btnHoldCart.Location = New System.Drawing.Point(4, 172)
+        Me.btnHoldCart.Name = "btnHoldCart"
+        Me.btnHoldCart.Size = New System.Drawing.Size(185, 35)
+        Me.btnHoldCart.TabIndex = 7
+        Me.btnHoldCart.Text = "HOLD Cart"
+        Me.btnHoldCart.UseVisualStyleBackColor = False
+        Me.btnHoldCart.Visible = False
         '
         'DGVDrumList
         '
@@ -162,7 +190,7 @@ Partial Class frmJobDetail
         '
         Me.btnReleaseJob.BackColor = System.Drawing.Color.LimeGreen
         Me.btnReleaseJob.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReleaseJob.Location = New System.Drawing.Point(3, 33)
+        Me.btnReleaseJob.Location = New System.Drawing.Point(0, 33)
         Me.btnReleaseJob.Name = "btnReleaseJob"
         Me.btnReleaseJob.Size = New System.Drawing.Size(185, 35)
         Me.btnReleaseJob.TabIndex = 0
@@ -187,8 +215,7 @@ Partial Class frmJobDetail
         Me.DGVNewDoff.AllowUserToAddRows = False
         Me.DGVNewDoff.AllowUserToDeleteRows = False
         Me.DGVNewDoff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVNewDoff.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DGVNewDoff.Location = New System.Drawing.Point(0, 0)
+        Me.DGVNewDoff.Location = New System.Drawing.Point(-56, -15)
         Me.DGVNewDoff.Name = "DGVNewDoff"
         Me.DGVNewDoff.ReadOnly = True
         Me.DGVNewDoff.Size = New System.Drawing.Size(1381, 861)
@@ -348,37 +375,23 @@ Partial Class frmJobDetail
         Me.poysortendtm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         Me.poysortendtm.Width = 150
         '
-        'btnHoldCart
+        'btnSave
         '
-        Me.btnHoldCart.BackColor = System.Drawing.Color.DarkRed
-        Me.btnHoldCart.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnHoldCart.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnHoldCart.Location = New System.Drawing.Point(4, 172)
-        Me.btnHoldCart.Name = "btnHoldCart"
-        Me.btnHoldCart.Size = New System.Drawing.Size(185, 35)
-        Me.btnHoldCart.TabIndex = 7
-        Me.btnHoldCart.Text = "HOLD Cart"
-        Me.btnHoldCart.UseVisualStyleBackColor = False
-        Me.btnHoldCart.Visible = False
-        '
-        'btnHoldDrums
-        '
-        Me.btnHoldDrums.BackColor = System.Drawing.Color.DarkRed
-        Me.btnHoldDrums.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnHoldDrums.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnHoldDrums.Location = New System.Drawing.Point(5, 214)
-        Me.btnHoldDrums.Name = "btnHoldDrums"
-        Me.btnHoldDrums.Size = New System.Drawing.Size(185, 35)
-        Me.btnHoldDrums.TabIndex = 8
-        Me.btnHoldDrums.Text = "HOLD Drums"
-        Me.btnHoldDrums.UseVisualStyleBackColor = False
-        Me.btnHoldDrums.Visible = False
+        Me.btnSave.BackColor = System.Drawing.Color.LimeGreen
+        Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSave.Location = New System.Drawing.Point(5, 213)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(185, 35)
+        Me.btnSave.TabIndex = 9
+        Me.btnSave.Text = "SAVE"
+        Me.btnSave.UseVisualStyleBackColor = False
+        Me.btnSave.Visible = False
         '
         'frmJobDetail
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1584, 861)
+        Me.ClientSize = New System.Drawing.Size(1155, 687)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmJobDetail"
@@ -422,4 +435,5 @@ Partial Class frmJobDetail
     Friend WithEvents DGVDrumList As DataGridView
     Friend WithEvents btnHoldDrums As Button
     Friend WithEvents btnHoldCart As Button
+    Friend WithEvents btnSave As Button
 End Class
