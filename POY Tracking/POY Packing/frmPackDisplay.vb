@@ -100,13 +100,13 @@ Public Class frmPackDisplay
                     DGVPackDisplays.Rows(i - 1).Cells("poyprodname").Value = DGVTmp.Rows(i - 1).Cells("POYPRODNAME").Value.ToString()
                     DGVPackDisplays.Rows(i - 1).Cells("poymergenum").Value = DGVTmp.Rows(i - 1).Cells("POYMERGENUM").Value.ToString()
                     DGVPackDisplays.Rows(i - 1).Cells("poyprodweight").Value = DGVTmp.Rows(i - 1).Cells("POYPRODWEIGHT").Value.ToString()
-                    '   DGVPackDisplays.Rows(i - 1).Cells("poydoffnum").Value = DGVTmp.Rows(i - 1).Cells("POYDOFFNUM").Value.ToString()
+                    DGVPackDisplays.Rows(i - 1).Cells("poydoffnum").Value = DGVTmp.Rows(i - 1).Cells("POYDOFFNUM").Value.ToString()
 
 
                     'Set variables needed
                     tmpMcNum = DGVTmp.Rows(i - 1).Cells("POYMCNUM").Value.ToString()
                     tmpProdName = DGVPackDisplays.Rows(i - 1).Cells("poyprodname").Value
-                    '  tmpDOFFNum = DGVPackDisplays.Rows(i - 1).Cells("poydoffnum").Value
+                    tmpDOFFNum = DGVPackDisplays.Rows(i - 1).Cells("poydoffnum").Value
                     tmpTFNum = DGVPackDisplays.Rows(i - 1).Cells("poymergenum").Value
 
 
@@ -318,7 +318,7 @@ Public Class frmPackDisplay
 
         DisplayDoffIndex = DGVPackDisplays.CurrentCell.RowIndex
 
-        frmSortJobDetail.Show()
+        frmJobDetail.Show()
 
     End Sub
 

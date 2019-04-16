@@ -547,7 +547,7 @@ Public Class frmSortJobDisplay
 
         DisplayDoffIndex = DGVDisplays.CurrentCell.RowIndex
 
-        frmSortJobDetail.Show()
+        frmJobDetail.Show()
 
     End Sub
 

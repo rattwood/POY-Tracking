@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmSortJobDetail
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class frmJobDetail
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,15 +20,17 @@ Partial Class frmSortJobDetail
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSortJobDetail))
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmJobDetail))
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.DGVDrumList = New System.Windows.Forms.DataGridView()
         Me.DGVDoffTmp2 = New System.Windows.Forms.DataGridView()
         Me.DGVDoffTmp1 = New System.Windows.Forms.DataGridView()
         Me.btnCancel = New System.Windows.Forms.Button()
@@ -50,10 +52,13 @@ Partial Class frmSortJobDetail
         Me.gradeshortAB = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.missing = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.poysortendtm = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnHoldCart = New System.Windows.Forms.Button()
+        Me.btnHoldDrums = New System.Windows.Forms.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
+        CType(Me.DGVDrumList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGVDoffTmp2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGVDoffTmp1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGVNewDoff, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -69,6 +74,9 @@ Partial Class frmSortJobDetail
         'SplitContainer1.Panel1
         '
         Me.SplitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.SplitContainer1.Panel1.Controls.Add(Me.btnHoldDrums)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.btnHoldCart)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.DGVDrumList)
         Me.SplitContainer1.Panel1.Controls.Add(Me.DGVDoffTmp2)
         Me.SplitContainer1.Panel1.Controls.Add(Me.DGVDoffTmp1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnCancel)
@@ -84,6 +92,28 @@ Partial Class frmSortJobDetail
         Me.SplitContainer1.SplitterDistance = 199
         Me.SplitContainer1.TabIndex = 0
         '
+        'DGVDrumList
+        '
+        Me.DGVDrumList.AllowUserToAddRows = False
+        Me.DGVDrumList.AllowUserToDeleteRows = False
+        Me.DGVDrumList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DGVDrumList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DGVDrumList.DefaultCellStyle = DataGridViewCellStyle1
+        Me.DGVDrumList.Location = New System.Drawing.Point(2, 415)
+        Me.DGVDrumList.Name = "DGVDrumList"
+        Me.DGVDrumList.ReadOnly = True
+        Me.DGVDrumList.RowHeadersVisible = False
+        Me.DGVDrumList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
+        Me.DGVDrumList.Size = New System.Drawing.Size(196, 443)
+        Me.DGVDrumList.TabIndex = 6
+        '
         'DGVDoffTmp2
         '
         Me.DGVDoffTmp2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -98,7 +128,7 @@ Partial Class frmSortJobDetail
         Me.DGVDoffTmp1.AllowUserToAddRows = False
         Me.DGVDoffTmp1.AllowUserToDeleteRows = False
         Me.DGVDoffTmp1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVDoffTmp1.Location = New System.Drawing.Point(12, 273)
+        Me.DGVDoffTmp1.Location = New System.Drawing.Point(7, 444)
         Me.DGVDoffTmp1.Name = "DGVDoffTmp1"
         Me.DGVDoffTmp1.ReadOnly = True
         Me.DGVDoffTmp1.Size = New System.Drawing.Size(173, 95)
@@ -109,7 +139,7 @@ Partial Class frmSortJobDetail
         '
         Me.btnCancel.BackColor = System.Drawing.Color.Red
         Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(0, 735)
+        Me.btnCancel.Location = New System.Drawing.Point(7, 315)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(185, 35)
         Me.btnCancel.TabIndex = 3
@@ -121,7 +151,7 @@ Partial Class frmSortJobDetail
         Me.btnHold.BackColor = System.Drawing.Color.DarkRed
         Me.btnHold.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnHold.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnHold.Location = New System.Drawing.Point(3, 176)
+        Me.btnHold.Location = New System.Drawing.Point(3, 127)
         Me.btnHold.Name = "btnHold"
         Me.btnHold.Size = New System.Drawing.Size(185, 35)
         Me.btnHold.TabIndex = 1
@@ -169,15 +199,15 @@ Partial Class frmSortJobDetail
         Me.DGVMcDoffInfoOrig.AllowUserToAddRows = False
         Me.DGVMcDoffInfoOrig.AllowUserToDeleteRows = False
         Me.DGVMcDoffInfoOrig.BackgroundColor = System.Drawing.SystemColors.ActiveCaption
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.NullValue = Nothing
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGVMcDoffInfoOrig.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.NullValue = Nothing
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGVMcDoffInfoOrig.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DGVMcDoffInfoOrig.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGVMcDoffInfoOrig.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.poystate, Me.poymccode, Me.poymcnum, Me.poycartnum, Me.poyprodname, Me.poymergenum, Me.poydoffnum, Me.poygradeA, Me.poygradeAB, Me.gradeshort, Me.gradeshortAB, Me.missing, Me.poysortendtm})
         Me.DGVMcDoffInfoOrig.Location = New System.Drawing.Point(136, 68)
@@ -191,8 +221,8 @@ Partial Class frmSortJobDetail
         '
         'poystate
         '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.poystate.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.poystate.DefaultCellStyle = DataGridViewCellStyle3
         Me.poystate.DividerWidth = 5
         Me.poystate.HeaderText = "STATE"
         Me.poystate.MaxInputLength = 5
@@ -203,8 +233,8 @@ Partial Class frmSortJobDetail
         '
         'poymccode
         '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.poymccode.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.poymccode.DefaultCellStyle = DataGridViewCellStyle4
         Me.poymccode.DividerWidth = 5
         Me.poymccode.HeaderText = "MC Code"
         Me.poymccode.MaxInputLength = 4
@@ -214,8 +244,8 @@ Partial Class frmSortJobDetail
         '
         'poymcnum
         '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter
-        Me.poymcnum.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter
+        Me.poymcnum.DefaultCellStyle = DataGridViewCellStyle5
         Me.poymcnum.DividerWidth = 5
         Me.poymcnum.HeaderText = "MC No."
         Me.poymcnum.MaxInputLength = 4
@@ -225,8 +255,8 @@ Partial Class frmSortJobDetail
         '
         'poycartnum
         '
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.poycartnum.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.poycartnum.DefaultCellStyle = DataGridViewCellStyle6
         Me.poycartnum.DividerWidth = 5
         Me.poycartnum.HeaderText = "CART No."
         Me.poycartnum.MaxInputLength = 4
@@ -318,20 +348,47 @@ Partial Class frmSortJobDetail
         Me.poysortendtm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         Me.poysortendtm.Width = 150
         '
-        'frmSortJobDetail
+        'btnHoldCart
+        '
+        Me.btnHoldCart.BackColor = System.Drawing.Color.DarkRed
+        Me.btnHoldCart.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnHoldCart.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btnHoldCart.Location = New System.Drawing.Point(4, 172)
+        Me.btnHoldCart.Name = "btnHoldCart"
+        Me.btnHoldCart.Size = New System.Drawing.Size(185, 35)
+        Me.btnHoldCart.TabIndex = 7
+        Me.btnHoldCart.Text = "HOLD Cart"
+        Me.btnHoldCart.UseVisualStyleBackColor = False
+        Me.btnHoldCart.Visible = False
+        '
+        'btnHoldDrums
+        '
+        Me.btnHoldDrums.BackColor = System.Drawing.Color.DarkRed
+        Me.btnHoldDrums.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnHoldDrums.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btnHoldDrums.Location = New System.Drawing.Point(5, 214)
+        Me.btnHoldDrums.Name = "btnHoldDrums"
+        Me.btnHoldDrums.Size = New System.Drawing.Size(185, 35)
+        Me.btnHoldDrums.TabIndex = 8
+        Me.btnHoldDrums.Text = "HOLD Drums"
+        Me.btnHoldDrums.UseVisualStyleBackColor = False
+        Me.btnHoldDrums.Visible = False
+        '
+        'frmJobDetail
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1584, 861)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "frmSortJobDetail"
+        Me.Name = "frmJobDetail"
         Me.Text = "Machine Cart Detail"
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         Me.SplitContainer1.Panel2.PerformLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
+        CType(Me.DGVDrumList, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DGVDoffTmp2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DGVDoffTmp1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DGVNewDoff, System.ComponentModel.ISupportInitialize).EndInit()
@@ -362,4 +419,7 @@ Partial Class frmSortJobDetail
     Friend WithEvents poysortendtm As DataGridViewTextBoxColumn
     Friend WithEvents DGVNewDoff As DataGridView
     Friend WithEvents lblMessage As Label
+    Friend WithEvents DGVDrumList As DataGridView
+    Friend WithEvents btnHoldDrums As Button
+    Friend WithEvents btnHoldCart As Button
 End Class

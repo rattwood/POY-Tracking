@@ -49,6 +49,7 @@ Partial Class frmPackDisplay
         Me.Pallet72 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Pallet120 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HoldStartTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.poydoffnum = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DGVPackDisplays, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGVTmp2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGVTmp, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -70,7 +71,7 @@ Partial Class frmPackDisplay
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DGVPackDisplays.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DGVPackDisplays.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVPackDisplays.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.poystate, Me.poymcnum, Me.poyprodname, Me.poymergenum, Me.poyprodweight, Me.poycartcount, Me.drumCount, Me.Pallet48, Me.Pallet72, Me.Pallet120, Me.HoldStartTime})
+        Me.DGVPackDisplays.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.poystate, Me.poymcnum, Me.poyprodname, Me.poymergenum, Me.poyprodweight, Me.poycartcount, Me.drumCount, Me.Pallet48, Me.Pallet72, Me.Pallet120, Me.HoldStartTime, Me.poydoffnum})
         DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -245,6 +246,13 @@ Partial Class frmPackDisplay
         Me.HoldStartTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         Me.HoldStartTime.Width = 150
         '
+        'poydoffnum
+        '
+        Me.poydoffnum.HeaderText = "doff"
+        Me.poydoffnum.Name = "poydoffnum"
+        Me.poydoffnum.ReadOnly = True
+        Me.poydoffnum.Visible = False
+        '
         'frmPackDisplay
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -283,4 +291,5 @@ Partial Class frmPackDisplay
     Friend WithEvents Pallet72 As DataGridViewTextBoxColumn
     Friend WithEvents Pallet120 As DataGridViewTextBoxColumn
     Friend WithEvents HoldStartTime As DataGridViewTextBoxColumn
+    Friend WithEvents poydoffnum As DataGridViewTextBoxColumn
 End Class
