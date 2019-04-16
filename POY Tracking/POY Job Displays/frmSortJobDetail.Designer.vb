@@ -27,13 +27,16 @@ Partial Class frmSortJobDetail
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSortJobDetail))
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.DGVDoffTmp2 = New System.Windows.Forms.DataGridView()
         Me.DGVDoffTmp1 = New System.Windows.Forms.DataGridView()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnHold = New System.Windows.Forms.Button()
         Me.btnReleaseJob = New System.Windows.Forms.Button()
-        Me.DGVMcDoffInfo = New System.Windows.Forms.DataGridView()
+        Me.lblMessage = New System.Windows.Forms.Label()
+        Me.DGVNewDoff = New System.Windows.Forms.DataGridView()
+        Me.DGVMcDoffInfoOrig = New System.Windows.Forms.DataGridView()
         Me.poystate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.poymccode = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.poymcnum = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -53,7 +56,8 @@ Partial Class frmSortJobDetail
         Me.SplitContainer1.SuspendLayout()
         CType(Me.DGVDoffTmp2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGVDoffTmp1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DGVMcDoffInfo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DGVNewDoff, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DGVMcDoffInfoOrig, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SplitContainer1
@@ -73,7 +77,9 @@ Partial Class frmSortJobDetail
         '
         'SplitContainer1.Panel2
         '
-        Me.SplitContainer1.Panel2.Controls.Add(Me.DGVMcDoffInfo)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.lblMessage)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.DGVNewDoff)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.DGVMcDoffInfoOrig)
         Me.SplitContainer1.Size = New System.Drawing.Size(1584, 861)
         Me.SplitContainer1.SplitterDistance = 199
         Me.SplitContainer1.TabIndex = 0
@@ -81,7 +87,7 @@ Partial Class frmSortJobDetail
         'DGVDoffTmp2
         '
         Me.DGVDoffTmp2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVDoffTmp2.Location = New System.Drawing.Point(12, 446)
+        Me.DGVDoffTmp2.Location = New System.Drawing.Point(12, 521)
         Me.DGVDoffTmp2.Name = "DGVDoffTmp2"
         Me.DGVDoffTmp2.Size = New System.Drawing.Size(160, 150)
         Me.DGVDoffTmp2.TabIndex = 5
@@ -133,11 +139,36 @@ Partial Class frmSortJobDetail
         Me.btnReleaseJob.Text = "RELEASE"
         Me.btnReleaseJob.UseVisualStyleBackColor = False
         '
-        'DGVMcDoffInfo
+        'lblMessage
         '
-        Me.DGVMcDoffInfo.AllowUserToAddRows = False
-        Me.DGVMcDoffInfo.AllowUserToDeleteRows = False
-        Me.DGVMcDoffInfo.BackgroundColor = System.Drawing.SystemColors.ActiveCaption
+        Me.lblMessage.AutoSize = True
+        Me.lblMessage.BackColor = System.Drawing.Color.Red
+        Me.lblMessage.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMessage.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.lblMessage.Location = New System.Drawing.Point(442, 592)
+        Me.lblMessage.Name = "lblMessage"
+        Me.lblMessage.Size = New System.Drawing.Size(63, 20)
+        Me.lblMessage.TabIndex = 2
+        Me.lblMessage.Text = "Label1"
+        Me.lblMessage.Visible = False
+        '
+        'DGVNewDoff
+        '
+        Me.DGVNewDoff.AllowUserToAddRows = False
+        Me.DGVNewDoff.AllowUserToDeleteRows = False
+        Me.DGVNewDoff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGVNewDoff.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DGVNewDoff.Location = New System.Drawing.Point(0, 0)
+        Me.DGVNewDoff.Name = "DGVNewDoff"
+        Me.DGVNewDoff.ReadOnly = True
+        Me.DGVNewDoff.Size = New System.Drawing.Size(1381, 861)
+        Me.DGVNewDoff.TabIndex = 1
+        '
+        'DGVMcDoffInfoOrig
+        '
+        Me.DGVMcDoffInfoOrig.AllowUserToAddRows = False
+        Me.DGVMcDoffInfoOrig.AllowUserToDeleteRows = False
+        Me.DGVMcDoffInfoOrig.BackgroundColor = System.Drawing.SystemColors.ActiveCaption
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -146,17 +177,17 @@ Partial Class frmSortJobDetail
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGVMcDoffInfo.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.DGVMcDoffInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVMcDoffInfo.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.poystate, Me.poymccode, Me.poymcnum, Me.poycartnum, Me.poyprodname, Me.poymergenum, Me.poydoffnum, Me.poygradeA, Me.poygradeAB, Me.gradeshort, Me.gradeshortAB, Me.missing, Me.poysortendtm})
-        Me.DGVMcDoffInfo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DGVMcDoffInfo.Location = New System.Drawing.Point(0, 0)
-        Me.DGVMcDoffInfo.Name = "DGVMcDoffInfo"
-        Me.DGVMcDoffInfo.ReadOnly = True
-        Me.DGVMcDoffInfo.RowHeadersVisible = False
-        Me.DGVMcDoffInfo.ShowCellToolTips = False
-        Me.DGVMcDoffInfo.Size = New System.Drawing.Size(1381, 861)
-        Me.DGVMcDoffInfo.TabIndex = 0
+        Me.DGVMcDoffInfoOrig.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.DGVMcDoffInfoOrig.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGVMcDoffInfoOrig.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.poystate, Me.poymccode, Me.poymcnum, Me.poycartnum, Me.poyprodname, Me.poymergenum, Me.poydoffnum, Me.poygradeA, Me.poygradeAB, Me.gradeshort, Me.gradeshortAB, Me.missing, Me.poysortendtm})
+        Me.DGVMcDoffInfoOrig.Location = New System.Drawing.Point(136, 68)
+        Me.DGVMcDoffInfoOrig.Name = "DGVMcDoffInfoOrig"
+        Me.DGVMcDoffInfoOrig.ReadOnly = True
+        Me.DGVMcDoffInfoOrig.RowHeadersVisible = False
+        Me.DGVMcDoffInfoOrig.ShowCellToolTips = False
+        Me.DGVMcDoffInfoOrig.Size = New System.Drawing.Size(183, 453)
+        Me.DGVMcDoffInfoOrig.TabIndex = 0
+        Me.DGVMcDoffInfoOrig.Visible = False
         '
         'poystate
         '
@@ -293,21 +324,24 @@ Partial Class frmSortJobDetail
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1584, 861)
         Me.Controls.Add(Me.SplitContainer1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmSortJobDetail"
         Me.Text = "Machine Cart Detail"
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
+        Me.SplitContainer1.Panel2.PerformLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
         CType(Me.DGVDoffTmp2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DGVDoffTmp1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DGVMcDoffInfo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGVNewDoff, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGVMcDoffInfoOrig, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents SplitContainer1 As SplitContainer
-    Friend WithEvents DGVMcDoffInfo As DataGridView
+    Friend WithEvents DGVMcDoffInfoOrig As DataGridView
     Friend WithEvents btnCancel As Button
     Friend WithEvents btnHold As Button
     Friend WithEvents btnReleaseJob As Button
@@ -326,4 +360,6 @@ Partial Class frmSortJobDetail
     Friend WithEvents gradeshortAB As DataGridViewTextBoxColumn
     Friend WithEvents missing As DataGridViewTextBoxColumn
     Friend WithEvents poysortendtm As DataGridViewTextBoxColumn
+    Friend WithEvents DGVNewDoff As DataGridView
+    Friend WithEvents lblMessage As Label
 End Class

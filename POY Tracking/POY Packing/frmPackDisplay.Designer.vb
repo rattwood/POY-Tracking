@@ -31,6 +31,7 @@ Partial Class frmPackDisplay
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPackDisplay))
         Me.DGVPackDisplays = New System.Windows.Forms.DataGridView()
         Me.DGVTmp2 = New System.Windows.Forms.DataGridView()
         Me.DGVTmp = New System.Windows.Forms.DataGridView()
@@ -42,7 +43,6 @@ Partial Class frmPackDisplay
         Me.poyprodname = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.poymergenum = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.poyprodweight = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.poydoffnum = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.poycartcount = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.drumCount = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Pallet48 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -70,7 +70,7 @@ Partial Class frmPackDisplay
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DGVPackDisplays.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DGVPackDisplays.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVPackDisplays.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.poystate, Me.poymcnum, Me.poyprodname, Me.poymergenum, Me.poyprodweight, Me.poydoffnum, Me.poycartcount, Me.drumCount, Me.Pallet48, Me.Pallet72, Me.Pallet120, Me.HoldStartTime})
+        Me.DGVPackDisplays.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.poystate, Me.poymcnum, Me.poyprodname, Me.poymergenum, Me.poyprodweight, Me.poycartcount, Me.drumCount, Me.Pallet48, Me.Pallet72, Me.Pallet120, Me.HoldStartTime})
         DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -199,13 +199,6 @@ Partial Class frmPackDisplay
         Me.poyprodweight.ReadOnly = True
         Me.poyprodweight.Width = 80
         '
-        'poydoffnum
-        '
-        Me.poydoffnum.DividerWidth = 5
-        Me.poydoffnum.HeaderText = "DOFF No."
-        Me.poydoffnum.Name = "poydoffnum"
-        Me.poydoffnum.ReadOnly = True
-        '
         'poycartcount
         '
         Me.poycartcount.DividerWidth = 5
@@ -262,8 +255,9 @@ Partial Class frmPackDisplay
         Me.Controls.Add(Me.DGVTmp)
         Me.Controls.Add(Me.lblMessage)
         Me.Controls.Add(Me.btnCancel)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmPackDisplay"
-        Me.Text = "frmPackDisplay"
+        Me.Text = "Products for packing"
         CType(Me.DGVPackDisplays, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DGVTmp2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DGVTmp, System.ComponentModel.ISupportInitialize).EndInit()
@@ -283,7 +277,6 @@ Partial Class frmPackDisplay
     Friend WithEvents poyprodname As DataGridViewTextBoxColumn
     Friend WithEvents poymergenum As DataGridViewTextBoxColumn
     Friend WithEvents poyprodweight As DataGridViewTextBoxColumn
-    Friend WithEvents poydoffnum As DataGridViewTextBoxColumn
     Friend WithEvents poycartcount As DataGridViewTextBoxColumn
     Friend WithEvents drumCount As DataGridViewTextBoxColumn
     Friend WithEvents Pallet48 As DataGridViewTextBoxColumn

@@ -100,19 +100,19 @@ Public Class frmPackDisplay
                     DGVPackDisplays.Rows(i - 1).Cells("poyprodname").Value = DGVTmp.Rows(i - 1).Cells("POYPRODNAME").Value.ToString()
                     DGVPackDisplays.Rows(i - 1).Cells("poymergenum").Value = DGVTmp.Rows(i - 1).Cells("POYMERGENUM").Value.ToString()
                     DGVPackDisplays.Rows(i - 1).Cells("poyprodweight").Value = DGVTmp.Rows(i - 1).Cells("POYPRODWEIGHT").Value.ToString()
-                    DGVPackDisplays.Rows(i - 1).Cells("poydoffnum").Value = DGVTmp.Rows(i - 1).Cells("POYDOFFNUM").Value.ToString()
+                    '   DGVPackDisplays.Rows(i - 1).Cells("poydoffnum").Value = DGVTmp.Rows(i - 1).Cells("POYDOFFNUM").Value.ToString()
 
 
                     'Set variables needed
                     tmpMcNum = DGVTmp.Rows(i - 1).Cells("POYMCNUM").Value.ToString()
                     tmpProdName = DGVPackDisplays.Rows(i - 1).Cells("poyprodname").Value
-                    tmpDOFFNum = DGVPackDisplays.Rows(i - 1).Cells("poydoffnum").Value
+                    '  tmpDOFFNum = DGVPackDisplays.Rows(i - 1).Cells("poydoffnum").Value
                     tmpTFNum = DGVPackDisplays.Rows(i - 1).Cells("poymergenum").Value
 
 
 
                     'GET MAIN JOB INFO
-                    LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMcNum & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                    LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMcNum & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "'     " _
                                        & " AND   POYDRUMSTATE BETWEEN 3 and 5 And (POYSORTENDTM Is Not Null )  ")
 
                     DGVTmp2.DataSource = LDS.Tables(0)
@@ -121,28 +121,28 @@ Public Class frmPackDisplay
 
 
 
-               
+
                     'GET "CARTHOLD" COUNT and if on hold find drum count
-                    LExecQuery("Select poycartname FROM POYTRACK2 Where POYMCNUM = '" & tmpMcNum & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                    LExecQuery("Select poycartname FROM POYTRACK2 Where POYMCNUM = '" & tmpMcNum & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "'     " _
                                        & " AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null) Group by poycartname ")
                     If LRecordCount > 0 Then tmpCartCountHold = LRecordCount
 
 
 
                     'COUNT NUMBER OF "A" DRUMS ON HOLD IN PRODUCT GROUP
-                    LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMcNum & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                    LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMcNum & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "'   " _
                                    & " AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null and POYSORTRELEASE > 0 ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
                     If LRecordCount > 0 Then tmpAHold = LRecordCount   'sets A count on hold
 
 
                     'GET "CARTPAK" COUNT
-                    LExecQuery("Select poycartname FROM POYTRACK2 Where POYMCNUM = '" & tmpMcNum & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                    LExecQuery("Select poycartname FROM POYTRACK2 Where POYMCNUM = '" & tmpMcNum & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "'   " _
                                        & " AND   POYDRUMSTATE = 3 And (POYSORTENDTM Is Not Null and POYSORTRELEASE is NOT NULL ) Group by poycartname ")
                     If LRecordCount > 0 Then tmpcartcountPack = LRecordCount
 
 
                     'COUNT NUMBER OF "A" DRUMS OK to PACK IN PRODUCT GROUP
-                    LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMcNum & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                    LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMcNum & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "'      " _
                                    & " AND   POYDRUMSTATE = 3 And (POYSORTENDTM Is Not Null and POYSORTRELEASE > 0 ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
 
                     If LRecordCount > 0 Then tmpACount = LRecordCount   'sets A count on hold
@@ -318,7 +318,7 @@ Public Class frmPackDisplay
 
         DisplayDoffIndex = DGVPackDisplays.CurrentCell.RowIndex
 
-        'frmSortJobDetail.Show()
+        frmSortJobDetail.Show()
 
     End Sub
 
