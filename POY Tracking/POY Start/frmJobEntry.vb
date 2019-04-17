@@ -644,7 +644,7 @@ Public Class frmJobEntry
 
 
         '*************************  CHECK TO SEE IF JOB ALREADY EXISITS IF NOT CREATE JOB
-        LExecQuery("SELECT * FROM POYTrack2 WHERE POYBCODECART = '" & dbBarcode & "'  ORDER BY CREATECARTIDX")
+        LExecQuery("SELECT * FROM POYTrack WHERE POYBCODECART = '" & dbBarcode & "'  ORDER BY CREATECARTIDX")
 
         Try
 
@@ -653,7 +653,7 @@ Public Class frmJobEntry
 
                 If result = DialogResult.Yes Then
 
-                    LExecQuery("SELECT * FROM POYTrack2 WHERE POYBCODECART = '" & dbBarcode & "'  ORDER BY CREATECARTIDX")
+                    LExecQuery("SELECT * FROM POYTrack WHERE POYBCODECART = '" & dbBarcode & "'  ORDER BY CREATECARTIDX")
                     frmDGV.DGVdata.DataSource = LDS.Tables(0)
                     frmDGV.DGVdata.Rows(0).Selected = True
                     Dim LCB As SqlCommandBuilder = New SqlCommandBuilder(LDA)
@@ -676,7 +676,7 @@ Public Class frmJobEntry
                 POYCartCreate()     'Create a new cart
 
 
-                LExecQuery("SELECT * FROM POYTrack2 WHERE POYBCODECART = '" & dbBarcode & "'  ORDER BY CREATECARTIDX")
+                LExecQuery("SELECT * FROM POYTrack WHERE POYBCODECART = '" & dbBarcode & "'  ORDER BY CREATECARTIDX")
                 frmDGV.DGVdata.DataSource = LDS.Tables(0)
                 frmDGV.DGVdata.Rows(0).Selected = True
                 Dim LCB As SqlCommandBuilder = New SqlCommandBuilder(LDA)
@@ -1424,7 +1424,7 @@ Public Class frmJobEntry
 
 
 
-            LExecQuery("INSERT INTO POYTrack2 (POYMCNUM,POYMCNAME,POYPRNUM,POYYY,POYPRMM,POYDOFFNUM,POYSPINNUM,POYMERGENUM,POYDRUMSTATE,POYPRODNAME,POYBCODEDRUM, " _
+            LExecQuery("INSERT INTO POYTrack (POYMCNUM,POYMCNAME,POYPRNUM,POYYY,POYPRMM,POYDOFFNUM,POYSPINNUM,POYMERGENUM,POYDRUMSTATE,POYPRODNAME,POYBCODEDRUM, " _
                        & "POYPRODWEIGHT,POYPRODGRADE,POYSORTSTART,POYSORTNAME,POYBCODECART,POYBCODEJOB,CREATECARTIDX,POYCARTNAME, " _
                        & " FLT_DAB,FLT_FG,FLT_O,FLT_SL, FLT_PTS,FLT_PTB,FLT_YAB,FLT_CAB,FLT_RW,FLT_PAB,FLT_DO,FLT_CNC,FLT_H,FLT_CBC,FLT_S,FLT_X) " _
                        & "VALUES (@poymcnum,@poymcname,@poyprodnum,@yy,@mm,@doff,@poyspinnum,@merge,@poydrumstate,@poyprodname,@poybcodeDrum,@poyprodweight,@poyprodgrade,@poysorttm,@poysortname, " _
