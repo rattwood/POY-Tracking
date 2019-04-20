@@ -103,7 +103,9 @@ Public Class frmSortCart
     Public Sub timeUpdate()   'get current time and date
 
         'todayTimeDate = time.Now.ToString(dateFormat)
-        todayTimeDate = DateTime.Now.ToString(New System.Globalization.CultureInfo("en-us"))
+        todayTimeDate = DateTime.Now.ToString(New System.Globalization.CultureInfo("en-US"))
+        MsgBox(todayTimeDate)
+
     End Sub
 
     Private Sub UpdateDrumVal()
@@ -1067,72 +1069,152 @@ Public Class frmSortCart
             Fault_X = False
             ' txtBoxUpdates()
 
-            If varDRUMNum = 1 Then
-                btn1.Enabled = True
-                btn1.BackgroundImage = My.Resources.ShortDrum
-                shortC(1) = 1
-            ElseIf varDRUMNum = 2 Then
-                btn2.Enabled = True
-                btn2.BackgroundImage = My.Resources.ShortDrum
-                shortC(2) = 1
-            ElseIf varDRUMNum = 3 Then
-                btn3.Enabled = True
-                btn3.BackgroundImage = My.Resources.ShortDrum
-                shortC(3) = 1
-            ElseIf varDRUMNum = 4 Then
-                btn4.Enabled = True
-                btn4.BackgroundImage = My.Resources.ShortDrum
-                shortC(4) = 1
-            ElseIf varDRUMNum = 5 Then
-                btn5.Enabled = True
-                btn5.BackgroundImage = My.Resources.ShortDrum
-                shortC(5) = 1
-            ElseIf varDRUMNum = 6 Then
-                btn6.Enabled = True
-                btn6.BackgroundImage = My.Resources.ShortDrum
-                shortC(6) = 1
-            ElseIf varDRUMNum = 7 Then
-                btn7.Enabled = True
-                btn7.BackgroundImage = My.Resources.ShortDrum
-                shortC(7) = 1
-            ElseIf varDRUMNum = 8 Then
-                btn8.Enabled = True
-                btn8.BackgroundImage = My.Resources.ShortDrum
-                shortC(8) = 1
-            ElseIf varDRUMNum = 9 Then
-                btn9.Enabled = True
-                btn9.BackgroundImage = My.Resources.ShortDrum
-                shortC(9) = 1
-            ElseIf varDRUMNum = 10 Then
-                btn10.Enabled = True
-                btn10.BackgroundImage = My.Resources.ShortDrum
-                shortC(10) = 1
-            ElseIf varDRUMNum = 11 Then
-                btn11.Enabled = True
-                btn11.BackgroundImage = My.Resources.ShortDrum
-                shortC(11) = 1
-            ElseIf varDRUMNum = 12 Then
-                btn12.Enabled = True
-                btn12.BackgroundImage = My.Resources.ShortDrum
-                shortC(12) = 1
-            ElseIf varDRUMNum = 13 Then
-                btn13.Enabled = True
-                btn13.BackgroundImage = My.Resources.ShortDrum
-                shortC(13) = 1
-            ElseIf varDRUMNum = 14 Then
-                btn14.Enabled = True
-                btn14.BackgroundImage = My.Resources.ShortDrum
-                shortC(14) = 1
-            ElseIf varDRUMNum = 15 Then
-                btn15.Enabled = True
-                btn15.BackgroundImage = My.Resources.ShortDrum
-                shortC(15) = 1
-            ElseIf varDRUMNum = 16 Then
-                btn16.Enabled = True
-                btn16.BackgroundImage = My.Resources.ShortDrum
-                shortC(16) = 1
+            Select Case varDRUMNum
+                Case 1, 2, 3, 4
+                    btn1.Enabled = True
+                    btn1.BackgroundImage = My.Resources.ShortDrum
+                    shortC(1) = 1
 
-            End If
+                    btn2.Enabled = True
+                    btn2.BackgroundImage = My.Resources.ShortDrum
+                    shortC(2) = 1
+
+                    btn3.Enabled = True
+                    btn3.BackgroundImage = My.Resources.ShortDrum
+                    shortC(3) = 1
+
+                    btn4.Enabled = True
+                    btn4.BackgroundImage = My.Resources.ShortDrum
+                    shortC(4) = 1
+
+                Case 5, 6, 7, 8
+                    btn5.Enabled = True
+                    btn5.BackgroundImage = My.Resources.ShortDrum
+                    shortC(5) = 1
+
+                    btn6.Enabled = True
+                    btn6.BackgroundImage = My.Resources.ShortDrum
+                    shortC(6) = 1
+
+                    btn7.Enabled = True
+                    btn7.BackgroundImage = My.Resources.ShortDrum
+                    shortC(7) = 1
+
+                    btn8.Enabled = True
+                    btn8.BackgroundImage = My.Resources.ShortDrum
+                    shortC(8) = 1
+
+                Case 9, 10, 11, 12
+                    btn9.Enabled = True
+                    btn9.BackgroundImage = My.Resources.ShortDrum
+                    shortC(9) = 1
+
+                    btn10.Enabled = True
+                    btn10.BackgroundImage = My.Resources.ShortDrum
+                    shortC(10) = 1
+
+                    btn11.Enabled = True
+                    btn11.BackgroundImage = My.Resources.ShortDrum
+                    shortC(11) = 1
+
+                    btn12.Enabled = True
+                    btn12.BackgroundImage = My.Resources.ShortDrum
+                    shortC(12) = 1
+
+                Case 13, 14, 15, 16
+                    btn13.Enabled = True
+                    btn13.BackgroundImage = My.Resources.ShortDrum
+                    shortC(13) = 1
+
+                    btn14.Enabled = True
+                    btn14.BackgroundImage = My.Resources.ShortDrum
+                    shortC(14) = 1
+
+                    btn15.Enabled = True
+                    btn15.BackgroundImage = My.Resources.ShortDrum
+                    shortC(15) = 1
+
+                    btn16.Enabled = True
+                    btn16.BackgroundImage = My.Resources.ShortDrum
+                    shortC(16) = 1
+
+            End Select
+
+
+
+
+
+
+
+
+
+
+            'If varDRUMNum = 1 Then
+            '    btn1.Enabled = True
+            '    btn1.BackgroundImage = My.Resources.ShortDrum
+            '    shortC(1) = 1
+            'ElseIf varDRUMNum = 2 Then
+            '    btn2.Enabled = True
+            '    btn2.BackgroundImage = My.Resources.ShortDrum
+            '    shortC(2) = 1
+            'ElseIf varDRUMNum = 3 Then
+            '    btn3.Enabled = True
+            '    btn3.BackgroundImage = My.Resources.ShortDrum
+            '    shortC(3) = 1
+            'ElseIf varDRUMNum = 4 Then
+            '    btn4.Enabled = True
+            '    btn4.BackgroundImage = My.Resources.ShortDrum
+            '    shortC(4) = 1
+            'ElseIf varDRUMNum = 5 Then
+            '    btn5.Enabled = True
+            '    btn5.BackgroundImage = My.Resources.ShortDrum
+            '    shortC(5) = 1
+            'ElseIf varDRUMNum = 6 Then
+            '    btn6.Enabled = True
+            '    btn6.BackgroundImage = My.Resources.ShortDrum
+            '    shortC(6) = 1
+            'ElseIf varDRUMNum = 7 Then
+            '    btn7.Enabled = True
+            '    btn7.BackgroundImage = My.Resources.ShortDrum
+            '    shortC(7) = 1
+            'ElseIf varDRUMNum = 8 Then
+            '    btn8.Enabled = True
+            '    btn8.BackgroundImage = My.Resources.ShortDrum
+            '    shortC(8) = 1
+            'ElseIf varDRUMNum = 9 Then
+            '    btn9.Enabled = True
+            '    btn9.BackgroundImage = My.Resources.ShortDrum
+            '    shortC(9) = 1
+            'ElseIf varDRUMNum = 10 Then
+            '    btn10.Enabled = True
+            '    btn10.BackgroundImage = My.Resources.ShortDrum
+            '    shortC(10) = 1
+            'ElseIf varDRUMNum = 11 Then
+            '    btn11.Enabled = True
+            '    btn11.BackgroundImage = My.Resources.ShortDrum
+            '    shortC(11) = 1
+            'ElseIf varDRUMNum = 12 Then
+            '    btn12.Enabled = True
+            '    btn12.BackgroundImage = My.Resources.ShortDrum
+            '    shortC(12) = 1
+            'ElseIf varDRUMNum = 13 Then
+            '    btn13.Enabled = True
+            '    btn13.BackgroundImage = My.Resources.ShortDrum
+            '    shortC(13) = 1
+            'ElseIf varDRUMNum = 14 Then
+            '    btn14.Enabled = True
+            '    btn14.BackgroundImage = My.Resources.ShortDrum
+            '    shortC(14) = 1
+            'ElseIf varDRUMNum = 15 Then
+            '    btn15.Enabled = True
+            '    btn15.BackgroundImage = My.Resources.ShortDrum
+            '    shortC(15) = 1
+            'ElseIf varDRUMNum = 16 Then
+            '    btn16.Enabled = True
+            '    btn16.BackgroundImage = My.Resources.ShortDrum
+            '    shortC(16) = 1
+
+            'End If
 
 
             If frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYDRUMSTATE").Value = 0 Then
@@ -1166,8 +1248,11 @@ Public Class frmSortCart
 
 
         'Else
-        varCartEndTime = time.ToString(dateFormat)
-            If POYSHORTDRUM = 2 Then POYSHORTDRUM = txtDrumNum.Text
+        timeUpdate()
+        MsgBox(todayTimeDate)
+        varCartEndTime = todayTimeDate
+        'time.ToString(dateFormat)
+        If POYSHORTDRUM = 2 Then POYSHORTDRUM = txtDrumNum.Text
         If POYSHORTDRUM > 0 Then Fault_S = "True"
 
         txtBoxUpdates()
