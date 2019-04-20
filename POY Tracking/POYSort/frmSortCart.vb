@@ -102,8 +102,8 @@ Public Class frmSortCart
 
     Public Sub timeUpdate()   'get current time and date
 
-        todayTimeDate = time.Now.ToString(dateFormat)
-
+        'todayTimeDate = time.Now.ToString(dateFormat)
+        todayTimeDate = DateTime.Now.ToString(New System.Globalization.CultureInfo("en-us"))
     End Sub
 
     Private Sub UpdateDrumVal()

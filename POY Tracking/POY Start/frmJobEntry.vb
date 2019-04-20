@@ -85,8 +85,10 @@ Public Class frmJobEntry
 
     Private Sub frmJobEntry_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        todayTimeDate = time.ToString(dateFormat)
+        ' todayTimeDate = DateTime.Now.GetDateTimeFormats("YYYY")
 
+
+        'String dt = DateTime.Now.ToString(New System.Globalization.CultureInfo("en-us"))
 
         If My.Settings.chkUseThai Then
             ChangeLanguage("th-TH")
@@ -889,6 +891,12 @@ Public Class frmJobEntry
 
     End Sub
 
+    Public Sub timeUpdate()   'get current time and date
+
+        todayTimeDate = DateTime.Now.ToString(New System.Globalization.CultureInfo("en-us"))  'this will force time and date to western format
+
+    End Sub
+
     Private Sub POYPaletteCreate()
 
         ' RESET QUERY STATISTCIS
@@ -896,7 +904,7 @@ Public Class frmJobEntry
         LException = ""
         If LConn.State = ConnectionState.Open Then LConn.Close()
         Dim varProdGrade
-
+        timeUpdate()
 
         LExecQuery("Select * FROM POYPRODUCT WHERE POYPRNUM = '" & productCode & "' ")
         If LRecordCount > 0 Then
@@ -1134,7 +1142,7 @@ Public Class frmJobEntry
             Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
         End If
 
-
+        timeUpdate()
 
 
         Dim fmt As String = "00"   'Only 2 digits
@@ -1379,7 +1387,9 @@ Public Class frmJobEntry
 
             drumBarcode = moddrumBarcode & drumNum
 
-            todayTimeDate = time.ToString(dateFormat)
+
+
+            'todayTimeDate = DateTime.ToString(dateFormat)
 
 
             'Parameters List for full db
