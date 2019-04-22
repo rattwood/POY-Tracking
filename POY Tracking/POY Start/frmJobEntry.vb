@@ -893,7 +893,11 @@ Public Class frmJobEntry
 
     Public Sub timeUpdate()   'get current time and date
 
-        todayTimeDate = DateTime.Now.ToString(New System.Globalization.CultureInfo("en-us"))  'this will force time and date to western format
+
+        Dim tmpDate As DateTime
+        tmpDate = DateTime.Now.ToString(New System.Globalization.CultureInfo("en-US"))  'this will force time and date to western format
+        todayTimeDate = Format(tmpDate, "yyyy-MM-dd HH:mm:ss")
+
 
     End Sub
 

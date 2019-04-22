@@ -1,6 +1,6 @@
 ﻿Imports Excel = Microsoft.Office.Interop.Excel
 Imports System.ComponentModel
-
+Imports System.Globalization
 
 Public Class frmSortCart
 
@@ -101,10 +101,12 @@ Public Class frmSortCart
     End Sub
 
     Public Sub timeUpdate()   'get current time and date
-
         'todayTimeDate = time.Now.ToString(dateFormat)
-        todayTimeDate = DateTime.Now.ToString(New System.Globalization.CultureInfo("en-US"))
-        MsgBox(todayTimeDate)
+
+        Dim tmpDate As DateTime
+        tmpDate = DateTime.Now.ToString(New System.Globalization.CultureInfo("en"))
+        todayTimeDate = Format(tmpDate, "yyyy-MM-dd HH:mm:ss")
+
 
     End Sub
 
@@ -113,83 +115,87 @@ Public Class frmSortCart
         Dim cellVal As String
         Dim reasonFound As Integer = 0
 
-        For rw As Integer = 1 To frmDGV.DGVdata.Rows.Count 'Up to 16 Drum
+
+        Try
+            For rw As Integer = 1 To frmDGV.DGVdata.Rows.Count 'Up to 16 Drum
 
 
-            'Update Scanned Image
-            If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value) Then
-                cellVal = frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value.ToString
-                'CHECK FOR SCANNED Drum AND SET TO GREEN
-                If cellVal = 1 Then
-                    Me.Controls("btn" & rw).BackgroundImage = My.Resources.Have_Drum
-                    Me.Controls("btn" & rw).Enabled = True
-                End If
-                cellVal = Nothing
-            End If
-
-
-
-
-            'CHECK FOR SHORT AND UPDATE IMAGE
-            If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYSHORTDRUM").Value) Then
-                cellVal = frmDGV.DGVdata.Rows(rw - 1).Cells("POYSHORTDRUM").Value
-                If cellVal > 0 Then
-
-                    Me.Controls("btn" & rw).BackgroundImage = My.Resources.ShortDrum
-                    Me.Controls("btn" & rw).Enabled = True
-                    shortC(rw) = 1
-
-
-                    If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYDEFDRUM").Value) Then
-                        If frmDGV.DGVdata.Rows(rw - 1).Cells("POYDEFDRUM").Value > 0 Then
-                            Me.Controls("btn" & rw).BackgroundImage = My.Resources.ShortWithDefect
-                            Me.Controls("btn" & rw).Enabled = True
-                            shortC(rw) = 1
-                        End If
+                'Update Scanned Image
+                If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value) Then
+                    cellVal = frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value.ToString
+                    'CHECK FOR SCANNED Drum AND SET TO GREEN
+                    If cellVal = 1 Then
+                        Me.Controls("btn" & rw).BackgroundImage = My.Resources.Have_Drum
+                        Me.Controls("btn" & rw).Enabled = True
                     End If
-
                     cellVal = Nothing
-
                 End If
-            End If
 
 
-            'CHECK FOR MISSING DRUM AND UPDATE IMAGE
-            If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYMISSDRUM").Value) Then
 
-                If frmDGV.DGVdata.Rows(rw - 1).Cells("POYMISSDRUM").Value > 0 Then
-                    cellVal = frmDGV.DGVdata.Rows(rw - 1).Cells("POYMISSDRUM").Value
+
+                'CHECK FOR SHORT AND UPDATE IMAGE
+                If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYSHORTDRUM").Value) Then
+                    cellVal = frmDGV.DGVdata.Rows(rw - 1).Cells("POYSHORTDRUM").Value
                     If cellVal > 0 Then
 
-                        Me.Controls("btn" & rw).BackgroundImage = My.Resources.MissingDrum
-                        Me.Controls("btn" & rw).Enabled = False
+                        Me.Controls("btn" & rw).BackgroundImage = My.Resources.ShortDrum
+                        Me.Controls("btn" & rw).Enabled = True
+                        shortC(rw) = 1
+
+
+                        If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYDEFDRUM").Value) Then
+                            If frmDGV.DGVdata.Rows(rw - 1).Cells("POYDEFDRUM").Value > 0 Then
+                                Me.Controls("btn" & rw).BackgroundImage = My.Resources.ShortWithDefect
+                                Me.Controls("btn" & rw).Enabled = True
+                                shortC(rw) = 1
+                            End If
+                        End If
+
+                        cellVal = Nothing
+
+                    End If
+                End If
+
+
+                'CHECK FOR MISSING DRUM AND UPDATE IMAGE
+                If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYMISSDRUM").Value) Then
+
+                    If frmDGV.DGVdata.Rows(rw - 1).Cells("POYMISSDRUM").Value > 0 Then
+                        cellVal = frmDGV.DGVdata.Rows(rw - 1).Cells("POYMISSDRUM").Value
+                        If cellVal > 0 Then
+
+                            Me.Controls("btn" & rw).BackgroundImage = My.Resources.MissingDrum
+                            Me.Controls("btn" & rw).Enabled = False
+
+                            cellVal = Nothing
+                        End If
+                    End If
+                End If
+
+                'CHECK FOR DEFECT AND UPDATE IMAGE
+                If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYDEFDRUM").Value) Then
+                    cellVal = frmDGV.DGVdata.Rows(rw - 1).Cells("POYDEFDRUM").Value
+
+                    If cellVal > 0 Then
+
+                        Me.Controls("btn" & rw).BackgroundImage = My.Resources.DefectDrum
+
+                        If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYSHORTDRUM").Value) Then
+                            If frmDGV.DGVdata.Rows(rw - 1).Cells("POYSHORTDRUM").Value > 0 Then
+                                Me.Controls("btn" & rw).BackgroundImage = My.Resources.ShortWithDefect
+                            End If
+                        End If
 
                         cellVal = Nothing
                     End If
-                End If
-            End If
 
-            'CHECK FOR DEFECT AND UPDATE IMAGE
-            If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYDEFDRUM").Value) Then
-                cellVal = frmDGV.DGVdata.Rows(rw - 1).Cells("POYDEFDRUM").Value
-
-                If cellVal > 0 Then
-
-                    Me.Controls("btn" & rw).BackgroundImage = My.Resources.DefectDrum
-
-                    If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYSHORTDRUM").Value) Then
-                        If frmDGV.DGVdata.Rows(rw - 1).Cells("POYSHORTDRUM").Value > 0 Then
-                            Me.Controls("btn" & rw).BackgroundImage = My.Resources.ShortWithDefect
-                        End If
-                    End If
-
-                    cellVal = Nothing
                 End If
 
-            End If
-
-        Next
-
+            Next
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
 
 
 
@@ -213,37 +219,39 @@ Public Class frmSortCart
         txtDefect.Text = ""
 
 
+        Try
 
+            For rw As Integer = 1 To rowendcount
 
-        For rw As Integer = 1 To rowendcount
-
-            If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYSHORTDRUM").Value) Then
-                If frmDGV.DGVdata.Rows(rw - 1).Cells("POYSHORTDRUM").Value > 0 Then
-                    tmpDRUMNum = frmDGV.DGVdata.Rows(rw - 1).Cells("POYSPINNUM").Value
-                    POYSHORTDRUMID = POYSHORTDRUMID & tmpDRUMNum & ","
-                    txtShort.Text = POYSHORTDRUMID
+                If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYSHORTDRUM").Value) Then
+                    If frmDGV.DGVdata.Rows(rw - 1).Cells("POYSHORTDRUM").Value > 0 Then
+                        tmpDRUMNum = frmDGV.DGVdata.Rows(rw - 1).Cells("POYSPINNUM").Value
+                        POYSHORTDRUMID = POYSHORTDRUMID & tmpDRUMNum & ","
+                        txtShort.Text = POYSHORTDRUMID
+                    End If
                 End If
-            End If
 
-            If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYMISSDRUM").Value) Then
-                If frmDGV.DGVdata.Rows(rw - 1).Cells("POYMISSDRUM").Value > 0 Then
-                    tmpDRUMNum = frmDGV.DGVdata.Rows(rw - 1).Cells("POYSPINNUM").Value
-                    DRUMMissingID = DRUMMissingID & tmpDRUMNum & ","
-                    txtMissing.Text = DRUMMissingID
+                If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYMISSDRUM").Value) Then
+                    If frmDGV.DGVdata.Rows(rw - 1).Cells("POYMISSDRUM").Value > 0 Then
+                        tmpDRUMNum = frmDGV.DGVdata.Rows(rw - 1).Cells("POYSPINNUM").Value
+                        DRUMMissingID = DRUMMissingID & tmpDRUMNum & ","
+                        txtMissing.Text = DRUMMissingID
+                    End If
                 End If
-            End If
 
-            If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYDEFDRUM").Value) Then
-                If frmDGV.DGVdata.Rows(rw - 1).Cells("POYDEFDRUM").Value > 0 Then
-                    tmpDRUMNum = frmDGV.DGVdata.Rows(rw - 1).Cells("POYSPINNUM").Value
-                    DRUMDefectID = DRUMDefectID & tmpDRUMNum & ","
-                    txtDefect.Text = DRUMDefectID
+                If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYDEFDRUM").Value) Then
+                    If frmDGV.DGVdata.Rows(rw - 1).Cells("POYDEFDRUM").Value > 0 Then
+                        tmpDRUMNum = frmDGV.DGVdata.Rows(rw - 1).Cells("POYSPINNUM").Value
+                        DRUMDefectID = DRUMDefectID & tmpDRUMNum & ","
+                        txtDefect.Text = DRUMDefectID
+                    End If
                 End If
-            End If
 
-            tmpDRUMNum = Nothing
-        Next
-
+                tmpDRUMNum = Nothing
+            Next
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
 
 
     End Sub
@@ -349,53 +357,55 @@ Public Class frmSortCart
 
 
 
+        Try
 
-
-        For i = 1 To rowendcount
-
-
-
-            If frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value = bcodeScan And frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value = 0 Then
-
-                Me.Controls("btn" & i.ToString).BackgroundImage = My.Resources.Have_Drum  'DRUM HAS BEEN SCANNED IN
-                frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value = 1
-                frmDGV.DGVdata.Rows(i - 1).Cells("POYSORTNAME").Value = frmJobEntry.SortOP
+            For i = 1 To rowendcount
 
 
 
-                allocatedCount = allocatedCount + 1
-                txtScannedDrums.Text = allocatedCount 'SHOW COUNT ON SCREEN
-                curDRUM = Nothing
+                If frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value = bcodeScan And frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value = 0 Then
 
-                Exit For
-
-
-            ElseIf frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value = bcodeScan And frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value > 0 Then
-                lblMessage.Visible = True
-                lblMessage.Text = "Drum already allocated"
-                DelayTM()
-                lblMessage.Visible = False
-                Exit For
+                    Me.Controls("btn" & i.ToString).BackgroundImage = My.Resources.Have_Drum  'DRUM HAS BEEN SCANNED IN
+                    frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value = 1
+                    frmDGV.DGVdata.Rows(i - 1).Cells("POYSORTNAME").Value = frmJobEntry.SortOP
 
 
 
-            ElseIf i = rowendcount Then
-                lblMessage.Visible = True
-                lblMessage.Text = ("CHECK Drum BARCODE" & vbCrLf & "    WRONG NUMBER")
-                DelayTM()
-                lblMessage.Visible = False
-                'Exit For
+                    allocatedCount = allocatedCount + 1
+                    txtScannedDrums.Text = allocatedCount 'SHOW COUNT ON SCREEN
+                    curDRUM = Nothing
+
+                    Exit For
 
 
-            End If
+                ElseIf frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value = bcodeScan And frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value > 0 Then
+                    lblMessage.Visible = True
+                    lblMessage.Text = "Drum already allocated"
+                    DelayTM()
+                    lblMessage.Visible = False
+                    Exit For
 
 
-            txtDrumBcode.Clear()
-            txtDrumBcode.Focus()
-            txtDrumBcode.Refresh()
 
-        Next
+                ElseIf i = rowendcount Then
+                    lblMessage.Visible = True
+                    lblMessage.Text = ("CHECK Drum BARCODE" & vbCrLf & "    WRONG NUMBER")
+                    DelayTM()
+                    lblMessage.Visible = False
+                    'Exit For
 
+
+                End If
+
+
+                txtDrumBcode.Clear()
+                txtDrumBcode.Focus()
+                txtDrumBcode.Refresh()
+
+            Next
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
 
         txtDrumBcode.Clear()
         txtDrumBcode.Focus()
@@ -583,6 +593,7 @@ Public Class frmSortCart
 
                     If Not IsDBNull(frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYMISSDRUM").Value) Then
                         If frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYMISSDRUM").Value > 0 Then
+                            frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYMISSDRUM").Value = 0
                             frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_X").Value = "False"
                         End If
                     End If
@@ -590,49 +601,49 @@ Public Class frmSortCart
                     frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYMISSDRUM").Value = Nothing 'missingDRUM
                     frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYDEFDRUM").Value = Nothing 'defectDRUM
                     frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYDRUMSTATE").Value = 0
-                        'FAULTS FROM POY-DTY Dept
-                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_DAB").Value = "False"   'KEBA Fault  TODO
-                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_FG").Value = "False"  'DIRTY Fault  TODO
-                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_O").Value = "False"     'FORM AB Fault  TODO
-                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_SL").Value = "False"     'OVERTHROWN Fault  TODO
-                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_PTS").Value = "False"    'TENSION AB. Fault  TODO
-                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_PTB").Value = "False"    'PAPER TUBE AB. Fault  TODO
-                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_YAB").Value = "False"          'SHORT Drum Fault  TODO
-                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_CAB").Value = "False"          'No HAVE Drum Fault  TODO
-                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_RW").Value = "False"     'NO TAIL & ABNORMAL Fault  TODO
-                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_PAB").Value = "False"   'WASTE Fault  TODO
-                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_DO").Value = "False"    'HITTING Fault  TODO
-                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_CNC").Value = "False"    'TARUMI Fault  TODO
-                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_H").Value = "False"    'B- GRADE BY M/C  Fault   TODO
-                        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_CBC").Value = "False"    'C- GRADE BY M/C  Fault  TODO
+                    'FAULTS FROM POY-DTY Dept
+                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_DAB").Value = "False"   'KEBA Fault  TODO
+                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_FG").Value = "False"  'DIRTY Fault  TODO
+                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_O").Value = "False"     'FORM AB Fault  TODO
+                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_SL").Value = "False"     'OVERTHROWN Fault  TODO
+                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_PTS").Value = "False"    'TENSION AB. Fault  TODO
+                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_PTB").Value = "False"    'PAPER TUBE AB. Fault  TODO
+                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_YAB").Value = "False"          'SHORT Drum Fault  TODO
+                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_CAB").Value = "False"          'No HAVE Drum Fault  TODO
+                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_RW").Value = "False"     'NO TAIL & ABNORMAL Fault  TODO
+                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_PAB").Value = "False"   'WASTE Fault  TODO
+                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_DO").Value = "False"    'HITTING Fault  TODO
+                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_CNC").Value = "False"    'TARUMI Fault  TODO
+                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_H").Value = "False"    'B- GRADE BY M/C  Fault   TODO
+                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_CBC").Value = "False"    'C- GRADE BY M/C  Fault  TODO
 
 
 
-                        shortC(varDRUMNum) = Nothing
-                        ' Me.Controls("btn" & varDRUMNum).BackColor = SystemColors.ControlDark
-                        Me.Controls("btn" & varDRUMNum).BackgroundImage = My.Resources.NotScan
+                    shortC(varDRUMNum) = Nothing
+                    ' Me.Controls("btn" & varDRUMNum).BackColor = SystemColors.ControlDark
+                    Me.Controls("btn" & varDRUMNum).BackgroundImage = My.Resources.NotScan
 
-                        'Reduce allocated by 1 and increase to allocate by 1
-                        If allocatedCount > 0 Then allocatedCount = allocatedCount - 1
-                        txtScannedDrums.Text = allocatedCount 'SHOW COUNT ON SCREEN
-
-
-                        UpdateDrumVal()
+                    'Reduce allocated by 1 and increase to allocate by 1
+                    If allocatedCount > 0 Then allocatedCount = allocatedCount - 1
+                    txtScannedDrums.Text = allocatedCount 'SHOW COUNT ON SCREEN
 
 
-                        varDRUMNum = Nothing
-                        txtDrumNum.Text = ""
+                    UpdateDrumVal()
+
+
+                    varDRUMNum = Nothing
+                    txtDrumNum.Text = ""
 
 
 
-                        btnUnlock.Text = "UNLOCK OFF"
-                        btnUnlock.ForeColor = Color.Red
-                        btnDelete.Visible = False
-                        reFocus()
-                        Exit Sub
-                    End If
+                    btnUnlock.Text = "UNLOCK OFF"
+                    btnUnlock.ForeColor = Color.Red
+                    btnDelete.Visible = False
+                    reFocus()
+                    Exit Sub
+                End If
 
-                    If result2 = DialogResult.No Then
+                If result2 = DialogResult.No Then
                     varDRUMNum = Nothing
                     txtDrumNum.Text = ""
                     reFocus()
@@ -727,15 +738,15 @@ Public Class frmSortCart
 
 
             Me.btnDefectSave.Visible = True 'Show Save button when form opens
-                Me.btnClear.Visible = True  'Show Cancel button when form opens
-                Me.btnDefect.Enabled = False
-                Me.btnNoDrum.Enabled = False
-                Me.btnShort.Enabled = False
+            Me.btnClear.Visible = True  'Show Cancel button when form opens
+            Me.btnDefect.Enabled = False
+            Me.btnNoDrum.Enabled = False
+            Me.btnShort.Enabled = False
 
 
-                reFocus()
-            Else
-                MsgBox("You must select a  Drum number first")
+            reFocus()
+        Else
+            MsgBox("You must select a  Drum number first")
             reFocus()
         End If
 
@@ -910,235 +921,233 @@ Public Class frmSortCart
 
     Private Sub readsave()
 
-        'NO CONE Update Cone button to colour of nodrum And add the cone number to the coneMissingID string so we have a full list of missing cones
-        If NoDRUM Then
+        Try
+            'NO CONE Update Cone button to colour of nodrum And add the cone number to the coneMissingID string so we have a full list of missing cones
+            If NoDRUM Then
 
-            Fault_X = True  'Sets the nodrum fault flag
-            If varDRUMNum = 1 Then
-                btn1.Enabled = False
-                btn1.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = txtDrumNum.Text
-            ElseIf varDRUMNum = 2 Then
-                btn2.Enabled = False
-                btn2.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = txtDrumNum.Text
-            ElseIf varDRUMNum = 3 Then
-                btn3.Enabled = False
-                btn3.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = txtDrumNum.Text
-            ElseIf varDRUMNum = 4 Then
-                btn4.Enabled = False
-                btn4.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = txtDrumNum.Text
-            ElseIf varDRUMNum = 5 Then
-                btn5.Enabled = False
-                btn5.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = txtDrumNum.Text
-            ElseIf varDRUMNum = 6 Then
-                btn6.Enabled = False
-                btn6.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = txtDrumNum.Text
-            ElseIf varDRUMNum = 7 Then
-                btn7.Enabled = False
-                btn7.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = txtDrumNum.Text
-            ElseIf varDRUMNum = 8 Then
-                btn8.Enabled = False
-                btn8.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = txtDrumNum.Text
-            ElseIf varDRUMNum = 9 Then
-                btn9.Enabled = False
-                btn9.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = txtDrumNum.Text
-            ElseIf varDRUMNum = 10 Then
-                btn10.Enabled = False
-                btn10.BackgroundImage = My.Resources.NoDrum
-            ElseIf varDRUMNum = 11 Then
-                btn11.Enabled = False
-                btn11.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = txtDrumNum.Text
-            ElseIf varDRUMNum = 12 Then
-                btn12.Enabled = False
-                btn12.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = txtDrumNum.Text
-            ElseIf varDRUMNum = 13 Then
-                btn13.Enabled = False
-                btn13.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = txtDrumNum.Text
-            ElseIf varDRUMNum = 14 Then
-                btn14.Enabled = False
-                btn14.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = txtDrumNum.Text
-            ElseIf varDRUMNum = 15 Then
-                btn15.Enabled = False
-                btn15.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = txtDrumNum.Text
-            ElseIf varDRUMNum = 16 Then
-                btn16.Enabled = False
-                btn16.BackgroundImage = My.Resources.NoDrum
-                NoDRUM = txtDrumNum.Text
+                Fault_X = True  'Sets the nodrum fault flag
+                If varDRUMNum = 1 Then
+                    btn1.Enabled = False
+                    btn1.BackgroundImage = My.Resources.NoDrum
+                    NoDRUM = txtDrumNum.Text
+                ElseIf varDRUMNum = 2 Then
+                    btn2.Enabled = False
+                    btn2.BackgroundImage = My.Resources.NoDrum
+                    NoDRUM = txtDrumNum.Text
+                ElseIf varDRUMNum = 3 Then
+                    btn3.Enabled = False
+                    btn3.BackgroundImage = My.Resources.NoDrum
+                    NoDRUM = txtDrumNum.Text
+                ElseIf varDRUMNum = 4 Then
+                    btn4.Enabled = False
+                    btn4.BackgroundImage = My.Resources.NoDrum
+                    NoDRUM = txtDrumNum.Text
+                ElseIf varDRUMNum = 5 Then
+                    btn5.Enabled = False
+                    btn5.BackgroundImage = My.Resources.NoDrum
+                    NoDRUM = txtDrumNum.Text
+                ElseIf varDRUMNum = 6 Then
+                    btn6.Enabled = False
+                    btn6.BackgroundImage = My.Resources.NoDrum
+                    NoDRUM = txtDrumNum.Text
+                ElseIf varDRUMNum = 7 Then
+                    btn7.Enabled = False
+                    btn7.BackgroundImage = My.Resources.NoDrum
+                    NoDRUM = txtDrumNum.Text
+                ElseIf varDRUMNum = 8 Then
+                    btn8.Enabled = False
+                    btn8.BackgroundImage = My.Resources.NoDrum
+                    NoDRUM = txtDrumNum.Text
+                ElseIf varDRUMNum = 9 Then
+                    btn9.Enabled = False
+                    btn9.BackgroundImage = My.Resources.NoDrum
+                    NoDRUM = txtDrumNum.Text
+                ElseIf varDRUMNum = 10 Then
+                    btn10.Enabled = False
+                    btn10.BackgroundImage = My.Resources.NoDrum
+                ElseIf varDRUMNum = 11 Then
+                    btn11.Enabled = False
+                    btn11.BackgroundImage = My.Resources.NoDrum
+                    NoDRUM = txtDrumNum.Text
+                ElseIf varDRUMNum = 12 Then
+                    btn12.Enabled = False
+                    btn12.BackgroundImage = My.Resources.NoDrum
+                    NoDRUM = txtDrumNum.Text
+                ElseIf varDRUMNum = 13 Then
+                    btn13.Enabled = False
+                    btn13.BackgroundImage = My.Resources.NoDrum
+                    NoDRUM = txtDrumNum.Text
+                ElseIf varDRUMNum = 14 Then
+                    btn14.Enabled = False
+                    btn14.BackgroundImage = My.Resources.NoDrum
+                    NoDRUM = txtDrumNum.Text
+                ElseIf varDRUMNum = 15 Then
+                    btn15.Enabled = False
+                    btn15.BackgroundImage = My.Resources.NoDrum
+                    NoDRUM = txtDrumNum.Text
+                ElseIf varDRUMNum = 16 Then
+                    btn16.Enabled = False
+                    btn16.BackgroundImage = My.Resources.NoDrum
+                    NoDRUM = txtDrumNum.Text
 
-            End If
-            frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYMISSDRUM").Value = 1
-            allocatedCount = allocatedCount + 1
-            txtScannedDrums.Text = allocatedCount 'SHOW COUNT ON SCREEN
-        End If
-
-        If defect Then  'Routine to Set Cone color to defect and update cone numbers with defects
-            frmDGV.DGVdata.Rows((varDRUMNum - 1)).Cells("POYDEFDRUM").Value = txtDrumNum.Text 'POYDEFDRUM
-            frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYMISSDRUM").Value = 0
-            Fault_X = False
-
-            If varDRUMNum = 1 Then
-                btn1.Enabled = False
-                btn1.BackgroundImage = My.Resources.DefectDrum
-                defect = txtDrumNum.Text
-            ElseIf varDRUMNum = 2 Then
-                btn2.Enabled = False
-                btn2.BackgroundImage = My.Resources.DefectDrum
-                defect = txtDrumNum.Text
-            ElseIf varDRUMNum = 3 Then
-                btn3.Enabled = False
-                btn3.BackgroundImage = My.Resources.DefectDrum
-                defect = txtDrumNum.Text
-            ElseIf varDRUMNum = 4 Then
-                btn4.Enabled = False
-                btn4.BackgroundImage = My.Resources.DefectDrum
-                defect = txtDrumNum.Text
-            ElseIf varDRUMNum = 5 Then
-                btn5.Enabled = False
-                btn5.BackgroundImage = My.Resources.DefectDrum
-                defect = txtDrumNum.Text
-            ElseIf varDRUMNum = 6 Then
-                btn6.Enabled = False
-                btn6.BackgroundImage = My.Resources.DefectDrum
-                defect = txtDrumNum.Text
-            ElseIf varDRUMNum = 7 Then
-                btn7.Enabled = False
-                btn7.BackgroundImage = My.Resources.DefectDrum
-                defect = txtDrumNum.Text
-            ElseIf varDRUMNum = 8 Then
-                btn8.Enabled = False
-                btn8.BackgroundImage = My.Resources.DefectDrum
-                defect = txtDrumNum.Text
-            ElseIf varDRUMNum = 9 Then
-                btn9.Enabled = False
-                btn9.BackgroundImage = My.Resources.DefectDrum
-                defect = txtDrumNum.Text
-            ElseIf varDRUMNum = 10 Then
-                btn10.Enabled = False
-                btn10.BackgroundImage = My.Resources.DefectDrum
-                defect = txtDrumNum.Text
-            ElseIf varDRUMNum = 11 Then
-                btn11.Enabled = False
-                btn11.BackgroundImage = My.Resources.DefectDrum
-                defect = txtDrumNum.Text
-            ElseIf varDRUMNum = 12 Then
-                btn12.Enabled = False
-                btn12.BackgroundImage = My.Resources.DefectDrum
-                defect = txtDrumNum.Text
-            ElseIf varDRUMNum = 13 Then
-                btn13.Enabled = False
-                btn13.BackgroundImage = My.Resources.DefectDrum
-                defect = txtDrumNum.Text
-            ElseIf varDRUMNum = 14 Then
-                btn14.Enabled = False
-                btn14.BackgroundImage = My.Resources.DefectDrum
-                defect = txtDrumNum.Text
-            ElseIf varDRUMNum = 15 Then
-                btn15.Enabled = False
-                btn15.BackgroundImage = My.Resources.DefectDrum
-                defect = txtDrumNum.Text
-            ElseIf varDRUMNum = 16 Then
-                btn16.Enabled = False
-                btn16.BackgroundImage = My.Resources.DefectDrum
-                defect = txtDrumNum.Text
-
+                End If
+                frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYMISSDRUM").Value = 1
+                allocatedCount = allocatedCount + 1
+                txtScannedDrums.Text = allocatedCount 'SHOW COUNT ON SCREEN
             End If
 
-            If frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYDRUMSTATE").Value = 0 Then
-                frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYDRUMSTATE").Value = 1
+            If defect Then  'Routine to Set Cone color to defect and update cone numbers with defects
+                frmDGV.DGVdata.Rows((varDRUMNum - 1)).Cells("POYDEFDRUM").Value = txtDrumNum.Text 'POYDEFDRUM
+                frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYMISSDRUM").Value = 0
+                Fault_X = False
+
+                If varDRUMNum = 1 Then
+                    btn1.Enabled = False
+                    btn1.BackgroundImage = My.Resources.DefectDrum
+                    defect = txtDrumNum.Text
+                ElseIf varDRUMNum = 2 Then
+                    btn2.Enabled = False
+                    btn2.BackgroundImage = My.Resources.DefectDrum
+                    defect = txtDrumNum.Text
+                ElseIf varDRUMNum = 3 Then
+                    btn3.Enabled = False
+                    btn3.BackgroundImage = My.Resources.DefectDrum
+                    defect = txtDrumNum.Text
+                ElseIf varDRUMNum = 4 Then
+                    btn4.Enabled = False
+                    btn4.BackgroundImage = My.Resources.DefectDrum
+                    defect = txtDrumNum.Text
+                ElseIf varDRUMNum = 5 Then
+                    btn5.Enabled = False
+                    btn5.BackgroundImage = My.Resources.DefectDrum
+                    defect = txtDrumNum.Text
+                ElseIf varDRUMNum = 6 Then
+                    btn6.Enabled = False
+                    btn6.BackgroundImage = My.Resources.DefectDrum
+                    defect = txtDrumNum.Text
+                ElseIf varDRUMNum = 7 Then
+                    btn7.Enabled = False
+                    btn7.BackgroundImage = My.Resources.DefectDrum
+                    defect = txtDrumNum.Text
+                ElseIf varDRUMNum = 8 Then
+                    btn8.Enabled = False
+                    btn8.BackgroundImage = My.Resources.DefectDrum
+                    defect = txtDrumNum.Text
+                ElseIf varDRUMNum = 9 Then
+                    btn9.Enabled = False
+                    btn9.BackgroundImage = My.Resources.DefectDrum
+                    defect = txtDrumNum.Text
+                ElseIf varDRUMNum = 10 Then
+                    btn10.Enabled = False
+                    btn10.BackgroundImage = My.Resources.DefectDrum
+                    defect = txtDrumNum.Text
+                ElseIf varDRUMNum = 11 Then
+                    btn11.Enabled = False
+                    btn11.BackgroundImage = My.Resources.DefectDrum
+                    defect = txtDrumNum.Text
+                ElseIf varDRUMNum = 12 Then
+                    btn12.Enabled = False
+                    btn12.BackgroundImage = My.Resources.DefectDrum
+                    defect = txtDrumNum.Text
+                ElseIf varDRUMNum = 13 Then
+                    btn13.Enabled = False
+                    btn13.BackgroundImage = My.Resources.DefectDrum
+                    defect = txtDrumNum.Text
+                ElseIf varDRUMNum = 14 Then
+                    btn14.Enabled = False
+                    btn14.BackgroundImage = My.Resources.DefectDrum
+                    defect = txtDrumNum.Text
+                ElseIf varDRUMNum = 15 Then
+                    btn15.Enabled = False
+                    btn15.BackgroundImage = My.Resources.DefectDrum
+                    defect = txtDrumNum.Text
+                ElseIf varDRUMNum = 16 Then
+                    btn16.Enabled = False
+                    btn16.BackgroundImage = My.Resources.DefectDrum
+                    defect = txtDrumNum.Text
+
+                End If
+
+                If frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYDRUMSTATE").Value = 0 Then
+                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYDRUMSTATE").Value = 1
+                End If
             End If
-        End If
 
-        If POYSHORTDRUM Then    'THIS IS THE SHORT CONE TEMP UPDATE ALL OTHER CONES ARE FINISHED WHEN SAVED BUT SHORT CONE NEEDS A TEMP UPDATE TO WORK FOR SORTING DEPT
+            If POYSHORTDRUM Then    'THIS IS THE SHORT CONE TEMP UPDATE ALL OTHER CONES ARE FINISHED WHEN SAVED BUT SHORT CONE NEEDS A TEMP UPDATE TO WORK FOR SORTING DEPT
 
-            frmDGV.DGVdata.Rows((varDRUMNum - 1)).Cells("POYSHORTDRUM").Value = txtDrumNum.Text 'POYSHORTDRUM
-            frmDGV.DGVdata.Rows((varDRUMNum - 1)).Cells("FLT_S").Value = "True" 'Sets the SHORT fault flag
-            frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYMISSDRUM").Value = 0
-            Fault_X = False
-            ' txtBoxUpdates()
 
-            Select Case varDRUMNum
-                Case 1, 2, 3, 4
-                    btn1.Enabled = True
-                    btn1.BackgroundImage = My.Resources.ShortDrum
-                    shortC(1) = 1
+                ' txtBoxUpdates()
 
-                    btn2.Enabled = True
-                    btn2.BackgroundImage = My.Resources.ShortDrum
-                    shortC(2) = 1
+                Select Case varDRUMNum
+                    Case 1, 2, 3, 4
+                        btn1.Enabled = True
+                        btn1.BackgroundImage = My.Resources.ShortDrum
+                        shortC(1) = 1
 
-                    btn3.Enabled = True
-                    btn3.BackgroundImage = My.Resources.ShortDrum
-                    shortC(3) = 1
+                        btn2.Enabled = True
+                        btn2.BackgroundImage = My.Resources.ShortDrum
+                        shortC(2) = 1
 
-                    btn4.Enabled = True
-                    btn4.BackgroundImage = My.Resources.ShortDrum
-                    shortC(4) = 1
+                        btn3.Enabled = True
+                        btn3.BackgroundImage = My.Resources.ShortDrum
+                        shortC(3) = 1
 
-                Case 5, 6, 7, 8
-                    btn5.Enabled = True
-                    btn5.BackgroundImage = My.Resources.ShortDrum
-                    shortC(5) = 1
+                        btn4.Enabled = True
+                        btn4.BackgroundImage = My.Resources.ShortDrum
+                        shortC(4) = 1
 
-                    btn6.Enabled = True
-                    btn6.BackgroundImage = My.Resources.ShortDrum
-                    shortC(6) = 1
+                    Case 5, 6, 7, 8
+                        btn5.Enabled = True
+                        btn5.BackgroundImage = My.Resources.ShortDrum
+                        shortC(5) = 1
 
-                    btn7.Enabled = True
-                    btn7.BackgroundImage = My.Resources.ShortDrum
-                    shortC(7) = 1
+                        btn6.Enabled = True
+                        btn6.BackgroundImage = My.Resources.ShortDrum
+                        shortC(6) = 1
 
-                    btn8.Enabled = True
-                    btn8.BackgroundImage = My.Resources.ShortDrum
-                    shortC(8) = 1
+                        btn7.Enabled = True
+                        btn7.BackgroundImage = My.Resources.ShortDrum
+                        shortC(7) = 1
 
-                Case 9, 10, 11, 12
-                    btn9.Enabled = True
-                    btn9.BackgroundImage = My.Resources.ShortDrum
-                    shortC(9) = 1
+                        btn8.Enabled = True
+                        btn8.BackgroundImage = My.Resources.ShortDrum
+                        shortC(8) = 1
 
-                    btn10.Enabled = True
-                    btn10.BackgroundImage = My.Resources.ShortDrum
-                    shortC(10) = 1
+                    Case 9, 10, 11, 12
+                        btn9.Enabled = True
+                        btn9.BackgroundImage = My.Resources.ShortDrum
+                        shortC(9) = 1
 
-                    btn11.Enabled = True
-                    btn11.BackgroundImage = My.Resources.ShortDrum
-                    shortC(11) = 1
+                        btn10.Enabled = True
+                        btn10.BackgroundImage = My.Resources.ShortDrum
+                        shortC(10) = 1
 
-                    btn12.Enabled = True
-                    btn12.BackgroundImage = My.Resources.ShortDrum
-                    shortC(12) = 1
+                        btn11.Enabled = True
+                        btn11.BackgroundImage = My.Resources.ShortDrum
+                        shortC(11) = 1
 
-                Case 13, 14, 15, 16
-                    btn13.Enabled = True
-                    btn13.BackgroundImage = My.Resources.ShortDrum
-                    shortC(13) = 1
+                        btn12.Enabled = True
+                        btn12.BackgroundImage = My.Resources.ShortDrum
+                        shortC(12) = 1
 
-                    btn14.Enabled = True
-                    btn14.BackgroundImage = My.Resources.ShortDrum
-                    shortC(14) = 1
+                    Case 13, 14, 15, 16
+                        btn13.Enabled = True
+                        btn13.BackgroundImage = My.Resources.ShortDrum
+                        shortC(13) = 1
 
-                    btn15.Enabled = True
-                    btn15.BackgroundImage = My.Resources.ShortDrum
-                    shortC(15) = 1
+                        btn14.Enabled = True
+                        btn14.BackgroundImage = My.Resources.ShortDrum
+                        shortC(14) = 1
 
-                    btn16.Enabled = True
-                    btn16.BackgroundImage = My.Resources.ShortDrum
-                    shortC(16) = 1
+                        btn15.Enabled = True
+                        btn15.BackgroundImage = My.Resources.ShortDrum
+                        shortC(15) = 1
 
-            End Select
+                        btn16.Enabled = True
+                        btn16.BackgroundImage = My.Resources.ShortDrum
+                        shortC(16) = 1
+
+                End Select
 
 
 
@@ -1149,79 +1158,94 @@ Public Class frmSortCart
 
 
 
-            'If varDRUMNum = 1 Then
-            '    btn1.Enabled = True
-            '    btn1.BackgroundImage = My.Resources.ShortDrum
-            '    shortC(1) = 1
-            'ElseIf varDRUMNum = 2 Then
-            '    btn2.Enabled = True
-            '    btn2.BackgroundImage = My.Resources.ShortDrum
-            '    shortC(2) = 1
-            'ElseIf varDRUMNum = 3 Then
-            '    btn3.Enabled = True
-            '    btn3.BackgroundImage = My.Resources.ShortDrum
-            '    shortC(3) = 1
-            'ElseIf varDRUMNum = 4 Then
-            '    btn4.Enabled = True
-            '    btn4.BackgroundImage = My.Resources.ShortDrum
-            '    shortC(4) = 1
-            'ElseIf varDRUMNum = 5 Then
-            '    btn5.Enabled = True
-            '    btn5.BackgroundImage = My.Resources.ShortDrum
-            '    shortC(5) = 1
-            'ElseIf varDRUMNum = 6 Then
-            '    btn6.Enabled = True
-            '    btn6.BackgroundImage = My.Resources.ShortDrum
-            '    shortC(6) = 1
-            'ElseIf varDRUMNum = 7 Then
-            '    btn7.Enabled = True
-            '    btn7.BackgroundImage = My.Resources.ShortDrum
-            '    shortC(7) = 1
-            'ElseIf varDRUMNum = 8 Then
-            '    btn8.Enabled = True
-            '    btn8.BackgroundImage = My.Resources.ShortDrum
-            '    shortC(8) = 1
-            'ElseIf varDRUMNum = 9 Then
-            '    btn9.Enabled = True
-            '    btn9.BackgroundImage = My.Resources.ShortDrum
-            '    shortC(9) = 1
-            'ElseIf varDRUMNum = 10 Then
-            '    btn10.Enabled = True
-            '    btn10.BackgroundImage = My.Resources.ShortDrum
-            '    shortC(10) = 1
-            'ElseIf varDRUMNum = 11 Then
-            '    btn11.Enabled = True
-            '    btn11.BackgroundImage = My.Resources.ShortDrum
-            '    shortC(11) = 1
-            'ElseIf varDRUMNum = 12 Then
-            '    btn12.Enabled = True
-            '    btn12.BackgroundImage = My.Resources.ShortDrum
-            '    shortC(12) = 1
-            'ElseIf varDRUMNum = 13 Then
-            '    btn13.Enabled = True
-            '    btn13.BackgroundImage = My.Resources.ShortDrum
-            '    shortC(13) = 1
-            'ElseIf varDRUMNum = 14 Then
-            '    btn14.Enabled = True
-            '    btn14.BackgroundImage = My.Resources.ShortDrum
-            '    shortC(14) = 1
-            'ElseIf varDRUMNum = 15 Then
-            '    btn15.Enabled = True
-            '    btn15.BackgroundImage = My.Resources.ShortDrum
-            '    shortC(15) = 1
-            'ElseIf varDRUMNum = 16 Then
-            '    btn16.Enabled = True
-            '    btn16.BackgroundImage = My.Resources.ShortDrum
-            '    shortC(16) = 1
+                'If varDRUMNum = 1 Then
+                '    btn1.Enabled = True
+                '    btn1.BackgroundImage = My.Resources.ShortDrum
+                '    shortC(1) = 1
+                'ElseIf varDRUMNum = 2 Then
+                '    btn2.Enabled = True
+                '    btn2.BackgroundImage = My.Resources.ShortDrum
+                '    shortC(2) = 1
+                'ElseIf varDRUMNum = 3 Then
+                '    btn3.Enabled = True
+                '    btn3.BackgroundImage = My.Resources.ShortDrum
+                '    shortC(3) = 1
+                'ElseIf varDRUMNum = 4 Then
+                '    btn4.Enabled = True
+                '    btn4.BackgroundImage = My.Resources.ShortDrum
+                '    shortC(4) = 1
+                'ElseIf varDRUMNum = 5 Then
+                '    btn5.Enabled = True
+                '    btn5.BackgroundImage = My.Resources.ShortDrum
+                '    shortC(5) = 1
+                'ElseIf varDRUMNum = 6 Then
+                '    btn6.Enabled = True
+                '    btn6.BackgroundImage = My.Resources.ShortDrum
+                '    shortC(6) = 1
+                'ElseIf varDRUMNum = 7 Then
+                '    btn7.Enabled = True
+                '    btn7.BackgroundImage = My.Resources.ShortDrum
+                '    shortC(7) = 1
+                'ElseIf varDRUMNum = 8 Then
+                '    btn8.Enabled = True
+                '    btn8.BackgroundImage = My.Resources.ShortDrum
+                '    shortC(8) = 1
+                'ElseIf varDRUMNum = 9 Then
+                '    btn9.Enabled = True
+                '    btn9.BackgroundImage = My.Resources.ShortDrum
+                '    shortC(9) = 1
+                'ElseIf varDRUMNum = 10 Then
+                '    btn10.Enabled = True
+                '    btn10.BackgroundImage = My.Resources.ShortDrum
+                '    shortC(10) = 1
+                'ElseIf varDRUMNum = 11 Then
+                '    btn11.Enabled = True
+                '    btn11.BackgroundImage = My.Resources.ShortDrum
+                '    shortC(11) = 1
+                'ElseIf varDRUMNum = 12 Then
+                '    btn12.Enabled = True
+                '    btn12.BackgroundImage = My.Resources.ShortDrum
+                '    shortC(12) = 1
+                'ElseIf varDRUMNum = 13 Then
+                '    btn13.Enabled = True
+                '    btn13.BackgroundImage = My.Resources.ShortDrum
+                '    shortC(13) = 1
+                'ElseIf varDRUMNum = 14 Then
+                '    btn14.Enabled = True
+                '    btn14.BackgroundImage = My.Resources.ShortDrum
+                '    shortC(14) = 1
+                'ElseIf varDRUMNum = 15 Then
+                '    btn15.Enabled = True
+                '    btn15.BackgroundImage = My.Resources.ShortDrum
+                '    shortC(15) = 1
+                'ElseIf varDRUMNum = 16 Then
+                '    btn16.Enabled = True
+                '    btn16.BackgroundImage = My.Resources.ShortDrum
+                '    shortC(16) = 1
 
-            'End If
+                'End If
+                'If POYSHORTDRUM = 2 Then POYSHORTDRUM = txtDrumNum.Text
+                'If POYSHORTDRUM > 0 Then Fault_S = "True"
 
 
-            If frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYDRUMSTATE").Value = 0 Then
-                frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYDRUMSTATE").Value = 1
+
+                For i = 0 To 3  'this is to cycle through 4 drums on post
+                    ' If frmDGV.DGVdata.Rows((varDRUMNum + i) - 1).Cells("POYDRUMSTATE").Value = 0 Then
+                    frmDGV.DGVdata.Rows((varDRUMNum + i) - 1).Cells("POYDRUMSTATE").Value = 1
+                        frmDGV.DGVdata.Rows((varDRUMNum + i) - 1).Cells("POYSHORTDRUM").Value = Me.Controls("btn" & (varDRUMNum + i)).Text
+                        frmDGV.DGVdata.Rows((varDRUMNum + i) - 1).Cells("FLT_S").Value = "True"
+                        frmDGV.DGVdata.Rows((varDRUMNum + i) - 1).Cells("POYMISSDRUM").Value = 0
+                        frmDGV.DGVdata.Rows((varDRUMNum + i) - 1).Cells("FLT_x").Value = "False"
+                        Fault_X = False
+
+
+                    '  End If
+                Next
             End If
-        End If
 
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
 
         Me.btnShort.Visible = True
         Me.btnShort.Enabled = True
@@ -1249,39 +1273,43 @@ Public Class frmSortCart
 
         'Else
         timeUpdate()
-        MsgBox(todayTimeDate)
+
         varCartEndTime = todayTimeDate
         'time.ToString(dateFormat)
-        If POYSHORTDRUM = 2 Then POYSHORTDRUM = txtDrumNum.Text
-        If POYSHORTDRUM > 0 Then Fault_S = "True"
+
+
+
+
+        'If POYSHORTDRUM = 2 Then POYSHORTDRUM = txtDrumNum.Text
+        'If POYSHORTDRUM > 0 Then Fault_S = "True"
 
         txtBoxUpdates()
         jobArrayUpdate()
 
 
-            NoDRUM = Nothing
-            defect = Nothing
-            POYSHORTDRUM = Nothing
-            varDRUMNum = Nothing
-            BackgroundImage = Nothing
-            'FAULTS FROM POY Dept
-            Me.btnClear.Visible = False
-            Me.chk_DAB.Visible = False
-            Me.chk_FG.Visible = False
-            Me.chk_O.Visible = False
-            Me.chk_SL.Visible = False
-            Me.chk_PTS.Visible = False
-            Me.chk_PTB.Visible = False
-            Me.chk_YAB.Visible = False
-            Me.chk_CAB.Visible = False
-            Me.chk_RW.Visible = False
-            Me.chk_PAB.Visible = False
-            Me.chk_DO.Visible = False
-            Me.chk_CNC.Visible = False
-            Me.chk_H.Visible = False
-            Me.chk_CBC.Visible = False
-            Fault_S = "False"
-            Fault_X = "False"
+        NoDRUM = Nothing
+        defect = Nothing
+        POYSHORTDRUM = Nothing
+        varDRUMNum = Nothing
+        BackgroundImage = Nothing
+        'FAULTS FROM POY Dept
+        Me.btnClear.Visible = False
+        Me.chk_DAB.Visible = False
+        Me.chk_FG.Visible = False
+        Me.chk_O.Visible = False
+        Me.chk_SL.Visible = False
+        Me.chk_PTS.Visible = False
+        Me.chk_PTB.Visible = False
+        Me.chk_YAB.Visible = False
+        Me.chk_CAB.Visible = False
+        Me.chk_RW.Visible = False
+        Me.chk_PAB.Visible = False
+        Me.chk_DO.Visible = False
+        Me.chk_CNC.Visible = False
+        Me.chk_H.Visible = False
+        Me.chk_CBC.Visible = False
+        Fault_S = "False"
+        Fault_X = "False"
         ''SORT Dept FAULTS
         'Me.chk_DO.Visible = False
         'Me.chk_DH.Visible = False
@@ -1315,70 +1343,78 @@ Public Class frmSortCart
         varCartEndTime = todayTimeDate
 
 
+        Try
 
-        If IsDBNull(frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYSORTENDTM").Value) Then
-            'For i As Integer = 1 To frmDGV.DGVdata.Rows.Count
-            frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYSORTENDTM").Value = todayTimeDate  'CREATE END TIME
-            ' Next
-        End If
-
-
-        'list of Array Feilds to Update
-
-        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYSORTNAME").Value = frmJobEntry.SortOP   'operatorName   fron entry screen
-
-
-
-        If Not IsDBNull(frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYSHORTDRUM").Value) Then
-            If frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYSHORTDRUM").Value > 0 And POYSHORTDRUM > 0 Then
-                frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYSHORTDRUM").Value = POYSHORTDRUM  'shortCone
-                frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_S").Value = Fault_S       'SHORT Drum Fault
+            If IsDBNull(frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYSORTENDTM").Value) Then
+                If Not IsDBNull(frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYSHORTDRUM").Value) Then
+                    If frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYSHORTDRUM").Value > 0 Then
+                        Select Case varDRUMNum
+                            Case 1, 5, 9, 13
+                                For i = 0 To 3  'this is to cycle through 4 drums on post
+                                    frmDGV.DGVdata.Rows((varDRUMNum + 1) - 1).Cells("POYSORTENDTM").Value = todayTimeDate
+                                    frmDGV.DGVdata.Rows((varDRUMNum + 1) - 1).Cells("POYSORTNAME").Value = frmJobEntry.SortOP
+                                Next
+                        End Select
+                    End If
+                    ' frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYSORTENDTM").Value = todayTimeDate  'CREATE END TIME
+                End If
             End If
-        End If
 
 
-        If Not IsDBNull(frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYMISSDRUM").Value) Then
-            If frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYMISSDRUM").Value > 0 And NoDRUM > 0 Then
-                frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYMISSDRUM").Value = NoDRUM  'NoDrum
-                frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYSHORTDRUM").Value = 0
-                frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYDEFDRUM").Value = 0
-                frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_X").Value = True
 
+                'list of Array Feilds to Update
+
+                frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYSORTNAME").Value = frmJobEntry.SortOP   'operatorName   fron entry screen
+
+
+
+
+
+
+            If Not IsDBNull(frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYMISSDRUM").Value) Then
+                If frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYMISSDRUM").Value > 0 And NoDRUM > 0 Then
+                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYMISSDRUM").Value = NoDRUM  'NoDrum
+                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYSHORTDRUM").Value = 0
+                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYDEFDRUM").Value = 0
+                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_X").Value = True
+
+                End If
             End If
-        End If
 
-        If Not IsDBNull(frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYDEFDRUM").Value) Then
-            If frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYDEFDRUM").Value > 0 And defect > 0 Then
-                frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYDEFDRUM").Value = defect  'defect drum
+            If Not IsDBNull(frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYDEFDRUM").Value) Then
+                If frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYDEFDRUM").Value > 0 And defect > 0 Then
+                    frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYDEFDRUM").Value = defect  'defect drum
+                End If
             End If
-        End If
 
 
 
 
 
-        'frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("CARTSTARTTM").Value = varCartStartTime  'cartStratTime
-        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYSORTENDTM").Value = varCartEndTime 'cartEndTime
+            'frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("CARTSTARTTM").Value = varCartStartTime  'cartStratTime
+            frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("POYSORTENDTM").Value = varCartEndTime     'cartEndTime
 
-        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_DAB").Value = chk_DAB.Checked      'DRUM FORM AB
-        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_FG").Value = chk_FG.Checked     'FLUFF GUIDE
-        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_O").Value = chk_O.Checked        'OVER THROWN
-        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_SL").Value = chk_SL.Checked      'SPIRAL LOOP
-        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_PTS").Value = chk_PTS.Checked        'P.T. SCRATCH
-        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_PTB").Value = chk_PTB.Checked       ' P.T. BURST
+            frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_DAB").Value = chk_DAB.Checked      'DRUM FORM AB
+            frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_FG").Value = chk_FG.Checked     'FLUFF GUIDE
+            frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_O").Value = chk_O.Checked        'OVER THROWN
+            frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_SL").Value = chk_SL.Checked      'SPIRAL LOOP
+            frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_PTS").Value = chk_PTS.Checked        'P.T. SCRATCH
+            frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_PTB").Value = chk_PTB.Checked       ' P.T. BURST
 
 
 
-        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_X").Value = Fault_X      'MISSING
-        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_YAB").Value = chk_YAB.Checked        'YARN AB
-        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_CAB").Value = chk_CAB.Checked       ' COLOUR AB
-        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_RW").Value = chk_RW.Checked      'RIBBON WINDING
-        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_PAB").Value = chk_PAB.Checked        'PUSHER AB
-        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_DO").Value = chk_DO.Checked      'DIRTY OIL
-        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_CNC").Value = chk_CNC.Checked        'CUTTER NOT CUT
-        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_H").Value = chk_H.Checked        'HITTING
-        frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_CBC").Value = chk_CBC.Checked        'CUTTING BY CUTTER
-
+            frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_X").Value = Fault_X      'MISSING
+            frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_YAB").Value = chk_YAB.Checked        'YARN AB
+            frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_CAB").Value = chk_CAB.Checked       ' COLOUR AB
+            frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_RW").Value = chk_RW.Checked      'RIBBON WINDING
+            frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_PAB").Value = chk_PAB.Checked        'PUSHER AB
+            frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_DO").Value = chk_DO.Checked      'DIRTY OIL
+            frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_CNC").Value = chk_CNC.Checked        'CUTTER NOT CUT
+            frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_H").Value = chk_H.Checked        'HITTING
+            frmDGV.DGVdata.Rows(varDRUMNum - 1).Cells("FLT_CBC").Value = chk_CBC.Checked        'CUTTING BY CUTTER
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
 
         UpdateDrumVal()
 
@@ -1398,30 +1434,37 @@ Public Class frmSortCart
 
         timeUpdate()
 
-        Dim tempdrumnum As String
-
-        For rw As Integer = 1 To frmDGV.DGVdata.Rows.Count
+        Try
 
 
-            If frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value = 0 Then
+            Dim tempdrumnum As String
 
-                'get current cone number
-                tempdrumnum = frmDGV.DGVdata.Rows(rw - 1).Cells("POYSPINNUM").Value
-
-                frmDGV.DGVdata.Rows(rw - 1).Cells("POYMISSDRUM").Value = tempdrumnum
-                frmDGV.DGVdata.Rows(rw - 1).Cells("FLT_X").Value = True
-
-                frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value = 1
-
-            End If
+            For rw As Integer = 1 To frmDGV.DGVdata.Rows.Count
 
 
-            frmDGV.DGVdata.Rows(rw - 1).Cells("POYSORTNAME").Value = frmJobEntry.SortOP
-            frmDGV.DGVdata.Rows(rw - 1).Cells("POYSORTENDTM").Value = todayTimeDate
+                If frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value = 0 Then  'Autosets missing drums when job is finished
+
+                    'get current cone number
+                    tempdrumnum = frmDGV.DGVdata.Rows(rw - 1).Cells("POYSPINNUM").Value
+
+                    frmDGV.DGVdata.Rows(rw - 1).Cells("POYMISSDRUM").Value = tempdrumnum
+                    frmDGV.DGVdata.Rows(rw - 1).Cells("FLT_X").Value = True
+
+                    frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value = 1
+
+                End If
+
+
+                frmDGV.DGVdata.Rows(rw - 1).Cells("POYSORTNAME").Value = frmJobEntry.SortOP
+                frmDGV.DGVdata.Rows(rw - 1).Cells("POYSORTENDTM").Value = todayTimeDate
 
 
 
-        Next
+            Next
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
 
         UpdateDatabase()
 
@@ -1436,7 +1479,7 @@ Public Class frmSortCart
     End Sub
 
 
-    '
+
 
 
 
@@ -1512,7 +1555,7 @@ Public Class frmSortCart
             End If
         Catch ex As Exception
 
-            MsgBox("Update Error: " & vbNewLine & ex.Message)
+            MsgBox("Update Error: " & vbNewLine & ex.ToString)
         End Try
 
 

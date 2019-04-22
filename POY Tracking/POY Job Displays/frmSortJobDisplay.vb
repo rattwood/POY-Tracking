@@ -177,11 +177,11 @@ Public Class frmSortJobDisplay
 
 
 
-                    'GET "A" COUNT
-                    LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMcNum & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & " AND   POYDRUMSTATE = 3 And (POYSORTENDTM Is Not Null and POYSORTRELEASE > 0 ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
+                    ''GET "A" COUNT
+                    'LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMcNum & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                    '               & " AND   POYDRUMSTATE = 3 And (POYSORTENDTM Is Not Null and POYSORTRELEASE > 0 ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
 
-                    If LRecordCount > 0 Then tmpACount = LRecordCount
+                    'If LRecordCount > 0 Then tmpACount = LRecordCount
 
 
 
@@ -204,6 +204,12 @@ Public Class frmSortJobDisplay
 
                     Select Case tmpDrumState
                         Case 1
+                            'GET "A" COUNT
+                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMcNum & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                                   & " AND   POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null and POYSORTRELEASE is Null ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
+
+                            If LRecordCount > 0 Then tmpACount = LRecordCount
+
                             DGVDisplays.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Orange
                             DGVDisplays.Rows(i - 1).Cells("poycartcount").Value = tmpCartCountSort
                             DGVDisplays.Rows(i - 1).Cells("poyGradeA").Value = tmpACount
@@ -218,6 +224,11 @@ Public Class frmSortJobDisplay
 
 
                         Case 3
+                            'GET "A" COUNT
+                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMcNum & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                                   & " AND   POYDRUMSTATE = 3 And (POYSORTENDTM Is Not Null and POYSORTRELEASE > 0 ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
+
+                            If LRecordCount > 0 Then tmpACount = LRecordCount
                             DGVDisplays.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Green
                             DGVDisplays.Rows(i - 1).Cells("poycartcount").Value = tmpcartcountPack
                             DGVDisplays.Rows(i - 1).Cells("poyGradeA").Value = tmpACount

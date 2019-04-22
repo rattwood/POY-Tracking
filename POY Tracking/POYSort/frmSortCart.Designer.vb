@@ -93,6 +93,7 @@ Partial Class frmSortCart
         Me.txtShort = New System.Windows.Forms.TextBox()
         Me.txtDefect = New System.Windows.Forms.TextBox()
         Me.txtMissing = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label12
@@ -989,12 +990,22 @@ Partial Class frmSortCart
         Me.txtMissing.Size = New System.Drawing.Size(398, 24)
         Me.txtMissing.TabIndex = 509
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(357, 161)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(39, 13)
+        Me.Label1.TabIndex = 515
+        Me.Label1.Text = "Label1"
+        '
         'frmSortCart
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(1584, 861)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblMessage)
         Me.Controls.Add(Me.lblShort)
         Me.Controls.Add(Me.lblDefect)
@@ -1142,4 +1153,5 @@ Partial Class frmSortCart
     Friend WithEvents txtShort As TextBox
     Friend WithEvents txtDefect As TextBox
     Friend WithEvents txtMissing As TextBox
+    Friend WithEvents Label1 As Label
 End Class
