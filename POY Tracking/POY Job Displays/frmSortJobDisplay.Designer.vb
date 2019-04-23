@@ -50,7 +50,8 @@ Partial Class frmSortJobDisplay
         Me.DGVTmp = New System.Windows.Forms.DataGridView()
         Me.DGVTmp2 = New System.Windows.Forms.DataGridView()
         Me.tmrUpdateTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.lblMessage = New System.Windows.Forms.Label()
+        Me.btnRelease = New System.Windows.Forms.Button()
+        Me.btnHold = New System.Windows.Forms.Button()
         CType(Me.DGVDisplays, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         CType(Me.DGVTmp, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -60,7 +61,8 @@ Partial Class frmSortJobDisplay
         'btnCancel
         '
         Me.btnCancel.BackColor = System.Drawing.Color.Red
-        Me.btnCancel.Location = New System.Drawing.Point(755, 586)
+        Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancel.Location = New System.Drawing.Point(755, 578)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(110, 44)
         Me.btnCancel.TabIndex = 2
@@ -260,25 +262,37 @@ Partial Class frmSortJobDisplay
         '
         Me.tmrUpdateTimer.Interval = 10000
         '
-        'lblMessage
+        'btnRelease
         '
-        Me.lblMessage.AutoSize = True
-        Me.lblMessage.BackColor = System.Drawing.SystemColors.Menu
-        Me.lblMessage.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMessage.ForeColor = System.Drawing.Color.LimeGreen
-        Me.lblMessage.Location = New System.Drawing.Point(558, 586)
-        Me.lblMessage.Name = "lblMessage"
-        Me.lblMessage.Size = New System.Drawing.Size(140, 24)
-        Me.lblMessage.TabIndex = 1
-        Me.lblMessage.Text = "Updating Data"
-        Me.lblMessage.Visible = False
+        Me.btnRelease.BackColor = System.Drawing.Color.GreenYellow
+        Me.btnRelease.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRelease.Location = New System.Drawing.Point(35, 578)
+        Me.btnRelease.Name = "btnRelease"
+        Me.btnRelease.Size = New System.Drawing.Size(110, 44)
+        Me.btnRelease.TabIndex = 5
+        Me.btnRelease.Text = "Release Bulk"
+        Me.btnRelease.UseVisualStyleBackColor = False
+        Me.btnRelease.Visible = False
+        '
+        'btnHold
+        '
+        Me.btnHold.BackColor = System.Drawing.Color.OrangeRed
+        Me.btnHold.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnHold.Location = New System.Drawing.Point(331, 578)
+        Me.btnHold.Name = "btnHold"
+        Me.btnHold.Size = New System.Drawing.Size(110, 44)
+        Me.btnHold.TabIndex = 6
+        Me.btnHold.Text = "Hold Bulk"
+        Me.btnHold.UseVisualStyleBackColor = False
+        Me.btnHold.Visible = False
         '
         'frmSortJobDisplay
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1563, 634)
-        Me.Controls.Add(Me.lblMessage)
+        Me.Controls.Add(Me.btnHold)
+        Me.Controls.Add(Me.btnRelease)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.DGVTmp2)
         Me.Controls.Add(Me.Panel2)
@@ -290,7 +304,6 @@ Partial Class frmSortJobDisplay
         CType(Me.DGVTmp, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DGVTmp2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents btnCancel As Button
@@ -299,7 +312,6 @@ Partial Class frmSortJobDisplay
     Friend WithEvents DGVTmp As DataGridView
     Friend WithEvents DGVTmp2 As DataGridView
     Friend WithEvents tmrUpdateTimer As Timer
-    Friend WithEvents lblMessage As Label
     Friend WithEvents poystate As DataGridViewTextBoxColumn
     Friend WithEvents poymccode As DataGridViewTextBoxColumn
     Friend WithEvents poymcnum As DataGridViewTextBoxColumn
@@ -315,4 +327,6 @@ Partial Class frmSortJobDisplay
     Friend WithEvents poySortStartTM As DataGridViewTextBoxColumn
     Friend WithEvents poySortEndTM As DataGridViewTextBoxColumn
     Friend WithEvents poycartcount As DataGridViewTextBoxColumn
+    Friend WithEvents btnRelease As Button
+    Friend WithEvents btnHold As Button
 End Class

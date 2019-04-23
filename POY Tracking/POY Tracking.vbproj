@@ -129,10 +129,20 @@
     <Compile Include="frmDGVJobReport.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="POY Job Displays\frmHoldRelease.Designer.vb">
+      <DependentUpon>frmHoldRelease.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Job Displays\frmHoldRelease.vb" />
     <Compile Include="POY Job Displays\frmJobDetail.Designer.vb">
       <DependentUpon>frmJobDetail.vb</DependentUpon>
     </Compile>
     <Compile Include="POY Job Displays\frmJobDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POY Job Displays\frmPutOnHold.Designer.vb">
+      <DependentUpon>frmPutOnHold.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Job Displays\frmPutOnHold.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="POY Job Displays\frmSortJobDisplay.Designer.vb">
@@ -141,10 +151,10 @@
     <Compile Include="POY Job Displays\frmSortJobDisplay.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="POY Packing\frmPackDisplay.Designer.vb">
+    <Compile Include="POY Job Displays\frmPackDisplay.Designer.vb">
       <DependentUpon>frmPackDisplay.vb</DependentUpon>
     </Compile>
-    <Compile Include="POY Packing\frmPackDisplay.vb">
+    <Compile Include="POY Job Displays\frmPackDisplay.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="POYSort\frmSortCart.Designer.vb">
@@ -335,13 +345,19 @@
     <EmbeddedResource Include="frmDGVJobReport.resx">
       <DependentUpon>frmDGVJobReport.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="POY Job Displays\frmHoldRelease.resx">
+      <DependentUpon>frmHoldRelease.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="POY Job Displays\frmJobDetail.resx">
       <DependentUpon>frmJobDetail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Job Displays\frmPutOnHold.resx">
+      <DependentUpon>frmPutOnHold.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POY Job Displays\frmSortJobDisplay.resx">
       <DependentUpon>frmSortJobDisplay.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="POY Packing\frmPackDisplay.resx">
+    <EmbeddedResource Include="POY Job Displays\frmPackDisplay.resx">
       <DependentUpon>frmPackDisplay.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POY Packing\frmPacking48.resx">

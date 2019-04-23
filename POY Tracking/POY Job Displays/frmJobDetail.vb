@@ -153,7 +153,7 @@ Public Class frmJobDetail
             Dim tmpCartCount As Integer
             Dim tmpStartTime As String
             Dim tmpEndTime As String
-
+            Dim tmpCartHoldTM As String
 
 
 
@@ -169,7 +169,6 @@ Public Class frmJobDetail
                     DGVNewDoff.Rows(i - 1).Cells("poymcnum").Value = tmpMCNUM
                     DGVNewDoff.Rows(i - 1).Cells("poyprodname").Value = tmpProdName
                     DGVNewDoff.Rows(i - 1).Cells("poymergenum").Value = tmpTFNum
-                    ' DGVMcDoffInfo.Rows(i - 1).Cells("poyprodweight").Value = tmpProdWeight
                     DGVNewDoff.Rows(i - 1).Cells("poydoffnum").Value = tmpDOFFNum
                     DGVNewDoff.Rows(i - 1).Cells("poycartnum").Value = tmpCartName
 
@@ -299,47 +298,6 @@ Public Class frmJobDetail
 
 
 
-                    ''GET ALL MISSING DRUMS IN THIS DOFF
-                    'LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                    '               & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null ) AND poymissdrum > 0 ")
-
-                    'If LRecordCount > 0 Then tmpmissing = LRecordCount
-
-
-
-                    ''GET ALL "SHORT" DRUMS IN THIS DOFF
-                    'LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                    '               & " and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null ) AND POYSHORTDRUM > 0 and (POYDEFDRUM = 0 Or POYDEFDRUM is Null) ")
-
-                    'If LRecordCount > 0 Then tmpShortCount = LRecordCount
-
-
-
-
-                    ''GET ALL "SHORTAB" DRUMS IN THIS DOFF
-                    'LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                    '               & " and poycartname = '" & tmpCartName & "' AND    POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null) AND (POYSHORTDRUM > 0 and POYDEFDRUM >  0) ")
-
-                    'If LRecordCount > 0 Then tmpShortABCount = LRecordCount
-
-
-                    ''GET ALL "Defect" DRUMS IN THIS DOFF
-                    'LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                    '               & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null ) AND  POYDEFDRUM > 0 And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) ")
-
-                    'If LRecordCount > 0 Then tmpABCount = LRecordCount
-
-
-                    ''GET "A" COUNT
-                    'LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                    '               & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
-
-
-                    'If LRecordCount > 0 Then tmpACount = LRecordCount
-
-
-
-                    'GET "ENDTIME
 
                     LExecQuery("Select poysortendtm,poysortstart FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
                                    & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null )  ")
@@ -356,6 +314,38 @@ Public Class frmJobDetail
                     tmpStartTime = DGVDoffTmp2.Rows(0).Cells("POYSORTSTART").Value   '.ToString("yy-MM-dd hh:mm")
                     tmpEndTime = DGVDoffTmp2.Rows(0).Cells("POYSORTENDTM").Value   '.ToString("yy-MM-dd hh:mm")
 
+                    'GET "Hold Start Time
+
+                    LExecQuery("Select poysortendtm,poysortstart,poyholdstarttm FROM POYTRACK2 Where POYMCNAME = '" & tmpMCNUM & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                                       & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null )  ")
+                    If LRecordCount > 0 Then tmpCartCount = LRecordCount
+
+
+                    If LRecordCount > 0 Then
+                        DGVDoffTmp2.DataSource = LDS.Tables(0)
+                        DGVDoffTmp2.Rows(0).Selected = False
+
+                        If Not IsDBNull(DGVDoffTmp2.Rows(0).Cells("POYHOLDSTARTTM").Value) And tmpDrumState = 4 Then
+                            tmpCartHoldTM = DGVDoffTmp2.Rows(0).Cells("POYHOLDSTARTTM").Value   '.ToString("yy-MM-dd hh:mm")
+                        End If
+
+                        DGVNewDoff.Rows(i - 1).Cells("holdStartTime").Value = tmpCartHoldTM
+
+                    End If
+
+
+
+
+
+                    DGVNewDoff.Rows(i - 1).Cells("poySortEndTM").Value = tmpEndTime
+
+
+
+
+
+
+
+
 
 
                     DGVNewDoff.Rows(i - 1).Cells("poyGradeA").Value = tmpACount
@@ -366,27 +356,6 @@ Public Class frmJobDetail
 
                     'DGVNewDoff.Rows(i - 1).Cells("poySortStartTM").Value = tmpStartTime
                     DGVNewDoff.Rows(i - 1).Cells("poySortEndTM").Value = tmpEndTime
-
-                    '''Set State colour
-                    'Dim tmpDrumState = DGVDoffTmp1.Rows(i - 1).Cells("POYDRUMSTATE").Value
-
-                    'Select Case tmpDrumState
-                    '    Case 1
-                    '        DGVNewDoff.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Orange
-                    '    Case 2
-
-
-                    '    Case 3
-                    '        DGVNewDoff.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Green
-
-                    '    Case 4
-                    '        DGVNewDoff.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Red
-
-                    'End Select
-
-
-
-
 
 
                     'reset variables for next scan
@@ -570,6 +539,13 @@ Public Class frmJobDetail
                     tmpEndTime = DGVDoffTmp2.Rows(0).Cells("POYSORTENDTM").Value   '.ToString("yy-MM-dd hh:mm")
                 End If
 
+                tmpStartTime = DGVDoffTmp2.Rows(0).Cells("POYSORTSTART").Value   '.ToString("yy-MM-dd hh:mm")
+                tmpEndTime = DGVDoffTmp2.Rows(0).Cells("POYSORTENDTM").Value   '.ToString("yy-MM-dd hh:mm")
+
+                If tmpDrumState > 1 Then DGVNewDoff.Rows(i - 1).Cells("poySortEndTM").Value = tmpEndTime
+
+
+
 
                 'GET "Hold Start Time
 
@@ -581,16 +557,15 @@ Public Class frmJobDetail
                 If LRecordCount > 0 Then
                     DGVDoffTmp2.DataSource = LDS.Tables(0)
                     DGVDoffTmp2.Rows(0).Selected = False
+
+                    If Not IsDBNull(DGVDoffTmp2.Rows(0).Cells("POYHOLDSTARTTM").Value) And tmpDrumState = 4 Then
+                        tmpCartHoldTM = DGVDoffTmp2.Rows(0).Cells("POYHOLDSTARTTM").Value   '.ToString("yy-MM-dd hh:mm")
+                    End If
+
+                    DGVNewDoff.Rows(i - 1).Cells("holdStartTime").Value = tmpCartHoldTM
                 End If
 
-                If Not IsDBNull(DGVDoffTmp2.Rows(0).Cells("POYHOLDSTARTTM").Value) And tmpDrumState = 4 Then
-                    tmpCartHoldTM = DGVDoffTmp2.Rows(0).Cells("POYHOLDSTARTTM").Value   '.ToString("yy-MM-dd hh:mm")
-                End If
 
-
-
-                DGVNewDoff.Rows(i - 1).Cells("poySortEndTM").Value = tmpEndTime
-                DGVNewDoff.Rows(i - 1).Cells("holdStartTime").Value = tmpCartHoldTM
 
 
 
@@ -837,6 +812,7 @@ Public Class frmJobDetail
                 SortEndTMColumn.Name = "poysortendtm"
                 SortEndTMColumn.ValueType = GetType(String)
                 SortEndTMColumn.HeaderText = "Sort End Time"
+                SortEndTMColumn.Width = 150
                 SortEndTMColumn.CellTemplate = New DataGridViewTextBoxCell
 
 
@@ -844,6 +820,7 @@ Public Class frmJobDetail
                 HoldStartTime.Name = "holdStartTime"
                 HoldStartTime.ValueType = GetType(String)
                 HoldStartTime.HeaderText = "HOLD Start Time"
+                HoldStartTime.Width = 150
                 HoldStartTime.CellTemplate = New DataGridViewTextBoxCell
 
 
