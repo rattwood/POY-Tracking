@@ -730,7 +730,17 @@ Public Class frmSortCart
 
         If varDRUMNum > 0 Then
 
+            Select Case varDRUMNum
+                Case 1, 5, 9, 13
 
+                Case Else
+                    lblMessage.Visible = True
+                    lblMessage.Text = "You Can only set Short by selecting " & vbCrLf & "the first Drum of a POST"
+                    DelayTM()
+                    lblMessage.Visible = False
+                    varDRUMNum = 0
+                    Exit Sub
+            End Select
 
 
             POYSHORTDRUM = 2
