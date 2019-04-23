@@ -174,47 +174,168 @@ Public Class frmJobDetail
                     DGVNewDoff.Rows(i - 1).Cells("poycartnum").Value = tmpCartName
 
 
+                    ''Set State colour
+                    Dim tmpDrumState = DGVDoffTmp1.Rows(i - 1).Cells("POYDRUMSTATE").Value
+
+                    Select Case tmpDrumState
+                        Case 1
+                            'GET ALL MISSING DRUMS IN THIS DOFF
+                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null ) AND poymissdrum > 0 ")
+
+                            If LRecordCount > 0 Then tmpmissing = LRecordCount
+
+                            'GET ALL "SHORT" DRUMS IN THIS DOFF
+                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                                   & " and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null ) AND POYSHORTDRUM > 0 and (POYDEFDRUM = 0 Or POYDEFDRUM is Null) ")
+
+                            If LRecordCount > 0 Then tmpShortCount = LRecordCount
+
+                            'GET ALL "SHORTAB" DRUMS IN THIS DOFF
+                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                                   & " and poycartname = '" & tmpCartName & "' AND    POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null) AND (POYSHORTDRUM > 0 and POYDEFDRUM >  0) ")
+
+                            If LRecordCount > 0 Then tmpShortABCount = LRecordCount
+
+
+                            'GET ALL "Defect" DRUMS IN THIS DOFF
+                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null ) AND  POYDEFDRUM > 0 And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) ")
+
+                            If LRecordCount > 0 Then tmpABCount = LRecordCount
+
+
+                            'GET "A" COUNT
+                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
+
+
+                            If LRecordCount > 0 Then tmpACount = LRecordCount
 
 
 
 
-                    'GET ALL MISSING DRUMS IN THIS DOFF
-                    LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null ) AND poymissdrum > 0 ")
-
-                    If LRecordCount > 0 Then tmpmissing = LRecordCount
+                            DGVNewDoff.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Orange
+                        Case 2
 
 
+                        Case 3
+                            'GET ALL MISSING DRUMS IN THIS DOFF
+                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 3 And (POYSORTENDTM Is Not Null ) AND poymissdrum > 0 ")
 
-                    'GET ALL "SHORT" DRUMS IN THIS DOFF
-                    LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & " and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null ) AND POYSHORTDRUM > 0 and (POYDEFDRUM = 0 Or POYDEFDRUM is Null) ")
+                            If LRecordCount > 0 Then tmpmissing = LRecordCount
 
-                    If LRecordCount > 0 Then tmpShortCount = LRecordCount
+                            'GET ALL "SHORT" DRUMS IN THIS DOFF
+                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                                   & " and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 3 And (POYSORTENDTM Is Not Null ) AND POYSHORTDRUM > 0 and (POYDEFDRUM = 0 Or POYDEFDRUM is Null) ")
 
+                            If LRecordCount > 0 Then tmpShortCount = LRecordCount
 
+                            'GET ALL "SHORTAB" DRUMS IN THIS DOFF
+                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                                   & " and poycartname = '" & tmpCartName & "' AND    POYDRUMSTATE = 3 And (POYSORTENDTM Is Not Null) AND (POYSHORTDRUM > 0 and POYDEFDRUM >  0) ")
 
-
-                    'GET ALL "SHORTAB" DRUMS IN THIS DOFF
-                    LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & " and poycartname = '" & tmpCartName & "' AND    POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null) AND (POYSHORTDRUM > 0 and POYDEFDRUM >  0) ")
-
-                    If LRecordCount > 0 Then tmpShortABCount = LRecordCount
-
-
-                    'GET ALL "Defect" DRUMS IN THIS DOFF
-                    LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null ) AND  POYDEFDRUM > 0 And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) ")
-
-                    If LRecordCount > 0 Then tmpABCount = LRecordCount
+                            If LRecordCount > 0 Then tmpShortABCount = LRecordCount
 
 
-                    'GET "A" COUNT
-                    LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
+                            'GET ALL "Defect" DRUMS IN THIS DOFF
+                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 3 And (POYSORTENDTM Is Not Null ) AND  POYDEFDRUM > 0 And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) ")
+
+                            If LRecordCount > 0 Then tmpABCount = LRecordCount
 
 
-                    If LRecordCount > 0 Then tmpACount = LRecordCount
+                            'GET "A" COUNT
+                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 3 And (POYSORTENDTM Is Not Null ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
+
+
+                            If LRecordCount > 0 Then tmpACount = LRecordCount
+
+
+                            DGVNewDoff.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Green
+
+                        Case 4
+                            'GET ALL MISSING DRUMS IN THIS DOFF
+                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null ) AND poymissdrum > 0 ")
+
+                            If LRecordCount > 0 Then tmpmissing = LRecordCount
+
+                            'GET ALL "SHORT" DRUMS IN THIS DOFF
+                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                                   & " and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null ) AND POYSHORTDRUM > 0 and (POYDEFDRUM = 0 Or POYDEFDRUM is Null) ")
+
+                            If LRecordCount > 0 Then tmpShortCount = LRecordCount
+
+                            'GET ALL "SHORTAB" DRUMS IN THIS DOFF
+                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                                   & " and poycartname = '" & tmpCartName & "' AND    POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null) AND (POYSHORTDRUM > 0 and POYDEFDRUM >  0) ")
+
+                            If LRecordCount > 0 Then tmpShortABCount = LRecordCount
+
+
+                            'GET ALL "Defect" DRUMS IN THIS DOFF
+                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null ) AND  POYDEFDRUM > 0 And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) ")
+
+                            If LRecordCount > 0 Then tmpABCount = LRecordCount
+
+
+                            'GET "A" COUNT
+                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
+
+
+                            If LRecordCount > 0 Then tmpACount = LRecordCount
+
+
+
+
+                            DGVNewDoff.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Red
+
+                    End Select
+
+
+
+                    ''GET ALL MISSING DRUMS IN THIS DOFF
+                    'LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                    '               & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null ) AND poymissdrum > 0 ")
+
+                    'If LRecordCount > 0 Then tmpmissing = LRecordCount
+
+
+
+                    ''GET ALL "SHORT" DRUMS IN THIS DOFF
+                    'LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                    '               & " and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null ) AND POYSHORTDRUM > 0 and (POYDEFDRUM = 0 Or POYDEFDRUM is Null) ")
+
+                    'If LRecordCount > 0 Then tmpShortCount = LRecordCount
+
+
+
+
+                    ''GET ALL "SHORTAB" DRUMS IN THIS DOFF
+                    'LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                    '               & " and poycartname = '" & tmpCartName & "' AND    POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null) AND (POYSHORTDRUM > 0 and POYDEFDRUM >  0) ")
+
+                    'If LRecordCount > 0 Then tmpShortABCount = LRecordCount
+
+
+                    ''GET ALL "Defect" DRUMS IN THIS DOFF
+                    'LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                    '               & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null ) AND  POYDEFDRUM > 0 And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) ")
+
+                    'If LRecordCount > 0 Then tmpABCount = LRecordCount
+
+
+                    ''GET "A" COUNT
+                    'LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                    '               & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
+
+
+                    'If LRecordCount > 0 Then tmpACount = LRecordCount
 
 
 
@@ -246,22 +367,22 @@ Public Class frmJobDetail
                     'DGVNewDoff.Rows(i - 1).Cells("poySortStartTM").Value = tmpStartTime
                     DGVNewDoff.Rows(i - 1).Cells("poySortEndTM").Value = tmpEndTime
 
-                    ''Set State colour
-                    Dim tmpDrumState = DGVDoffTmp1.Rows(i - 1).Cells("POYDRUMSTATE").Value
+                    '''Set State colour
+                    'Dim tmpDrumState = DGVDoffTmp1.Rows(i - 1).Cells("POYDRUMSTATE").Value
 
-                    Select Case tmpDrumState
-                        Case 1
-                            DGVNewDoff.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Orange
-                        Case 2
+                    'Select Case tmpDrumState
+                    '    Case 1
+                    '        DGVNewDoff.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Orange
+                    '    Case 2
 
 
-                        Case 3
-                            DGVNewDoff.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Green
+                    '    Case 3
+                    '        DGVNewDoff.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Green
 
-                        Case 4
-                            DGVNewDoff.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Red
+                    '    Case 4
+                    '        DGVNewDoff.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Red
 
-                    End Select
+                    'End Select
 
 
 
@@ -372,31 +493,59 @@ Public Class frmJobDetail
 
                     DGVNewDoff.Rows(i - 1).Cells("poymcnum").Value = tmpMCNUM
                     DGVNewDoff.Rows(i - 1).Cells("poyprodname").Value = tmpProdName
-                    DGVNewDoff.Rows(i - 1).Cells("poymergenum").Value = tmpTFNum
-                    ' DGVMcDoffInfo.Rows(i - 1).Cells("poyprodweight").Value = tmpProdWeight
-                    DGVNewDoff.Rows(i - 1).Cells("poydoffnum").Value = tmpDOFFNum
+                DGVNewDoff.Rows(i - 1).Cells("poymergenum").Value = tmpTFNum
+                DGVNewDoff.Rows(i - 1).Cells("poydoffnum").Value = tmpDOFFNum
                     DGVNewDoff.Rows(i - 1).Cells("poycartnum").Value = tmpCartName
 
-
-
-                'GET "CARTHOLD" COUNT and if on hold find drum count
-                LExecQuery("Select poycartname FROM POYTRACK2 Where POYMCNAME = '" & tmpMCNUM & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "'     " _
-                                       & " AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null) Group by poycartname ")
-                If LRecordCount > 0 Then tmpCartCountHold = LRecordCount
-
-                'COUNT NUMBER OF "A" DRUMS ON HOLD IN PRODUCT GROUP
-                LExecQuery("Select * FROM POYTRACK2 Where POYMCNAME = '" & tmpMCNUM & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "'   " _
-                                   & " and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null and POYSORTRELEASE > 0 ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
-                If LRecordCount > 0 Then tmpAHold = LRecordCount   'sets A count on hold
+                ''Set State colour
+                Dim tmpDrumState = DGVDoffTmp1.Rows(i - 1).Cells("POYDRUMSTATE").Value
 
 
 
-                'GET "A" COUNT
-                LExecQuery("Select * FROM POYTRACK2 Where POYMCNAME = '" & tmpMCNUM & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                Select Case tmpDrumState
+                    Case 1
+                        DGVNewDoff.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Orange
+                    Case 2
+
+
+                    Case 3
+
+                        'GET "A" COUNT
+                        LExecQuery("Select * FROM POYTRACK2 Where POYMCNAME = '" & tmpMCNUM & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
                                        & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 3 And (POYSORTENDTM Is Not Null ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
 
 
-                If LRecordCount > 0 Then tmpACount = LRecordCount
+                        If LRecordCount > 0 Then tmpACount = LRecordCount
+
+
+
+                        DGVNewDoff.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Green
+                        ' DGVNewDoff.Rows(i - 1).Cells("poycartcount").Value = tmpcartcountPack
+                        DGVNewDoff.Rows(i - 1).Cells("poygradeA").Value = tmpACount
+                        DGVNewDoff.Rows(i - 1).Cells("HoldStartTime").Value = ""
+
+                    Case 4
+                        'GET "CARTHOLD" COUNT and if on hold find drum count
+                        LExecQuery("Select poycartname FROM POYTRACK2 Where POYMCNAME = '" & tmpMCNUM & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "'     " _
+                                       & " AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null) Group by poycartname ")
+                        If LRecordCount > 0 Then tmpCartCountHold = LRecordCount
+
+                        'COUNT NUMBER OF "A" DRUMS ON HOLD IN PRODUCT GROUP
+                        LExecQuery("Select * FROM POYTRACK2 Where POYMCNAME = '" & tmpMCNUM & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "'   " _
+                                   & " and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null and POYSORTRELEASE > 0 ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
+                        If LRecordCount > 0 Then tmpAHold = LRecordCount   'sets A count on hold
+
+
+
+
+                        DGVNewDoff.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Red
+                        ' DGVNewDoff.Rows(i - 1).Cells("poycartcount").Value = tmpCartCountHold
+                        DGVNewDoff.Rows(i - 1).Cells("poygradeA").Value = tmpAHold
+                        DGVNewDoff.Rows(i - 1).Cells("HoldStartTime").Value = tmpCartHoldTM
+
+                End Select
+
+
 
 
 
@@ -413,54 +562,55 @@ Public Class frmJobDetail
                     End If
 
 
+                If Not IsDBNull(DGVDoffTmp2.Rows(0).Cells("POYSORTSTART").Value) Then
+                    tmpStartTime = DGVDoffTmp2.Rows(0).Cells("POYSORTSTART").Value   '.ToString("yy-MM-dd hh:mm")
+                End If
 
-                tmpStartTime = DGVDoffTmp2.Rows(0).Cells("POYSORTSTART").Value   '.ToString("yy-MM-dd hh:mm")
-                tmpEndTime = DGVDoffTmp2.Rows(0).Cells("POYSORTENDTM").Value   '.ToString("yy-MM-dd hh:mm")
-                tmpCartHoldTM = DGVDoffTmp2.Rows(0).Cells("POYHOLDSTARTTM").Value   '.ToString("yy-MM-dd hh:mm")
+                If Not IsDBNull(DGVDoffTmp2.Rows(0).Cells("POYSORTENDTM").Value) Then
+                    tmpEndTime = DGVDoffTmp2.Rows(0).Cells("POYSORTENDTM").Value   '.ToString("yy-MM-dd hh:mm")
+                End If
 
+
+                'GET "Hold Start Time
+
+                LExecQuery("Select poysortendtm,poysortstart,poyholdstarttm FROM POYTRACK2 Where POYMCNAME = '" & tmpMCNUM & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                                       & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null )  ")
+                If LRecordCount > 0 Then tmpCartCount = LRecordCount
+
+
+                If LRecordCount > 0 Then
+                    DGVDoffTmp2.DataSource = LDS.Tables(0)
+                    DGVDoffTmp2.Rows(0).Selected = False
+                End If
+
+                If Not IsDBNull(DGVDoffTmp2.Rows(0).Cells("POYHOLDSTARTTM").Value) And tmpDrumState = 4 Then
+                    tmpCartHoldTM = DGVDoffTmp2.Rows(0).Cells("POYHOLDSTARTTM").Value   '.ToString("yy-MM-dd hh:mm")
+                End If
 
 
 
                 DGVNewDoff.Rows(i - 1).Cells("poySortEndTM").Value = tmpEndTime
-
-                    ''Set State colour
-                    Dim tmpDrumState = DGVDoffTmp1.Rows(i - 1).Cells("POYDRUMSTATE").Value
-
-                    Select Case tmpDrumState
-                        Case 1
-                            DGVNewDoff.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Orange
-                        Case 2
-
-
-                        Case 3
-                        DGVNewDoff.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Green
-                        ' DGVNewDoff.Rows(i - 1).Cells("poycartcount").Value = tmpcartcountPack
-                        DGVNewDoff.Rows(i - 1).Cells("poygradeA").Value = tmpACount
-                        DGVNewDoff.Rows(i - 1).Cells("HoldStartTime").Value = ""
-
-                    Case 4
-                        DGVNewDoff.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Red
-                        ' DGVNewDoff.Rows(i - 1).Cells("poycartcount").Value = tmpCartCountHold
-                        DGVNewDoff.Rows(i - 1).Cells("poygradeA").Value = tmpAHold
-                        DGVNewDoff.Rows(i - 1).Cells("HoldStartTime").Value = tmpCartHoldTM
-
-                End Select
+                DGVNewDoff.Rows(i - 1).Cells("holdStartTime").Value = tmpCartHoldTM
 
 
 
+                'reset variables for next scan
 
+                tmpACount = 0
+                tmpCartCount = 0
+                tmpStartTime = ""
+                tmpEndTime = ""
+                tmpAHold = 0
+                tmpCartCountHold = 0
+                tmpcartcountPack = 0
+                tmpCartHoldTM = ""
 
+            Next
 
-                    'reset variables for next scan
-                    tmpACount = 0
-                    tmpCartCount = 0
-                    tmpStartTime = ""
-                    tmpEndTime = ""
-                Next
-                'Clear up Selects
-                DGVNewDoff.ClearSelection()
-                DGVNewDoff.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-                listBoxUpdate()
+            'Clear up Selects
+            DGVNewDoff.ClearSelection()
+            DGVNewDoff.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+            listBoxUpdate()
 
 
 
