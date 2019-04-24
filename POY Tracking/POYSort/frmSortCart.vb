@@ -124,7 +124,7 @@ Public Class frmSortCart
                 If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value) Then
                     cellVal = frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value.ToString
                     'CHECK FOR SCANNED Drum AND SET TO GREEN
-                    If cellVal = 1 Then
+                    If cellVal > 1 Then
                         Me.Controls("btn" & rw).BackgroundImage = My.Resources.Have_Drum
                         Me.Controls("btn" & rw).Enabled = True
                     End If
