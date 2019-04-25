@@ -283,10 +283,30 @@ Public Class frmSelectRelease
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         btnUpdate.Visible = False
+        firstDrum = 0
+
+        'SET PRODUCT NAME ON SCREEN
+        tmpProdName = ""
+        tmpMergeNum = ""
+        lblProdName.Text = ""
+
+        'GET PRODUCT NUMBER
+        tmpProdNum = ""
+        lblProdNum.Text = ""
+
+
+        txtBoxScanDrum.Clear()
+        txtBoxScanDrum.Refresh()
+
+        SplitContainer1.Panel2.Visible = False
+        lblDrumCount.Text = 0
+
+        btnUpdate.Visible = False
+
 
         txtBoxDrumBcode.Clear()
         txtBoxDrumBcode.Refresh()
-
+        txtBoxDrumBcode.Focus()
 
         txtBoxScanDrum.Clear()
         txtBoxScanDrum.Refresh()
