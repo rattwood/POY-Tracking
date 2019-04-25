@@ -116,6 +116,7 @@ Public Class frmJobDetail
             If dgvCreated = 0 Then
                 SetUpDGV()
                 DGVNewDoff.Rows.Add(localRowCount)
+                DGVNewDoff.MultiSelect = True
                 dgvCreated = 1
             Else
                 DGVNewDoff.MultiSelect = True
@@ -129,9 +130,9 @@ Public Class frmJobDetail
                 Next
 
                 DGVNewDoff.Refresh()
-                DGVNewDoff.MultiSelect = False
                 DGVNewDoff.DataSource = Nothing
                 DGVNewDoff.Rows.Add(localRowCount)
+                DGVNewDoff.MultiSelect = True
                 DGVNewDoff.AllowUserToDeleteRows = False
 
             End If
@@ -1103,7 +1104,7 @@ Public Class frmJobDetail
 
         'SQL SEARCH FOR ALL DRUMS FOR DISPLAYED CARTS
         'GET "A" COUNT
-        LExecQuery("Select POYBCODEDRUM As 'DRUM Barcode',POYDRUMSTATE FROM POYTRACK2 Where POYMCNAME = '" & tmpMCNUM & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and poycartname = '" & tmpCartNum & "'   " _
+        LExecQuery("Select Distinct POYBCODEDRUM As 'DRUM Barcode',POYDRUMSTATE FROM POYTRACK2 Where POYMCNAME = '" & tmpMCNUM & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and poycartname = '" & tmpCartNum & "'   " _
                                    & " AND   POYDRUMSTATE Between 3 and 4 And (POYSORTENDTM Is Not Null ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) Order By POYBCODEDRUM ")
 
 
@@ -1118,7 +1119,11 @@ Public Class frmJobDetail
 
                 DGVDrumList.DataSource = LDS.Tables(0)
                 DGVDrumList.Rows(0).Selected = True
-                DGVDrumList.Columns("POYDRUMSTATE").Visible = False
+                If My.Settings.debugSet Then
+                    DGVDrumList.Columns("POYDRUMSTATE").Visible = True
+                Else
+                    DGVDrumList.Columns("POYDRUMSTATE").Visible = False
+                End If
 
 
 

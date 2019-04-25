@@ -56,8 +56,6 @@ Partial Class frmJobEntry
         Me.TraceNumberToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.JobControlToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReleaseToPackingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SetToHoldToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReleaseHoldToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.txtCartNum = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         CType(Me.ToraydbBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -236,7 +234,7 @@ Partial Class frmJobEntry
         '
         'JobControlToolStripMenuItem
         '
-        Me.JobControlToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReleaseToPackingToolStripMenuItem, Me.SetToHoldToolStripMenuItem, Me.ReleaseHoldToolStripMenuItem})
+        Me.JobControlToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReleaseToPackingToolStripMenuItem})
         Me.JobControlToolStripMenuItem.Name = "JobControlToolStripMenuItem"
         resources.ApplyResources(Me.JobControlToolStripMenuItem, "JobControlToolStripMenuItem")
         '
@@ -244,16 +242,6 @@ Partial Class frmJobEntry
         '
         Me.ReleaseToPackingToolStripMenuItem.Name = "ReleaseToPackingToolStripMenuItem"
         resources.ApplyResources(Me.ReleaseToPackingToolStripMenuItem, "ReleaseToPackingToolStripMenuItem")
-        '
-        'SetToHoldToolStripMenuItem
-        '
-        Me.SetToHoldToolStripMenuItem.Name = "SetToHoldToolStripMenuItem"
-        resources.ApplyResources(Me.SetToHoldToolStripMenuItem, "SetToHoldToolStripMenuItem")
-        '
-        'ReleaseHoldToolStripMenuItem
-        '
-        Me.ReleaseHoldToolStripMenuItem.Name = "ReleaseHoldToolStripMenuItem"
-        resources.ApplyResources(Me.ReleaseHoldToolStripMenuItem, "ReleaseHoldToolStripMenuItem")
         '
         'txtCartNum
         '
@@ -328,6 +316,4 @@ Partial Class frmJobEntry
     Friend WithEvents DISPLAYToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents JobControlToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReleaseToPackingToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SetToHoldToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ReleaseHoldToolStripMenuItem As ToolStripMenuItem
 End Class

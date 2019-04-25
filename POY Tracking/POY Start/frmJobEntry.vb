@@ -1623,5 +1623,8 @@ Public Class frmJobEntry
 
     End Sub
 
-
+    Private Sub ReleaseToPackingToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReleaseToPackingToolStripMenuItem.Click
+        Me.Hide()
+        frmHoldRelMethod.Show()
+    End Sub
 End Class

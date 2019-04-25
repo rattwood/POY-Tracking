@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmSortJobDisplay
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmSortJobDisplay
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -51,7 +51,6 @@ Partial Class frmSortJobDisplay
         Me.DGVTmp2 = New System.Windows.Forms.DataGridView()
         Me.tmrUpdateTimer = New System.Windows.Forms.Timer(Me.components)
         Me.btnRelease = New System.Windows.Forms.Button()
-        Me.btnHold = New System.Windows.Forms.Button()
         CType(Me.DGVDisplays, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         CType(Me.DGVTmp, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -266,32 +265,18 @@ Partial Class frmSortJobDisplay
         '
         Me.btnRelease.BackColor = System.Drawing.Color.GreenYellow
         Me.btnRelease.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRelease.Location = New System.Drawing.Point(35, 578)
+        Me.btnRelease.Location = New System.Drawing.Point(78, 578)
         Me.btnRelease.Name = "btnRelease"
-        Me.btnRelease.Size = New System.Drawing.Size(110, 44)
+        Me.btnRelease.Size = New System.Drawing.Size(185, 44)
         Me.btnRelease.TabIndex = 5
-        Me.btnRelease.Text = "Release Bulk"
+        Me.btnRelease.Text = "Release Held Drums"
         Me.btnRelease.UseVisualStyleBackColor = False
-        Me.btnRelease.Visible = False
-        '
-        'btnHold
-        '
-        Me.btnHold.BackColor = System.Drawing.Color.OrangeRed
-        Me.btnHold.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnHold.Location = New System.Drawing.Point(331, 578)
-        Me.btnHold.Name = "btnHold"
-        Me.btnHold.Size = New System.Drawing.Size(110, 44)
-        Me.btnHold.TabIndex = 6
-        Me.btnHold.Text = "Hold Bulk"
-        Me.btnHold.UseVisualStyleBackColor = False
-        Me.btnHold.Visible = False
         '
         'frmSortJobDisplay
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1563, 634)
-        Me.Controls.Add(Me.btnHold)
         Me.Controls.Add(Me.btnRelease)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.DGVTmp2)
@@ -328,5 +313,4 @@ Partial Class frmSortJobDisplay
     Friend WithEvents poySortEndTM As DataGridViewTextBoxColumn
     Friend WithEvents poycartcount As DataGridViewTextBoxColumn
     Friend WithEvents btnRelease As Button
-    Friend WithEvents btnHold As Button
 End Class

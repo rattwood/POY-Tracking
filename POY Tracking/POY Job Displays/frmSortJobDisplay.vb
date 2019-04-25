@@ -424,11 +424,8 @@ Public Class frmSortJobDisplay
 
     Private Sub btnRelease_Click(sender As Object, e As EventArgs) Handles btnRelease.Click
         Me.Hide()
-        frmHoldRelease.Show()
+        frmHoldRelMethod.Show()
     End Sub
 
-    Private Sub btnHold_Click(sender As Object, e As EventArgs) Handles btnHold.Click
-        Me.Hide()
-        frmPutOnHold.Show()
-    End Sub
+
 End Class
