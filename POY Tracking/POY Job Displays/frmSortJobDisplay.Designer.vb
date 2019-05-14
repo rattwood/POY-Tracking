@@ -97,7 +97,7 @@ Partial Class frmSortJobDisplay
         Me.DGVDisplays.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.DGVDisplays.RowHeadersVisible = False
         Me.DGVDisplays.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DGVDisplays.Size = New System.Drawing.Size(1542, 426)
+        Me.DGVDisplays.Size = New System.Drawing.Size(1542, 531)
         Me.DGVDisplays.TabIndex = 0
         '
         'poystate

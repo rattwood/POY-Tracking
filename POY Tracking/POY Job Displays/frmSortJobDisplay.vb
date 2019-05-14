@@ -68,7 +68,8 @@ Public Class frmSortJobDisplay
             ' DGVDisplays.Rows.Clear()
             DGVDisplays.Rows.Add(rwcount)
             DGVDisplays.AllowUserToDeleteRows = False
-
+            DGVDisplays.Controls(0).Enabled = True
+            DGVDisplays.Controls(1).Enabled = True
 
 
             'Define temp variables
@@ -115,8 +116,10 @@ Public Class frmSortJobDisplay
                     LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMcNum & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
                                    & " AND   POYDRUMSTATE BETWEEN 1 and 14 And (POYSORTENDTM Is Not Null )  ")
 
+
                     DGVTmp2.DataSource = LDS.Tables(0)
-                    DGVTmp2.Rows(rwcount).Selected = True
+                    DGVTmp2.Rows(0).Selected = True
+
 
                     'Set State colour
                     Dim tmpDrumState = DGVTmp.Rows(i - 1).Cells("POYDRUMSTATE").Value
@@ -168,6 +171,7 @@ Public Class frmSortJobDisplay
                             LExecQuery("Select poycartname FROM POYTRACK2 Where POYMCNUM = '" & tmpMcNum & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
                                    & " AND POYDRUMSTATE  = 1 And (POYSORTENDTM Is Not Null and POYSORTRELEASE is NULL ) Group by poycartname ")
                             If LRecordCount > 0 Then tmpCartCountSort = LRecordCount
+
 
                             DGVDisplays.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Orange
                             DGVDisplays.Rows(i - 1).Cells("poycartcount").Value = tmpCartCountSort
@@ -315,7 +319,7 @@ Public Class frmSortJobDisplay
                 tmrUpdateTimer.Interval = My.Settings.scrRefresh * 1000
                 tmrUpdateTimer.Enabled = True
             Catch ex As Exception
-
+                MsgBox(ex.ToString)
             End Try
 
         Else
