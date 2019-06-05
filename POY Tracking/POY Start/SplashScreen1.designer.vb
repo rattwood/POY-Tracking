@@ -78,7 +78,7 @@ Partial Class SplashScreen1
         Me.Version.Name = "Version"
         Me.Version.Size = New System.Drawing.Size(241, 30)
         Me.Version.TabIndex = 1
-        Me.Version.Text = "Version 1.0.0.25" & Global.Microsoft.VisualBasic.ChrW(10) & "support@tecknoserve.com"
+        Me.Version.Text = "Version 1.0.0.26" & Global.Microsoft.VisualBasic.ChrW(10) & "support@tecknoserve.com"
         '
         'Copyright
         '
