@@ -329,14 +329,15 @@ Public Class frmJobEntry
 
 
             Try
-                If Not (txtCartNum.TextLength = 14) Then  ' LENGTH OF BARCODE
+                If Not (txtCartNum.TextLength = 17) Then  ' LENGTH OF BARCODE CHANGE TO INCLUDE WEIGHT
                     If thaiLang Then MsgBox("หมายเลขนี้ไม่ใช่หมายเลขของดรัม กรุณาสแกนใหม่") Else _
                         MsgBox("This is not a CART number Please RE Scan")
                     Me.txtCartNum.Clear()
                     Me.txtCartNum.Focus()
                     Me.txtCartNum.Refresh()
-
                     Exit Sub
+
+
                 End If
 
                 'Decode the cart string in to variables
@@ -348,6 +349,8 @@ Public Class frmJobEntry
                 month = txtCartNum.Text.Substring(7, 2)
                 doffingNum = txtCartNum.Text.Substring(9, 3)
                 CartNum = txtCartNum.Text.Substring(12, 2)
+                varweightcode = txtCartNum.Text.Substring(15, 2)
+
                 updateCartNum()  'checks the cart number and if second  number (P2,P4,P6 or P8) then change to (P1,P3,P5 or P7) and update the barcode
                 varCartBCode = txtCartNum.Text
                 varMachineCode = machineCode
@@ -1101,26 +1104,36 @@ Public Class frmJobEntry
                     varProdGrade = "N/A"
                 End If
 
-                'GET PRODUCT WEIGHT FOR JOB
+                'GET PRODUCT WEIGHT FOR JOB , now updated to get from cart barcode
 
-                If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYPRODWEIGHT").Value) Then
-                    varProdWeight = frmDGV.DGVdata.Rows(0).Cells("POYPRODWEIGHT").Value
-                    varProdWeight = varProdWeight
-                Else
-                    varProdWeight = "0.00"
-                End If
+                'If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYPRODWEIGHT").Value) Then
+                '    varProdWeight = frmDGV.DGVdata.Rows(0).Cells("POYPRODWEIGHT").Value
+                '    varProdWeight = varProdWeight
+                'Else
+                '    varProdWeight = "0.00"
+                'End If
 
-                If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYWEIGHTCODE").Value) Then
-                    varKNum = frmDGV.DGVdata.Rows(0).Cells("POYWEIGHTCODE").Value
-                Else
-                    varKNum = "K00"
-                End If
+                'If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYWEIGHTCODE").Value) Then
+                '    varKNum = frmDGV.DGVdata.Rows(0).Cells("POYWEIGHTCODE").Value
+                'Else
+                '    varKNum = "K00"
+                'End If
+
+                Dim tmpKg As Integer
+                Dim tmpGr As Integer
+
+                tmpKg = varweightcode.Substring(0, 1)
+                tmpGr = varweightcode.Substring(1, 1)
+
+                varProdWeight = tmpKg & "." & tmpGr & "0"
+                varKNum = "K" & varweightcode   'This creates the Kxx number
+
 
                 If LConn.State = ConnectionState.Open Then LConn.Close()
 
-            Else
-                'MsgBox("This product is not in Product table, please check product table in SETTINGS ")
-                If thaiLang Then MsgBox("โปรดักส์นี้ไม่มีในตารางสินค้า กรุณาตรวจสอบตารางสินค้าในการตั้งค่า") Else _
+                Else
+                    'MsgBox("This product is not in Product table, please check product table in SETTINGS ")
+                    If thaiLang Then MsgBox("โปรดักส์นี้ไม่มีในตารางสินค้า กรุณาตรวจสอบตารางสินค้าในการตั้งค่า") Else _
                     MsgBox("This product is not in Product table, please check product table in SETTINGS ")
                 cancelRoutine()
                 Exit Sub
