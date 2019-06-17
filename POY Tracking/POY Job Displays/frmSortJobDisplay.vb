@@ -38,13 +38,17 @@ Public Class frmSortJobDisplay
 
 
     Public Sub ScreenReportCreate()
-
+        Dim tmptimenow As Date = Date.Now
 
         '******************************  ORIGINAL SCRIPT DO NOT DELETE ********************************************************************************
-        LExecQuery("Select POYMCNUM ,poymcname,poyprodname,POYmergenum , poyprodweight, POYDOFFNUM, poydrumstate FROM " _
-          & "POYTRACK2 Where POYDRUMSTATE BETWEEN 1 and 14 And (POYSORTENDTM Is Not Null )  GROUP BY POYMCNUM,poymcname,poyprodname ,POYmergenum , poyprodweight , POYDOFFNUM, poydrumstate Order by poymcnum,poydoffnum ")
+        LExecQuery("Select POYMCNUM ,poymcname,poyprodname,POYmergenum , poyprodweight, POYDOFFNUM, poydrumstate, POYSORTENDTM FROM " _
+          & "POYTRACK2 Where POYDRUMSTATE BETWEEN 1 and 14 And (POYSORTENDTM > DateAdd(Day, -7, '" & tmptimenow & "') AND POYSORTENDTM < '" & tmptimenow & "')  GROUP BY POYMCNUM,poymcname,poyprodname ,POYmergenum , poyprodweight , POYDOFFNUM, poydrumstate,POYSORTENDTM Order by POYSORTENDTM ")
         '**************************************************************************************************************************************************
 
+        '******************************  ORIGINAL SCRIPT DO NOT DELETE ********************************************************************************
+        'LExecQuery("Select POYMCNUM ,poymcname,poyprodname,POYmergenum , poyprodweight, POYDOFFNUM, poydrumstate FROM " _
+        '  & "POYTRACK2 Where POYDRUMSTATE BETWEEN 1 and 14 And (POYSORTENDTM Is Not Null ) and (POYSORTENDTM > DateAdd(Day, -7, POYSORTENDTM) AND POYSORTENDTM < '" & tmptimenow & "')  GROUP BY POYMCNUM,poymcname,poyprodname ,POYmergenum , poyprodweight , POYDOFFNUM, poydrumstate Order by poymcnum,poydoffnum ")
+        ''**************************************************************************************************************************************************
 
 
 
@@ -125,8 +129,8 @@ Public Class frmSortJobDisplay
                     Dim tmpDrumState = DGVTmp.Rows(i - 1).Cells("POYDRUMSTATE").Value
 
 
-                    tmpStartTime = DGVTmp2.Rows(i - 1).Cells("POYSORTSTART").Value   '.ToString("yy-MM-dd hh:mm")
-                    tmpEndTime = DGVTmp2.Rows(i - 1).Cells("POYSORTENDTM").Value   '.ToString("yy-MM-dd hh:mm")
+                    tmpStartTime = DGVTmp2.Rows(0).Cells("POYSORTSTART").Value  '.ToString("yy-MM-dd hh:mm")
+                    tmpEndTime = DGVTmp2.Rows(0).Cells("POYSORTENDTM").Value  '.ToString("yy-MM-dd hh:mm")
 
                     Select Case tmpDrumState
                         Case 1
