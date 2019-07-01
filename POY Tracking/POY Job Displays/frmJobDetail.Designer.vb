@@ -77,7 +77,6 @@ Partial Class frmJobDetail
         'SplitContainer1.Panel1
         '
         Me.SplitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.SplitContainer1.Panel1.Controls.Add(Me.btnCancelHoldDrum)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnSave)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnHoldDrums)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnHoldCart)
@@ -87,6 +86,7 @@ Partial Class frmJobDetail
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnCancel)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnHold)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnReleaseJob)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.btnCancelHoldDrum)
         '
         'SplitContainer1.Panel2
         '
@@ -94,8 +94,8 @@ Partial Class frmJobDetail
         Me.SplitContainer1.Panel2.Controls.Add(Me.lblMessage)
         Me.SplitContainer1.Panel2.Controls.Add(Me.DGVNewDoff)
         Me.SplitContainer1.Panel2.Controls.Add(Me.DGVMcDoffInfoOrig)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1557, 687)
-        Me.SplitContainer1.SplitterDistance = 220
+        Me.SplitContainer1.Size = New System.Drawing.Size(1573, 687)
+        Me.SplitContainer1.SplitterDistance = 222
         Me.SplitContainer1.TabIndex = 0
         '
         'btnCancelHoldDrum
@@ -259,7 +259,7 @@ Partial Class frmJobDetail
         Me.DGVNewDoff.Location = New System.Drawing.Point(0, 0)
         Me.DGVNewDoff.Name = "DGVNewDoff"
         Me.DGVNewDoff.ReadOnly = True
-        Me.DGVNewDoff.Size = New System.Drawing.Size(1333, 687)
+        Me.DGVNewDoff.Size = New System.Drawing.Size(1347, 687)
         Me.DGVNewDoff.TabIndex = 1
         '
         'DGVMcDoffInfoOrig
@@ -420,7 +420,7 @@ Partial Class frmJobDetail
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1557, 687)
+        Me.ClientSize = New System.Drawing.Size(1573, 687)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmJobDetail"

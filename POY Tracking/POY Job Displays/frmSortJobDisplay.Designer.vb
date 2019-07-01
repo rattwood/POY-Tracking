@@ -273,7 +273,7 @@ Partial Class frmSortJobDisplay
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1904, 1041)
+        Me.ClientSize = New System.Drawing.Size(1563, 634)
         Me.Controls.Add(Me.DGVTmp)
         Me.Controls.Add(Me.btnRelease)
         Me.Controls.Add(Me.btnCancel)

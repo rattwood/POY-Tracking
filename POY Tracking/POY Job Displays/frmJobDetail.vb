@@ -165,6 +165,9 @@ Public Class frmJobDetail
                 For i = 1 To localRowCount
 
                     Dim tmpCartName = DGVDoffTmp1.Rows(i - 1).Cells("POYCARTNAME").Value.ToString()
+                    Dim tmppoybcodecart = DGVDoffTmp1.Rows(i - 1).Cells("POYBCODECART").Value.ToString()
+
+
 
                     DGVNewDoff.Rows(i - 1).Cells("poymccode").Value = tmpMCCode
                     DGVNewDoff.Rows(i - 1).Cells("poymcnum").Value = tmpMCNUM
@@ -180,39 +183,57 @@ Public Class frmJobDetail
                     Select Case tmpDrumState
                         Case 1
                             'GET ALL MISSING DRUMS IN THIS DOFF
-                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null ) AND poymissdrum > 0 ")
+                            'LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                            '       & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null ) AND poymissdrum > 0 ")
+
+                            LExecQuery("Select * FROM POYTRACK2 Where POYBCODECART =  '" & tmppoybcodecart & "'   " _
+                                   & " AND   POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null ) AND poymissdrum > 0 ")
+
 
                             If LRecordCount > 0 Then tmpmissing = LRecordCount
 
                             'GET ALL "SHORT" DRUMS IN THIS DOFF
-                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & " and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null ) AND POYSHORTDRUM > 0 and (POYDEFDRUM = 0 Or POYDEFDRUM is Null) ")
+                            'LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                            '       & " and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null ) AND POYSHORTDRUM > 0 and (POYDEFDRUM = 0 Or POYDEFDRUM is Null) ")
+
+                            LExecQuery("Select * FROM POYTRACK2 Where POYBCODECART =  '" & tmppoybcodecart & "'    " _
+                                   & " AND   POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null ) AND POYSHORTDRUM > 0 and (POYDEFDRUM = 0 Or POYDEFDRUM is Null) ")
+
+
+
 
                             If LRecordCount > 0 Then tmpShortCount = LRecordCount
 
                             'GET ALL "SHORTAB" DRUMS IN THIS DOFF
-                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & " and poycartname = '" & tmpCartName & "' AND    POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null) AND (POYSHORTDRUM > 0 and POYDEFDRUM >  0) ")
+                            'LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                            '       & " and poycartname = '" & tmpCartName & "' AND    POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null) AND (POYSHORTDRUM > 0 and POYDEFDRUM >  0) ")
+
+                            LExecQuery("Select * FROM POYTRACK2 Where  POYBCODECART = '" & tmppoybcodecart & "'    " _
+                                   & "  AND    POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null) AND (POYSHORTDRUM > 0 and POYDEFDRUM >  0) ")
+
+
 
                             If LRecordCount > 0 Then tmpShortABCount = LRecordCount
 
 
                             'GET ALL "Defect" DRUMS IN THIS DOFF
-                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null ) AND  POYDEFDRUM > 0 And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) ")
+                            'LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
+                            '       & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null ) AND  POYDEFDRUM > 0 And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) ")
+
+                            LExecQuery("Select * FROM POYTRACK2 Where  POYBCODECART = '" & tmppoybcodecart & "'   " _
+                                   & " AND   POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null ) AND  POYDEFDRUM > 0 And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) ")
+
 
                             If LRecordCount > 0 Then tmpABCount = LRecordCount
 
 
                             'GET "A" COUNT
-                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
+                            LExecQuery("Select * FROM POYTRACK2 Where POYBCODECART =  '" & tmppoybcodecart & "'    " _
+                                   & " AND   POYDRUMSTATE = 1 And (POYSORTENDTM Is Not Null ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
+
 
 
                             If LRecordCount > 0 Then tmpACount = LRecordCount
-
-
 
 
                             DGVNewDoff.Rows(i - 1).Cells("poystate").Style.BackColor = Color.Orange
@@ -221,34 +242,34 @@ Public Class frmJobDetail
 
                         Case 3
                             'GET ALL MISSING DRUMS IN THIS DOFF
-                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 3 And (POYSORTENDTM Is Not Null ) AND poymissdrum > 0 ")
+                            LExecQuery("Select * FROM POYTRACK2 Where   POYBCODECART =  '" & tmppoybcodecart & "'    " _
+                                   & " AND   POYDRUMSTATE = 3 And (POYSORTENDTM Is Not Null ) AND poymissdrum > 0 ")
 
                             If LRecordCount > 0 Then tmpmissing = LRecordCount
 
                             'GET ALL "SHORT" DRUMS IN THIS DOFF
-                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & " and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 3 And (POYSORTENDTM Is Not Null ) AND POYSHORTDRUM > 0 and (POYDEFDRUM = 0 Or POYDEFDRUM is Null) ")
+                            LExecQuery("Select * FROM POYTRACK2 Where  POYBCODECART =  '" & tmppoybcodecart & "'     " _
+                                   & "  AND   POYDRUMSTATE = 3 And (POYSORTENDTM Is Not Null ) AND POYSHORTDRUM > 0 and (POYDEFDRUM = 0 Or POYDEFDRUM is Null) ")
 
                             If LRecordCount > 0 Then tmpShortCount = LRecordCount
 
                             'GET ALL "SHORTAB" DRUMS IN THIS DOFF
-                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & " and poycartname = '" & tmpCartName & "' AND    POYDRUMSTATE = 3 And (POYSORTENDTM Is Not Null) AND (POYSHORTDRUM > 0 and POYDEFDRUM >  0) ")
+                            LExecQuery("Select * FROM POYTRACK2 Where  POYBCODECART =  '" & tmppoybcodecart & "'     " _
+                                   & "  AND    POYDRUMSTATE = 3 And (POYSORTENDTM Is Not Null) AND (POYSHORTDRUM > 0 and POYDEFDRUM >  0) ")
 
                             If LRecordCount > 0 Then tmpShortABCount = LRecordCount
 
 
                             'GET ALL "Defect" DRUMS IN THIS DOFF
-                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 3 And (POYSORTENDTM Is Not Null ) AND  POYDEFDRUM > 0 And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) ")
+                            LExecQuery("Select * FROM POYTRACK2 Where  POYBCODECART =  '" & tmppoybcodecart & "'     " _
+                                   & " AND   POYDRUMSTATE = 3 And (POYSORTENDTM Is Not Null ) AND  POYDEFDRUM > 0 And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) ")
 
                             If LRecordCount > 0 Then tmpABCount = LRecordCount
 
 
                             'GET "A" COUNT
-                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 3 And (POYSORTENDTM Is Not Null ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
+                            LExecQuery("Select * FROM POYTRACK2 Where  POYBCODECART =  '" & tmppoybcodecart & "'      " _
+                                   & " AND   POYDRUMSTATE = 3 And (POYSORTENDTM Is Not Null ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
 
 
                             If LRecordCount > 0 Then tmpACount = LRecordCount
@@ -258,34 +279,34 @@ Public Class frmJobDetail
 
                         Case 4
                             'GET ALL MISSING DRUMS IN THIS DOFF
-                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null ) AND poymissdrum > 0 ")
+                            LExecQuery("Select * FROM POYTRACK2 Where  POYBCODECART =  '" & tmppoybcodecart & "'      " _
+                                   & " AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null ) AND poymissdrum > 0 ")
 
                             If LRecordCount > 0 Then tmpmissing = LRecordCount
 
                             'GET ALL "SHORT" DRUMS IN THIS DOFF
-                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & " and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null ) AND POYSHORTDRUM > 0 and (POYDEFDRUM = 0 Or POYDEFDRUM is Null) ")
+                            LExecQuery("Select * FROM POYTRACK2 Where  POYBCODECART =  '" & tmppoybcodecart & "'     " _
+                                   & " AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null ) AND POYSHORTDRUM > 0 and (POYDEFDRUM = 0 Or POYDEFDRUM is Null) ")
 
                             If LRecordCount > 0 Then tmpShortCount = LRecordCount
 
                             'GET ALL "SHORTAB" DRUMS IN THIS DOFF
-                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & " and poycartname = '" & tmpCartName & "' AND    POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null) AND (POYSHORTDRUM > 0 and POYDEFDRUM >  0) ")
+                            LExecQuery("Select * FROM POYTRACK2 Where  POYBCODECART =  '" & tmppoybcodecart & "'     " _
+                                   & "  AND    POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null) AND (POYSHORTDRUM > 0 and POYDEFDRUM >  0) ")
 
                             If LRecordCount > 0 Then tmpShortABCount = LRecordCount
 
 
                             'GET ALL "Defect" DRUMS IN THIS DOFF
-                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null ) AND  POYDEFDRUM > 0 And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) ")
+                            LExecQuery("Select * FROM POYTRACK2 Where  POYBCODECART =  '" & tmppoybcodecart & "'      " _
+                                   & " AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null ) AND  POYDEFDRUM > 0 And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) ")
 
                             If LRecordCount > 0 Then tmpABCount = LRecordCount
 
 
                             'GET "A" COUNT
-                            LExecQuery("Select * FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
+                            LExecQuery("Select * FROM POYTRACK2 Where  POYBCODECART =  '" & tmppoybcodecart & "'      " _
+                                   & " AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null ) AND  (POYDEFDRUM = 0 OR POYDEFDRUM is NULL) And (POYSHORTDRUM = 0 Or POYSHORTDRUM is Null) AND (POYMISSDRUM = 0 OR POYMISSDRUM is NULL) ")
 
 
                             If LRecordCount > 0 Then tmpACount = LRecordCount
@@ -300,8 +321,8 @@ Public Class frmJobDetail
 
 
 
-                    LExecQuery("Select poysortendtm,poysortstart FROM POYTRACK2 Where POYMCNUM = '" & tmpMCCode & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                   & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null )  ")
+                    LExecQuery("Select poysortendtm,poysortstart FROM POYTRACK2 Where  POYBCODECART =  '" & tmppoybcodecart & "'      " _
+                                   & " AND   POYDRUMSTATE Between 1 and 14 And (POYSORTENDTM Is Not Null )  ")
                     If LRecordCount > 0 Then tmpCartCount = LRecordCount
 
 
@@ -317,8 +338,8 @@ Public Class frmJobDetail
 
                     'GET "Hold Start Time
 
-                    LExecQuery("Select poysortendtm,poysortstart,poyholdstarttm FROM POYTRACK2 Where POYMCNAME = '" & tmpMCNUM & "' and  POYPRODNAME = '" & tmpProdName & "' and POYMERGENUM = '" & tmpTFNum & "' and POYDOFFNUM = '" & tmpDOFFNum & "'     " _
-                                       & "and poycartname = '" & tmpCartName & "' AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null )  ")
+                    LExecQuery("Select poysortendtm,poysortstart,poyholdstarttm FROM POYTRACK2 Where  POYBCODECART =  '" & tmppoybcodecart & "'     " _
+                                       & " AND   POYDRUMSTATE = 4 And (POYSORTENDTM Is Not Null )  ")
                     If LRecordCount > 0 Then tmpCartCount = LRecordCount
 
 
@@ -952,6 +973,8 @@ Public Class frmJobDetail
         If My.Settings.chkUseSort Then
             frmSortJobDisplay.DGVDisplays.ClearSelection()
             frmSortJobDisplay.DGVDisplays.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+            Me.Hide()
+            Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
             frmSortJobDisplay.Show()
             frmSortJobDisplay.ScreenReportCreate()
             Close()
