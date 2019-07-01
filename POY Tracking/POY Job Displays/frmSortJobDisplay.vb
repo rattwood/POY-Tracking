@@ -39,7 +39,7 @@ Public Class frmSortJobDisplay
 
     Public Sub ScreenReportCreate()
         Dim tmptimenow As Date = Date.Now
-
+        tmrUpdateTimer.Enabled = False
 
         '******************************  ORIGINAL SCRIPT DO NOT DELETE ********************************************************************************
         'LExecQuery("Select POYMCNUM ,poymcname,poyprodname,POYmergenum , poyprodweight, POYDOFFNUM, poydrumstate, POYSORTENDTM FROM " _
@@ -55,14 +55,6 @@ Public Class frmSortJobDisplay
             & "GROUP BY POYMCNUM, poymcname, poyprodname, POYBCODEJOB, poymergenum, poyprodweight, poydoffnum, poydrumstate, CAST(poySortEndTM As Date) " _
             & "Order by poymcnum,poydoffnum,SortEnd DESC ")
 
-
-        '******************************  ORIGINAL SCRIPT DO NOT DELETE ********************************************************************************
-        'LExecQuery("Select POYMCNUM , poymcname, poyprodname, poymergenum, poyprodweight, poydoffnum, poydrumstate, poySortEndTM FROM " _
-        '  & "POYTRACK2 Where POYDRUMSTATE BETWEEN 1 And 14  And" _
-        '  & "(POYSORTENDTM > DateAdd(Day, -7, '" & tmptimenow & "') AND POYSORTENDTM < '" & tmptimenow & "')" _
-        '  & "GROUP BY POYMCNUM,poymcname,poyprodname ,POYmergenum , poyprodweight , POYDOFFNUM, poydrumstate, poysortendtm " _
-        '  & "Order by poymcnum,poydoffnum,poysortendtm ")
-        '**************************************************************************************************************************************************
 
 
 
@@ -337,6 +329,7 @@ Public Class frmSortJobDisplay
                 tmrUpdateTimer.Interval = My.Settings.scrRefresh * 1000
                 tmrUpdateTimer.Enabled = True
             Catch ex As Exception
+                tmrUpdateTimer.Enabled = False
                 Me.Cursor = System.Windows.Forms.Cursors.Default
                 MsgBox(ex.ToString)
             End Try
@@ -442,7 +435,7 @@ Public Class frmSortJobDisplay
     Private Sub DGVDisplays_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGVDisplays.CellDoubleClick
 
         DisplayDoffIndex = DGVDisplays.CurrentCell.RowIndex
-
+        tmrUpdateTimer.Enabled = False
         frmJobDetail.Show()
 
     End Sub
