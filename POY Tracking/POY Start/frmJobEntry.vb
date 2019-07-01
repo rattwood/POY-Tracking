@@ -1631,7 +1631,7 @@ Public Class frmJobEntry
             Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
             frmSortJobDisplay.Show()
             Me.Hide()
-
+            Me.Cursor = System.Windows.Forms.Cursors.Default
         End If
 
 

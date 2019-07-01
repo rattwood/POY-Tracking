@@ -260,9 +260,9 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("-7")>  _
-        Public Property displayDays() As Integer
+        Public Property displayDays() As String
             Get
-                Return CType(Me("displayDays"),Integer)
+                Return CType(Me("displayDays"),String)
             End Get
             Set
                 Me("displayDays") = value

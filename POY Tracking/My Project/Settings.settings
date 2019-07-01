@@ -58,7 +58,7 @@
     <Setting Name="scrRefresh" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10000</Value>
     </Setting>
-    <Setting Name="displayDays" Type="System.Int32" Scope="User">
+    <Setting Name="displayDays" Type="System.String" Scope="User">
       <Value Profile="(Default)">-7</Value>
     </Setting>
   </Settings>

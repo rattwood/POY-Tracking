@@ -51,7 +51,7 @@ Public Class frmSortJobDisplay
 
         LExecQuery("Select poymcnum ,poymcname,poyprodname,POYmergenum , poyprodweight, POYDOFFNUM, poydrumstate,poybcodejob,CAST(POYSORTENDTM As Date) As SortEnd  FROM POYTRACK2 " _
             & "Where POYDRUMSTATE BETWEEN 1 And 14 And " _
-            & "(POYSORTENDTM >= DateAdd(Day, -7,'" & tmptimenow & "') And POYSORTENDTM < '" & tmptimenow & "') " _
+            & "(POYSORTENDTM >= DateAdd(Day, -7  ,'" & tmptimenow & "') And POYSORTENDTM < '" & tmptimenow & "') " _
             & "GROUP BY POYMCNUM, poymcname, poyprodname, POYBCODEJOB, poymergenum, poyprodweight, poydoffnum, poydrumstate, CAST(poySortEndTM As Date) " _
             & "Order by poymcnum,poydoffnum,SortEnd DESC ")
 
