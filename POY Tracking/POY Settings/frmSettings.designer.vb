@@ -62,6 +62,8 @@ Partial Class frmSettings
         Me.txtLogReport = New System.Windows.Forms.TextBox()
         Me.txtscrRefresh = New System.Windows.Forms.TextBox()
         Me.lblscnRefresh = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.txtBoxDisplayDays = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'lblSerialPortSelect
@@ -271,10 +273,22 @@ Partial Class frmSettings
         resources.ApplyResources(Me.lblscnRefresh, "lblscnRefresh")
         Me.lblscnRefresh.Name = "lblscnRefresh"
         '
+        'Label11
+        '
+        resources.ApplyResources(Me.Label11, "Label11")
+        Me.Label11.Name = "Label11"
+        '
+        'txtBoxDisplayDays
+        '
+        resources.ApplyResources(Me.txtBoxDisplayDays, "txtBoxDisplayDays")
+        Me.txtBoxDisplayDays.Name = "txtBoxDisplayDays"
+        '
         'frmSettings
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.txtBoxDisplayDays)
         Me.Controls.Add(Me.lblscnRefresh)
         Me.Controls.Add(Me.txtscrRefresh)
         Me.Controls.Add(Me.Button7)
@@ -357,4 +371,6 @@ Partial Class frmSettings
     Friend WithEvents txtLogReport As TextBox
     Friend WithEvents txtscrRefresh As TextBox
     Friend WithEvents lblscnRefresh As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents txtBoxDisplayDays As TextBox
 End Class

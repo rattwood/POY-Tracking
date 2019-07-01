@@ -256,6 +256,18 @@ Namespace My
                 Me("scrRefresh") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("-7")>  _
+        Public Property displayDays() As Integer
+            Get
+                Return CType(Me("displayDays"),Integer)
+            End Get
+            Set
+                Me("displayDays") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

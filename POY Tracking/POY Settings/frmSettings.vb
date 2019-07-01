@@ -21,9 +21,11 @@ Public Class frmSettings
         txtBoxPack.Visible = False
         txtLogReport.Visible = False
         txtscrRefresh.Visible = True
+        txtBoxDisplayDays.Visible = True
         lblscnRefresh.Visible = True
 
         txtscrRefresh.Text = My.Settings.scrRefresh
+        txtBoxDisplayDays.Text = My.Settings.displayDays
 
         If My.Settings.chkUseSort Then chkUseSort.Checked = True Else chkUseSort.Checked = False
         If My.Settings.chkUsePack Then chkUsePack.Checked = True Else chkUsePack.Checked = False
@@ -81,6 +83,7 @@ Public Class frmSettings
         My.Settings.chkUseThai = chkThai.CheckState
         My.Settings.chkUseLogs = chkUseLogs.CheckState
         My.Settings.scrRefresh = txtscrRefresh.Text
+        My.Settings.displayDays = txtBoxDisplayDays.Text
         My.Settings.Save()
         frmSortJobDisplay.tmrUpdateTimer.Interval = My.Settings.scrRefresh * 1000
         Me.Close()
@@ -116,6 +119,10 @@ Public Class frmSettings
     End Sub
 
     Private Sub txtscrRefresh_TextChanged(sender As Object, e As EventArgs) Handles txtscrRefresh.TextChanged
+        btnSetSave.Enabled = True
+    End Sub
+
+    Private Sub txtBoxDisplayDays_TextChanged(sender As Object, e As EventArgs) Handles txtBoxDisplayDays.TextChanged
         btnSetSave.Enabled = True
     End Sub
 End Class
