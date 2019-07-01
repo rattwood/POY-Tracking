@@ -233,7 +233,6 @@ Partial Class frmSortJobDisplay
         'Panel2
         '
         Me.Panel2.Controls.Add(Me.DGVDisplays)
-        Me.Panel2.Controls.Add(Me.DGVTmp)
         Me.Panel2.Location = New System.Drawing.Point(12, 20)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1505, 552)
@@ -242,20 +241,18 @@ Partial Class frmSortJobDisplay
         'DGVTmp
         '
         Me.DGVTmp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVTmp.Location = New System.Drawing.Point(743, 435)
+        Me.DGVTmp.Location = New System.Drawing.Point(12, 639)
         Me.DGVTmp.Name = "DGVTmp"
-        Me.DGVTmp.Size = New System.Drawing.Size(680, 155)
+        Me.DGVTmp.Size = New System.Drawing.Size(916, 281)
         Me.DGVTmp.TabIndex = 3
-        Me.DGVTmp.Visible = False
         '
         'DGVTmp2
         '
         Me.DGVTmp2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVTmp2.Location = New System.Drawing.Point(1472, 88)
+        Me.DGVTmp2.Location = New System.Drawing.Point(966, 639)
         Me.DGVTmp2.Name = "DGVTmp2"
-        Me.DGVTmp2.Size = New System.Drawing.Size(79, 100)
+        Me.DGVTmp2.Size = New System.Drawing.Size(926, 281)
         Me.DGVTmp2.TabIndex = 4
-        Me.DGVTmp2.Visible = False
         '
         'tmrUpdateTimer
         '
@@ -276,7 +273,8 @@ Partial Class frmSortJobDisplay
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1563, 634)
+        Me.ClientSize = New System.Drawing.Size(1904, 1041)
+        Me.Controls.Add(Me.DGVTmp)
         Me.Controls.Add(Me.btnRelease)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.DGVTmp2)

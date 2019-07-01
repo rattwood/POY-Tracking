@@ -1628,6 +1628,7 @@ Public Class frmJobEntry
             Me.Hide()
 
         Else
+            Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
             frmSortJobDisplay.Show()
             Me.Hide()
 

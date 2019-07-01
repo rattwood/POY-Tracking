@@ -40,15 +40,33 @@ Public Class frmSortJobDisplay
     Public Sub ScreenReportCreate()
         Dim tmptimenow As Date = Date.Now
 
-        '******************************  ORIGINAL SCRIPT DO NOT DELETE ********************************************************************************
-        LExecQuery("Select POYMCNUM ,poymcname,poyprodname,POYmergenum , poyprodweight, POYDOFFNUM, poydrumstate, POYSORTENDTM FROM " _
-          & "POYTRACK2 Where POYDRUMSTATE BETWEEN 1 and 14 And (POYSORTENDTM > DateAdd(Day, -7, '" & tmptimenow & "') AND POYSORTENDTM < '" & tmptimenow & "')  GROUP BY POYMCNUM,poymcname,poyprodname ,POYmergenum , poyprodweight , POYDOFFNUM, poydrumstate,POYSORTENDTM Order by POYSORTENDTM ")
-        '**************************************************************************************************************************************************
 
         '******************************  ORIGINAL SCRIPT DO NOT DELETE ********************************************************************************
-        'LExecQuery("Select POYMCNUM ,poymcname,poyprodname,POYmergenum , poyprodweight, POYDOFFNUM, poydrumstate FROM " _
-        '  & "POYTRACK2 Where POYDRUMSTATE BETWEEN 1 and 14 And (POYSORTENDTM Is Not Null ) and (POYSORTENDTM > DateAdd(Day, -7, POYSORTENDTM) AND POYSORTENDTM < '" & tmptimenow & "')  GROUP BY POYMCNUM,poymcname,poyprodname ,POYmergenum , poyprodweight , POYDOFFNUM, poydrumstate Order by poymcnum,poydoffnum ")
+        'LExecQuery("Select POYMCNUM ,poymcname,poyprodname,POYmergenum , poyprodweight, POYDOFFNUM, poydrumstate, POYSORTENDTM FROM " _
+        '  & "POYTRACK2 Where POYDRUMSTATE BETWEEN 1 and 14 And (POYSORTENDTM > DateAdd(Day, -7, '" & tmptimenow & "') AND POYSORTENDTM < '" & tmptimenow & "')  GROUP BY POYMCNUM,poymcname,poyprodname ,POYmergenum , poyprodweight , POYDOFFNUM, poydrumstate,POYSORTENDTM Order by POYSORTENDTM ")
         ''**************************************************************************************************************************************************
+
+        'LExecQuery("Select POYMCNUM,poymcname,poyprodname,POYmergenum , poyprodweight, POYDOFFNUM, poydrumstate, POYSORTENDTM FROM " _
+        '  & "POYTRACK2 Where POYDRUMSTATE BETWEEN 1 and 14 And" _
+        '  & "(POYSORTENDTM BETWEEN (DateAdd(Day, -7, (format (getdate(),'yyyy-MM-dd')))) AND format (getdate(),'yyyy-MM-dd'))" _
+        '  & "GROUP BY POYMCNUM, poymcname, poyprodname, poymergenum, poyprodweight, poydoffnum," _
+        '  & "poydrumstate,poysortendtm Order By Max(poysortendtm) ")
+
+
+        LExecQuery("Select poymcnum ,poymcname,poyprodname,POYmergenum , poyprodweight, POYDOFFNUM, poydrumstate,poybcodejob,CAST(POYSORTENDTM As Date) As SortEnd  FROM POYTRACK2 " _
+            & "Where POYDRUMSTATE BETWEEN 1 And 14 And " _
+            & "(POYSORTENDTM >= DateAdd(Day, -7,'" & tmptimenow & "') And POYSORTENDTM < '" & tmptimenow & "') " _
+            & "GROUP BY POYMCNUM, poymcname, poyprodname, POYBCODEJOB, poymergenum, poyprodweight, poydoffnum, poydrumstate, CAST(poySortEndTM As Date) " _
+            & "Order by poymcnum,poydoffnum,SortEnd DESC ")
+
+
+        '******************************  ORIGINAL SCRIPT DO NOT DELETE ********************************************************************************
+        'LExecQuery("Select POYMCNUM , poymcname, poyprodname, poymergenum, poyprodweight, poydoffnum, poydrumstate, poySortEndTM FROM " _
+        '  & "POYTRACK2 Where POYDRUMSTATE BETWEEN 1 And 14  And" _
+        '  & "(POYSORTENDTM > DateAdd(Day, -7, '" & tmptimenow & "') AND POYSORTENDTM < '" & tmptimenow & "')" _
+        '  & "GROUP BY POYMCNUM,poymcname,poyprodname ,POYmergenum , poyprodweight , POYDOFFNUM, poydrumstate, poysortendtm " _
+        '  & "Order by poymcnum,poydoffnum,poysortendtm ")
+        '**************************************************************************************************************************************************
 
 
 
@@ -323,6 +341,7 @@ Public Class frmSortJobDisplay
                 tmrUpdateTimer.Interval = My.Settings.scrRefresh * 1000
                 tmrUpdateTimer.Enabled = True
             Catch ex As Exception
+                Me.Cursor = System.Windows.Forms.Cursors.Default
                 MsgBox(ex.ToString)
             End Try
 
@@ -331,7 +350,7 @@ Public Class frmSortJobDisplay
             MsgBox("No Data Found")
         End If
 
-
+        Me.Cursor = System.Windows.Forms.Cursors.Default
 
 
     End Sub
@@ -388,6 +407,7 @@ Public Class frmSortJobDisplay
     End Function
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+        Me.Cursor = System.Windows.Forms.Cursors.Default
         tmrUpdateTimer.Enabled = False
         frmJobEntry.Show()
         Close()
@@ -396,11 +416,12 @@ Public Class frmSortJobDisplay
 
 
     Private Sub tmrUpdateTimer_Tick(sender As Object, e As EventArgs) Handles tmrUpdateTimer.Tick
-        'used to flash the log in lamp
+
 
         If Not (frmSettings.IsHandleCreated) Then  'if you go to setting this will stop the timer
+            Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
             ScreenReportCreate()
-            'screenReportUpdate()
+
         End If
     End Sub
 
