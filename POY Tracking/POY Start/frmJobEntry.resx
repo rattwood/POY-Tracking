@@ -372,9 +372,6 @@
   <metadata name="Toraydb.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="Toraydb.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="lblAutoCorrect.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -480,6 +477,111 @@
   <metadata name="MenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>288, 17</value>
   </metadata>
+  <data name="SettingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 20</value>
+  </data>
+  <data name="SettingsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="TraceNumberToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 22</value>
+  </data>
+  <data name="TraceNumberToolStripMenuItem.Text" xml:space="preserve">
+    <value>Trace Number</value>
+  </data>
+  <data name="DrumNumberToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 22</value>
+  </data>
+  <data name="DrumNumberToolStripMenuItem.Text" xml:space="preserve">
+    <value>Drum Number</value>
+  </data>
+  <data name="PalletReportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 22</value>
+  </data>
+  <data name="PalletReportToolStripMenuItem.Text" xml:space="preserve">
+    <value>Pallet Report</value>
+  </data>
+  <data name="PalletReportToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="DISPLAYToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 22</value>
+  </data>
+  <data name="DISPLAYToolStripMenuItem.Text" xml:space="preserve">
+    <value>DISPLAY</value>
+  </data>
+  <data name="ReportsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 20</value>
+  </data>
+  <data name="ReportsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 6</value>
+  </data>
+  <data name="EditPalletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="EditPalletToolStripMenuItem.Text" xml:space="preserve">
+    <value>Edit Pallet</value>
+  </data>
+  <data name="ToolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 6</value>
+  </data>
+  <data name="ChangePalletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="ChangePalletToolStripMenuItem.Text" xml:space="preserve">
+    <value>Change Pallet ?</value>
+  </data>
+  <data name="ToolsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 20</value>
+  </data>
+  <data name="ToolsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="ToolsToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ToolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 6</value>
+  </data>
+  <data name="DRUMToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 22</value>
+  </data>
+  <data name="DRUMToolStripMenuItem.Text" xml:space="preserve">
+    <value>Drum Number</value>
+  </data>
+  <data name="ToolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 6</value>
+  </data>
+  <data name="TraceNumberToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 22</value>
+  </data>
+  <data name="TraceNumberToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Trace Number</value>
+  </data>
+  <data name="SearchToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 20</value>
+  </data>
+  <data name="SearchToolStripMenuItem.Text" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ReleaseToPackingToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="ReleaseToPackingToolStripMenuItem.Text" xml:space="preserve">
+    <value>Release DRUMS</value>
+  </data>
+  <data name="JobControlToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 20</value>
+  </data>
+  <data name="JobControlToolStripMenuItem.Text" xml:space="preserve">
+    <value>Job Control</value>
+  </data>
   <data name="MenuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -503,111 +605,6 @@
   </data>
   <data name="&gt;&gt;MenuStrip1.ZOrder" xml:space="preserve">
     <value>13</value>
-  </data>
-  <data name="SettingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 20</value>
-  </data>
-  <data name="SettingsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="ReportsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 20</value>
-  </data>
-  <data name="ReportsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Reports</value>
-  </data>
-  <data name="PalletReportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 22</value>
-  </data>
-  <data name="PalletReportToolStripMenuItem.Text" xml:space="preserve">
-    <value>Pallet Report</value>
-  </data>
-  <data name="PalletReportToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="TraceNumberToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 22</value>
-  </data>
-  <data name="TraceNumberToolStripMenuItem.Text" xml:space="preserve">
-    <value>Trace Number</value>
-  </data>
-  <data name="DrumNumberToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 22</value>
-  </data>
-  <data name="DrumNumberToolStripMenuItem.Text" xml:space="preserve">
-    <value>Drum Number</value>
-  </data>
-  <data name="DISPLAYToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 22</value>
-  </data>
-  <data name="DISPLAYToolStripMenuItem.Text" xml:space="preserve">
-    <value>DISPLAY</value>
-  </data>
-  <data name="ToolsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 20</value>
-  </data>
-  <data name="ToolsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Tools</value>
-  </data>
-  <data name="ToolsToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 6</value>
-  </data>
-  <data name="EditPalletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="EditPalletToolStripMenuItem.Text" xml:space="preserve">
-    <value>Edit Pallet</value>
-  </data>
-  <data name="ToolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 6</value>
-  </data>
-  <data name="ChangePalletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="ChangePalletToolStripMenuItem.Text" xml:space="preserve">
-    <value>Change Pallet ?</value>
-  </data>
-  <data name="SearchToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 20</value>
-  </data>
-  <data name="SearchToolStripMenuItem.Text" xml:space="preserve">
-    <value>Search</value>
-  </data>
-  <data name="SearchToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="ToolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 6</value>
-  </data>
-  <data name="DRUMToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 22</value>
-  </data>
-  <data name="DRUMToolStripMenuItem.Text" xml:space="preserve">
-    <value>Drum Number</value>
-  </data>
-  <data name="ToolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 6</value>
-  </data>
-  <data name="TraceNumberToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 22</value>
-  </data>
-  <data name="TraceNumberToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Trace Number</value>
-  </data>
-  <data name="JobControlToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 20</value>
-  </data>
-  <data name="JobControlToolStripMenuItem.Text" xml:space="preserve">
-    <value>Job Control</value>
-  </data>
-  <data name="ReleaseToPackingToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 22</value>
-  </data>
-  <data name="ReleaseToPackingToolStripMenuItem.Text" xml:space="preserve">
-    <value>Release DRUMS</value>
   </data>
   <data name="txtCartNum.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 24pt, style=Bold</value>

@@ -61,7 +61,7 @@ Partial Class frmSortJobDisplay
         '
         Me.btnCancel.BackColor = System.Drawing.Color.Red
         Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(755, 578)
+        Me.btnCancel.Location = New System.Drawing.Point(742, 905)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(110, 44)
         Me.btnCancel.TabIndex = 2
@@ -97,7 +97,7 @@ Partial Class frmSortJobDisplay
         Me.DGVDisplays.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.DGVDisplays.RowHeadersVisible = False
         Me.DGVDisplays.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DGVDisplays.Size = New System.Drawing.Size(1542, 531)
+        Me.DGVDisplays.Size = New System.Drawing.Size(1542, 873)
         Me.DGVDisplays.TabIndex = 0
         '
         'poystate
@@ -235,7 +235,7 @@ Partial Class frmSortJobDisplay
         Me.Panel2.Controls.Add(Me.DGVDisplays)
         Me.Panel2.Location = New System.Drawing.Point(12, 20)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1505, 552)
+        Me.Panel2.Size = New System.Drawing.Size(1505, 879)
         Me.Panel2.TabIndex = 1
         '
         'DGVTmp
@@ -245,6 +245,7 @@ Partial Class frmSortJobDisplay
         Me.DGVTmp.Name = "DGVTmp"
         Me.DGVTmp.Size = New System.Drawing.Size(916, 281)
         Me.DGVTmp.TabIndex = 3
+        Me.DGVTmp.Visible = False
         '
         'DGVTmp2
         '
@@ -253,6 +254,7 @@ Partial Class frmSortJobDisplay
         Me.DGVTmp2.Name = "DGVTmp2"
         Me.DGVTmp2.Size = New System.Drawing.Size(926, 281)
         Me.DGVTmp2.TabIndex = 4
+        Me.DGVTmp2.Visible = False
         '
         'tmrUpdateTimer
         '
@@ -262,7 +264,7 @@ Partial Class frmSortJobDisplay
         '
         Me.btnRelease.BackColor = System.Drawing.Color.GreenYellow
         Me.btnRelease.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRelease.Location = New System.Drawing.Point(78, 578)
+        Me.btnRelease.Location = New System.Drawing.Point(65, 905)
         Me.btnRelease.Name = "btnRelease"
         Me.btnRelease.Size = New System.Drawing.Size(185, 44)
         Me.btnRelease.TabIndex = 5
@@ -273,14 +275,15 @@ Partial Class frmSortJobDisplay
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1563, 634)
-        Me.Controls.Add(Me.DGVTmp)
+        Me.ClientSize = New System.Drawing.Size(1563, 961)
         Me.Controls.Add(Me.btnRelease)
         Me.Controls.Add(Me.btnCancel)
-        Me.Controls.Add(Me.DGVTmp2)
         Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.DGVTmp)
+        Me.Controls.Add(Me.DGVTmp2)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmSortJobDisplay"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Jobs in Sorting"
         CType(Me.DGVDisplays, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)

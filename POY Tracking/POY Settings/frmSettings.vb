@@ -125,4 +125,8 @@ Public Class frmSettings
     Private Sub txtBoxDisplayDays_TextChanged(sender As Object, e As EventArgs) Handles txtBoxDisplayDays.TextChanged
         btnSetSave.Enabled = True
     End Sub
+
+    Private Sub chkDGV_CheckedChanged(sender As Object, e As EventArgs) Handles chkDGV.CheckedChanged
+        btnSetSave.Enabled = True
+    End Sub
 End Class

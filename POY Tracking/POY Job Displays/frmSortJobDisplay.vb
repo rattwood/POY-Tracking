@@ -32,6 +32,11 @@ Public Class frmSortJobDisplay
 
     Private Sub frmSortJobDisplay_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        If My.Settings.debugSet Then
+            DGVTmp.Visible = True
+            DGVTmp2.Visible = True
+        End If
+
         ScreenReportCreate()
 
     End Sub

@@ -124,7 +124,7 @@ Public Class frmSortCart
                 If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value) Then
                     cellVal = frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value.ToString
                     'CHECK FOR SCANNED Drum AND SET TO GREEN
-                    If cellVal > 1 Then
+                    If cellVal >= 1 Then
                         Me.Controls("btn" & rw).BackgroundImage = My.Resources.Have_Drum
                         Me.Controls("btn" & rw).Enabled = True
                     End If
@@ -353,7 +353,9 @@ Public Class frmSortCart
         ' Dim today As String = DateAndTime.Now
         timeUpdate()
 
-
+        If bcodeScan = "987654321" Then
+            barcodeFinish()
+        End If
 
 
 
@@ -1336,7 +1338,11 @@ Public Class frmSortCart
 
     End Sub
 
-
+    Private Sub barcodeFinish()
+        Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
+        endJob()
+        Me.Cursor = System.Windows.Forms.Cursors.Default
+    End Sub
 
     Private Sub btnFinishedJob_Click(sender As Object, e As EventArgs) Handles btnFinishedJob.Click
         Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
@@ -1578,7 +1584,15 @@ Public Class frmSortCart
     Private Sub frmCartRead_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
 
 
-        If e.KeyCode = Keys.Return Then prgContinue()
+        If e.KeyCode = Keys.Return Then
+
+            If txtDrumBcode.Text = "987654321" Then
+                barcodeFinish()
+            Else
+                prgContinue()
+            End If
+
+        End If
 
     End Sub
 
