@@ -79,7 +79,7 @@ Partial Class frmSelectRelease
         Me.SplitContainer1.Panel2.Controls.Add(Me.txtBoxScanDrum)
         Me.SplitContainer1.Panel2.Controls.Add(Me.lblTextBox)
         Me.SplitContainer1.Size = New System.Drawing.Size(1085, 770)
-        Me.SplitContainer1.SplitterDistance = 844
+        Me.SplitContainer1.SplitterDistance = 843
         Me.SplitContainer1.TabIndex = 0
         '
         'lblOpName
@@ -89,9 +89,8 @@ Partial Class frmSelectRelease
         Me.lblOpName.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.lblOpName.Location = New System.Drawing.Point(288, 206)
         Me.lblOpName.Name = "lblOpName"
-        Me.lblOpName.Size = New System.Drawing.Size(41, 37)
+        Me.lblOpName.Size = New System.Drawing.Size(0, 37)
         Me.lblOpName.TabIndex = 11
-        Me.lblOpName.Text = "D"
         '
         'lblProdNum
         '
@@ -100,9 +99,8 @@ Partial Class frmSelectRelease
         Me.lblProdNum.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.lblProdNum.Location = New System.Drawing.Point(288, 73)
         Me.lblProdNum.Name = "lblProdNum"
-        Me.lblProdNum.Size = New System.Drawing.Size(39, 37)
+        Me.lblProdNum.Size = New System.Drawing.Size(0, 37)
         Me.lblProdNum.TabIndex = 9
-        Me.lblProdNum.Text = "B"
         Me.lblProdNum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblProdName
@@ -112,9 +110,8 @@ Partial Class frmSelectRelease
         Me.lblProdName.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.lblProdName.Location = New System.Drawing.Point(291, 135)
         Me.lblProdName.Name = "lblProdName"
-        Me.lblProdName.Size = New System.Drawing.Size(41, 37)
+        Me.lblProdName.Size = New System.Drawing.Size(0, 37)
         Me.lblProdName.TabIndex = 8
-        Me.lblProdName.Text = "C"
         '
         'lblRelGrade
         '
@@ -123,9 +120,8 @@ Partial Class frmSelectRelease
         Me.lblRelGrade.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.lblRelGrade.Location = New System.Drawing.Point(288, 9)
         Me.lblRelGrade.Name = "lblRelGrade"
-        Me.lblRelGrade.Size = New System.Drawing.Size(40, 37)
+        Me.lblRelGrade.Size = New System.Drawing.Size(0, 37)
         Me.lblRelGrade.TabIndex = 3
-        Me.lblRelGrade.Text = "A"
         Me.lblRelGrade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblMessage
@@ -158,7 +154,6 @@ Partial Class frmSelectRelease
         Me.txtBoxDrumBcode.Name = "txtBoxDrumBcode"
         Me.txtBoxDrumBcode.Size = New System.Drawing.Size(424, 62)
         Me.txtBoxDrumBcode.TabIndex = 0
-        Me.txtBoxDrumBcode.Text = "88888888888888"
         Me.txtBoxDrumBcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.txtBoxDrumBcode.WordWrap = False
         '
@@ -193,9 +188,8 @@ Partial Class frmSelectRelease
         Me.lblDrumCount.ForeColor = System.Drawing.Color.LightCyan
         Me.lblDrumCount.Location = New System.Drawing.Point(98, 357)
         Me.lblDrumCount.Name = "lblDrumCount"
-        Me.lblDrumCount.Size = New System.Drawing.Size(54, 57)
+        Me.lblDrumCount.Size = New System.Drawing.Size(2, 57)
         Me.lblDrumCount.TabIndex = 7
-        Me.lblDrumCount.Text = "1"
         Me.lblDrumCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label4
@@ -278,7 +272,6 @@ Partial Class frmSelectRelease
         Me.txtBoxScanDrum.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.txtBoxScanDrum.Size = New System.Drawing.Size(229, 735)
         Me.txtBoxScanDrum.TabIndex = 51
-        Me.txtBoxScanDrum.Text = "65574190496010"
         Me.txtBoxScanDrum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblTextBox
