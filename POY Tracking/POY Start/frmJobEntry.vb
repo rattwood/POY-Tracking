@@ -814,70 +814,85 @@ Public Class frmJobEntry
 
     Private Sub getMCName()
 
-        Select Case machineCode
-            Case 51
-                machineName = 111
-            Case 52
-                machineName = 112
-            Case 53
-                machineName = 121
-            Case 54
-                machineName = 122
-            Case 55
-                machineName = 130
-            Case 56
-                machineName = 141
-            Case 57
-                machineName = 142
-            Case 58
-                machineName = 151
-            Case 59
-                machineName = 152
-            Case 60
-                machineName = 210
-            Case 61
-                machineName = 220
-            Case 62
-                machineName = 230
-            Case 63
-                machineName = 241
-            Case 64
-                machineName = 242
-            Case 65
-                machineName = 250
-            Case 66
-                machineName = 310
-            Case 67
-                machineName = 321
-            Case 68
-                machineName = 322
-            Case 69
-                machineName = 330
-            Case 70
-                machineName = 341
-            Case 71
-                machineName = 342
-            Case 72
-                machineName = 350
-            Case 73
-                machineName = 361
-            Case 74
-                machineName = 362
-            Case 75
-                machineName = 410
-            Case 76
-                machineName = 420
-            Case 77
-                machineName = 430
-            Case 78
-                machineName = 441
-            Case 79
-                machineName = 442
-            Case 80
-                machineName = 450
-            Case 81
-                machineName = 460
-        End Select
+
+        LExecQuery("SELECT mcname FROM POY_machine WHERE mcnum = '" & machineCode & "' ")
+        frmDGV.DGVdata.DataSource = LDS.Tables(0)
+        frmDGV.DGVdata.Rows(0).Selected = True
+
+        If LRecordCount > 0 Then
+            frmDGV.DGVdata.DataSource = LDS.Tables(0)
+            frmDGV.DGVdata.Rows(0).Selected = True
+            machineName = frmDGV.DGVdata.Rows(0).Cells("MCNAME").Value
+            'Else
+            '    MsgBox("Machine number " & machineCode & " is incorrect")
+
+        End If
+
+
+        'Select Case machineCode
+        '    Case 51
+        '        machineName = 111
+        '    Case 52
+        '        machineName = 112
+        '    Case 53
+        '        machineName = 121
+        '    Case 54
+        '        machineName = 122
+        '    Case 55
+        '        machineName = 130
+        '    Case 56
+        '        machineName = 141
+        '    Case 57
+        '        machineName = 142
+        '    Case 58
+        '        machineName = 151
+        '    Case 59
+        '        machineName = 152
+        '    Case 60
+        '        machineName = 210
+        '    Case 61
+        '        machineName = 220
+        '    Case 62
+        '        machineName = 230
+        '    Case 63
+        '        machineName = 241
+        '    Case 64
+        '        machineName = 242
+        '    Case 65
+        '        machineName = 250
+        '    Case 66
+        '        machineName = 310
+        '    Case 67
+        '        machineName = 321
+        '    Case 68
+        '        machineName = 322
+        '    Case 69
+        '        machineName = 330
+        '    Case 70
+        '        machineName = 341
+        '    Case 71
+        '        machineName = 342
+        '    Case 72
+        '        machineName = 350
+        '    Case 73
+        '        machineName = 361
+        '    Case 74
+        '        machineName = 362
+        '    Case 75
+        '        machineName = 410
+        '    Case 76
+        '        machineName = 420
+        '    Case 77
+        '        machineName = 430
+        '    Case 78
+        '        machineName = 441
+        '    Case 79
+        '        machineName = 442
+        '    Case 80
+        '        machineName = 450
+        '    Case 81
+        '        machineName = 460
+        'End Select
 
 
     End Sub
