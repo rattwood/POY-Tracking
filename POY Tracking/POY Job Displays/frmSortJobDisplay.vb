@@ -23,6 +23,7 @@ Public Class frmSortJobDisplay
     ' SQL QUERY PARAMETERS
     Public LParams As New List(Of SqlParameter)
 
+    Dim dayCount As Integer = My.Settings.displayDays
     Dim rwcount As Integer
     Public DisplayDoffIndex As Integer
     '-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -37,7 +38,9 @@ Public Class frmSortJobDisplay
             DGVTmp2.Visible = True
         End If
 
+
         ScreenReportCreate()
+
 
     End Sub
 
@@ -56,7 +59,7 @@ Public Class frmSortJobDisplay
 
         LExecQuery("Select poymcnum ,poymcname,poyprodname,POYmergenum , poyprodweight, POYDOFFNUM, poydrumstate,poybcodejob,CAST(POYSORTENDTM As Date) As SortEnd  FROM POYTRACK2 " _
             & "Where POYDRUMSTATE BETWEEN 1 And 14 And " _
-            & "(POYSORTENDTM >= DateAdd(Day, -7  ,'" & tmptimenow & "') And POYSORTENDTM < '" & tmptimenow & "') " _
+            & "(POYSORTENDTM >= DateAdd(DAY,Convert(Int,'" & dayCount & "') ,'" & tmptimenow & "') And POYSORTENDTM < '" & tmptimenow & "') " _
             & "GROUP BY POYMCNUM, poymcname, poyprodname, POYBCODEJOB, poymergenum, poyprodweight, poydoffnum, poydrumstate, CAST(poySortEndTM As Date) " _
             & "Order by SortEnd DESC ")
 

@@ -1287,9 +1287,6 @@
   <data name="Label11.Text" xml:space="preserve">
     <value>Previous display days</value>
   </data>
-  <data name="Label11.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="&gt;&gt;Label11.Name" xml:space="preserve">
     <value>Label11</value>
   </data>
