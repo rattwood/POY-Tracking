@@ -165,6 +165,12 @@
     <Compile Include="POY Job Displays\frmPackDisplay.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="POY Packing\frmUniversalPacking.Designer.vb">
+      <DependentUpon>frmUniversalPacking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="POY Packing\frmUniversalPacking.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="POYSort\frmSortCart.Designer.vb">
       <DependentUpon>frmSortCart.vb</DependentUpon>
     </Compile>
@@ -382,6 +388,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="POY Packing\frmTraceEntry.resx">
       <DependentUpon>frmTraceEntry.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POY Packing\frmUniversalPacking.resx">
+      <DependentUpon>frmUniversalPacking.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POY Reports\AUTO Generated Pack Report\frmPackCreateNew.resx">
       <DependentUpon>frmPackCreateNew.vb</DependentUpon>
