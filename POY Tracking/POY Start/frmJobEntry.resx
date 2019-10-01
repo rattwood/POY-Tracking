@@ -203,31 +203,31 @@
   <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="txtDrumNum.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="txtCartNumPack.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 24pt, style=Bold</value>
   </data>
-  <data name="txtDrumNum.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="txtCartNumPack.Location" type="System.Drawing.Point, System.Drawing">
     <value>587, 294</value>
   </data>
-  <data name="txtDrumNum.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="txtCartNumPack.Size" type="System.Drawing.Size, System.Drawing">
     <value>299, 44</value>
   </data>
-  <data name="txtDrumNum.TabIndex" type="System.Int32, mscorlib">
+  <data name="txtCartNumPack.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="txtDrumNum.Visible" type="System.Boolean, mscorlib">
+  <data name="txtCartNumPack.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;txtDrumNum.Name" xml:space="preserve">
-    <value>txtDrumNum</value>
+  <data name="&gt;&gt;txtCartNumPack.Name" xml:space="preserve">
+    <value>txtCartNumPack</value>
   </data>
-  <data name="&gt;&gt;txtDrumNum.Type" xml:space="preserve">
+  <data name="&gt;&gt;txtCartNumPack.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;txtDrumNum.Parent" xml:space="preserve">
+  <data name="&gt;&gt;txtCartNumPack.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;txtDrumNum.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;txtCartNumPack.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
   <data name="btnCancelReport.Font" type="System.Drawing.Font, System.Drawing">
@@ -535,7 +535,7 @@
     <value>Change Pallet ?</value>
   </data>
   <data name="ToolsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 20</value>
+    <value>62, 20</value>
   </data>
   <data name="ToolsToolStripMenuItem.Text" xml:space="preserve">
     <value>Tools</value>
@@ -571,7 +571,7 @@
     <value>False</value>
   </data>
   <data name="ReleaseToPackingToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>156, 22</value>
   </data>
   <data name="ReleaseToPackingToolStripMenuItem.Text" xml:space="preserve">
     <value>Release DRUMS</value>

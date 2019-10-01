@@ -240,12 +240,12 @@ Public Class frmPacking72
         frmJobEntry.btnNewPallet.Enabled = True
         frmJobEntry.btnOldPallet.Enabled = True
 
-        frmJobEntry.txtDrumNum.Visible = False
+        frmJobEntry.txtCartNumPack.Visible = False
         frmJobEntry.comBoxDrumPal.Visible = False
         frmJobEntry.comBoxDrumPal.SelectedIndex = -1 'Blank the value so operater has to select
         frmJobEntry.Label2.Visible = False
         frmJobEntry.Label4.Visible = False
-        frmJobEntry.txtDrumNum.Visible = False
+        frmJobEntry.txtCartNumPack.Visible = False
         frmJobEntry.comBoxDrumPal.Enabled = True
         frmJobEntry.btnNewPallet.BackColor = Color.LightGray
         frmJobEntry.btnNewPallet.Enabled = True
@@ -257,7 +257,7 @@ Public Class frmPacking72
         frmJobEntry.comBoxDrumPal.Enabled = True
 
         frmJobEntry.Show()
-        frmJobEntry.txtDrumNum.Clear()
+        frmJobEntry.txtCartNumPack.Clear()
 
 
 
@@ -337,12 +337,12 @@ Public Class frmPacking72
         frmJobEntry.btnNewPallet.Enabled = True
         frmJobEntry.btnOldPallet.Enabled = True
 
-        frmJobEntry.txtDrumNum.Visible = False
+        frmJobEntry.txtCartNumPack.Visible = False
         frmJobEntry.comBoxDrumPal.Visible = False
         frmJobEntry.comBoxDrumPal.SelectedIndex = -1 'Blank the value so operater has to select
         frmJobEntry.Label2.Visible = False
         frmJobEntry.Label4.Visible = False
-        frmJobEntry.txtDrumNum.Visible = False
+        frmJobEntry.txtCartNumPack.Visible = False
         frmJobEntry.comBoxDrumPal.Enabled = True
 
         frmJobEntry.btnNewPallet.BackColor = Color.LightBlue
@@ -352,7 +352,7 @@ Public Class frmPacking72
         frmJobEntry.newJobFlag = 0
         Me.Close()
         frmJobEntry.Show()
-        frmJobEntry.txtDrumNum.Clear()
+        frmJobEntry.txtCartNumPack.Clear()
 
 
 

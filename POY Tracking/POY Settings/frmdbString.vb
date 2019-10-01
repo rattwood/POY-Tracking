@@ -15,8 +15,8 @@
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         frmJobEntry.Show()
-        frmJobEntry.txtDrumNum.Clear()
-        frmJobEntry.txtDrumNum.Focus()
+        frmJobEntry.txtCartNumPack.Clear()
+        frmJobEntry.txtCartNumPack.Focus()
         Me.Close()
     End Sub
 

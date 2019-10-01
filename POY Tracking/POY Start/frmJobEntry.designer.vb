@@ -27,7 +27,7 @@ Partial Class frmJobEntry
         Me.txtOperator = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.txtDrumNum = New System.Windows.Forms.TextBox()
+        Me.txtCartNumPack = New System.Windows.Forms.TextBox()
         Me.btnCancelReport = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -78,10 +78,10 @@ Partial Class frmJobEntry
         resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.Name = "Label2"
         '
-        'txtDrumNum
+        'txtCartNumPack
         '
-        resources.ApplyResources(Me.txtDrumNum, "txtDrumNum")
-        Me.txtDrumNum.Name = "txtDrumNum"
+        resources.ApplyResources(Me.txtCartNumPack, "txtCartNumPack")
+        Me.txtCartNumPack.Name = "txtCartNumPack"
         '
         'btnCancelReport
         '
@@ -266,7 +266,7 @@ Partial Class frmJobEntry
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.btnCancelReport)
-        Me.Controls.Add(Me.txtDrumNum)
+        Me.Controls.Add(Me.txtCartNumPack)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtOperator)
@@ -285,7 +285,7 @@ Partial Class frmJobEntry
     Friend WithEvents txtOperator As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents txtDrumNum As TextBox
+    Friend WithEvents txtCartNumPack As TextBox
     Friend WithEvents ToraydbBindingSource As BindingSource
     Friend WithEvents Toraydb As Toraydb
     Friend WithEvents btnCancelReport As Button

@@ -110,9 +110,9 @@ Public Class frmTraceEntry
 
 
         frmJobEntry.Label2.Visible = False
-        frmJobEntry.txtDrumNum.Visible = False
-        frmJobEntry.txtDrumNum.Clear()
-        frmJobEntry.txtDrumNum.Refresh()
+        frmJobEntry.txtCartNumPack.Visible = False
+        frmJobEntry.txtCartNumPack.Clear()
+        frmJobEntry.txtCartNumPack.Refresh()
 
 
 

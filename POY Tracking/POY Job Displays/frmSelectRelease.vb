@@ -101,8 +101,8 @@ Public Class frmSelectRelease
         End If
 
 
-        '  LExecQuery("Select * from poytrack2 Where poybcodedrum = '" & tmpBcode & "' and POYDRUMSTATE = 4 ")
-        LExecQuery("Select * from poytrack2 Where poybcodedrum = '" & tmpBcode & "' and POYDRUMSTATE = 4 and (POYMISSDRUM is NUll or POYMISSDRUM < 1) ")
+        '  LExecQuery("Select * from poytrack Where poybcodedrum = '" & tmpBcode & "' and POYDRUMSTATE = 4 ")
+        LExecQuery("Select * from poytrack Where poybcodedrum = '" & tmpBcode & "' and POYDRUMSTATE = 4 and (POYMISSDRUM is NUll or POYMISSDRUM < 1) ")
 
 
 
@@ -346,7 +346,7 @@ Public Class frmSelectRelease
                     updateDrum = txtBoxScanDrum.Lines(i - 1).ToString
 
 
-                    LExecQuery("Update poytrack2 Set POYDRUMSTATE = 3, POYRELEASENAME = '" & tmpOpName & "', POYHOLDRELEASETM = '" & todayTimeDate & "' " _
+                    LExecQuery("Update poytrack Set POYDRUMSTATE = 3, POYRELEASENAME = '" & tmpOpName & "', POYHOLDRELEASETM = '" & todayTimeDate & "' " _
                                     & "Where POYBCODEDRUM = '" & updateDrum & "' ")
 
                 Next
@@ -361,7 +361,7 @@ Public Class frmSelectRelease
                     tmpDrumNum = updateDrum.Substring(12, 2)
 
 
-                    LExecQuery("Update poytrack2 Set POYDRUMSTATE = 3, POYRELEASENAME = '" & tmpOpName & "', POYHOLDRELEASETM = '" & todayTimeDate & "' , " _
+                    LExecQuery("Update poytrack Set POYDRUMSTATE = 3, POYRELEASENAME = '" & tmpOpName & "', POYHOLDRELEASETM = '" & todayTimeDate & "' , " _
                                 & " POYDEFDRUM = '" & tmpDrumNum & "' Where POYBCODEDRUM = '" & updateDrum & "' ")
                 Next
 
@@ -372,7 +372,7 @@ Public Class frmSelectRelease
                     updateDrum = txtBoxScanDrum.Lines(i - 1).ToString
                     tmpDrumNum = updateDrum.Substring(12, 2)
 
-                    LExecQuery("Update poytrack2 Set POYDRUMSTATE = 3, POYRELEASENAME = '" & tmpOpName & "', POYHOLDRELEASETM = '" & todayTimeDate & "' , " _
+                    LExecQuery("Update poytrack Set POYDRUMSTATE = 3, POYRELEASENAME = '" & tmpOpName & "', POYHOLDRELEASETM = '" & todayTimeDate & "' , " _
                               & "POYDRUMWASTE =  '" & tmpDrumNum & "' Where POYBCODEDRUM = '" & updateDrum & "' ")
                 Next
 
