@@ -39,6 +39,8 @@ Partial Class frmdbString
         Me.txtBoxCarts = New System.Windows.Forms.TextBox()
         Me.txtBoxTemplates = New System.Windows.Forms.TextBox()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtBoxPackStationID = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -107,7 +109,7 @@ Partial Class frmdbString
         Me.Button5.Location = New System.Drawing.Point(127, 431)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(123, 22)
-        Me.Button5.TabIndex = 61
+        Me.Button5.TabIndex = 5
         Me.Button5.Text = "Save Pallets"
         Me.Button5.UseVisualStyleBackColor = True
         '
@@ -124,7 +126,7 @@ Partial Class frmdbString
         Me.Button4.Location = New System.Drawing.Point(127, 387)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(123, 22)
-        Me.Button4.TabIndex = 59
+        Me.Button4.TabIndex = 4
         Me.Button4.Text = "Log File"
         Me.Button4.UseVisualStyleBackColor = True
         '
@@ -133,7 +135,7 @@ Partial Class frmdbString
         Me.Button3.Location = New System.Drawing.Point(127, 339)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(123, 22)
-        Me.Button3.TabIndex = 58
+        Me.Button3.TabIndex = 3
         Me.Button3.Text = "Spare"
         Me.Button3.UseVisualStyleBackColor = True
         '
@@ -142,7 +144,7 @@ Partial Class frmdbString
         Me.Button2.Location = New System.Drawing.Point(127, 292)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(123, 22)
-        Me.Button2.TabIndex = 57
+        Me.Button2.TabIndex = 2
         Me.Button2.Text = "Templates"
         Me.Button2.UseVisualStyleBackColor = True
         '
@@ -157,11 +159,11 @@ Partial Class frmdbString
         Me.Label8.TabIndex = 56
         Me.Label8.Text = "Directory Paths"
         '
-        'txtBoxJobs
+        'txtLogPath
         '
         Me.txtLogPath.Location = New System.Drawing.Point(278, 387)
         Me.txtLogPath.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.txtLogPath.Name = "txtBoxJobs"
+        Me.txtLogPath.Name = "txtLogPath"
         Me.txtLogPath.Size = New System.Drawing.Size(287, 20)
         Me.txtLogPath.TabIndex = 55
         '
@@ -181,11 +183,32 @@ Partial Class frmdbString
         Me.txtBoxTemplates.Size = New System.Drawing.Size(287, 20)
         Me.txtBoxTemplates.TabIndex = 53
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(547, 532)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(114, 13)
+        Me.Label3.TabIndex = 64
+        Me.Label3.Text = "Packing Station ID"
+        '
+        'txtBoxPackStationID
+        '
+        Me.txtBoxPackStationID.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtBoxPackStationID.Location = New System.Drawing.Point(677, 529)
+        Me.txtBoxPackStationID.Name = "txtBoxPackStationID"
+        Me.txtBoxPackStationID.Size = New System.Drawing.Size(23, 20)
+        Me.txtBoxPackStationID.TabIndex = 65
+        Me.txtBoxPackStationID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'frmdbString
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(710, 579)
+        Me.Controls.Add(Me.txtBoxPackStationID)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.txtBoxPackReports)
         Me.Controls.Add(Me.Button5)
@@ -225,4 +248,6 @@ Partial Class frmdbString
     Friend WithEvents txtBoxCarts As TextBox
     Friend WithEvents txtBoxTemplates As TextBox
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
+    Friend WithEvents Label3 As Label
+    Friend WithEvents txtBoxPackStationID As TextBox
 End Class

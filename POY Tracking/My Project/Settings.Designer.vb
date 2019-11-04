@@ -268,6 +268,18 @@ Namespace My
                 Me("displayDays") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property packStationID() As String
+            Get
+                Return CType(Me("packStationID"),String)
+            End Get
+            Set
+                Me("packStationID") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

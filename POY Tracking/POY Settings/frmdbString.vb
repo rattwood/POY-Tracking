@@ -10,6 +10,7 @@
         txtLogPath.Text = My.Settings.dirLogs
         txtBoxPack.Text = My.Settings.dirPacking
         txtBoxPackReports.Text = My.Settings.dirPackReports
+        txtBoxPackStationID.Text = My.Settings.packStationID
 
     End Sub
 
@@ -28,6 +29,8 @@
         My.Settings.dirLogs = txtLogPath.Text   'Spare
         My.Settings.dirPacking = txtBoxPack.Text   'Pallet Packing report
         My.Settings.dirPackReports = txtBoxPackReports.Text 'Exchange Drum Reports by trace number
+        My.Settings.packStationID = txtBoxPackStationID.Text
+
 
         btnSave.Enabled = False
         TextBox1.Refresh()
@@ -71,4 +74,7 @@
         btnSave.Enabled = True
     End Sub
 
+    Private Sub txtBoxPackStationID_TextChanged(sender As Object, e As EventArgs) Handles txtBoxPackStationID.TextChanged
+        btnSave.Enabled = True
+    End Sub
 End Class

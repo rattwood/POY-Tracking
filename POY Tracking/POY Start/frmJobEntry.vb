@@ -209,7 +209,7 @@ Public Class frmJobEntry
 
             If Not (txtCartNumPack.TextLength = 14) Then  ' LENGTH OF BARCODE
                 If thaiLang Then MsgBox("หมายเลขนี้ไม่ใช่หมายเลขของดรัม กรุณาสแกนใหม่") Else _
-                    MsgBox("This is not a DRUM number Please RE Scan")
+                    MsgBox("This is not a CART number Please RE Scan")
 
                 Me.txtCartNumPack.Clear()
                 Me.txtCartNumPack.Focus()
@@ -220,7 +220,7 @@ Public Class frmJobEntry
         Catch ex As Exception
 
             If thaiLang Then MsgBox("ไม่มีหมายเลขดรัมนี้ " & vbNewLine & ex.Message) Else _
-                MsgBox("DRUM BarCode Is Not Valid " & vbNewLine & ex.Message)
+                MsgBox("CART BarCode Is Not Valid " & vbNewLine & ex.Message)
 
             'Write error to Log File
             writeerrorLog.writelog("Drum Scan Error", ex.Message, False, "User Fault")
@@ -526,33 +526,33 @@ Public Class frmJobEntry
 
 
 
-
-            'CHECK TO SEE IF CART HAS ANY DRUMS TO PACK
-            LExecQuery("SELECT * FROM POYTrack WHERE POYBCODECART = '" & dbBarcode & "' and POYDRUMSTATE = '3'  and  FLT_X = 'False' and FLT_S = 'False' and (poydefdrum is null or poydefdrum < 1) ")
-            If LRecordCount = 0 Then
-                MsgBox("This Cart has NO DRUMS for Packing")
-                Exit Sub
-            End If
-
-            'Check to see if there is a Pallet already in progress for this product
-            '    LExecQuery("SELECT * FROM POYTrack WHERE  POYPRNUM = '" & productCode & "' and poytracenum is null and POYDRUMPERPAL = '" & drumPerPal & "' ")
-            'If LRecordCount = 0 Then
-            '    MsgBox("There is already a Palette open for this product")
-            '    Exit Sub
-            'End If
-
-
-
-
             Try
+                'CHECK TO SEE IF CART HAS ANY DRUMS TO PACK
+                LExecQuery("SELECT * FROM POYTrack WHERE POYBCODECART = '" & dbBarcode & "' and POYDRUMSTATE = '3'  and  FLT_X = 'False' and FLT_S = 'False' and (poydefdrum is null or poydefdrum < 1) ")
+                If LRecordCount = 0 Then
+                    MsgBox("This Cart has NO DRUMS for Packing")
+                    Exit Sub
+                End If
+
+                'Check to see if there is a Pallet already in progress for this product
+                '    LExecQuery("SELECT * FROM POYTrack WHERE  POYPRNUM = '" & productCode & "' and poytracenum is null and POYDRUMPERPAL = '" & drumPerPal & "' ")
+                'If LRecordCount = 0 Then
+                '    MsgBox("There is already a Palette open for this product")
+                '    Exit Sub
+                'End If
+
+
+
+
+
                 ' If LRecordCount > 0 Then  'If it exists then 
 
-                If thaiLang Then MsgBox("หมายเลขดรัมนี้ถูกใช้วางตำแหน่งแล้ว กรุณาใช้ option จบพาเลทเก่า") Else _
-                            MsgBox("This Drum is allready allocated, " & vbCrLf & " Please use the FINISH OLD PALLET Option")
-                    frmDGV.DGVdata.ClearSelection()
-                    newJobFlag = 0
-                    cancelRoutine()
-                    Exit Sub
+                'If thaiLang Then MsgBox("หมายเลขดรัมนี้ถูกใช้วางตำแหน่งแล้ว กรุณาใช้ option จบพาเลทเก่า") Else _
+                '            MsgBox("This Drum is allready allocated, " & vbCrLf & " Please use the FINISH OLD PALLET Option")
+                '    frmDGV.DGVdata.ClearSelection()
+                '    newJobFlag = 0
+                '    cancelRoutine()
+                '    Exit Sub
 
                 ' Else
                 'go and create new pallette
@@ -879,76 +879,12 @@ Public Class frmJobEntry
             frmDGV.DGVdata.DataSource = LDS.Tables(0)
             frmDGV.DGVdata.Rows(0).Selected = True
             machineName = frmDGV.DGVdata.Rows(0).Cells("MCNAME").Value
-            'Else
-            '    MsgBox("Machine number " & machineCode & " is incorrect")
+        Else
+            MsgBox("Machine number " & machineCode & " is incorrect " & vbCrLf & "Please check barcode")
 
         End If
 
 
-        'Select Case machineCode
-        '    Case 51
-        '        machineName = 111
-        '    Case 52
-        '        machineName = 112
-        '    Case 53
-        '        machineName = 121
-        '    Case 54
-        '        machineName = 122
-        '    Case 55
-        '        machineName = 130
-        '    Case 56
-        '        machineName = 141
-        '    Case 57
-        '        machineName = 142
-        '    Case 58
-        '        machineName = 151
-        '    Case 59
-        '        machineName = 152
-        '    Case 60
-        '        machineName = 210
-        '    Case 61
-        '        machineName = 220
-        '    Case 62
-        '        machineName = 230
-        '    Case 63
-        '        machineName = 241
-        '    Case 64
-        '        machineName = 242
-        '    Case 65
-        '        machineName = 250
-        '    Case 66
-        '        machineName = 310
-        '    Case 67
-        '        machineName = 321
-        '    Case 68
-        '        machineName = 322
-        '    Case 69
-        '        machineName = 330
-        '    Case 70
-        '        machineName = 341
-        '    Case 71
-        '        machineName = 342
-        '    Case 72
-        '        machineName = 350
-        '    Case 73
-        '        machineName = 361
-        '    Case 74
-        '        machineName = 362
-        '    Case 75
-        '        machineName = 410
-        '    Case 76
-        '        machineName = 420
-        '    Case 77
-        '        machineName = 430
-        '    Case 78
-        '        machineName = 441
-        '    Case 79
-        '        machineName = 442
-        '    Case 80
-        '        machineName = 450
-        '    Case 81
-        '        machineName = 460
-        'End Select
 
 
     End Sub
@@ -1052,7 +988,10 @@ Public Class frmJobEntry
 
         Dim fmt As String = "000"
         Dim modIdxNum As String
+        Dim tmpToday As String = Date.Now.ToString("yyMMdd")
 
+
+        Dim tmpTraceNum As String = productCode & tmpToday & "_" & drumPerPal
 
 
 
@@ -1069,14 +1008,13 @@ Public Class frmJobEntry
             'ADD SQL PARAMETERS & RUN THE COMMAND
 
             LAddParam("@poypackidx", modIdxNum)
-            LAddParam("@poystationnum", 0)
-            LAddParam("@poytmptrace", dbBarcode)
+            LAddParam("@poystationnum", My.Settings.packStationID)
             LAddParam("@poydrumperpal", drumPerPal)
-            LAddParam("@poytmptracenum", @poytmptracenum)
+            LAddParam("@poytmptracenum", tmpTraceNum)
 
 
 
-            LExecQuery("INSERT INTO POYPackTrace (POYPACKIDX, POYPACKSTATION, POYDRUMPERPAL, POYTRACENUM, POYTMPTRACENUM, POYBCODEDRUM ) " _
+            LExecQuery("INSERT INTO POYPackTrace (POYPACKIDX, POYPACKSTATION, POYDRUMPERPAL, POYTMPTRACENUM ) " _
                    & " VALUES (@poypackidx,@poystationnum, @poydrumperpal,@poytmptracenum ) ")
 
 
