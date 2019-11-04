@@ -110,14 +110,15 @@ Public Class frmPackTodayUpdate
         End Try
 
 
-        Try
+        If My.Settings.AutoPrint Then
+            Try
 
-            Dim defPrinter As String
-            defPrinter = MyTodyExcel.ActivePrinter
+                Dim defPrinter As String
+                defPrinter = MyTodyExcel.ActivePrinter
 
 
-            'Printout results of Pack Form
-            xlTodyWorkbook.PrintOutEx(
+                'Printout results of Pack Form
+                xlTodyWorkbook.PrintOutEx(
             From:=1,
             To:=1,
             Copies:=1,
@@ -125,14 +126,14 @@ Public Class frmPackTodayUpdate
             Collate:=True,
             IgnorePrintAreas:=True)
 
-            MyTodyExcel.ActivePrinter = defPrinter
+                MyTodyExcel.ActivePrinter = defPrinter
 
-        Catch ex As Exception
-            MsgBox(ex.Message)
-            writeerrorLog.writelog("48 Excel Print", ex.Message, True, "System_Fault")
-            writeerrorLog.writelog("48 Excel Print", ex.ToString, True, "System_Fault")
-        End Try
-
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                writeerrorLog.writelog("48 Excel Print", ex.Message, True, "System_Fault")
+                writeerrorLog.writelog("48 Excel Print", ex.ToString, True, "System_Fault")
+            End Try
+        End If
 
 
 
@@ -263,7 +264,8 @@ Public Class frmPackTodayUpdate
             Me.Cursor = System.Windows.Forms.Cursors.Default
         End Try
 
-        Try
+        If My.Settings.AutoPrint Then
+            Try
             Dim defPrinter As String
             defPrinter = MyTodyExcel.ActivePrinter
 
@@ -285,7 +287,7 @@ Public Class frmPackTodayUpdate
             writeerrorLog.writelog("72 Excel Print", ex.Message, True, "System_Fault")
             writeerrorLog.writelog("72 Excel Print", ex.ToString, True, "System_Fault")
         End Try
-
+        End If
 
         Try
 
@@ -410,7 +412,8 @@ Public Class frmPackTodayUpdate
             Me.Cursor = System.Windows.Forms.Cursors.Default
         End Try
 
-        Try
+        If My.Settings.AutoPrint Then
+            Try
             Dim defPrinter As String
             defPrinter = MyTodyExcel.ActivePrinter
 
@@ -431,7 +434,7 @@ Public Class frmPackTodayUpdate
             writeerrorLog.writelog("120 Excel Print", ex.Message, True, "System_Fault")
             writeerrorLog.writelog("120 Excel Print", ex.ToString, True, "System_Fault")
         End Try
-
+        End If
 
 
         Try

@@ -32,6 +32,8 @@ Public Class frmSettings
 
         If My.Settings.debugSet Then chkDGV.Checked = True Else chkDGV.Checked = False
         If My.Settings.chkUseLogs Then chkUseLogs.Checked = True Else chkUseLogs.Checked = False
+        If My.Settings.AutoPrint Then chkAutoPrint.Checked = True Else chkAutoPrint.Checked = False
+
 
         'Set check box for Language selected
         If My.Settings.chkUseEng Then chkEnglish.Checked = True Else chkEnglish.Checked = False
@@ -82,8 +84,10 @@ Public Class frmSettings
         My.Settings.chkUseEng = chkEnglish.CheckState
         My.Settings.chkUseThai = chkThai.CheckState
         My.Settings.chkUseLogs = chkUseLogs.CheckState
+        My.Settings.AutoPrint = chkAutoPrint.CheckState
         My.Settings.scrRefresh = txtscrRefresh.Text
         My.Settings.displayDays = txtBoxDisplayDays.Text
+
         My.Settings.Save()
         frmSortJobDisplay.tmrUpdateTimer.Interval = My.Settings.scrRefresh * 1000
         Me.Close()
@@ -127,6 +131,10 @@ Public Class frmSettings
     End Sub
 
     Private Sub chkDGV_CheckedChanged(sender As Object, e As EventArgs) Handles chkDGV.CheckedChanged
+        btnSetSave.Enabled = True
+    End Sub
+
+    Private Sub chkAutoPrint_CheckedChanged(sender As Object, e As EventArgs) Handles chkAutoPrint.CheckedChanged
         btnSetSave.Enabled = True
     End Sub
 End Class

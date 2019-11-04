@@ -64,6 +64,7 @@ Partial Class frmSettings
         Me.lblscnRefresh = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txtBoxDisplayDays = New System.Windows.Forms.TextBox()
+        Me.chkAutoPrint = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'lblSerialPortSelect
@@ -283,10 +284,17 @@ Partial Class frmSettings
         resources.ApplyResources(Me.txtBoxDisplayDays, "txtBoxDisplayDays")
         Me.txtBoxDisplayDays.Name = "txtBoxDisplayDays"
         '
+        'chkAutoPrint
+        '
+        resources.ApplyResources(Me.chkAutoPrint, "chkAutoPrint")
+        Me.chkAutoPrint.Name = "chkAutoPrint"
+        Me.chkAutoPrint.UseVisualStyleBackColor = True
+        '
         'frmSettings
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.chkAutoPrint)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.txtBoxDisplayDays)
         Me.Controls.Add(Me.lblscnRefresh)
@@ -373,4 +381,5 @@ Partial Class frmSettings
     Friend WithEvents lblscnRefresh As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents txtBoxDisplayDays As TextBox
+    Friend WithEvents chkAutoPrint As CheckBox
 End Class
