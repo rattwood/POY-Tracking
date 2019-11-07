@@ -165,8 +165,8 @@ Public Class frmJobEntry
             comBoxDrumPal.SelectedIndex = -1 'Blank the value so operater has to select
             Label4.Visible = True
             comBoxDrumPal.Visible = True
-            Label2.Text = "Scan Cart Sheet"
-            Label2.Visible = True
+            'Label2.Text = "Scan Cart Sheet"
+            'Label2.Visible = True
             Me.Text = "POY Packing"
 
             btnNewPallet.Enabled = True
@@ -192,6 +192,7 @@ Public Class frmJobEntry
         drumPerPal = comBoxDrumPal.Text
 
         Label2.Visible = True
+        Label2.Text = "Scan Cart Sheet"
         txtCartNumPack.Visible = True
         txtCartNumPack.Focus()
 
@@ -628,7 +629,6 @@ Public Class frmJobEntry
                 If Not IsDBNull(frmDGV.DGVdata.Rows(0).Cells("POYPRNUM").Value) Then
                     ExistingProd = frmDGV.DGVdata.Rows(0).Cells("POYPRNUM").Value.ToString
                     If String.Equals(productCode, ExistingProd) = False Then
-                        ' MsgBox("This cart Is for Product # " & productCode.ToString & " And Palette Product Is " & ExistingProd.ToString & " Please check")
                         If thaiLang Then MsgBox("ดรัมนี้คือโปรดักส์ " & productCode.ToString & " และพาเลทโปรดักส์คือ " & ExistingProd.ToString & " กรุณาตรวจสอบ") Else _
                         MsgBox("This cart Is for Product # " & productCode.ToString & " And Palette Product Is " & ExistingProd.ToString & " Please check")
                         Me.txtCartNumPack.Clear()
@@ -655,13 +655,6 @@ Public Class frmJobEntry
 
 
         PackCheck()
-
-
-
-
-
-
-
 
 
     End Sub
@@ -698,10 +691,6 @@ Public Class frmJobEntry
     Private Sub CheckCartExist()
 
         'this is check to see if second section barcode of cart P2,P4,P6,P8 if it is then we will change to P1,p3,P5  or P7
-
-
-
-
 
 
         '*************************  CHECK TO SEE IF JOB ALREADY EXISITS IF NOT CREATE JOB
@@ -1560,6 +1549,7 @@ Public Class frmJobEntry
         comBoxDrumPal.Visible = False
         newJobFlag = 0
         Label2.Visible = True
+        Label2.Text = "Scan Cart Sheet"
         txtCartNumPack.Visible = True
         txtCartNumPack.Focus()
 

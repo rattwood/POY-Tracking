@@ -125,7 +125,7 @@
     <value>327, 69</value>
   </data>
   <data name="txtOperator.Size" type="System.Drawing.Size, System.Drawing">
-    <value>471, 44</value>
+    <value>392, 44</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="txtOperator.TabIndex" type="System.Int32, mscorlib">
@@ -150,7 +150,7 @@
     <value>Microsoft Sans Serif, 20.25pt, style=Bold</value>
   </data>
   <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 75</value>
+    <value>126, 75</value>
   </data>
   <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 31</value>

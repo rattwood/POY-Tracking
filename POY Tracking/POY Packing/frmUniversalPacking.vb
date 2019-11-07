@@ -49,7 +49,11 @@ Public Class frmUniversalPacking
 
     Private Sub frmUniversalPacking_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        lblCartNum.Text = "ABC"
+        lblCartNum.Text = frmJobEntry.varCartNum
+
+        UpdateImageValues()
+
+        updatePackGrid()
 
 
 
@@ -156,17 +160,18 @@ Public Class frmUniversalPacking
 
                 'Update Scanned Image
                 If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value) Then
+
                     cellVal = frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value.ToString
-                    'CHECK FOR SCANNED Drum AND SET TO GREEN
-                    If cellVal = 3 Then
-                        Me.Controls("btn" & rw).BackgroundImage = My.Resources.Have_Drum
-                        Me.Controls("btn" & rw).Enabled = True
-                    ElseIf cellVal = 15 Then
-                        Me.Controls("btn" & rw).BackgroundImage = My.Resources.Packed_Drum
-                        Me.Controls("btn" & rw).Enabled = False
+                        'CHECK FOR SCANNED Drum AND SET TO GREEN
+                        If cellVal = 3 Then
+                            Me.Controls("btn" & rw).BackgroundImage = My.Resources.Have_Drum
+                            Me.Controls("btn" & rw).Enabled = True
+                        ElseIf cellVal = 15 Then
+                            Me.Controls("btn" & rw).BackgroundImage = My.Resources.Packed_Drum
+                            Me.Controls("btn" & rw).Enabled = False
+                        End If
+                        cellVal = Nothing
                     End If
-                    cellVal = Nothing
-                End If
 
 
 
@@ -179,14 +184,14 @@ Public Class frmUniversalPacking
 
                         If cellVal = 3 Then
 
-                            Me.Controls("btn" & rw).BackgroundImage = My.Resources.NoDrum
+                            Me.Controls("btn" & rw).BackgroundImage = My.Resources.ShortDrum
                             Me.Controls("btn" & rw).Enabled = True
                             shortC(rw) = 1
                         End If
 
                         If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYDEFDRUM").Value) Then
                             If frmDGV.DGVdata.Rows(rw - 1).Cells("POYDEFDRUM").Value > 0 Then
-                                Me.Controls("btn" & rw).BackgroundImage = My.Resources.NoDrum
+                                Me.Controls("btn" & rw).BackgroundImage = My.Resources.ShortWithDefect
                                 Me.Controls("btn" & rw).Enabled = True
                                 shortC(rw) = 1
                             End If
@@ -219,11 +224,11 @@ Public Class frmUniversalPacking
 
                     If cellVal > 0 Then
 
-                        Me.Controls("btn" & rw).BackgroundImage = My.Resources.NoDrum
+                        Me.Controls("btn" & rw).BackgroundImage = My.Resources.DefectDrum
 
                         If Not IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYSHORTDRUM").Value) Then
                             If frmDGV.DGVdata.Rows(rw - 1).Cells("POYSHORTDRUM").Value > 0 Then
-                                Me.Controls("btn" & rw).BackgroundImage = My.Resources.NoDrum
+                                Me.Controls("btn" & rw).BackgroundImage = My.Resources.ShortWithDefect
                             End If
                         End If
 
@@ -238,13 +243,105 @@ Public Class frmUniversalPacking
         End Try
 
 
-
-
-
-
-
     End Sub
 
+    Private Sub updatePackGrid()
+
+        Dim tmpPalletDrums = frmJobEntry.drumPerPal
+
+        Select Case tmpPalletDrums
+
+            Case 48
+                'Hide unwanted drum locations
+                For i = 1 To 120
+                    Select Case i
+                        Case 9 - 20 'Hide
+                            Me.Controls("btn" & i).Visible = False
+                        Case 29 - 40 'Hide
+                            Me.Controls("btn" & i).Visible = False
+                        Case 49 - 60 'Hide
+                            Me.Controls("btn" & i).Visible = False
+                        Case 69 - 80 'Hide
+                            Me.Controls("btn" & i).Visible = False
+                        Case 89 - 100 'hide
+                            Me.Controls("btn" & i).Visible = False
+                        Case 109 - 120 'hide
+                            Me.Controls("btn" & i).Visible = False
+                    End Select
+                Next
+
+                Dim tmpbtnnum As Integer = 1
+
+                For i = 1 To 108
+                    Select Case i
+                        Case 1 - 8
+                            Me.Controls("btn" & i).Text = tmpbtnnum.ToString("00")
+                            tmpbtnnum = tmpbtnnum + 1
+                        Case 21 - 28 'show and re number
+                            Me.Controls("btn" & i).Text = tmpbtnnum.ToString("00")
+                            tmpbtnnum = tmpbtnnum + 1
+                        Case 41 - 48 'show and re number
+                            Me.Controls("btn" & i).Text = tmpbtnnum.ToString("00")
+                            tmpbtnnum = tmpbtnnum + 1
+                        Case 61 - 68 'show and re number
+                            Me.Controls("btn" & i).Text = tmpbtnnum.ToString("00")
+                            tmpbtnnum = tmpbtnnum + 1
+                        Case 81 - 88 'show and re number
+                            Me.Controls("btn" & i).Text = tmpbtnnum.ToString("00")
+                            tmpbtnnum = tmpbtnnum + 1
+                        Case 101 - 108 'show and re number
+                            Me.Controls("btn" & i).Text = tmpbtnnum.ToString("00")
+                            tmpbtnnum = tmpbtnnum + 1
+                    End Select
+                Next
+
+            Case 72
+                'Hide unwanted drum locations
+                For i = 1 To 120
+                    Select Case i
+                        Case 16 - 20 'Hide
+                            Me.Controls("btn" & i).Visible = False
+                        Case 36 - 40 'Hide
+                            Me.Controls("btn" & i).Visible = False
+                        Case 53 - 60 'Hide
+                            Me.Controls("btn" & i).Visible = False
+                        Case 73 - 80 'Hide
+                            Me.Controls("btn" & i).Visible = False
+                        Case 93 - 100 'hide
+                            Me.Controls("btn" & i).Visible = False
+                        Case 113 - 120 'hide
+                            Me.Controls("btn" & i).Visible = False
+                    End Select
+                Next
+
+                Dim tmpbtnnum As Integer = 1
+
+                For i = 1 To 108
+                    Select Case i
+                        Case 1 - 12
+                            Me.Controls("btn" & i).Text = tmpbtnnum.ToString("00")
+                            tmpbtnnum = tmpbtnnum + 1
+                        Case 21 - 32 'show and re number
+                            Me.Controls("btn" & i).Text = tmpbtnnum.ToString("00")
+                            tmpbtnnum = tmpbtnnum + 1
+                        Case 41 - 52 'show and re number
+                            Me.Controls("btn" & i).Text = tmpbtnnum.ToString("00")
+                            tmpbtnnum = tmpbtnnum + 1
+                        Case 61 - 72 'show and re number
+                            Me.Controls("btn" & i).Text = tmpbtnnum.ToString("00")
+                            tmpbtnnum = tmpbtnnum + 1
+                        Case 81 - 92 'show and re number
+                            Me.Controls("btn" & i).Text = tmpbtnnum.ToString("00")
+                            tmpbtnnum = tmpbtnnum + 1
+                        Case 101 - 112 'show and re number
+                            Me.Controls("btn" & i).Text = tmpbtnnum.ToString("00")
+                            tmpbtnnum = tmpbtnnum + 1
+                    End Select
+                Next
+
+        End Select
+
+    End Sub
 
 
 
