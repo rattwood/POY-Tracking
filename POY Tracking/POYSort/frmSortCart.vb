@@ -355,6 +355,8 @@ Public Class frmSortCart
 
         If bcodeScan = "987654321" Then
             barcodeFinish()
+        ElseIf bcodeScan = "123456789" Then
+            barcodeCancel()
         End If
 
 
@@ -1588,6 +1590,8 @@ Public Class frmSortCart
 
             If txtDrumBcode.Text = "987654321" Then
                 barcodeFinish()
+            ElseIf txtDrumBcode.Text = "123456789" Then
+                barcodeCancel()
             Else
                 prgContinue()
             End If
@@ -1603,6 +1607,19 @@ Public Class frmSortCart
         txtDrumBcode.Focus()
         txtDrumBcode.Refresh()
     End Sub
+
+    Private Sub barcodeCancel()
+        If frmJobEntry.LConn.State = ConnectionState.Open Then frmJobEntry.LConn.Close()
+        frmDGV.DGVdata.ClearSelection()
+        Me.Cursor = System.Windows.Forms.Cursors.Default
+        frmJobEntry.Show()
+        frmJobEntry.txtCartNum.Clear()
+        frmJobEntry.txtCartNum.Focus()
+
+        Me.Close()
+
+    End Sub
+
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         If frmJobEntry.LConn.State = ConnectionState.Open Then frmJobEntry.LConn.Close()
