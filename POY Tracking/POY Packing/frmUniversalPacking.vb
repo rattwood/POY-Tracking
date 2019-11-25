@@ -66,17 +66,49 @@ Public Class frmUniversalPacking
     Public DRUMCount As Integer
     ' Public DRUMState As String
     Dim fltDRUMNum As String
+    Dim POYDrums As Integer
+    Dim nextFree As Integer
+    Dim machineCode As String
+    Dim machineName As String
+    Dim productCode As String
+    Dim Year As String
+    Dim Month As String
+    Dim doffingNum As String
+    Dim spinNum As String
+    Dim mergeNum As String
+    Dim stepNum As String
 
 
 
 
     Private Sub frmUniversalPacking_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        POYDrums = frmDGV.DGVdata.Rows(0).Cells("POYDRUMPERPAL").Value
+
+
+        Dim totDrum As Integer
+        Dim tmpNum As String = 0
+        Dim drumToAllCount As Integer = frmJobEntry.LRecordCount
 
 
 
 
-        lblCartNum.Text = frmJobEntry.varCartNum
+
+        'GET NUMBER OF CONES THAT NEED ALLOCATING Count against Job Barcode
+        totDrum = POYDrums
+
+        'toAllocatedCount = totDrum - frmJobEntry.drumToAllcount
+
+        txtBoxPalletSize.Text = totDrum
+        txtboxAllocated.Text = allocatedCount
+
+        'lblCartNum.Text = tmpCartNum  'show cart Number
+        lblTraceNum.Text = frmJobEntry.varCartBCode  'Drum number of first drum scanner which then becomes the tmp Trace number
+        lblProduct.Text = frmJobEntry.varProductName
+        lblMerge.Text = frmJobEntry.mergeNum
+        txtBoxPalletSize.Text = frmJobEntry.drumPerPal
+
+
 
 
 
@@ -85,6 +117,177 @@ Public Class frmUniversalPacking
 
         UpdateImageValues()
 
+
+    End Sub
+
+
+    'Private Sub txtConeBcode_TextChanged(sender As Object, e As EventArgs) Handles txtConeBcode.TextChanged
+
+    Private Sub prgContinue()
+
+
+
+
+        bcodeScan = txtDrumBcode.Text
+
+
+        Dim curDrum As String = nextFree  'so index for DGV works
+        Dim drumCount As Integer = 0
+
+
+
+
+        Try
+
+
+            machineCode = bcodeScan.Substring(0, 2)
+            productCode = bcodeScan.Substring(2, 3)
+            Year = bcodeScan.Substring(5, 2)
+            Month = bcodeScan.Substring(7, 2)
+            doffingNum = bcodeScan.Substring(9, 3)
+            spinNum = bcodeScan.Substring(12, 2)
+            mergeNum = bcodeScan.Substring(9, 3)
+
+
+
+
+            If Not (txtDrumBcode.TextLength = 14) Or txtDrumBcode.Text.Substring(12, 1) = "P" Then  ' LENGTH OF BARCODE
+                MsgBox("This is not a DRUM barcode Please RE Scan")
+                txtDrumBcode.Clear()
+                txtDrumBcode.Focus()
+                Exit Sub
+            ElseIf Not (productCode = frmCartDGV.DGVCart.Rows(0).Cells("POYPRNUM").Value) Then
+                MsgBox("This DRUM is the wrong product code ")
+                txtDrumBcode.Clear()
+                txtDrumBcode.Focus()
+                Exit Sub
+            End If
+
+            For i = 1 To POYDrums
+                If IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value) Then Continue For
+                If frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value.ToString = bcodeScan Then
+                    Label1.Visible = True
+                    Label1.Text = "Drum already allocated"
+                    DelayTM()
+                    Label1.Visible = False
+                    txtDrumBcode.Clear()
+                    txtDrumBcode.Focus()
+                    Exit Sub
+                End If
+            Next
+        Catch ex As Exception
+            MsgBox("DRUM BarCode Is Not Valid " & vbNewLine & ex.Message)
+            txtDrumBcode.Clear()
+            txtDrumBcode.Focus()
+            Exit Sub
+        End Try
+
+
+
+
+        Try
+            If IsDBNull(frmDGV.DGVdata.Rows(curDrum - 1).Cells("POYDRUMSTATE").Value) Then
+
+
+                curDrum = nextFree
+                GroupBox5.Controls("btnPacked" & curDrum).BackgroundImage = My.Resources.Have_Drum        'Grade A Cone
+
+
+                'POYTRACE DGV UPDATES
+                frmDGV.DGVdata.Rows(curDrum - 1).Cells("POYBCODEDRUM").Value = bcodeScan
+
+
+
+
+                'POYPACK DGV UPDATES
+
+                frmCartDgv.DGVCart.Rows(curDrum - 1).Cells("POYDRUMSTATE").Value = "15"
+                frmCartDgv.DGVCart.Rows(curDrum - 1).Cells("POYPACKNAME").Value = frmJobEntry.PackOp
+                frmCartDgv.DGVCart.Rows(curDrum - 1).Cells("POYPACKDATE").Value = frmJobEntry.time
+
+                getStepNum()
+
+                frmCartDgv.DGVCart.Rows(curDrum - 1).Cells("POYSTEPNUM").Value = stepNum
+                frmDGV.DGVdata.Rows(curDrum - 1).Cells("POYBCODEDRUM").Value = bcodeScan
+
+
+                allocatedCount = allocatedCount + 1
+                txtboxAllocated.Text = allocatedCount
+                nextFree = nextFree + 1
+                endCheck()
+
+            End If
+
+        Catch ex As Exception
+            MsgBox("Please re scan Drum" & vbNewLine & ex.Message)
+        End Try
+
+
+
+
+        txtDrumBcode.Clear()
+        txtDrumBcode.Focus()
+
+    End Sub
+
+    Public Sub endCheck()
+
+        If POYDrums = allocatedCount Then
+            EndJob()
+        End If
+        Me.Cursor = System.Windows.Forms.Cursors.Default
+    End Sub
+
+    Public Sub EndJob()
+
+        Try
+            'curcone = 0
+            frmTraceEntry.Show()
+            Hide()
+
+        Catch ex As Exception
+            MsgBox("Update Error " & vbNewLine & ex.Message)
+        Finally
+            Me.Cursor = System.Windows.Forms.Cursors.Default
+        End Try
+
+
+    End Sub
+
+    Private Sub getStepNum()
+
+        Select Case nextFree
+            Case 1, 2, 3, 4, 5, 6, 7, 8
+                stepNum = 1
+
+            Case 9, 10, 11, 12, 13, 14, 15, 16
+                stepNum = 2
+
+            Case 17, 18, 19, 20, 21, 22, 23, 24
+                stepNum = 3
+
+            Case 25, 26, 27, 28, 29, 30, 31, 32
+                stepNum = 4
+
+            Case 33, 34, 35, 36, 37, 38, 39, 40
+                stepNum = 5
+
+            Case 41, 42, 43, 44, 45, 46, 47, 48
+                stepNum = 6
+        End Select
+
+
+    End Sub
+
+
+    Private Sub DelayTM()
+        Dim interval As Integer = "2000"
+        Dim sw As New Stopwatch
+        sw.Start()
+        Do While sw.ElapsedMilliseconds < interval
+            Application.DoEvents()
+        Loop
+        sw.Stop()
 
     End Sub
 
@@ -181,11 +384,18 @@ Public Class frmUniversalPacking
 
     Private Sub UpdateDrumVal()
 
+
+
+        allocatedCount = 0
+
+
+
+        '"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
         Dim cellVal As String
         Dim reasonFound As Integer = 0
         Dim tmpCartNum As String
 
-        MsgBox(frmJobEntry.varCartBCode)
+
 
         LExecQuery("Select POYBCODECART from POYTRACK where POYBCODEDRUM = '" & frmJobEntry.varCartBCode & "' ")
         If LRecordCount > 0 Then
@@ -207,9 +417,22 @@ Public Class frmUniversalPacking
             Dim LCB As SqlCommandBuilder = New SqlCommandBuilder(LDA)
         End If
 
-        Try
-            For rw As Integer = 1 To 16 '16 Drum on each cart
+        If frmJobEntry.varNewPal = 1 Then
+            frmCartDgv.DGVCart.Rows(0).Cells("POYBCODEDRUM").Value = frmJobEntry.varCartBCode
 
+        End If
+
+        lblCartNum.Text = tmpCartNum  'show cart Number
+        lblTraceNum.Text = frmJobEntry.varCartBCode  'Drum number of first drum scanner which then becomes the tmp Trace number
+        lblProduct.Text = frmJobEntry.varProductName
+        lblMerge.Text = frmJobEntry.mergeNum
+        txtBoxPalletSize.Text = frmJobEntry.drumPerPal
+
+
+
+        '@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   ROUTINE TO POULATE CART @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        Try
+            For rw As Integer = 1 To 16 'Pallet count Drum on each cart
 
                 'Update Scanned Image
                 If Not IsDBNull(frmCartDgv.DGVCart.Rows(rw - 1).Cells("POYDRUMSTATE").Value) Then
@@ -227,8 +450,6 @@ Public Class frmUniversalPacking
                 End If
 
 
-
-
                 'CHECK FOR SHORT AND UPDATE IMAGE
                 If Not IsDBNull(frmCartDgv.DGVCart.Rows(rw - 1).Cells("POYSHORTDRUM").Value) Then
 
@@ -243,7 +464,6 @@ Public Class frmUniversalPacking
                         End If
                     End If
                 End If
-
 
                 'CHECK FOR MISSING DRUM AND UPDATE IMAGE
                 If Not IsDBNull(frmCartDgv.DGVCart.Rows(rw - 1).Cells("POYMISSDRUM").Value) Then
@@ -269,6 +489,31 @@ Public Class frmUniversalPacking
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
+        '@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+        '******************************************************************** Routine to update Drums *****************************************************************
+        For rw As Integer = 1 To POYDrums
+
+            If IsDBNull(frmDGV.DGVdata.Rows(rw - 1).Cells("POYBCODEDRUM").Value) Then
+                nextFree = rw  'This gets the next free location for new drum to be entered in to db
+                Exit For 'This will get Next Free location
+            Else
+                'If frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value = "3" Then
+                '    GroupBox5.Controls("Button" & rw).BackgroundImage = My.Resources.NoDrum    'To allocate
+                '    GroupBox5.Controls("Button" & rw).ForeColor = Color.Black
+                'ElseIf frmDGV.DGVdata.Rows(rw - 1).Cells("POYDRUMSTATE").Value = "15" Then
+                GroupBox5.Controls("btnPacked" & rw).BackgroundImage = My.Resources.Have_Drum        'Already allocated
+                GroupBox5.Controls("btnPacked" & rw).ForeColor = Color.Black
+                GroupBox5.Controls("btnPacked" & rw).Enabled = False
+                allocatedCount = allocatedCount + 1
+
+            End If
+        Next
+
+
+
+
+
 
 
     End Sub
@@ -321,9 +566,6 @@ Public Class frmUniversalPacking
 
 
     Private Sub updatePackGrid()
-
-        Dim tmpPalletDrums = frmJobEntry.drumPerPal
-        Dim tmpButton As Button
 
 
 
@@ -425,9 +667,120 @@ Public Class frmUniversalPacking
 
     End Sub
 
+    Public Sub UpdateDatabase()
+
+        tsbtnSave()
+
+
+
+
+
+        '******************   THIS WILL WRITE ANY CHANGES MADE TO THE DATAGRID BACK TO THE DATABASE ******************
+
+        Try
+
+
+            'LDA.UpdateCommand = New Oracle.ManagedDataAccess.Client.OracleCommandBuilder(frmJobEntry.LDA).GetUpdateCommand
+
+            frmJobEntry.LDA.Update(frmJobEntry.LDS.Tables(0))
+
+            If frmJobEntry.LDS.HasChanges Then
+            End If
+        Catch ex As Exception
+
+            MsgBox("Update Error: " & vbNewLine & ex.Message)
+        End Try
+
+        Try
+
+
+            'LDA.UpdateCommand = New Oracle.ManagedDataAccess.Client.OracleCommandBuilder(frmJobEntry.LDA).GetUpdateCommand
+
+            frmJobEntry.LDA.Update(frmJobEntry.LDS.Tables(0))
+
+            If frmJobEntry.LDS.HasChanges Then
+            End If
+        Catch ex As Exception
+
+            MsgBox("Update Error: " & vbNewLine & ex.Message)
+        End Try
+
+
+
+        If frmJobEntry.LConn.State = ConnectionState.Open Then frmJobEntry.LConn.Close()
+
+        frmDGV.DGVdata.ClearSelection()
+        frmJobEntry.btnNewPallet.Enabled = True
+        frmJobEntry.btnOldPallet.Enabled = True
+
+        frmJobEntry.txtDrumNum.Visible = False
+        frmJobEntry.comBoxDrumPal.Visible = False
+        frmJobEntry.comBoxDrumPal.SelectedIndex = -1 'Blank the value so operater has to select
+        frmJobEntry.Label2.Visible = False
+        frmJobEntry.Label4.Visible = False
+        frmJobEntry.txtDrumNum.Visible = False
+        frmJobEntry.comBoxDrumPal.Enabled = True
+
+        frmJobEntry.btnNewPallet.BackColor = Color.LightGray
+        frmJobEntry.btnNewPallet.Enabled = True
+        frmJobEntry.btnOldPallet.BackColor = Color.LightGray
+        frmJobEntry.btnOldPallet.Enabled = True
+        frmJobEntry.newJobFlag = 0
+        Me.Close()
+        frmJobEntry.Show()
+        frmJobEntry.txtDrumNum.Clear()
+
+
+    End Sub
+
+    Public Sub tsbtnSave()
+
+
+        Dim bAddState As Boolean = frmDGV.DGVdata.AllowUserToAddRows
+
+        frmDGV.DGVdata.AllowUserToAddRows = True
+        frmDGV.DGVdata.CurrentCell = frmDGV.DGVdata.Rows(frmDGV.DGVdata.Rows.Count - 1).Cells(0) ' move to add row
+        frmDGV.DGVdata.CurrentCell = frmDGV.DGVdata.Rows(0).Cells(0) ' move back to current row  Changed Rows(iRow) to (0)
+        frmDGV.DGVdata.AllowUserToAddRows = bAddState
+
+
+
+
+
+
+
+    End Sub
+
+    Public Sub CartTblSave()
+
+
+        'For CART 
+        Dim cAddState As Boolean = frmCartDgv.DGVCart.AllowUserToAddRows
+
+        frmCartDgv.DGVCart.AllowUserToAddRows = True
+        frmCartDgv.DGVCart.CurrentCell = frmCartDgv.DGVCart.Rows(frmCartDgv.DGVCart.Rows.Count - 1).Cells(0) ' move to add row
+        frmCartDgv.DGVCart.CurrentCell = frmCartDgv.DGVCart.Rows(0).Cells(0) ' move back to current row  Changed Rows(iRow) to (0)
+        frmCartDgv.DGVCart.AllowUserToAddRows = cAddState
+
+
+
+    End Sub
+
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         frmJobEntry.cancelRoutine()
         frmJobEntry.Show()
         Me.Close()
+    End Sub
+
+    'THIS LOOKS FOR ENTER key to be pressed or received via barcode
+    Private Sub frmJobEntry_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
+
+        If e.KeyCode = Keys.Return Then
+
+            prgContinue()
+
+
+        End If
+
     End Sub
 End Class

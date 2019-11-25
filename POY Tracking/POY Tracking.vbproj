@@ -172,10 +172,10 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="POY Packing\PalletCreate.vb" />
-    <Compile Include="POY Start\frmUniversalPacking.designer.vb">
+    <Compile Include="POY Packing\frmUniversalPacking.designer.vb">
       <DependentUpon>frmUniversalPacking.vb</DependentUpon>
     </Compile>
-    <Compile Include="POY Start\frmUniversalPacking.vb">
+    <Compile Include="POY Packing\frmUniversalPacking.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="POYSort\frmSortCart.Designer.vb">
@@ -435,7 +435,7 @@
     <EmbeddedResource Include="POY Settings\frmChangePassword.resx">
       <DependentUpon>frmChangePassword.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="POY Start\frmUniversalPacking.resx">
+    <EmbeddedResource Include="POY Packing\frmUniversalPacking.resx">
       <DependentUpon>frmUniversalPacking.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POY Tools\frmdrumSearch.resx">

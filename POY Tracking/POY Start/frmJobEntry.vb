@@ -60,6 +60,7 @@ Public Class frmJobEntry
     Public drumPerPal As String
     Public ExistingProd As String
     Public drumToAllcount As String
+    Public varNewPal As Integer
 
     Dim CartNum As String
     Dim machineName As String = ""
@@ -115,7 +116,10 @@ Public Class frmJobEntry
 
         updateButtons()
 
-        If My.Settings.debugSet Then frmDGV.Show()
+        If My.Settings.debugSet Then
+            frmDGV.Show()
+            frmCartDgv.Show()
+        End If
 
 
     End Sub
@@ -1035,7 +1039,8 @@ Public Class frmJobEntry
             writeerrorLog.writelog("ExecQuery Error:", ex.Message, False, "System_Fault")
             writeerrorLog.writelog("ExecQuery Error:", ex.ToString, False, "System_Fault")
         End Try
-
+        frmDGV.DGVdata.Rows(0).Cells("POYBCODEDRUM").Value = dbBarcode  'This will write the fist value in to DGV
+        varNewPal = 1
 
         Me.Cursor = System.Windows.Forms.Cursors.Default
 

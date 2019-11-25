@@ -35,8 +35,10 @@ Partial Class frmUniversalPacking
         Me.lblCartNum = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.txtBosAllocated = New System.Windows.Forms.TextBox()
+        Me.txtboxAllocated = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.txtDrumBcode = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.btnEndJob = New System.Windows.Forms.Button()
@@ -187,8 +189,7 @@ Partial Class frmUniversalPacking
         Me.btnPacked15 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtBoxNextCart = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
+        Me.lblTraceNum = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -200,7 +201,7 @@ Partial Class frmUniversalPacking
         '
         Me.lblMerge.AutoSize = True
         Me.lblMerge.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.lblMerge.Location = New System.Drawing.Point(446, 27)
+        Me.lblMerge.Location = New System.Drawing.Point(594, 27)
         Me.lblMerge.Name = "lblMerge"
         Me.lblMerge.Size = New System.Drawing.Size(32, 24)
         Me.lblMerge.TabIndex = 423
@@ -210,7 +211,7 @@ Partial Class frmUniversalPacking
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label12.Location = New System.Drawing.Point(347, 27)
+        Me.Label12.Location = New System.Drawing.Point(352, 27)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(88, 24)
         Me.Label12.TabIndex = 422
@@ -220,10 +221,11 @@ Partial Class frmUniversalPacking
         '
         Me.lblProduct.AutoSize = True
         Me.lblProduct.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.lblProduct.Location = New System.Drawing.Point(356, 27)
+        Me.lblProduct.Location = New System.Drawing.Point(448, 27)
         Me.lblProduct.Name = "lblProduct"
-        Me.lblProduct.Size = New System.Drawing.Size(0, 24)
+        Me.lblProduct.Size = New System.Drawing.Size(32, 24)
         Me.lblProduct.TabIndex = 421
+        Me.lblProduct.Text = "55"
         '
         'Label5
         '
@@ -234,7 +236,6 @@ Partial Class frmUniversalPacking
         Me.Label5.Size = New System.Drawing.Size(87, 24)
         Me.Label5.TabIndex = 420
         Me.Label5.Text = "Trace #:"
-        Me.Label5.Visible = False
         '
         'lblJobNum
         '
@@ -273,21 +274,22 @@ Partial Class frmUniversalPacking
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(116, 15)
+        Me.Label1.Location = New System.Drawing.Point(41, 18)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(106, 20)
+        Me.Label1.Size = New System.Drawing.Size(94, 20)
         Me.Label1.TabIndex = 332
-        Me.Label1.Text = "Palette Size"
+        Me.Label1.Text = "Pallet Size"
         '
         'txtBoxPalletSize
         '
         Me.txtBoxPalletSize.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.txtBoxPalletSize.Location = New System.Drawing.Point(106, 38)
+        Me.txtBoxPalletSize.Location = New System.Drawing.Point(44, 37)
         Me.txtBoxPalletSize.Name = "txtBoxPalletSize"
         Me.txtBoxPalletSize.ReadOnly = True
-        Me.txtBoxPalletSize.Size = New System.Drawing.Size(126, 62)
+        Me.txtBoxPalletSize.Size = New System.Drawing.Size(91, 62)
         Me.txtBoxPalletSize.TabIndex = 333
+        Me.txtBoxPalletSize.Text = "120"
         Me.txtBoxPalletSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblCartNum
@@ -314,28 +316,30 @@ Partial Class frmUniversalPacking
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(272, 14)
+        Me.Label4.Location = New System.Drawing.Point(248, 18)
         Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(141, 20)
         Me.Label4.TabIndex = 340
         Me.Label4.Text = "Allocated Drums"
         '
-        'txtBosAllocated
+        'txtboxAllocated
         '
-        Me.txtBosAllocated.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.txtBosAllocated.Location = New System.Drawing.Point(281, 37)
-        Me.txtBosAllocated.Name = "txtBosAllocated"
-        Me.txtBosAllocated.ReadOnly = True
-        Me.txtBosAllocated.Size = New System.Drawing.Size(126, 62)
-        Me.txtBosAllocated.TabIndex = 341
-        Me.txtBosAllocated.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtboxAllocated.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.txtboxAllocated.Location = New System.Drawing.Point(271, 39)
+        Me.txtboxAllocated.Name = "txtboxAllocated"
+        Me.txtboxAllocated.ReadOnly = True
+        Me.txtboxAllocated.Size = New System.Drawing.Size(91, 62)
+        Me.txtboxAllocated.TabIndex = 341
+        Me.txtboxAllocated.Text = "120"
+        Me.txtboxAllocated.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.GroupBox1.Controls.Add(Me.lblTraceNum)
         Me.GroupBox1.Controls.Add(Me.Label7)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.txtDrumBcode)
         Me.GroupBox1.Controls.Add(Me.Label12)
         Me.GroupBox1.Controls.Add(Me.lblMerge)
         Me.GroupBox1.Controls.Add(Me.lblJobNum)
@@ -349,11 +353,29 @@ Partial Class frmUniversalPacking
         Me.GroupBox1.TabIndex = 424
         Me.GroupBox1.TabStop = False
         '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(353, 67)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(144, 24)
+        Me.Label7.TabIndex = 425
+        Me.Label7.Text = "Drum Barcode"
+        '
+        'txtDrumBcode
+        '
+        Me.txtDrumBcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDrumBcode.Location = New System.Drawing.Point(513, 64)
+        Me.txtDrumBcode.Name = "txtDrumBcode"
+        Me.txtDrumBcode.Size = New System.Drawing.Size(264, 29)
+        Me.txtDrumBcode.TabIndex = 424
+        '
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.GroupBox2.Controls.Add(Me.txtBoxPalletSize)
-        Me.GroupBox2.Controls.Add(Me.txtBosAllocated)
+        Me.GroupBox2.Controls.Add(Me.txtboxAllocated)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -362,7 +384,7 @@ Partial Class frmUniversalPacking
         Me.GroupBox2.Size = New System.Drawing.Size(431, 107)
         Me.GroupBox2.TabIndex = 425
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Drum Count"
+        Me.GroupBox2.Text = "PalletCount"
         '
         'GroupBox3
         '
@@ -2939,23 +2961,15 @@ Partial Class frmUniversalPacking
         Me.txtBoxNextCart.Size = New System.Drawing.Size(297, 31)
         Me.txtBoxNextCart.TabIndex = 430
         '
-        'TextBox1
+        'lblTraceNum
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(627, 70)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(264, 29)
-        Me.TextBox1.TabIndex = 424
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(467, 73)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(144, 24)
-        Me.Label7.TabIndex = 425
-        Me.Label7.Text = "Drum Barcode"
+        Me.lblTraceNum.AutoSize = True
+        Me.lblTraceNum.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTraceNum.Location = New System.Drawing.Point(117, 27)
+        Me.lblTraceNum.Name = "lblTraceNum"
+        Me.lblTraceNum.Size = New System.Drawing.Size(83, 24)
+        Me.lblTraceNum.TabIndex = 426
+        Me.lblTraceNum.Text = "Label14"
         '
         'frmUniversalPacking
         '
@@ -2998,7 +3012,7 @@ Partial Class frmUniversalPacking
     Friend WithEvents lblCartNum As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents txtBosAllocated As TextBox
+    Friend WithEvents txtboxAllocated As TextBox
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
@@ -3151,5 +3165,6 @@ Partial Class frmUniversalPacking
     Friend WithEvents Label2 As Label
     Friend WithEvents txtBoxNextCart As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtDrumBcode As TextBox
+    Friend WithEvents lblTraceNum As Label
 End Class

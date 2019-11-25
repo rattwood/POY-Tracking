@@ -51,7 +51,7 @@ Public Class frmTraceEntry
 
             Else
 
-                SQL.ExecQuery("Select * from POYTrack where (POYTRACENUM Is Not Null) and POYTRACENUM = '" & bcodeScan & "' ")
+                SQL.ExecQuery("Select * from POYPackTrace where (POYTRACENUM Is Not Null) and POYTRACENUM = '" & bcodeScan & "' ")
 
                 If SQL.RecordCount > 0 Then
 
@@ -89,9 +89,13 @@ Public Class frmTraceEntry
 
         For i = 1 To poydrums
 
-            frmDGV.DGVdata.Rows(i - 1).Cells("POYTRACENUM").Value = bcodeScan
+            frmDGV.DGVdata.Rows(i - 1).Cells("POYTRACENUM").Value = bcodeScan 'Write trace to POYPACKTRACE
+            If frmDGV.DGVdata.Rows(i - 1).Cells("POYTRACENUM").Value = frmDGV.DGVdata.Rows(0).Cells("POYTMPTRACE").Value Then _
+                frmDGV.DGVdata.Rows(i - 1).Cells("POYTRACENUM").Value = bcodeScan 'WRITE TRACE NUMBER TO POYPACKIN
 
         Next
+
+
         Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
         frmPackRepMain.PackRepMainSub()
         Me.Cursor = System.Windows.Forms.Cursors.Default
