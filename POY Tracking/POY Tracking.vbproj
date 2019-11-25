@@ -165,7 +165,7 @@
     <Compile Include="POY Job Displays\frmPackDisplay.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="POY Start\PalletCreate.vb" />
+    <Compile Include="POY Packing\PalletCreate.vb" />
     <Compile Include="POYSort\frmSortCart.Designer.vb">
       <DependentUpon>frmSortCart.vb</DependentUpon>
     </Compile>

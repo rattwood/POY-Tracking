@@ -10,9 +10,13 @@ Public Class frmJobEntry
     'Private SQL As New SQLConn
     Private writeerrorLog As New writeError
 
+
+    Public SQL As New SQLConn
     '---------------------------------------    SETTING UP LOCAL INSTANCE FOR SQL LINK FOR DATAGRID TO SYNC CORRECTLY WITH SQL -------------------------------------
     Public LConn As New SqlConnection(My.Settings.SQLConn) 'This need to be changed in Project/Propertie/Settings
     ' Public LConn As New SqlConnection("Server=192.168.1.211,1433;Database=Toraydb;User ID=sa;Password=tecknose4260")
+
+    Public createPal As New PalletCreate
 
     Private LCmd As SqlCommand
 
@@ -475,10 +479,6 @@ Public Class frmJobEntry
 
 
 
-
-
-
-
             comBoxDrumPal.Enabled = False
 
 
@@ -487,10 +487,9 @@ Public Class frmJobEntry
 
             If newJobFlag Then
                 '*************************  CHECK TO SEE IF JOB ALREADY EXISITS IF NOT CREATE JOB
-                LExecQuery("SELECT * FROM POYTrack WHERE POYBCODEDRUM = '" & dbBarcode & "' Order By POYPACKIDX")
+                LExecQuery("SELECT * FROM POYPackTrace WHERE POYBCODEDRUM = '" & dbBarcode & "' Order By POYPACKIDX")
                 Try
                     If LRecordCount > 0 Then  'If it exists then 
-                        ' MsgBox("This Drum is allready allocated, " & vbCrLf & " Please use the FINISH OLD PALLET Option")
                         If thaiLang Then MsgBox("หมายเลขดรัมนี้ถูกใช้วางตำแหน่งแล้ว กรุณาใช้ option จบพาเลทเก่า") Else _
                         MsgBox("This Drum is allready allocated, " & vbCrLf & " Please use the FINISH OLD PALLET Option")
                         frmDGV.DGVdata.ClearSelection()
@@ -499,17 +498,21 @@ Public Class frmJobEntry
                         Exit Sub
 
                     Else
-                        'go and create new pallette
+
+
+
+                        'createPal.Create()
                         POYPaletteCreate()
+
 
                     End If
 
                 Catch ex As Exception
-                    'MsgBox("Job Creation Fault" & vbNewLine & ex.Message)
-                    If thaiLang Then MsgBox("สร้างงานผิดพลาด " & vbNewLine & ex.Message) Else _
-                         MsgBox("Job Creation Fault" & vbNewLine & ex.Message)
-                    writeerrorLog.writelog("Job Creation Fault", ex.Message, False, "System_Fault")
-                    writeerrorLog.writelog("Job Creation Fault", ex.ToString, False, "System_Fault")
+
+                    If thaiLang Then MsgBox("สร้างงานผิดพลาด " & vbNewLine & ex.Message.ToString) Else _
+                        MsgBox("Job Creation Fault" & vbNewLine & ex.Message.ToString)
+                    ' writeerrorLog.writelog("Job Creation Fault", ex.Message.ToString, False, "System_Fault")
+                    ' writeerrorLog.writelog("Job Creation Fault", ex.ToString, False, "System_Fault")
                     Me.txtDrumNum.Clear()
                     Me.txtDrumNum.Focus()
                     Me.txtDrumNum.Refresh()
@@ -521,7 +524,7 @@ Public Class frmJobEntry
 
             Else
                 '*************************  CHECK TO SEE IF JOB ALREADY EXISITS IF NOT CREATE JOB
-                LExecQuery("SELECT * FROM POYTrack WHERE POYBCODEDRUM = '" & dbBarcode & "' Order By POYPACKIDX")
+                LExecQuery("SELECT * FROM POYPackTrack WHERE POYBCODEDRUM = '" & dbBarcode & "' Order By POYPACKIDX")
 
                 Try
                     If LRecordCount > 0 Then  'If it exists then 
@@ -561,7 +564,7 @@ Public Class frmJobEntry
 
             txtDrumNum.Visible = True
             txtDrumNum.Focus()
-            'dbBarcode = ""
+
 
 
 
@@ -823,76 +826,12 @@ Public Class frmJobEntry
             frmDGV.DGVdata.DataSource = LDS.Tables(0)
             frmDGV.DGVdata.Rows(0).Selected = True
             machineName = frmDGV.DGVdata.Rows(0).Cells("MCNAME").Value
-            'Else
-            '    MsgBox("Machine number " & machineCode & " is incorrect")
+
 
         End If
 
 
-        'Select Case machineCode
-        '    Case 51
-        '        machineName = 111
-        '    Case 52
-        '        machineName = 112
-        '    Case 53
-        '        machineName = 121
-        '    Case 54
-        '        machineName = 122
-        '    Case 55
-        '        machineName = 130
-        '    Case 56
-        '        machineName = 141
-        '    Case 57
-        '        machineName = 142
-        '    Case 58
-        '        machineName = 151
-        '    Case 59
-        '        machineName = 152
-        '    Case 60
-        '        machineName = 210
-        '    Case 61
-        '        machineName = 220
-        '    Case 62
-        '        machineName = 230
-        '    Case 63
-        '        machineName = 241
-        '    Case 64
-        '        machineName = 242
-        '    Case 65
-        '        machineName = 250
-        '    Case 66
-        '        machineName = 310
-        '    Case 67
-        '        machineName = 321
-        '    Case 68
-        '        machineName = 322
-        '    Case 69
-        '        machineName = 330
-        '    Case 70
-        '        machineName = 341
-        '    Case 71
-        '        machineName = 342
-        '    Case 72
-        '        machineName = 350
-        '    Case 73
-        '        machineName = 361
-        '    Case 74
-        '        machineName = 362
-        '    Case 75
-        '        machineName = 410
-        '    Case 76
-        '        machineName = 420
-        '    Case 77
-        '        machineName = 430
-        '    Case 78
-        '        machineName = 441
-        '    Case 79
-        '        machineName = 442
-        '    Case 80
-        '        machineName = 450
-        '    Case 81
-        '        machineName = 460
-        'End Select
+
 
 
     End Sub
@@ -988,9 +927,6 @@ Public Class frmJobEntry
             Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
         End If
 
-        'Label3.Text = "Creating New Pallet"
-        'Label3.Visible = True
-        'Me.Cursor = System.Windows.Forms.Cursors.WaitCursor
 
 
         Dim fmt As String = "000"
@@ -998,92 +934,101 @@ Public Class frmJobEntry
 
 
 
-
-        For i As Integer = 1 To drumPerPal
-
-            modIdxNum = i.ToString(fmt)
-
-            'moddrumNum = i.ToString(fmt)   ' FORMATS THE drum NUMBER TO 3 DIGITS
-            '  drumBarcode = modLotStr & moddrumNum   'CREATE THE drum BARCODE NUMBER
-            '  JobBarcode = modLotStr
-
-            'Parameters List for full db
-
-            'ADD SQL PARAMETERS & RUN THE COMMAND
-            ' LAddParam("@poymcnum", varMachineCode)
-            LAddParam("@poyprodnum", productCode)
-            ' LAddParam("@yy", varYear)
-            ' LAddParam("@mm", varMonth)
-            ' LAddParam("@doff", varDoffingNum)
-            ' LAddParam("@drum", moddrumNum)
-            LAddParam("@merge", mergeNum)
-            ' LAddParam("@poypackname", "")
-            ' LAddParam("@poyshipname", "0")
-            ' LAddParam("@poydrumstate", "0")
-            ' LAddParam("@poyfulldrum", "0")
-            ' LAddParam("@poyshortdrum", "0")
-            ' LAddParam("@poypackdate", varCartSelect)
-            ' LAddParam("@poyshipdate", cartName)
-            ' LAddParam("@poystepnum", "0")
-            ' LAddParam("@poybcodedrum", "0")
-            'LAddParam("@poypalnum", 0)
-            LAddParam("@poypackidx", modIdxNum)
-            LAddParam("@poytmptrace", dbBarcode)
-            LAddParam("@poydrumperpal", drumPerPal)
-            LAddParam("@poyprodname", varProductName)
-            LAddParam("@poyprodweight", varProdWeight)
-            LAddParam("@poyprodgrade", varProdGrade)
-
-
-            'LExecQuery("INSERT INTO POYTrack (POYMCNUM, POYPRNUM, POYYY, POYMM, POYDOFFNUM, POYSPINNUM, POYMERGENUM, POYPACKNAME,POYSHIPNAME," _
-            '       & "POYDRUMSTATE, POYFULLDRUM, POYSHORTDRUM, POYPACKDATE, POYSHIPDATE, POYSTEPNUM, POYBCODEDRUM, POYPALNUM, POYPACKIDX, POYTRACENUM," _
-            '       & "VALUES (@poymcnum, @poyprodnum,@yy,@mm,@doff,@drum,@merge,@poypackname,@poyshipname,@poydrumstate,@poyfulldrum,@poyshortdrum,@poypackdate,@poyshipdate,@poystepnum," _
-            '       & "@poybcodedrum,@poypalnum,@poypackidx,@poytracenum) ")
-
-            LExecQuery("INSERT INTO POYTrack (POYPRNUM,POYDRUMPERPAL,POYPACKIDX,POYTMPTRACE,POYPRODNAME,POYMERGENUM,POYPRODWEIGHT,POYPRODGRADE) VALUES (@poyprodnum,@poydrumperpal,@poypackidx,@poytmptrace,@poyprodname,@merge,@poyprodweight,@poyprodgrade)")
-
-        Next
-
-
-
         Try
-            'Writes the scanned drum in to DB
-            LExecQuery("UPDATE POYTRACK SET POYBCODEDRUM = '" & dbBarcode & "', POYPACKNAME = '" & txtOperator.Text & "', POYPACKDATE = '" & todayTimeDate & "', " _
-                       & "POYMCNUM = '" & varMachineCode.ToString & "', POYMCNAME = '" & machineName & "', POYYY = '" & varYear.ToString & "', POYPRMM = '" & varMonth.ToString & "' , " _
-                       & "POYDOFFNUM = '" & varDoffingNum.ToString & "', POYSPINNUM = '" & spinNum.ToString & "', POYDRUMSTATE = '15', POYSTEPNUM = '1' " _
-                       & "WHERE POYPACKIDX = '001' and POYTMPTRACE = '" & dbBarcode & "' ")
+
+            For i As Integer = 1 To drumPerPal
+
+                modIdxNum = i.ToString(fmt)
+
+                'moddrumNum = i.ToString(fmt)   ' FORMATS THE drum NUMBER TO 3 DIGITS
+                '  drumBarcode = modLotStr & moddrumNum   'CREATE THE drum BARCODE NUMBER
+                '  JobBarcode = modLotStr
+
+                'Parameters List for full db
+
+                'ADD SQL PARAMETERS & RUN THE COMMAND
+                ' LAddParam("@poymcnum", varMachineCode)
+                'LAddParam("@poyprodnum", productCode)
+                ' LAddParam("@yy", varYear)
+                ' LAddParam("@mm", varMonth)
+                ' LAddParam("@doff", varDoffingNum)
+                ' LAddParam("@drum", moddrumNum)
+                'LAddParam("@merge", mergeNum)
+                ' LAddParam("@poypackname", "")
+                ' LAddParam("@poyshipname", "0")
+                ' LAddParam("@poydrumstate", "0")
+                ' LAddParam("@poyfulldrum", "0")
+                ' LAddParam("@poyshortdrum", "0")
+                ' LAddParam("@poypackdate", varCartSelect)
+                ' LAddParam("@poyshipdate", cartName)
+                ' LAddParam("@poystepnum", "0")
+                ' LAddParam("@poybcodedrum", "0")
+                'LAddParam("@poypalnum", 0)
+                LAddParam("@poypackidx", modIdxNum)
+                LAddParam("@poytmptrace", dbBarcode)
+                LAddParam("@poydrumperpal", drumPerPal)
+                ' LAddParam("@poyprodname", varProductName)
+                ' LAddParam("@poyprodweight", varProdWeight)
+                ' LAddParam("@poyprodgrade", varProdGrade)
+
+
+                'LExecQuery("INSERT INTO POYTrack (POYMCNUM, POYPRNUM, POYYY, POYMM, POYDOFFNUM, POYSPINNUM, POYMERGENUM, POYPACKNAME,POYSHIPNAME," _
+                '       & "POYDRUMSTATE, POYFULLDRUM, POYSHORTDRUM, POYPACKDATE, POYSHIPDATE, POYSTEPNUM, POYBCODEDRUM, POYPALNUM, POYPACKIDX, POYTRACENUM," _
+                '       & "VALUES (@poymcnum, @poyprodnum,@yy,@mm,@doff,@drum,@merge,@poypackname,@poyshipname,@poydrumstate,@poyfulldrum,@poyshortdrum,@poypackdate,@poyshipdate,@poystepnum," _
+                '       & "@poybcodedrum,@poypalnum,@poypackidx,@poytracenum) ")
+
+                ' LExecQuery("INSERT INTO POYPackTrace (POYPRNUM,POYDRUMPERPAL,POYPACKIDX,POYTMPTRACENUM,POYPRODNAME,POYMERGENUM,POYPRODWEIGHT,POYPRODGRADE) VALUES (@poyprodnum,@poydrumperpal,@poypackidx,@poytmptrace,@poyprodname,@merge,@poyprodweight,@poyprodgrade)")
+                LExecQuery("INSERT INTO POYPackTrace (POYDRUMPERPAL,POYPACKIDX,POYTMPTRACENUM) VALUES (@poydrumperpal,@poypackidx,@poytmptrace)")
+
+            Next
         Catch ex As Exception
             Me.Cursor = System.Windows.Forms.Cursors.Default
             If thaiLang Then MsgBox("อัพเดทงานผิดพลาด " & vbNewLine & ex.Message) Else _
-               MsgBox("Job Update Error" & vbNewLine & ex.Message)
-            writeerrorLog.writelog("ExecQuery Error:", ex.Message, False, "System_Fault")
-            writeerrorLog.writelog("ExecQuery Error:", ex.ToString, False, "System_Fault")
+               MsgBox("Pallet Create Error" & vbNewLine & ex.Message)
+            writeerrorLog.writelog("Pallet Create Error:", ex.Message, False, "System_Fault")
+            writeerrorLog.writelog("Pallet Create Error:", ex.ToString, False, "System_Fault")
 
         End Try
 
 
+        'Try
+        '    'Writes the scanned drum in to DB
+        '    LExecQuery("UPDATE POYTRACE SET POYBCODEDRUM = '" & dbBarcode & "', POYPACKNAME = '" & txtOperator.Text & "', POYPACKDATE = '" & todayTimeDate & "', " _
+        '               & "POYMCNUM = '" & varMachineCode.ToString & "', POYMCNAME = '" & machineName & "', POYYY = '" & varYear.ToString & "', POYPRMM = '" & varMonth.ToString & "' , " _
+        '               & "POYDOFFNUM = '" & varDoffingNum.ToString & "', POYSPINNUM = '" & spinNum.ToString & "', POYDRUMSTATE = '15', POYSTEPNUM = '1' " _
+        '               & "WHERE POYPACKIDX = '001' and POYTMPTRACE = '" & dbBarcode & "' ")
+        'Catch ex As Exception
+        '    Me.Cursor = System.Windows.Forms.Cursors.Default
+        '    If thaiLang Then MsgBox("อัพเดทงานผิดพลาด " & vbNewLine & ex.Message) Else _
+        '       MsgBox("Job Update Error" & vbNewLine & ex.Message)
+        '    writeerrorLog.writelog("ExecQuery Error:", ex.Message, False, "System_Fault")
+        '    writeerrorLog.writelog("ExecQuery Error:", ex.ToString, False, "System_Fault")
+
+        'End Try
 
 
-        LExecQuery("Select * FROM PoyTrack WHERE POYTMPTRACE = '" & dbBarcode & "' ORDER BY POYPACKIDX")
 
-        Try
-            If LRecordCount > 0 Then
-                frmDGV.DGVdata.DataSource = LDS.Tables(0)
-                frmDGV.DGVdata.Rows(0).Selected = True
-                Dim LCB As SqlCommandBuilder = New SqlCommandBuilder(LDA)
 
-                Me.Cursor = System.Windows.Forms.Cursors.Default
-                Label3.Text = ""
-                Label3.Visible = False
-            End If
-        Catch ex As Exception
-            Me.Cursor = System.Windows.Forms.Cursors.Default
-            ' MsgBox("Job creation Error" & vbNewLine & ex.Message)
-            If thaiLang Then MsgBox("สร้างงานผิดพลาด " & vbNewLine & ex.Message) Else _
-              MsgBox("Job creation Error" & vbNewLine & ex.Message)
-            writeerrorLog.writelog("ExecQuery Error:", ex.Message, False, "System_Fault")
-            writeerrorLog.writelog("ExecQuery Error:", ex.ToString, False, "System_Fault")
-        End Try
+        'LExecQuery("Select * FROM PoyPackTrace WHERE POYTMPTRACENUM = '" & dbBarcode & "' ORDER BY POYPACKIDX")
+
+        'Try
+        '    If LRecordCount > 0 Then
+        '        frmDGV.DGVdata.DataSource = LDS.Tables(0)
+        '        frmDGV.DGVdata.Rows(0).Selected = True
+        '        Dim LCB As SqlCommandBuilder = New SqlCommandBuilder(LDA)
+
+        '        Me.Cursor = System.Windows.Forms.Cursors.Default
+        '        Label3.Text = ""
+        '        Label3.Visible = False
+        '    End If
+        'Catch ex As Exception
+        '    Me.Cursor = System.Windows.Forms.Cursors.Default
+        '    ' MsgBox("Job creation Error" & vbNewLine & ex.Message)
+        '    If thaiLang Then MsgBox("สร้างงานผิดพลาด " & vbNewLine & ex.Message) Else _
+        '      MsgBox("Job creation Error" & vbNewLine & ex.Message)
+        '    writeerrorLog.writelog("ExecQuery Error:", ex.Message, False, "System_Fault")
+        '    writeerrorLog.writelog("ExecQuery Error:", ex.ToString, False, "System_Fault")
+        'End Try
 
 
 
