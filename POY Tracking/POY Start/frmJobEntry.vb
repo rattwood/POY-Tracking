@@ -211,7 +211,7 @@ Public Class frmJobEntry
 
         Try
 
-            If Not (txtDrumNum.TextLength = 14) Then  ' LENGTH OF BARCODE
+            If Not (txtDrumNum.TextLength = 14) Or txtDrumNum.Text.Substring(12, 1) = "P" Then  ' LENGTH OF BARCODE
                 If thaiLang Then MsgBox("หมายเลขนี้ไม่ใช่หมายเลขของดรัม กรุณาสแกนใหม่") Else _
                     MsgBox("This is not a DRUM number Please RE Scan")
 
@@ -238,7 +238,7 @@ Public Class frmJobEntry
         comBoxDrumPal.Enabled = False
 
         '*************************  CHECK TO SEE IF JOB ALREADY EXISITS IF NOT CREATE JOB
-        LExecQuery("SELECT * FROM POYTrack WHERE POYBCODEDRUM = '" & dbBarcode & "' Order By POYPACKIDX")
+        LExecQuery("SELECT * FROM POYPackTrace WHERE POYBCODEDRUM = '" & dbBarcode & "' Order By POYPACKIDX")
 
         Try
             If LRecordCount > 0 Then  'If it exists then 
@@ -432,15 +432,21 @@ Public Class frmJobEntry
 
             Try
 
-                If Not (txtDrumNum.TextLength = 14) Then  ' LENGTH OF BARCODE
-                    'MsgBox("This is not a DRUM number Please RE Scan")
-                    If thaiLang Then MsgBox("หมายเลขนี้ไม่ใช่หมายเลขของดรัม กรุณาสแกนใหม่") Else _
+
+                If Not (txtDrumNum.TextLength = 14) Or txtDrumNum.Text.Substring(12, 1) = "P" Then  ' LENGTH OF BARCODE
+                        'MsgBox("ThenThis is not a DRUM number Please RE Scan")
+                        If thaiLang Then MsgBox("หมายเลขนี้ไม่ใช่หมายเลขของดรัม กรุณาสแกนใหม่") Else _
                         MsgBox("This is not a DRUM number Please RE Scan")
-                    Me.txtDrumNum.Clear()
-                    Me.txtDrumNum.Focus()
-                    Me.txtDrumNum.Refresh()
-                    Exit Sub
-                End If
+                        Me.txtDrumNum.Clear()
+                        Me.txtDrumNum.Focus()
+                        Me.txtDrumNum.Refresh()
+                        Exit Sub
+                    End If
+
+
+
+
+
 
             Catch ex As Exception
                 If thaiLang Then MsgBox("ไม่มีหมายเลขดรัมนี้ " & vbNewLine & ex.Message) Else _
@@ -465,7 +471,7 @@ Public Class frmJobEntry
             doffingNum = txtDrumNum.Text.Substring(9, 3)
             spinNum = txtDrumNum.Text.Substring(12, 2)
 
-            varCartBCode = txtDrumNum
+            varCartBCode = txtDrumNum.Text
 
             varMachineCode = machineCode
             getMCName()
@@ -489,42 +495,42 @@ Public Class frmJobEntry
                 '*************************  CHECK TO SEE IF JOB ALREADY EXISITS IF NOT CREATE JOB
                 LExecQuery("SELECT * FROM POYPackTrace WHERE POYBCODEDRUM = '" & dbBarcode & "' Order By POYPACKIDX")
                 Try
-                    If LRecordCount > 0 Then  'If it exists then 
-                        If thaiLang Then MsgBox("หมายเลขดรัมนี้ถูกใช้วางตำแหน่งแล้ว กรุณาใช้ option จบพาเลทเก่า") Else _
+                        If LRecordCount > 0 Then  'If it exists then 
+                            If thaiLang Then MsgBox("หมายเลขดรัมนี้ถูกใช้วางตำแหน่งแล้ว กรุณาใช้ option จบพาเลทเก่า") Else _
                         MsgBox("This Drum is allready allocated, " & vbCrLf & " Please use the FINISH OLD PALLET Option")
-                        frmDGV.DGVdata.ClearSelection()
-                        newJobFlag = 0
-                        cancelRoutine()
-                        Exit Sub
+                            frmDGV.DGVdata.ClearSelection()
+                            newJobFlag = 0
+                            cancelRoutine()
+                            Exit Sub
 
-                    Else
-
-
-
-                        'createPal.Create()
-                        POYPaletteCreate()
+                        Else
 
 
-                    End If
 
-                Catch ex As Exception
+                            'createPal.Create()
+                            POYPaletteCreate()
 
-                    If thaiLang Then MsgBox("สร้างงานผิดพลาด " & vbNewLine & ex.Message.ToString) Else _
+
+                        End If
+
+                    Catch ex As Exception
+
+                        If thaiLang Then MsgBox("สร้างงานผิดพลาด " & vbNewLine & ex.Message.ToString) Else _
                         MsgBox("Job Creation Fault" & vbNewLine & ex.Message.ToString)
-                    ' writeerrorLog.writelog("Job Creation Fault", ex.Message.ToString, False, "System_Fault")
-                    ' writeerrorLog.writelog("Job Creation Fault", ex.ToString, False, "System_Fault")
-                    Me.txtDrumNum.Clear()
-                    Me.txtDrumNum.Focus()
-                    Me.txtDrumNum.Refresh()
-                    Exit Sub
-                End Try
+                        ' writeerrorLog.writelog("Job Creation Fault", ex.Message.ToString, False, "System_Fault")
+                        ' writeerrorLog.writelog("Job Creation Fault", ex.ToString, False, "System_Fault")
+                        Me.txtDrumNum.Clear()
+                        Me.txtDrumNum.Focus()
+                        Me.txtDrumNum.Refresh()
+                        Exit Sub
+                    End Try
 
-                txtDrumNum.Visible = True
-                txtDrumNum.Focus()
+                    txtDrumNum.Visible = True
+                    txtDrumNum.Focus()
 
-            Else
-                '*************************  CHECK TO SEE IF JOB ALREADY EXISITS IF NOT CREATE JOB
-                LExecQuery("SELECT * FROM POYPackTrack WHERE POYBCODEDRUM = '" & dbBarcode & "' Order By POYPACKIDX")
+                Else
+                    '*************************  CHECK TO SEE IF JOB ALREADY EXISITS IF NOT CREATE JOB
+                    LExecQuery("SELECT * FROM POYPackTrack WHERE POYBCODEDRUM = '" & dbBarcode & "' Order By POYPACKIDX")
 
                 Try
                     If LRecordCount > 0 Then  'If it exists then 
@@ -758,15 +764,13 @@ Public Class frmJobEntry
 
             If newJobFlag = 0 Then
                 For i = 1 To CInt(drumPerPal)
-                    If Not IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value) Then
+                    If Not IsDBNull(frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value) Then
 
-                        If frmDGV.DGVdata.Rows(i - 1).Cells("POYDRUMSTATE").Value = "15" Then
+                        If frmDGV.DGVdata.Rows(i - 1).Cells("POYBCODEDRUM").Value > "0" Then
                             tmpcount = tmpcount + 1
                         End If
                     End If
                 Next
-
-
 
             End If
 
@@ -794,7 +798,9 @@ Public Class frmJobEntry
                                 POYValUpdate = 1
                                 dbBarcode = ""
                             Hide()
-                            frmPacking48.Show()
+
+                            frmUniversalPacking.Show()
+                            'frmPacking48.Show()
 
                         End If
                     End Select
@@ -1008,30 +1014,30 @@ Public Class frmJobEntry
 
 
 
+        'This will read back the created Pallet table and populate the DGV
+        LExecQuery("Select * FROM PoyPackTrace WHERE POYTMPTRACENUM = '" & dbBarcode & "' ORDER BY POYPACKIDX")
 
-        'LExecQuery("Select * FROM PoyPackTrace WHERE POYTMPTRACENUM = '" & dbBarcode & "' ORDER BY POYPACKIDX")
+        Try
+            If LRecordCount > 0 Then
+                frmDGV.DGVdata.DataSource = LDS.Tables(0)
+                frmDGV.DGVdata.Rows(0).Selected = True
+                Dim LCB As SqlCommandBuilder = New SqlCommandBuilder(LDA)
 
-        'Try
-        '    If LRecordCount > 0 Then
-        '        frmDGV.DGVdata.DataSource = LDS.Tables(0)
-        '        frmDGV.DGVdata.Rows(0).Selected = True
-        '        Dim LCB As SqlCommandBuilder = New SqlCommandBuilder(LDA)
-
-        '        Me.Cursor = System.Windows.Forms.Cursors.Default
-        '        Label3.Text = ""
-        '        Label3.Visible = False
-        '    End If
-        'Catch ex As Exception
-        '    Me.Cursor = System.Windows.Forms.Cursors.Default
-        '    ' MsgBox("Job creation Error" & vbNewLine & ex.Message)
-        '    If thaiLang Then MsgBox("สร้างงานผิดพลาด " & vbNewLine & ex.Message) Else _
-        '      MsgBox("Job creation Error" & vbNewLine & ex.Message)
-        '    writeerrorLog.writelog("ExecQuery Error:", ex.Message, False, "System_Fault")
-        '    writeerrorLog.writelog("ExecQuery Error:", ex.ToString, False, "System_Fault")
-        'End Try
+                Me.Cursor = System.Windows.Forms.Cursors.Default
+                Label3.Text = ""
+                Label3.Visible = False
+            End If
+        Catch ex As Exception
+            Me.Cursor = System.Windows.Forms.Cursors.Default
+            ' MsgBox("Job creation Error" & vbNewLine & ex.Message)
+            If thaiLang Then MsgBox("สร้างงานผิดพลาด " & vbNewLine & ex.Message) Else _
+              MsgBox("Job creation Error" & vbNewLine & ex.Message)
+            writeerrorLog.writelog("ExecQuery Error:", ex.Message, False, "System_Fault")
+            writeerrorLog.writelog("ExecQuery Error:", ex.ToString, False, "System_Fault")
+        End Try
 
 
-
+        Me.Cursor = System.Windows.Forms.Cursors.Default
 
 
 
@@ -1453,7 +1459,7 @@ Public Class frmJobEntry
 
     End Sub
 
-    Private Sub cancelRoutine()
+    Public Sub cancelRoutine()
 
         Label4.Visible = False
         comBoxDrumPal.Visible = False
