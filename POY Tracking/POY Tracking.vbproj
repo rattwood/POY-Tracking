@@ -692,9 +692,6 @@
     <None Include="Resources\DefectDrum.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Have-Drum.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\MissingDrum.png" />
   </ItemGroup>
   <ItemGroup>
@@ -702,6 +699,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Packed-Drum.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Have-Drum.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
